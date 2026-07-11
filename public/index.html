@@ -661,7 +661,7 @@ el("tabsNav").addEventListener("click",function(e){
 /* ---------- JOBS ---------- */
 function jobDate(j){return j.posted||j.first_seen||"";}
 function statusOf(u){return state.job_status[u]||"";}
-function isNew(j){var d=parseYMD(j.first_seen||"");return !!d&&(parseYMD(todayStr())-d)/864e5<7;}
+function isNew(j){var d=parseYMD(j.posted||j.first_seen||"");return !!d&&(parseYMD(todayStr())-d)/864e5<7;}
 var SRC_NAME={"sia":"SIA","archi-jobs":"archi-jobs.ch","hochparterre":"Hochparterre",
   "swiss-architects":"Swiss-Architects","architekturstellen":"Architekturstellen",
   "architectes":"architectes.ch","nzz":"NZZ Jobs","ostjob":"ostjob.ch",
