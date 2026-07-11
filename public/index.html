@@ -200,12 +200,13 @@ footer{border-top:1px solid var(--line);padding:16px 0 26px;font-size:12.5px;col
 <body>
 
 <div id="gate" style="position:fixed;inset:0;z-index:999;display:none;align-items:center;justify-content:center;background:#f5f5f3">
-  <div style="text-align:center;max-width:300px;padding:20px">
+  <form id="gateForm" autocomplete="off" style="text-align:center;max-width:300px;padding:20px">
     <div style="width:14px;height:14px;background:#e2001a;margin:0 auto 12px"></div>
     <div style="font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;font-family:Arial,sans-serif;color:#1a1a1a">Architecture Jobs Switzerland</div>
-    <input id="gatePw" type="password" placeholder="Password" autocomplete="off" style="width:100%;text-align:center;padding:8px;border:1px solid #1a1a1a;font-size:15px">
-    <div id="gateErr" style="color:#e2001a;font-size:12px;height:16px;margin-top:6px;font-family:Arial,sans-serif"></div>
-  </div>
+    <input id="gatePw" type="password" placeholder="Password" autocomplete="off" autocapitalize="none" style="width:100%;text-align:center;padding:10px;border:1px solid #1a1a1a;font-size:16px;background:#ffffff;color:#1a1a1a">
+    <button type="submit" style="width:100%;margin-top:10px;padding:10px;background:#e2001a;color:#ffffff;border:none;font-weight:700;letter-spacing:.08em;font-size:14px;cursor:pointer">ENTER</button>
+    <div id="gateErr" style="color:#e2001a;font-size:12px;height:16px;margin-top:8px;font-family:Arial,sans-serif"></div>
+  </form>
 </div>
 <script>
 (function(){
@@ -216,8 +217,8 @@ footer{border-top:1px solid var(--line);padding:16px 0 26px;font-size:12.5px;col
   g.style.display="flex";
   var inp=document.getElementById("gatePw");
   setTimeout(function(){inp.focus();},50);
-  inp.addEventListener("keydown",function(e){
-    if(e.key!=="Enter")return;
+  document.getElementById("gateForm").addEventListener("submit",function(e){
+    e.preventDefault();
     crypto.subtle.digest("SHA-256",new TextEncoder().encode(inp.value.trim().toLowerCase())).then(function(b){
       var h=Array.prototype.map.call(new Uint8Array(b),function(x){return x.toString(16).padStart(2,"0");}).join("");
       if(h===HASH){try{localStorage.setItem("jobtracker_gate","1");}catch(e){}g.style.display="none";}
