@@ -7,13 +7,20 @@ Switzerland, centered on Bern, design/Entwurf positions first.
 
 ## How it works
 
-- `.github/workflows/scan.yml` runs **every morning (~05:30 CH)** on GitHub
-  Actions: scrapes 17 job sources (SIA, swiss-architects, Hochparterre,
+- `.github/workflows/scan.yml` (cloud): full scan 05:30 CH (incl. Playwright
+  pass over script-only career pages, commits the DB) + hourly light scans
+  07:00-19:00. Scrapes 17 job sources (SIA, swiss-architects, Hochparterre,
   architekturstellen, architectes.ch, archi-jobs, NZZ, ostjob, Job-Room/RAV,
   jobs.ch, jobup.ch, jobagent network, LinkedIn, Indeed, company career
   pages, watched sites, manual), geocodes, dedupes, filters out
-  engineering / Baumanagement / internship / IT-architect ads, writes the
-  updated SQLite database and regenerates `public/`, commits, and deploys.
+  engineering / Baumanagement / internship / IT-architect ads, regenerates
+  `public/`, and deploys.
+- `.github/workflows/scan-local.yml`: the same light scan every 30 minutes
+  (06:15-21:45 CH) on the owner's self-hosted runner "petras-pc" — free
+  minutes and a residential IP that bot-protected boards accept.
+- `jobtracker/notify.py` runs after every scan: new jobs within 40 km of the
+  reference (or Entwurf within 120 km) become a GitHub issue (phone push)
+  and an email (Gmail SMTP via the `GMAIL_APP_PASSWORD` repo secret).
 - `.github/workflows/pages.yml` deploys `public/` to GitHub Pages **on every
   push** to main.
 - `jobtracker/` is the full pipeline: `scraper.py` (sources + career
