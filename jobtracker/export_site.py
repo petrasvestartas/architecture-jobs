@@ -190,6 +190,7 @@ def _write_simple(payload):
     html_doc = (
         "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"utf-8\">"
         "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+        "<meta name=\"robots\" content=\"noindex, nofollow, noarchive\">"
         "<title>Architecture Jobs Switzerland (simple list)</title><style>"
         "body{font-family:'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;font-size:14px;"
         "margin:12px;color:#1a1a1a}h1{font-size:16px;text-transform:uppercase;"
