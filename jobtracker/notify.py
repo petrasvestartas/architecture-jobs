@@ -48,15 +48,24 @@ def send_email(subject, html_body, cfg):
               "skipping email", flush=True)
         return False
     import smtplib
+    from email.mime.multipart import MIMEMultipart
     from email.mime.text import MIMEText
-    msg = MIMEText(html_body, "html", "utf-8")
+    from email.utils import formatdate, make_msgid
+    text_body = re.sub(r"<br\s*/?>", "\n", html_body)
+    text_body = re.sub(r"</(p|li|h\d)>", "\n", text_body)
+    text_body = re.sub(r"<[^>]+>", "", text_body)
+    msg = MIMEMultipart("alternative")
     msg["Subject"] = subject
     msg["From"] = sender
     msg["To"] = ", ".join(to)
+    msg["Date"] = formatdate(localtime=True)
+    msg["Message-ID"] = make_msgid(domain="gmail.com")
+    msg.attach(MIMEText(text_body, "plain", "utf-8"))
+    msg.attach(MIMEText(html_body, "html", "utf-8"))
     with smtplib.SMTP("smtp.gmail.com", 587, timeout=30) as s:
         s.starttls()
         s.login(sender, pw)
-        s.sendmail(sender, to, msg.as_string())
+        s.send_message(msg)
     print(f"notify: email sent to {', '.join(to)}", flush=True)
     return True
 
@@ -86,8 +95,9 @@ def create_issue(title, body):
 def main():
     cfg = _cfg()
     if "--test" in sys.argv:
+        stamp = datetime.datetime.now().strftime("%H:%M")
         ok = send_email(
-            "Test: architecture jobs notifications are working",
+            f"Test {stamp}: architecture jobs notifications are working",
             "<p>This is a test from your job tracker. From now on, new "
             "architecture jobs near Bern will be emailed here.</p>"
             "<p><a href=\"https://petrasvestartas.github.io/architecture-jobs/\">"
