@@ -1,0 +1,25 @@
+name: Email test
+# Sends a test email to the configured recipients. Run it once after adding
+# the GMAIL_APP_PASSWORD secret to confirm notifications work.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Send test email
+        env:
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          PYTHONIOENCODING: utf-8
+        working-directory: jobtracker
+        run: python notify.py --test

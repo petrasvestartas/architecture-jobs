@@ -85,6 +85,14 @@ def create_issue(title, body):
 
 def main():
     cfg = _cfg()
+    if "--test" in sys.argv:
+        ok = send_email(
+            "Test: architecture jobs notifications are working",
+            "<p>This is a test from your job tracker. From now on, new "
+            "architecture jobs near Bern will be emailed here.</p>"
+            "<p><a href=\"https://petrasvestartas.github.io/architecture-jobs/\">"
+            "Open the website</a></p>", cfg)
+        sys.exit(0 if ok else 1)
     ref = geo.lookup_place(cfg["reference_place"]) or (46.9481, 7.4474, "BE")
     radius = float(cfg["notify_radius_km"])
     e_radius = float(cfg["notify_entwurf_radius_km"])
