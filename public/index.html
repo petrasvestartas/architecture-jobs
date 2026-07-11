@@ -1155,10 +1155,12 @@ function startCloudScan(){
   }).catch(function(){updReset();updMsg("Could not reach GitHub — check your internet connection.");});
 }
 function askToken(){
-  updMsg('One-time setup to run scans from this website (the key is stored only in this browser):'
-   +'<br>1. <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Create a fine-grained GitHub token</a> — Repository access: <b>Only select repositories &rarr; architecture-jobs</b>; Permissions &rarr; Actions: <b>Read and write</b>.'
-   +'<br>2. Paste it here: <input type="password" id="ghTok" style="width:250px" placeholder="github_pat_…"> <button class="btn primary" id="ghTokSave">Save &amp; run</button>'
-   +'<br>Or without a token: <a href="https://github.com/'+GH_REPO+'/actions/workflows/scan.yml" target="_blank" rel="noopener">open Actions &rarr; Daily job scan &rarr; Run workflow</a>. The automatic morning scan runs either way.');
+  updMsg('A scan tab has opened on GitHub — press the green <b>Run workflow</b> button there (works on any device where you are logged into GitHub; no setup needed). This page refreshes itself automatically once new data arrives.'
+   +'<br><br><small>Optional, for one-click scans from this page: <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">create a fine-grained token</a> (Repository access: only architecture-jobs; Permissions &rarr; Actions: Read and write) and paste it — stored only in this browser: '
+   +'<input type="password" id="ghTok" style="width:220px" placeholder="github_pat_…"> <button class="btn primary" id="ghTokSave">Save</button></small>'
+   +'<br><small>Scans also run automatically at 05:30, 11:30 and 17:30.</small>');
+  window.open("https://github.com/"+GH_REPO+"/actions/workflows/scan.yml","_blank","noopener");
+  updTimer=setInterval(pollCloud,60000);
   el("ghTokSave").addEventListener("click",function(){
     var t=el("ghTok").value.trim();
     if(t){state.gh_token=t;save();updMsg("");startCloudScan();}
