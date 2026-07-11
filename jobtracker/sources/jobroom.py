@@ -25,7 +25,7 @@ from net import http_get, get_json, post_json, strip_tags, extract_workload  # n
 API = ("https://www.job-room.ch/jobadservice/api/jobAdvertisements/_search"
        "?page={page}&size={size}&sort=date_desc")
 DETAIL = "https://www.job-room.ch/job-search/{id}"
-TERMS = ["architekt", "architecte", "architect"]
+TERMS = ["architekt", "architecte", "architect", "bauleitung", "hochbau"]
 SIZE = 100
 MAX_PAGES = 5          # hard cap per term
 SLEEP = 0.8

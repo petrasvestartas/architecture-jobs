@@ -1,5 +1,9 @@
 {
   "reference_place": "Bern",
   "career_watch_daily": 300,
-  "career_probe_daily": 150
+  "career_probe_daily": 150,
+  "notify_radius_km": 40,
+  "notify_entwurf_radius_km": 120,
+  "notify_email_from": "petrasvestartas@gmail.com",
+  "notify_emails": ["petrasvestartas@gmail.com", "baclina@gmail.com"]
 }

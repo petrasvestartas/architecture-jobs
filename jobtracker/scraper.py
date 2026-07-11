@@ -26,7 +26,8 @@ from net import (UA, http_get, get_json, post_json, strip_tags,  # noqa: F401
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-SEARCH_TERMS = ["architekt", "architect", "architecte", "architetto"]
+SEARCH_TERMS = ["architekt", "architect", "architecte", "architetto",
+                "bauleitung", "hochbau", "innenarchitektur", "raumplanung"]
 
 
 def load_config():
@@ -115,7 +116,8 @@ def scan_jobsch():
 
 
 def scan_jobup():
-    return _jobcloud("https://www.jobup.ch", "detail_fr", ["architecte", "architekt"])
+    return _jobcloud("https://www.jobup.ch", "detail_fr",
+                     ["architecte", "architekt", "conducteur de travaux", "urbaniste"])
 
 
 LINKEDIN_CARD = re.compile(
@@ -507,36 +509,64 @@ def run_career_watch(con, limit, started):
     def work(row):
         host = urllib.parse.urlparse(row["career_url"]).netloc.replace("www.", "")
         if _on_hosts(host, BOARD_HOSTS):
-            return row["id"], []  # profile hosted on a job board we scrape anyway
+            return row["id"], [], False  # profile hosted on a board we scrape anyway
         try:
             body, final = http_get(row["career_url"], tries=1, timeout=15)
             loc = " ".join(str(x) for x in (row["plz"], row["city"]) if x)
-            return row["id"], extract_job_links(body, final, row["name"], loc)
+            return row["id"], extract_job_links(body, final, row["name"], loc), True
         except Exception:
-            return row["id"], []
+            return row["id"], [], False
 
+    def put(cid, j):
+        if EXCLUDE_ALWAYS.search(j["title"]):
+            return 0
+        hay_x = j["title"] + " " + (j["company_name"] or "")
+        if EXCLUDE_TITLES.search(hay_x) and not ARCH_CORE.search(hay_x):
+            return 0
+        con.execute("""
+            INSERT INTO jobs (source, title, company_name, company_id,
+                              location, url, posted_at, workload,
+                              first_seen, last_seen, active)
+            VALUES ('career-page',?,?,?,?,?,?,?,?,?,1)
+            ON CONFLICT(url) DO UPDATE SET
+                last_seen=excluded.last_seen, active=1
+        """, (j["title"], j["company_name"], cid, j["location"],
+              j["url"], "", extract_workload(j["title"]), started, started))
+        return 1
+
+    row_by_id = {r["id"]: r for r in rows}
+    js_candidates = []
     found = 0
     with ThreadPoolExecutor(max_workers=8) as ex:
-        for cid, jobs in ex.map(work, rows):
+        for cid, jobs, fetched in ex.map(work, rows):
+            if fetched and not jobs:
+                js_candidates.append(cid)
             for j in jobs:
-                if EXCLUDE_ALWAYS.search(j["title"]):
-                    continue
-                hay_x = j["title"] + " " + (j["company_name"] or "")
-                if EXCLUDE_TITLES.search(hay_x) and not ARCH_CORE.search(hay_x):
-                    continue
-                con.execute("""
-                    INSERT INTO jobs (source, title, company_name, company_id,
-                                      location, url, posted_at, workload,
-                                      first_seen, last_seen, active)
-                    VALUES ('career-page',?,?,?,?,?,?,?,?,?,1)
-                    ON CONFLICT(url) DO UPDATE SET
-                        last_seen=excluded.last_seen, active=1
-                """, (j["title"], j["company_name"], cid, j["location"],
-                      j["url"], "", extract_workload(j["title"]),
-                      started, started))
-                found += 1
+                found += put(cid, j)
             con.execute("UPDATE companies SET career_watched_at=? WHERE id=?",
                         (now(), cid))
+    # second pass with a real browser: career pages that render their job
+    # list client-side yield zero links to plain HTTP (full cloud scan only)
+    if js_candidates and os.environ.get("JS_WATCH"):
+        try:
+            import js_watch
+            pairs = [(cid, row_by_id[cid]["career_url"]) for cid in js_candidates]
+            cid_by_url = {}
+            for cid, u in pairs:
+                cid_by_url.setdefault(u, cid)
+            js_found = 0
+            for u, final, body in js_watch.fetch_rendered([u for _, u in pairs]):
+                row = row_by_id.get(cid_by_url.get(u))
+                if row is None:
+                    continue
+                loc = " ".join(str(x) for x in (row["plz"], row["city"]) if x)
+                for j in extract_job_links(body, final, row["name"], loc):
+                    js_found += put(row["id"], j)
+            found += js_found
+            print(f"  career-page js-render: {js_found} extra job links "
+                  f"from {len(js_candidates)} script-only pages", flush=True)
+        except Exception as e:
+            print(f"  career-page js-render skipped: {e}", flush=True)
     con.commit()
     print(f"  career-page: {found} job links", flush=True)
     return found

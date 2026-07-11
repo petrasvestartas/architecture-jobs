@@ -1,0 +1,71 @@
+name: Local scan (self-hosted)
+# Runs on the owner's own PC (self-hosted runner): free unlimited minutes and
+# a residential IP that bot-protected sources accept. Every 30 minutes while
+# the PC is on; shares the "scan" concurrency group with the cloud scan so
+# they never clash. If the PC is off, runs queue briefly and the newest one
+# replaces older pending ones.
+
+on:
+  schedule:
+    - cron: "15,45 4-19 * * *"   # :15 and :45 every hour, 06:15-21:45 CH
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  issues: write
+
+concurrency:
+  group: scan
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: powershell
+
+jobs:
+  scan:
+    runs-on: self-hosted
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run light scan
+        env:
+          JOBTRACKER_SITE_DIR: ${{ github.workspace }}\public
+          PYTHONIOENCODING: utf-8
+        working-directory: jobtracker
+        run: python scraper.py --career-watch 25
+      - name: Announce new matching jobs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          PYTHONIOENCODING: utf-8
+        working-directory: jobtracker
+        run: python notify.py
+      - name: Persist notification state
+        run: |
+          git config user.name "jobtracker-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add jobtracker/notified.json
+          git diff --cached --quiet
+          if ($LASTEXITCODE -ne 0) {
+            git commit -m "Scan state (local runner)"
+            git pull --rebase --autostash origin main
+            git push
+          }
+          exit 0
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: scan
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: self-hosted
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

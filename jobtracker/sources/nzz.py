@@ -31,7 +31,7 @@ from urllib.parse import quote
 
 from net import http_get, get_json, post_json, strip_tags, extract_workload
 
-TERMS = ["architekt", "architecte"]
+TERMS = ["architekt", "architecte", "bauleitung", "raumplanung"]
 PAGE_SIZE = 100
 MAX_PAGES = 12          # hard cap per term (contract)
 SLEEP = 0.8             # politeness delay between page requests
