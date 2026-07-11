@@ -27,22 +27,22 @@ REPO = os.environ.get("GITHUB_REPOSITORY", "petrasvestartas/architecture-jobs")
 ENTWURF = re.compile(r"entwurf|design\s*architekt|design\s*architect|conception", re.I)
 
 DOG_JOKES = [
-    "Why did the dog apply at the architecture office? It's great at fetching approvals.",
-    "A dog's favourite architectural style? Bark-oque.",
-    "Why do dogs make excellent architects? They never miss a site visit — especially the lampposts.",
-    "The dog reviewed the floor plan and approved it: door to the garden, direct axis to the food bowl. Perfect circulation.",
-    "Why did the dog love the competition model? Finally, a stick presented properly on a plinth.",
-    "A dog's building code has one rule: every window must be low enough to judge the neighbours.",
-    "Why do dogs love Swiss architecture? Precise detailing, generous lawns.",
-    "The dog rejected the minimalist concept — where is one supposed to bury the bones?",
-    "Why was the dog promoted to Bauleiter? Perfect attendance and it already knew everyone on site by smell.",
-    "The dog measured the apartment and declared: 100% shared space, as it should be.",
-    "Why did the dog fail the acoustics review? It heard the doorbell in a building that has no doorbell.",
-    "A dog saw the cantilever and said: nice, but can you fetch from it?",
-    "The dog's favourite drawing phase? The walk-through.",
-    "Why do dogs hate revolving doors? You can never truly arrive.",
-    "The dog approved the courtyard design instantly: sun in the morning, shade at noon, squirrels all day.",
-    "Why did the dog sit on the site plan? Someone had to hold it down during the storm of revisions.",
+    "What do you call a dog that does magic? A labracadabrador.",
+    "My dog used to chase people on a bike. It got so bad we had to take his bike away.",
+    "I named my dog Five Miles, so I can tell people I walk Five Miles every single day.",
+    "What do you call a dog with no legs? Doesn't matter — he won't come anyway.",
+    "Why did the dog cross the road twice? He was trying to fetch a boomerang.",
+    "A dog walks into a bar... nothing. He's a good boy. He waited outside.",
+    "What do you call a dog detective? Sherlock Bones.",
+    "What did the dog say when he sat on sandpaper? Ruff.",
+    "Why did the broke dog chase his own tail? He was trying to make ends meet.",
+    "What's a dog's favourite instrument? The trom-bone.",
+    "Where do dogs refuse to shop? The flea market.",
+    "What kind of dog does Dracula have? A bloodhound.",
+    "Why do dogs float so well? Because they're good buoys.",
+    "What do you get when you cross a dog with a calculator? A friend you can count on.",
+    "Where does a dog leave his car? In the barking lot.",
+    "My dog knows 'sit', 'stay' and 'roll over' in three languages. Still unemployed. The market is brutal.",
 ]
 
 
