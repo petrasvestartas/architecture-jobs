@@ -312,6 +312,7 @@ from sources.swissarchitects import scan_swissarchitects   # noqa: E402
 from sources.jobagent import scan_jobagent                 # noqa: E402
 from sources.jobspy_src import scan_indeed_google          # noqa: E402
 from sources.jobroom import scan_jobroom                   # noqa: E402
+from sources.academia import scan_academia                 # noqa: E402
 
 # scan order: cheap/reliable JSON APIs first, heavier HTML boards after,
 # library-driven and user-defined sources last.
@@ -323,6 +324,7 @@ SOURCES = {
     "swiss-architects": scan_swissarchitects,
     "architekturstellen": scan_architekturstellen,
     "architectes": scan_architectes,
+    "academia": scan_academia,
     "nzz": scan_nzz,
     "ostjob": scan_ostjob,
     "jobroom": scan_jobroom,
@@ -337,7 +339,7 @@ SOURCES = {
 }
 
 GENERAL_BOARDS = {"jobs.ch", "jobup.ch", "linkedin", "generic", "nzz", "ostjob",
-                  "jobroom", "jobagent", "indeed-google", "watch"}
+                  "jobroom", "jobagent", "indeed-google", "watch", "academia"}
 
 # shown on the website's Sources tab; search_url doubles as the manual
 # fallback link when a source is blocked or fails
@@ -365,6 +367,9 @@ SOURCE_META = {
     "jobroom": {"label": "Job-Room (arbeit.swiss / RAV)",
                 "home": "https://www.job-room.ch/",
                 "search_url": "https://www.job-room.ch/job-search"},
+    "academia": {"label": "ETH / EPFL / Hochschulen (research)",
+                 "home": "https://www.myscience.ch/jobs",
+                 "search_url": "https://www.myscience.ch/jobs?q=architektur"},
     "jobs.ch": {"label": "jobs.ch", "home": "https://www.jobs.ch/",
                 "search_url": "https://www.jobs.ch/de/stellenangebote/?term=architekt"},
     "jobup.ch": {"label": "jobup.ch", "home": "https://www.jobup.ch/",
@@ -394,6 +399,11 @@ ARCH_CORE = re.compile(r"architekt|architect|architecte|architetto", re.I)
 # internships/apprenticeships are dropped unconditionally
 EXCLUDE_ALWAYS = re.compile(
     r"praktik|stagiaire|\bstage\b|internship|\bintern\b|lehrstell|lernende", re.I)
+
+# research vocabulary that counts as architecture on academic portals only
+ACADEMIA_EXTRA = re.compile(
+    r"\b(building|bauwesen|baukultur|constructi\w*|habitat|d-arch|gta|"
+    r"denkmal|heritage|monument|housing|wohnen|territoir)\w*\b", re.I)
 
 # software/IT roles that contain "architect" — NZZ/Indeed/LinkedIn noise
 NON_ARCH = re.compile(
@@ -579,7 +589,7 @@ def run_career_watch(con, limit, started):
 # canonical preference: direct/specialist sources beat aggregators
 SOURCE_PRIORITY = ["manual", "sia", "archi-jobs", "hochparterre",
                    "swiss-architects", "architekturstellen", "architectes",
-                   "career-page", "nzz", "ostjob", "jobroom", "jobs.ch",
+                   "career-page", "academia", "nzz", "ostjob", "jobroom", "jobs.ch",
                    "jobup.ch", "jobagent", "linkedin", "indeed-google",
                    "watch", "generic"]
 
@@ -719,7 +729,9 @@ def main():
                         continue  # Baumanagement/engineering ads & firms
                 if name in GENERAL_BOARDS and args.arch_only:
                     hay = title + " " + (j.get("company_name") or "")
-                    if not ARCH_KEYWORDS.search(hay):
+                    keyword_ok = ARCH_KEYWORDS.search(hay) or \
+                        (name == "academia" and ACADEMIA_EXTRA.search(hay))
+                    if not keyword_ok:
                         continue
                     if NON_ARCH.search(title):
                         continue  # IT/software "architect" roles
