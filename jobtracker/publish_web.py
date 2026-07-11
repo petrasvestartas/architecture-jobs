@@ -35,6 +35,12 @@ def main():
         src = os.path.join(SITE, name)
         if os.path.exists(src):
             shutil.copy2(src, os.path.join(REPO, "public", name))
+    # user-maintained inputs dropped into the Drive folder propagate to the
+    # repo so the cloud scans honor them too
+    for name in ("manual_jobs.json", "watch_sites.json"):
+        src = os.path.join(HERE, name)
+        if os.path.exists(src):
+            shutil.copy2(src, os.path.join(REPO, "jobtracker", name))
     if not run(["git", "status", "--porcelain"]).stdout.strip():
         print("publish: no changes", flush=True)
         return 0
