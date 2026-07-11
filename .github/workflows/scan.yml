@@ -46,7 +46,7 @@ jobs:
           if [ "${{ github.event.schedule }}" = "30 3 * * *" ]; then
             python scraper.py --careers 150 --career-watch 200
           else
-            python scraper.py --career-watch 25
+            python scraper.py --career-watch 50
           fi
       - name: Announce new matching jobs
         env:
