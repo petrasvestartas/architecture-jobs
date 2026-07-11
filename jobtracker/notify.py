@@ -86,6 +86,8 @@ def email_html(heading, items, joke):
         f'<a href="{SITE_URL}" style="background:#e2001a;color:#ffffff;'
         'padding:10px 18px;text-decoration:none;font-weight:bold;'
         'font-size:13px;letter-spacing:1px">OPEN ALL JOBS</a></div>'
+        '<p style="font-size:12px;color:#888888;margin-top:14px">'
+        'Website password: <b>lina</b></p>'
         '<p style="font-size:12.5px;color:#888888;font-style:italic;'
         'border-top:1px solid #e5e5e0;padding-top:12px;margin-top:8px">'
         f'&#128054; {_esc(joke)}</p></div>')

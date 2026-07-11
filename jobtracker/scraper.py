@@ -222,10 +222,11 @@ NAV_NOISE = re.compile(
     r"zu den )\W*", re.I)
 # a link only counts as a job posting if its text names a role (or a workload %)
 ROLE_WORDS = re.compile(
-    r"architekt|architect|architecte|zeichner|bauleit|projektleit|hochbau|"
-    r"innenarchitekt|landschaftsarchitekt|raumplan|"
+    r"architekt|architect|architecte|architetto|zeichner|bauleit|projektleit|"
+    r"hochbau|innenarchitekt|landschaftsarchitekt|raumplan|"
     r"urban|st[aä]dtebau|bim[- ]|techniker|konstrukteur|planer(?:in)?\b|"
-    r"dessinateur|conducteur|chef de projet|direktion|gesch[aä]ftsleit",
+    r"dessinateur|conducteur|chef de projet|direktion|gesch[aä]ftsleit|"
+    r"disegnat|capo\s*progetto|collaborat|direzione lavori",
     re.I)
 ATS_HOSTS = ("prospective.ch", "jobbase.io", "refline.ch", "onlyfy.jobs",
              "softgarden.io", "jobs.dvinci.de", "recruitingapp", "umantis.com",
@@ -420,8 +421,9 @@ NON_ARCH = re.compile(
 # Career-page probing (unsolicited applications)
 # --------------------------------------------------------------------------
 CAREER_HREF = re.compile(
-    r'href="([^"]*(?:job|karriere|career|stellen|offene|emploi|lavora|'
-    r'initiativ|bewerbung|vacan|team)[^"]*)"', re.I)
+    r'href="([^"]*(?:job|karriere|carri[eè]re|career|stellen|offene|emploi|'
+    r'rejoindre|postes?\b|posti|lavora|collabor|initiativ|bewerbung|vacan|'
+    r'team)[^"]*)"', re.I)
 
 
 def probe_career(company):
@@ -523,7 +525,27 @@ def run_career_watch(con, limit, started):
         try:
             body, final = http_get(row["career_url"], tries=1, timeout=15)
             loc = " ".join(str(x) for x in (row["plz"], row["city"]) if x)
-            return row["id"], extract_job_links(body, final, row["name"], loc), True
+            jobs = extract_job_links(body, final, row["name"], loc)
+            if not jobs:
+                # depth 2: many career pages only LINK to a vacancies subpage
+                base_host = urllib.parse.urlparse(final).netloc.replace("www.", "")
+                subs, seen_s = [], {final.split("#")[0]}
+                for m in CAREER_HREF.finditer(body):
+                    u = urllib.parse.urljoin(final, m.group(1)).split("#")[0]
+                    h = urllib.parse.urlparse(u).netloc.replace("www.", "")
+                    if u in seen_s or not (h == base_host or h.endswith("." + base_host)):
+                        continue
+                    seen_s.add(u)
+                    subs.append(u)
+                    if len(subs) == 2:
+                        break
+                for u in subs:
+                    try:
+                        b2, f2 = http_get(u, tries=1, timeout=15)
+                        jobs += extract_job_links(b2, f2, row["name"], loc)
+                    except Exception:
+                        pass
+            return row["id"], jobs, True
         except Exception:
             return row["id"], [], False
 

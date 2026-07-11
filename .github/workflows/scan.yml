@@ -44,7 +44,7 @@ jobs:
         working-directory: jobtracker
         run: |
           if [ "${{ github.event.schedule }}" = "30 3 * * *" ]; then
-            python scraper.py --careers 50 --career-watch 200
+            python scraper.py --careers 150 --career-watch 200
           else
             python scraper.py --career-watch 25
           fi

@@ -35,7 +35,7 @@ jobs:
           JOBTRACKER_SITE_DIR: ${{ github.workspace }}\public
           PYTHONIOENCODING: utf-8
         working-directory: jobtracker
-        run: python scraper.py --career-watch 25
+        run: python scraper.py --careers 40 --career-watch 25
       - name: Announce new matching jobs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
