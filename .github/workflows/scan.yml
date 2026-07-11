@@ -1,8 +1,8 @@
 name: Job scan
 # Hourly light scans (07:00-19:00 CH) deploy fresh data straight to Pages;
-# the 05:30 full scan additionally probes company career pages and commits
-# the database so history persists. Hours are capped to stay inside the
-# 3000 free private-repo Actions minutes per month.
+# the 05:30 full scan additionally probes company career pages (including a
+# headless-browser pass for script-only pages) and commits the database.
+# Every run announces new matching jobs as a GitHub issue + email.
 
 on:
   schedule:
@@ -14,6 +14,7 @@ permissions:
   contents: write
   pages: write
   id-token: write
+  issues: write
 
 concurrency:
   group: scan
@@ -30,10 +31,16 @@ jobs:
           python-version: "3.12"
       - name: Install dependencies
         run: pip install --quiet python-jobspy
+      - name: Install headless browser (full scan only)
+        if: github.event.schedule == '30 3 * * *'
+        run: |
+          pip install --quiet playwright
+          python -m playwright install --with-deps chromium
       - name: Run the scan (full at 05:30, light otherwise)
         env:
           JOBTRACKER_SITE_DIR: ${{ github.workspace }}/public
           PYTHONIOENCODING: utf-8
+          JS_WATCH: ${{ github.event.schedule == '30 3 * * *' && '1' || '' }}
         working-directory: jobtracker
         run: |
           if [ "${{ github.event.schedule }}" = "30 3 * * *" ]; then
@@ -41,14 +48,24 @@ jobs:
           else
             python scraper.py --career-watch 25
           fi
-      - name: Persist database (full scan only)
-        if: github.event.schedule == '30 3 * * *'
+      - name: Announce new matching jobs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          PYTHONIOENCODING: utf-8
+        working-directory: jobtracker
+        run: python notify.py
+      - name: Persist state
         run: |
           git config user.name "jobtracker-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
+          if [ "${{ github.event.schedule }}" = "30 3 * * *" ]; then
+            git add -A
+          else
+            git add jobtracker/notified.json
+          fi
           git diff --cached --quiet || {
-            git commit -m "Daily full scan $(date -u +%F)"
+            git commit -m "Scan state $(date -u +'%F %H:%M')"
             git pull --rebase --autostash origin main || true
             git push
           }
