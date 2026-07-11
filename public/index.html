@@ -442,7 +442,7 @@ function debounce(fn,ms){var t;return function(){clearTimeout(t);var args=argume
 /* ---------- state ---------- */
 var KEY="jobtracker_state_v1";
 function defaults(){
-  return {v:1,theme:null,tab:"jobs",ref:null,radius:"any",
+  return {v:1,theme:null,tab:"jobs",ref:null,radius:"any",gh_token:null,
     job_status:{},job_notes:{},company_applied:{},company_notes:{},
     seeded_applied:false,seeded_notes:false,manual_jobs:[],watched_sites:[]};
 }
@@ -1127,14 +1127,53 @@ function updPoll(){
     updMsg("Lost contact with the updater — reload this page manually in a few minutes to see the fresh scan.");
   });
 }
+/* hosted on GitHub Pages: the button triggers the cloud scan workflow */
+var HOSTED=/\.github\.io$/.test(location.hostname);
+var GH_REPO="petrasvestartas/architecture-jobs";
+function ghHeaders(){return {"Authorization":"Bearer "+state.gh_token,
+  "Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"};}
+function pollCloud(){
+  fetch("data.js?ts="+Date.now(),{headers:{"Range":"bytes=0-400"}})
+    .then(function(r){return r.text();}).then(function(t){
+      var m=t.match(/"generated":"([^"]+)"/);
+      if(m&&m[1]!==DATA.generated){updReset();location.reload();}
+    }).catch(function(){});
+}
+function startCloudScan(){
+  updSetBusy("Starting cloud scan…");
+  fetch("https://api.github.com/repos/"+GH_REPO+"/actions/workflows/scan.yml/dispatches",
+    {method:"POST",headers:ghHeaders(),body:JSON.stringify({ref:"main"})})
+  .then(function(r){
+    if(r.status===204){
+      updSetBusy("Cloud scan running… (~10 min, page reloads itself)");
+      updTimer=setInterval(pollCloud,60000);
+    }else{
+      updReset();
+      if(r.status===401||r.status===403){state.gh_token=null;save();}
+      updMsg("GitHub refused ("+r.status+") — the token may be wrong or expired. Click Update again to re-enter it.");
+    }
+  }).catch(function(){updReset();updMsg("Could not reach GitHub — check your internet connection.");});
+}
+function askToken(){
+  updMsg('One-time setup to run scans from this website (the key is stored only in this browser):'
+   +'<br>1. <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Create a fine-grained GitHub token</a> — Repository access: <b>Only select repositories &rarr; architecture-jobs</b>; Permissions &rarr; Actions: <b>Read and write</b>.'
+   +'<br>2. Paste it here: <input type="password" id="ghTok" style="width:250px" placeholder="github_pat_…"> <button class="btn primary" id="ghTokSave">Save &amp; run</button>'
+   +'<br>Or without a token: <a href="https://github.com/'+GH_REPO+'/actions/workflows/scan.yml" target="_blank" rel="noopener">open Actions &rarr; Daily job scan &rarr; Run workflow</a>. The automatic morning scan runs either way.');
+  el("ghTokSave").addEventListener("click",function(){
+    var t=el("ghTok").value.trim();
+    if(t){state.gh_token=t;save();updMsg("");startCloudScan();}
+  });
+}
 el("updateBtn").addEventListener("click",function(){
-  updMsg("");updSetBusy("Starting…");
+  updMsg("");
+  if(HOSTED){if(state.gh_token)startCloudScan();else askToken();return;}
+  updSetBusy("Starting…");
   fetch(UPD_API+"/api/search",{method:"POST"}).then(function(r){return r.json();}).then(function(){
     updSetBusy("Scanning… (takes a few minutes)");
     updTimer=setInterval(updPoll,5000);
   }).catch(function(){
     updReset();
-    updMsg('To use this button, start the little updater once: double-click <code>run_web.cmd</code> in <code>G:\\My Drive\\job\\jobtracker</code> (Mac: <code>run_web.sh</code>), then click Update again.<br>Without it: double-click <code>update_now.cmd</code> (Mac: <code>update_now.sh</code>) in the same folder to scan immediately — or simply wait for the automatic daily scan at 07:30.');
+    updMsg('To use this button, start the little updater once: double-click <code>run_web.cmd</code> in <code>G:\\My Drive\\job\\jobtracker</code> (Mac: <code>run_web.sh</code>), then click Update again.<br>Without it: double-click <code>update_now.cmd</code> (Mac: <code>update_now.sh</code>) in the same folder to scan immediately — or simply wait for the automatic daily scan.');
   });
 });
 
