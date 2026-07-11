@@ -1,12 +1,13 @@
-name: Daily job scan
-# Scans all Swiss architecture job sources in the cloud every morning,
-# commits the updated database + website data, and deploys the site.
-# (The deploy job is included here because pushes made with GITHUB_TOKEN
-# do not trigger other workflows.)
+name: Job scan
+# Hourly light scans (07:00-19:00 CH) deploy fresh data straight to Pages;
+# the 05:30 full scan additionally probes company career pages and commits
+# the database so history persists. Hours are capped to stay inside the
+# 3000 free private-repo Actions minutes per month.
 
 on:
   schedule:
-    - cron: "30 3 * * *"   # 05:30 Swiss summer time / 04:30 winter
+    - cron: "30 3 * * *"    # full scan, 05:30 Swiss summer time
+    - cron: "0 5-17 * * *"  # light scan every hour, 07:00-19:00
   workflow_dispatch:
 
 permissions:
@@ -29,20 +30,32 @@ jobs:
           python-version: "3.12"
       - name: Install dependencies
         run: pip install --quiet python-jobspy
-      - name: Run the scan
+      - name: Run the scan (full at 05:30, light otherwise)
         env:
           JOBTRACKER_SITE_DIR: ${{ github.workspace }}/public
           PYTHONIOENCODING: utf-8
-        run: python scraper.py --careers 50 --career-watch 200
         working-directory: jobtracker
-      - name: Commit results
+        run: |
+          if [ "${{ github.event.schedule }}" = "30 3 * * *" ]; then
+            python scraper.py --careers 50 --career-watch 200
+          else
+            python scraper.py --career-watch 25
+          fi
+      - name: Persist database (full scan only)
+        if: github.event.schedule == '30 3 * * *'
         run: |
           git config user.name "jobtracker-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || git commit -m "Daily cloud scan $(date -u +%F)"
-          git pull --rebase --autostash origin main || true
-          git push
+          git diff --cached --quiet || {
+            git commit -m "Daily full scan $(date -u +%F)"
+            git pull --rebase --autostash origin main || true
+            git push
+          }
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
 
   deploy:
     needs: scan
@@ -51,12 +64,5 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: main
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: public
       - id: deployment
         uses: actions/deploy-pages@v4
