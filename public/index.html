@@ -1287,7 +1287,7 @@ if(typeof window.DATA==="undefined"||!window.DATA||!Array.isArray(window.DATA.jo
     '<p>This page could not load its data file.</p>'+
     '<p>Make sure <code>data.js</code> sits in the <b>same folder</b> as this <code>index.html</code> (normally <code>G:\\My Drive\\job\\site\\</code>, or the synced <code>job/site</code> folder in Google Drive on the Mac).</p>'+
     '<p>If Google Drive is still syncing, wait a moment and reload this page.</p></div>';
-  el("footTxt").textContent="Updated every 30 minutes via GitHub Actions · deep scan daily 05:30";
+  el("footTxt").textContent="Updated hourly via GitHub Actions · deep scan daily 05:30";
   document.querySelectorAll("nav.tabs, .chips, .picker, #radiusSel").forEach(function(n){n.style.display="none";});
   return;
 }
@@ -2395,7 +2395,7 @@ el("tabsNav").addEventListener("click",function(e){
 });
 
 /* ---------- footer + init ---------- */
-el("footTxt").innerHTML="Updated every 30 minutes via GitHub Actions · deep scan daily 05:30 · "+DATA.sources.length+" sources"+
+el("footTxt").innerHTML="Updated hourly via GitHub Actions · deep scan daily 05:30 · "+DATA.sources.length+" sources"+
   ' · Backup: <a href="#" id="footExport" class="linkish">Export</a> · <a href="#" id="footImport" class="linkish">Import</a>';
 el("footExport").addEventListener("click",function(e){e.preventDefault();el("bkExport").click();});
 el("footImport").addEventListener("click",function(e){e.preventDefault();el("bkFile").click();});

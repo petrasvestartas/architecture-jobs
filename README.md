@@ -15,9 +15,6 @@ Switzerland, centered on Bern, design/Entwurf positions first.
   pages, watched sites, manual), geocodes, dedupes, filters out
   engineering / Baumanagement / internship / IT-architect ads, regenerates
   `public/`, and deploys.
-- `.github/workflows/scan-local.yml`: the same light scan every 30 minutes
-  (06:15-21:45 CH) on the owner's self-hosted runner "petras-pc" — free
-  minutes and a residential IP that bot-protected boards accept.
 - `jobtracker/notify.py` runs after every scan: new jobs within 40 km of the
   reference (or Entwurf within 120 km) become a GitHub issue (phone push)
   and an email (Gmail SMTP via the `GMAIL_APP_PASSWORD` repo secret).
@@ -37,8 +34,9 @@ A local copy also runs on the owner's Windows machine (Task Scheduler,
 last-writer-wins.
 
 Note: sources behind aggressive bot protection (swiss-architects.com,
-architekten-jobs.ch/DataDome) may be blocked from datacenter IPs — the local
-scan covers those; the website's Job Websites tab shows per-source status.
+architekten-jobs.ch/DataDome) may be blocked from datacenter IPs — the daily
+local scan (Task Scheduler, 07:30) covers those; the website's Job Websites
+tab shows per-source status.
 
 ## Manual run
 
