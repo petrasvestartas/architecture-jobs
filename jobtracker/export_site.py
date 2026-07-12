@@ -101,7 +101,8 @@ def export(con=None):
     for r in con.execute("SELECT * FROM companies WHERE status='ok' ORDER BY name"):
         companies.append({
             "hash": r["hash"], "name": r["name"], "city": r["city"] or "",
-            "plz": r["plz"] or "", "canton": r["canton"] or "",
+            "plz": str(r["plz"]).split(".")[0] if r["plz"] not in (None, "") else "",
+            "canton": r["canton"] or "",
             "lat": r["lat"], "lon": r["lon"],
             "website": r["website"] or "", "career_url": r["career_url"] or "",
             "email": r["email"] or "", "phone": r["phone"] or "",

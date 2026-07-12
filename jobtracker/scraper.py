@@ -213,24 +213,63 @@ def scan_manual():
 
 # --- generic job-link extraction (career pages + user-watched sites) -----
 
-A_TAG = re.compile(r'<a\b[^>]*?href="([^"#]+)[^"]*"[^>]*>(.*?)</a>', re.S | re.I)
+# quote-agnostic: single-quoted and unquoted hrefs occur in the wild
+# (three alternatives keep apostrophes inside double-quoted hrefs intact)
+A_TAG = re.compile(
+    r'<a\b[^>]*?href\s*=\s*(?:"([^"#][^"]*)"|\'([^\'#][^\']*)\'|'
+    r'([^"\'\s>#][^\s>]*))[^>]*>(.*?)</a>',
+    re.S | re.I)
+
+
+def _href_of(m):
+    return (m.group(1) or m.group(2) or m.group(3) or "").strip()
+BASE_TAG = re.compile(r'<base\b[^>]*?href\s*=\s*["\']?([^"\'\s>]+)', re.I)
+HEADING = re.compile(r'<(h[1-4])\b[^>]*>(.*?)</\1>', re.S | re.I)
+# anchorless postings live in headings/accordions/buttons/href-less <a>
+SECTION_TAG = re.compile(
+    r'<(h[1-4]|summary|strong|button|a)\b[^>]*>(.*?)</\1>', re.S | re.I)
+DATA_HREF = re.compile(r'data-(?:rel|href)\s*=\s*["\']([^"\']+)["\']', re.I)
 NAV_NOISE = re.compile(
     r"^(mehr|weiter|zur[uü]ck|home|start|kontakt|contact|news|aktuell|impressum|"
     r"datenschutz|agb|login|anmelden|projekte?|referenz|b[uü]ro|about|team|"
-    r"initiativ|offene stellen|jobs?|karriere|stellen(angebote)?|mehr erfahren|"
+    r"initiativ|offene stellen|jobs?|karriere|stellen(angebote)?\b|mehr erfahren|"
     r"alle stellen|read more|en savoir plus|pdf speichern|top job|credits?|"
+    r"leggi tutto|fiche du poste|postuler|jetzt bewerben|anzeigen\b|"
     r"zu den )\W*", re.I)
 # a link only counts as a job posting if its text names a role (or a workload %)
 ROLE_WORDS = re.compile(
-    r"architekt|architect|architecte|architetto|zeichner|bauleit|projektleit|"
+    r"architekt|architect|architecte|architett[oi]\b|zeichner|bauleit|projektleit|"
     r"hochbau|innenarchitekt|landschaftsarchitekt|raumplan|"
-    r"urban|st[aä]dtebau|bim[- ]|techniker|konstrukteur|planer(?:in)?\b|"
-    r"dessinateur|conducteur|chef de projet|direktion|gesch[aä]ftsleit|"
+    r"urban|st[aä]dtebau|bim[- ]|techniker|technicien|konstrukteur|planer(?:in)?\b|"
+    r"planificat(?:eur|rice)|dessinateur|conducteur|"
+    r"chef[\s.]*\(?fe\)?[\s.]*de projet|chef de projet|direktion|"
+    r"gesch[aä]ftsleit|directeur|directrice|deviseur|"
+    r"kostenplan|sachbearbeit|stelleninserat|koordinat|coordinat|"
     r"disegnat|capo\s*progetto|collaborat|direzione lavori",
     re.I)
+# these ROLE_WORDS also match nav/project noise (URBAN HOUSE, Collaborateurs);
+# they only count together with a workload % or a gender tag
+WEAK_ROLE = ("urban", "collaborat")
+# grammatical gender tags mark real ads: (m/w/d), /in, :in, *in, ProjektleiterIn
+# (case-sensitive: a case-insensitive In\b would match every word ending "in")
+GENDER_TAG = re.compile(
+    r"\((?:[mwfdhxMWFDHX]\s*/\s*)+[mwfdhxMWFDHX]\)|\*in(?:nen)?\b|"
+    r":in(?:nen)?\b|/-?in\b|/-?IN\b|(?<=[a-zäöü])In(?:nen)?\b")
+# service-nav / journal / news links that ROLE_WORDS would take for postings
+BAD_PATH = re.compile(
+    r"/dienstleistung|/leistung|/angebot|/journal|/news|/blog|/publikation|"
+    r"/wp-json/", re.I)
+SERVICE_TITLE = re.compile(
+    r"^(architektur|architecture|architettura|planung|leistungen|prestations)\b",
+    re.I)
+# href targets that are never job ads even when the filename names a role
+DOC_NOISE = re.compile(
+    r"datenschutz|impressum|\bagb\b|privacy|cookie|zertifikat|brosch|leitbild|"
+    r"portrait|jahresbericht|geschaeftsbericht|firmen", re.I)
+MEDIA_EXT = re.compile(r"\.(png|jpe?g|gif|svg|webp|mp4|webm|mp3|zip)$", re.I)
 ATS_HOSTS = ("prospective.ch", "jobbase.io", "refline.ch", "onlyfy.jobs",
              "softgarden.io", "jobs.dvinci.de", "recruitingapp", "umantis.com",
-             "abacuscity.ch", "jobcloud.ai")
+             "abacuscity.ch", "jobcloud.ai", "recruitee.com")
 # never harvest links that point at job boards we scrape directly — the jobs
 # would be misattributed to the company whose page links there
 BOARD_HOSTS = ("swiss-architects.com", "world-architects.com", "jobs.ch",
@@ -244,15 +283,105 @@ def _on_hosts(host, hosts):
     return any(host == h or host.endswith("." + h) for h in hosts)
 
 
-def extract_job_links(body, base_url, company_name, location, arch_only=False):
-    """Pull plausible job-posting links out of an HTML page."""
+def _page_base(body, final):
+    """urljoin base for a page: honor <base href> (else doubled paths 404)."""
+    m = BASE_TAG.search(body[:4096])
+    return urllib.parse.urljoin(final, m.group(1)) if m else final
+
+
+def _slug(text):
+    """Stable ascii slug for synthetic fragment URLs (re-runs must UPSERT)."""
+    s = text.lower()
+    for a, b in (("ä", "ae"), ("ö", "oe"), ("ü", "ue"), ("é", "e"), ("è", "e"),
+                 ("ê", "e"), ("à", "a"), ("â", "a"), ("ç", "c"), ("ß", "ss")):
+        s = s.replace(a, b)
+    s = s.encode("ascii", "ignore").decode()
+    return re.sub(r"[^a-z0-9]+", "-", s).strip("-")[:60].strip("-")
+
+
+def _role_grade(text):
+    """2 = strong role word, 1 = weak-only (WEAK_ROLE), 0 = none."""
+    g = 0
+    for m in ROLE_WORDS.finditer(text):
+        if any(m.group(0).lower().startswith(w) for w in WEAK_ROLE):
+            g = max(g, 1)
+        else:
+            return 2
+    return g
+
+
+def _strong_signal(text):
+    return bool(extract_workload(text) or GENDER_TAG.search(text))
+
+
+def extract_job_links(body, base_url, company_name, location, arch_only=False,
+                      career_page=False):
+    """Pull plausible job-posting links out of an HTML page. career_page=True
+    additionally harvests anchorless postings (headings/accordions), generic
+    anchors whose role word hides in the href slug, and data-rel/href blocks."""
+    base = _page_base(body, base_url)
     base_host = urllib.parse.urlparse(base_url).netloc.replace("www.", "")
-    jobs, seen = [], set()
+    page_url = base_url.split("#")[0]
+    own = db.normalize_name(company_name)
+    heads = [(h.start(), strip_tags(h.group(2))) for h in HEADING.finditer(body)]
+
+    def bogus(title, url):
+        path = urllib.parse.unquote(urllib.parse.urlparse(url).path)
+        if BAD_PATH.search(path):
+            return True  # services/journal/news nav, not a posting
+        if SERVICE_TITLE.match(title) and not _strong_signal(title):
+            return True
+        nt = db.normalize_name(title)
+        if own and len(own) >= 6 and nt:
+            if nt in own:
+                return True  # link text is just the firm's own name/logo
+            if own in nt:  # firm name + trimmings ("Architetto X - Lugano")
+                rest = nt.replace(own, " ")
+                if not (ROLE_WORDS.search(rest) or extract_workload(rest)):
+                    return True
+        return False
+
+    def slug_title(url, pos):
+        # role word hides in the href slug / PDF filename; title comes from
+        # the nearest preceding heading, else the prettified slug itself
+        path = urllib.parse.unquote(urllib.parse.urlparse(url).path)
+        if MEDIA_EXT.search(path) or DOC_NOISE.search(path):
+            return ""  # videos/images/legal docs, not ads
+        leaf = re.sub(r"\.(pdf|docx?)$", "", path.rstrip("/").rsplit("/", 1)[-1],
+                      flags=re.I)
+        words = re.sub(r"^[\d\s.]+", "", re.sub(r"[-_+]+", " ", leaf)).strip()
+        if _role_grade(words) < 2:  # strong role word required (precision)
+            return ""
+        if len(words.split()) < 2 and not path.lower().endswith(".pdf"):
+            return ""  # single-word slugs (/bauleitung) are service pages
+        nw = db.normalize_name(words)
+        if own and len(own) >= 6 and own in nw:
+            rest = nw.replace(own, " ")  # firm-name document, not an ad
+            if not ROLE_WORDS.search(rest):
+                return ""
+        prev = ""
+        for hp, ht in heads:
+            if hp > pos:
+                break
+            prev = ht
+        if prev and _role_grade(prev) and 5 <= len(prev) <= 110:
+            return prev
+        m = ROLE_WORDS.search(words)  # drop noise prefixes ("V3 Newis ...")
+        if m and (m.start() == 0 or words[m.start() - 1] == " "):
+            words = words[m.start():]
+        return words[:1].upper() + words[1:]
+
+    best = {}  # url -> (strength, title); role-worded text beats slug titles
+
+    def offer(url, title, strength):
+        if url not in best or strength > best[url][0]:
+            best[url] = (strength, title)
+
     for m in A_TAG.finditer(body):
-        href, text = m.group(1).strip(), strip_tags(m.group(2))
-        if href.startswith(("mailto:", "javascript:", "tel:")) or not text:
+        href, text = _href_of(m), strip_tags(m.group(4))
+        if href.startswith(("mailto:", "javascript:", "tel:")):
             continue
-        full = urllib.parse.urljoin(base_url, href).split("#")[0]
+        full = urllib.parse.urljoin(base, href).split("#")[0]
         host = urllib.parse.urlparse(full).netloc.replace("www.", "")
         if _on_hosts(host, BOARD_HOSTS):
             continue
@@ -260,22 +389,103 @@ def extract_job_links(body, base_url, company_name, location, arch_only=False):
         if not (same_site or _on_hosts(host, ATS_HOSTS) or
                 any(a in host for a in ATS_HOSTS)):
             continue
+        if len(text) > 110:  # card anchor wrapping img+heading+description
+            hm = re.search(r"<h[1-3]\b[^>]*>(.*?)</h[1-3]>", m.group(4),
+                           re.S | re.I)
+            text = (strip_tags(hm.group(1)) if hm else
+                    re.split(r"\s+[-–—|]\s+", text, maxsplit=1)[0].strip())
+        grade = _role_grade(text)
         titleish = (8 <= len(text) <= 110 and " " in text
                     and not NAV_NOISE.match(text))
-        role_signal = ROLE_WORDS.search(text) or extract_workload(text)
-        if not (titleish and role_signal):
+        ok = titleish and (grade == 2 or
+                           (grade == 1 and _strong_signal(text)) or
+                           (grade == 0 and extract_workload(text)))
+        if ok and grade and not _strong_signal(text):
+            # role-worded text without workload/gender tag: could be a
+            # team/service nav link — require a job-ish target to keep it
+            pr = urllib.parse.urlparse(full)
+            leaf = re.sub(r"[-_+]+", " ",
+                          urllib.parse.unquote(pr.path).rstrip("/").rsplit("/", 1)[-1])
+            ok = bool(CAREER_WORD.search(pr.path)
+                      or pr.path.lower().endswith((".pdf", ".doc", ".docx"))
+                      or ROLE_WORDS.search(leaf)
+                      or _on_hosts(host, ATS_HOSTS))
+        if ok:
+            offer(full, text, 3 if grade == 2 else 2)
+        elif career_page:  # empty/generic/noise anchor: try the href slug
+            t = slug_title(full, m.start())
+            if t:
+                offer(full, t, 1)
+
+    if career_page:  # postings whose URL sits in data-rel/data-href, no <a>
+        for m in DATA_HREF.finditer(body):
+            full = urllib.parse.urljoin(base, m.group(1)).split("#")[0]
+            host = urllib.parse.urlparse(full).netloc.replace("www.", "")
+            if not (host == base_host or host.endswith("." + base_host)):
+                continue
+            hm = re.search(r"<(h[1-4]|strong)\b[^>]*>(.*?)</\1>",
+                           body[m.end():m.end() + 800], re.S | re.I)
+            t = strip_tags(hm.group(2)) if hm else ""
+            if t and _role_grade(t) == 2 and 5 <= len(t) <= 110:
+                offer(full, t, 2)
+
+    jobs, seen_titles = [], set()
+
+    def dup_title(key):
+        # "Bauleiter/in Tiefbau" vs "Bauleiter/in Tiefbau  Zürich" = same ad
+        # (prefix rule only for long keys, else "architekt" eats everything)
+        return key in seen_titles or any(
+            (k.startswith(key) and len(key) >= 12) or
+            (key.startswith(k) and len(k) >= 12) for k in seen_titles)
+
+    def clean(t):
+        return " ".join(t.split()).strip(" -–—|·")[:110].strip()
+
+    for url, (strength, title) in best.items():
+        title = clean(title)
+        if title and _role_grade(title) == 0:
+            # workload-only anchor ("80 - 100% in Zürich"): name it by slug
+            leaf = re.sub(r"\.(pdf|docx?)$", "", urllib.parse.unquote(
+                urllib.parse.urlparse(url).path).rstrip("/").rsplit("/", 1)[-1],
+                flags=re.I)
+            leaf = re.sub(r"[-_+]+", " ", leaf).strip()
+            if _role_grade(leaf) == 2 and len(leaf) <= 60:
+                title = clean(leaf[:1].upper() + leaf[1:] + " " + title)
+        key = db.normalize_title(title)
+        if not title or not key or dup_title(key) or bogus(title, url):
             continue
-        if db.normalize_name(text) == db.normalize_name(company_name):
-            continue  # link text is just the firm's own name/logo
-        if arch_only and not ARCH_KEYWORDS.search(text):
+        if arch_only and not ARCH_KEYWORDS.search(title):
             continue
-        if full in seen:
-            continue
-        seen.add(full)
-        jobs.append({
-            "title": text, "company_name": company_name, "location": location,
-            "url": full, "posted_at": "",
-        })
+        seen_titles.add(key)
+        jobs.append({"title": title, "company_name": company_name,
+                     "location": location, "url": url, "posted_at": ""})
+
+    if career_page and len(jobs) < 2:
+        # anchorless postings: titles in h1-h4/summary/strong/button/<a>;
+        # role word + workload/gender tag required together (precision) —
+        # except real headings on explicitly job-ish paths (/jobs, /emploi):
+        # there a strong role word alone counts ("architecte chef de projet")
+        jobish = bool(CAREER_SEG.search(
+            urllib.parse.urlparse(page_url).path.lower()))
+        for m in SECTION_TAG.finditer(body):
+            t = clean(strip_tags(m.group(2)))
+            if not (5 <= len(t) <= 110):
+                continue
+            g = _role_grade(t)
+            relaxed = (g == 2 and jobish and not NAV_NOISE.match(t)
+                       and m.group(1).lower() not in ("strong", "a")
+                       and len(t.split()) <= 7 and "?" not in t)  # not a teaser
+            if not ((g and _strong_signal(t)) or relaxed):
+                continue
+            key = db.normalize_title(t)
+            if not key or dup_title(key) or bogus(t, page_url):
+                continue
+            if arch_only and not ARCH_KEYWORDS.search(t):
+                continue
+            seen_titles.add(key)
+            jobs.append({"title": t, "company_name": company_name,
+                         "location": location,
+                         "url": page_url + "#" + _slug(t), "posted_at": ""})
     return jobs
 
 
@@ -420,10 +630,61 @@ NON_ARCH = re.compile(
 # --------------------------------------------------------------------------
 # Career-page probing (unsolicited applications)
 # --------------------------------------------------------------------------
-CAREER_HREF = re.compile(
-    r'href="([^"]*(?:job|karriere|carri[eè]re|career|stellen|offene|emploi|'
-    r'rejoindre|postes?\b|posti|lavora|collabor|initiativ|bewerbung|vacan|'
-    r'team)[^"]*)"', re.I)
+HREF_ATTR = re.compile(r'href\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^"\'\s>]+))',
+                       re.I)
+CAREER_HREF = re.compile(  # searched against the href VALUE, not the markup
+    r'job|karriere|carri[eè]re|career|stellen|offene|emploi|rejoindre|'
+    r'postes?\b|posti|lavora|collabor|initiativ|bewerbung|vacan|vakanz|'
+    r'recrut|recruit|team|b[uü]ro|buero|bureau|office|agence', re.I)
+
+
+def _career_hrefs(body):
+    """Yield (match, href) for every link whose href names a career word."""
+    for m in HREF_ATTR.finditer(body):
+        href = (m.group(1) or m.group(2) or m.group(3) or "").strip()
+        if href and CAREER_HREF.search(href):
+            yield m, href
+CAREER_SCORE = (("job", 3), ("karriere", 3), ("career", 3), ("carri", 3),
+                ("offene", 4), ("stellen", 3), ("emploi", 3), ("vacan", 3),
+                ("vakanz", 3), ("lavora", 3), ("recrut", 2), ("recruit", 2),
+                ("initiativ", 2), ("bewerbung", 2), ("team", 1), ("buero", 1),
+                ("b%c3%bcro", 1), ("bureau", 1), ("office", 1), ("agence", 1))
+CAREER_SEG = re.compile(
+    r"\b(jobs?|stellen|emplois?|karriere|carri[eè]res?|careers?|vakanzen|lavora)\b")
+BAD_CAREER_PATH = re.compile(r"/journal|/news|/blog|/wp-json")
+# path guesses when the homepage links no career page (max ~8 requests/site)
+CAREER_GUESSES = ("/jobs", "/jobs/", "/karriere", "/stellen", "/offene-stellen",
+                  "/emploi", "/emplois", "/carriere", "/carrieres",
+                  "/offres-emploi", "/lavora-con-noi", "/vakanzen", "/team")
+CAREER_WORD = re.compile(
+    r"stellen|karriere|job|emploi|carri[eè]re|career|lavora|vacan|vakanz|"
+    r"bewerb|postul|recrut", re.I)
+
+
+def _career_fallback(final):
+    """No usable career link on the homepage: try /sitemap.xml, then guessed
+    paths. Soft-404 guard: the final path must still look job-ish."""
+    p = urllib.parse.urlparse(final)
+    root = f"{p.scheme}://{p.netloc}"
+    try:
+        sm, _ = http_get(root + "/sitemap.xml", tries=1, timeout=10)
+        hits = [u for u in re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", sm)
+                if re.search(r"job|stellen|emploi|karriere|lavora|vakanz|vacan",
+                             u, re.I)
+                and not u.lower().endswith(".xml")
+                and not BAD_CAREER_PATH.search(urllib.parse.urlparse(u).path.lower())]
+        if hits:
+            return min(hits, key=len)
+    except Exception:
+        pass
+    for path in CAREER_GUESSES[:8]:
+        try:
+            b, f = http_get(root + path, tries=1, timeout=10)
+        except Exception:
+            continue
+        if CAREER_WORD.search(urllib.parse.urlparse(f).path) and CAREER_WORD.search(b):
+            return f
+    return ""
 
 
 def probe_career(company):
@@ -434,26 +695,36 @@ def probe_career(company):
         body, final = http_get(website, tries=1, timeout=15)
     except Exception:
         return ""
+    base = _page_base(body, final)
+    base_host = urllib.parse.urlparse(final).netloc.replace("www.", "")
     candidates = []
-    for m in CAREER_HREF.finditer(body):
-        href = m.group(1)
+    for _, href in _career_hrefs(body):
         if href.startswith(("mailto:", "javascript:", "#")):
             continue
-        full = urllib.parse.urljoin(final, href)
-        if urllib.parse.urlparse(full).netloc != urllib.parse.urlparse(final).netloc:
+        full = urllib.parse.urljoin(base, href).split("#")[0]
+        pr = urllib.parse.urlparse(full)
+        host = pr.netloc.replace("www.", "")
+        ats = _on_hosts(host, ATS_HOSTS) or any(a in host for a in ATS_HOSTS)
+        if not (ats or host == base_host or host.endswith("." + base_host)):
             continue
-        score = 0
-        low = full.lower()
-        for kw, s in (("job", 3), ("karriere", 3), ("career", 3), ("offene", 4),
-                      ("stellen", 3), ("initiativ", 5), ("emploi", 3), ("vacan", 3),
-                      ("bewerbung", 2), ("team", 1)):
-            if kw in low:
-                score += s
-        candidates.append((score, full))
-    if not candidates:
-        return ""
+        low, path = full.lower(), pr.path.lower()
+        score = sum(s for kw, s in CAREER_SCORE if kw in low)
+        if not any(kw in path for kw, _ in CAREER_SCORE):
+            score -= 3  # keyword only in the query string
+        if BAD_CAREER_PATH.search(path):
+            score -= 3
+        if "initiativbewerbung" in low or "spontanbewerbung" in low:
+            score -= 3  # unsolicited-application page: listing pages beat it
+        if ats:
+            score += 2
+        seg = 1 if CAREER_SEG.search(path) else 0
+        candidates.append((score, seg, -len(full), full))
     candidates.sort(reverse=True)
-    return candidates[0][1]
+    few = len(A_TAG.findall(body)) < 5  # JS-rendered nav: barely any anchors
+    if candidates and (candidates[0][0] >= 3 or
+                       (candidates[0][0] >= 1 and not few)):
+        return candidates[0][3]
+    return _career_fallback(final) or (candidates[0][3] if candidates else "")
 
 
 def _ref_point():
@@ -497,6 +768,58 @@ def run_career_probe(con, limit):
     con.commit()
 
 
+SUB_SKIP = re.compile(
+    r"/wp-json/|oembed|\.(png|jpe?g|gif|svg|mp4|zip|pdf|docx?)([?#]|$)", re.I)
+MORE_JOBS = re.compile(
+    r"offene\s+stellen|stellenangebote|postes?\s+(?:ouverts|vacants)|"
+    r"offres\s+d.emplois?|posizioni\s+aperte|open\s+positions", re.I)
+
+
+def _career_sublinks(body, final):
+    """Depth-2 candidates: skip wp-json/binaries, prefer job words in the
+    path over query/nav hits, allow 3 when the page promises open positions."""
+    base = _page_base(body, final)
+    base_host = urllib.parse.urlparse(final).netloc.replace("www.", "")
+    cands, seen = [], {final.split("#")[0]}
+    for _, href in _career_hrefs(body):
+        u = urllib.parse.urljoin(base, href).split("#")[0]
+        pr = urllib.parse.urlparse(u)
+        h = pr.netloc.replace("www.", "")
+        if (u in seen or SUB_SKIP.search(u)
+                or not (h == base_host or h.endswith("." + base_host))):
+            continue
+        seen.add(u)
+        cands.append((0 if CAREER_SEG.search(pr.path.lower()) else 1,
+                      len(cands), u))
+    cands.sort()
+    return [u for _, _, u in cands[:3 if MORE_JOBS.search(body) else 2]]
+
+
+def harvest_career(url, name, loc):
+    """Fetch one career page (+depth-2 sublinks when it yields nothing) and
+    extract postings. Shared by run_career_watch and offline verification."""
+    body, final = http_get(url, tries=1, timeout=15)
+    jobs = extract_job_links(body, final, name, loc, career_page=True)
+    if not jobs:
+        for u in _career_sublinks(body, final):
+            try:
+                b2, f2 = http_get(u, tries=1, timeout=15)
+                jobs += extract_job_links(b2, f2, name, loc, career_page=True)
+            except Exception:
+                pass
+    return jobs
+
+
+def career_accept(j):
+    """put()-level filters: internships (also by URL slug) and
+    engineering-only titles are dropped."""
+    slug = urllib.parse.unquote(urllib.parse.urlparse(j["url"]).path)
+    if EXCLUDE_ALWAYS.search(j["title"] + " " + slug):
+        return False
+    hay = j["title"] + " " + (j.get("company_name") or "")
+    return not (EXCLUDE_TITLES.search(hay) and not ARCH_CORE.search(hay))
+
+
 def run_career_watch(con, limit, started):
     """Fetch known career pages and extract actual job postings.
     Half the budget goes to the companies nearest the reference point
@@ -523,37 +846,13 @@ def run_career_watch(con, limit, started):
         if _on_hosts(host, BOARD_HOSTS):
             return row["id"], [], False  # profile hosted on a board we scrape anyway
         try:
-            body, final = http_get(row["career_url"], tries=1, timeout=15)
             loc = " ".join(str(x) for x in (row["plz"], row["city"]) if x)
-            jobs = extract_job_links(body, final, row["name"], loc)
-            if not jobs:
-                # depth 2: many career pages only LINK to a vacancies subpage
-                base_host = urllib.parse.urlparse(final).netloc.replace("www.", "")
-                subs, seen_s = [], {final.split("#")[0]}
-                for m in CAREER_HREF.finditer(body):
-                    u = urllib.parse.urljoin(final, m.group(1)).split("#")[0]
-                    h = urllib.parse.urlparse(u).netloc.replace("www.", "")
-                    if u in seen_s or not (h == base_host or h.endswith("." + base_host)):
-                        continue
-                    seen_s.add(u)
-                    subs.append(u)
-                    if len(subs) == 2:
-                        break
-                for u in subs:
-                    try:
-                        b2, f2 = http_get(u, tries=1, timeout=15)
-                        jobs += extract_job_links(b2, f2, row["name"], loc)
-                    except Exception:
-                        pass
-            return row["id"], jobs, True
+            return row["id"], harvest_career(row["career_url"], row["name"], loc), True
         except Exception:
             return row["id"], [], False
 
     def put(cid, j):
-        if EXCLUDE_ALWAYS.search(j["title"]):
-            return 0
-        hay_x = j["title"] + " " + (j["company_name"] or "")
-        if EXCLUDE_TITLES.search(hay_x) and not ARCH_CORE.search(hay_x):
+        if not career_accept(j):
             return 0
         con.execute("""
             INSERT INTO jobs (source, title, company_name, company_id,
@@ -592,7 +891,8 @@ def run_career_watch(con, limit, started):
                 if row is None:
                     continue
                 loc = " ".join(str(x) for x in (row["plz"], row["city"]) if x)
-                for j in extract_job_links(body, final, row["name"], loc):
+                for j in extract_job_links(body, final, row["name"], loc,
+                                           career_page=True):
                     js_found += put(row["id"], j)
             found += js_found
             print(f"  career-page js-render: {js_found} extra job links "

@@ -44,7 +44,8 @@ CREATE INDEX IF NOT EXISTS idx_jobs_active ON jobs(active);
 MIGRATIONS = {
     "jobs": [("lat", "REAL"), ("lon", "REAL"), ("canton", "TEXT"),
              ("workload", "TEXT"), ("fingerprint", "TEXT"), ("dup_of", "INTEGER")],
-    "companies": [("lat", "REAL"), ("lon", "REAL"), ("career_watched_at", "TEXT")],
+    "companies": [("lat", "REAL"), ("lon", "REAL"), ("career_watched_at", "TEXT"),
+                  ("geo_precision", "TEXT")],
 }
 
 
