@@ -15,7 +15,8 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.normpath(os.path.join(HERE, "..", "site"))
 REPO = r"C:\Users\Petras\tools\architecture-jobs"
-FILES = ["index.html", "data.js", "jobs-simple.html"]
+FILES = ["index.html", "data.js", "jobs-simple.html",
+         "manifest.webmanifest", "icon.svg", "sw.js"]
 
 
 def run(args):
