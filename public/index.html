@@ -887,9 +887,11 @@ nav.tabs button.on .tct{color:var(--accent)}
 .cclbl{position:absolute;transform:translate(-50%,-50%);color:#fff;font-weight:700;font-size:11px;line-height:1;pointer-events:none;font-variant-numeric:tabular-nums}
 .moslbl{position:absolute;transform:translate(14px,-50%);background:var(--panel);color:var(--text);border:1px solid var(--text);padding:2px 7px;font-size:12px;font-weight:700;white-space:nowrap;pointer-events:none}
 .refx{position:absolute;transform:translate(-50%,-50%);pointer-events:none;line-height:0}
-.mapchips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-.mapchips button{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:4px 11px;border:1px solid var(--line2);color:var(--muted);background:var(--panel);transition:all .12s ease}
-.mapchips button.on{border-color:var(--text);background:var(--text);color:var(--bg)}
+.mapdim{position:absolute;left:10px;bottom:26px;z-index:1100;display:flex;align-items:center;gap:8px;background:var(--panel);border:1px solid var(--line2);padding:5px 9px}
+.mapdim span{font-size:10px;font-weight:700;letter-spacing:.09em;color:var(--muted)}
+.mapdim input[type=range]{-webkit-appearance:none;appearance:none;width:96px;height:3px;background:var(--line2);outline:none;padding:0;margin:0;cursor:pointer}
+.mapdim input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:13px;height:13px;background:var(--text);border:none;border-radius:0;cursor:pointer}
+.mapdim input[type=range]::-moz-range-thumb{width:13px;height:13px;background:var(--text);border:none;border-radius:0;cursor:pointer}
 .mapsearch{position:absolute;top:10px;left:10px;z-index:1100}
 .mapsearch input{width:210px;padding-left:26px;padding-right:26px}
 #mosClear{position:absolute;right:3px;top:50%;transform:translateY(-50%);font-size:15px;line-height:1;color:var(--muted);padding:2px 6px;display:none;z-index:2}
@@ -1036,10 +1038,6 @@ footer{border-top:1px solid var(--line);padding:16px 0 26px;font-size:12.5px;col
   </section>
 
   <section class="tab" id="tab-map">
-    <div class="mapchips">
-      <button type="button" id="lyrJobs" title="Toggle the open-positions layer">Open positions</button>
-      <button type="button" id="lyrOff" title="Toggle the offices layer">Offices</button>
-    </div>
     <div class="mapwrap">
       <div id="mapBox"></div>
       <div class="mapsearch picker">
@@ -1047,6 +1045,10 @@ footer{border-top:1px solid var(--line);padding:16px 0 26px;font-size:12.5px;col
         <input type="text" id="mosInput" placeholder="Find office&hellip;" autocomplete="off" spellcheck="false" aria-label="Find office">
         <button type="button" id="mosClear" title="Clear office search" aria-label="Clear office search">&times;</button>
         <div class="pdrop" id="mosDrop"></div>
+      </div>
+      <div class="mapdim" title="Map background opacity">
+        <span>MAP</span>
+        <input type="range" id="mapOpac" min="0" max="100" step="1" value="50" aria-label="Map background opacity">
       </div>
     </div>
     <div class="maplegend" id="mapLegend"></div>
@@ -1403,7 +1405,7 @@ function persistFilters(){
       status:ui.jobs.status,hideRej:ui.jobs.hideRej,sort:ui.jobs.sort,sortDir:ui.jobs.sortDir},
     comps:{q:ui.comps.q,canton:ui.comps.canton,radius:ui.comps.radius,applied:ui.comps.applied,
       minRating:ui.comps.minRating,arch:ui.comps.arch,sort:ui.comps.sort},
-    map:{jobs:mapLayers.jobs,offices:mapLayers.offices},
+    map:{opacity:mapOpac},
     density:document.body.classList.contains("compact")?"compact":"comfortable"
   };
   saveSoon();
@@ -1430,8 +1432,7 @@ function restoreFilters(){
     if(typeof c.arch==="boolean")ui.comps.arch=c.arch;
     if(typeof c.sort==="string")ui.comps.sort=c.sort;
     if(f.map&&typeof f.map==="object"){
-      if(typeof f.map.jobs==="boolean")mapLayers.jobs=f.map.jobs;
-      if(typeof f.map.offices==="boolean")mapLayers.offices=f.map.offices;
+      if(typeof f.map.opacity==="number"&&f.map.opacity>=0&&f.map.opacity<=1)mapOpac=f.map.opacity;
     }
     applyDensity(f.density==="compact"?"compact":"comfortable");
   }
@@ -1966,27 +1967,61 @@ el("tab-companies").addEventListener("input",function(e){
 });
 
 /* ---------- MAP (Leaflet + swisstopo) ---------- */
-var mapLayers={jobs:true,offices:false};
-var lmap=null,lJobs=null,lOff=null,lLbls=null,lHiGrp=null,lRefMk=null,lFocusRing=null;
-var mapOffPts=[],mapOffCount=0,mapCellsArr=[],mapLocated=0;
-var mapJobMarkers=[],mapOffMarkers=[],mosHighlight=null,mosRingMk=null,mosLblMk=null;
+var MAP_RED="#e2001a",MAP_BLUE="#2f7bff",MAP_ZTHRESH=12,MAP_OPAC_DEF=0.5;
+var lmap=null,lRed=null,lBlue=null,lLbls=null,lHiGrp=null,lRefMk=null,lFocusRing=null,lTile=null;
+var mapOffPts=[],mapOffCount=0,mapCellsArr=[],mapLocated=0,mapMode="";
+var mapRedMarkers=[],mapBlueMarkers=[],mapOpac=MAP_OPAC_DEF;
+var mosHighlight=null,mosRingMk=null,mosLblMk=null;
 var CH_BOUNDS=[[45.75,5.9],[47.85,10.55]];
+var _jobsByHash=null,_offByHash=null,_postPoints=null;
 function mapCssVar(name,fb){
   try{var v=getComputedStyle(document.documentElement).getPropertyValue(name).trim();return v||fb;}catch(e){return fb;}
 }
-/* zoom-adaptive radii: scale doubles every 2 zoom levels (z8 = country view) */
 function mapScale(z){return Math.pow(2,(z-8)/2);}
 function cityR(count,z){return Math.max(3,Math.min(46,(1.2+1.15*Math.sqrt(count))*mapScale(z)));}
-function offR(z){return Math.max(1.6,Math.min(9,1.6*mapScale(z)));}
+function offR(z){return Math.max(2,Math.min(11,1.7*mapScale(z)));}
+function officeAddr(co){
+  var parts=[];if(co.street)parts.push(co.street);
+  var pc=[];if(co.plz)pc.push(co.plz);if(co.city)pc.push(co.city);
+  if(pc.length)parts.push(pc.join(" "));
+  return parts.join(", ");
+}
+function buildJobIndex(){
+  if(_jobsByHash)return;
+  _jobsByHash={};_offByHash={};
+  DATA.companies.forEach(function(co){if(co.hash)_offByHash[co.hash]=co;});
+  mergedJobs().forEach(function(j){
+    if(!j.company_hash)return;
+    (_jobsByHash[j.company_hash]||(_jobsByHash[j.company_hash]=[])).push(j);
+  });
+}
 function buildOffPts(){
   if(mapOffPts.length)return;
-  for(var k=0;k<DATA.companies.length;k++){
-    var co=DATA.companies[k];
-    if(typeof co.lat!=="number"||typeof co.lon!=="number")continue;
+  buildJobIndex();mapOffCount=0;
+  DATA.companies.forEach(function(co){
+    if(typeof co.lat!=="number"||typeof co.lon!=="number")return;
     mapOffCount++;
-    /* exact coordinates - no rounding/clustering (address-precise geocoding upcoming) */
-    mapOffPts.push({lat:co.lat,lon:co.lon,hash:co.hash,name:co.name,city:co.city||"",n:norm(co.name)});
-  }
+    var hj=!!(_jobsByHash[co.hash]&&_jobsByHash[co.hash].length);
+    mapOffPts.push({lat:co.lat,lon:co.lon,hash:co.hash,name:co.name,city:co.city||"",addr:officeAddr(co),n:norm(co.name),hasJob:hj});
+  });
+}
+function buildPostPoints(){
+  if(_postPoints)return;
+  buildJobIndex();
+  var by={};
+  mergedJobs().forEach(function(j){
+    var la,lo,key,name,addr;
+    var co=(j.company_hash&&_offByHash[j.company_hash])||null;
+    if(co&&typeof co.lat==="number"&&typeof co.lon==="number"){
+      la=co.lat;lo=co.lon;name=co.name;addr=officeAddr(co)||j.location||"";key="h:"+co.hash;
+    }else if(typeof j.lat==="number"&&typeof j.lon==="number"){
+      la=j.lat;lo=j.lon;name=j.company||j.location||"?";addr=j.location||"";
+      key="c:"+(Math.round(la*1e4)/1e4)+","+(Math.round(lo*1e4)/1e4);
+    }else return;
+    var p=by[key]||(by[key]={lat:la,lon:lo,name:name,addr:addr,titles:[]});
+    p.titles.push(j.title);
+  });
+  _postPoints=Object.keys(by).map(function(k){return by[k];});
 }
 function computeMapCells(){
   var cells={},located=0;
@@ -1999,97 +2034,99 @@ function computeMapCells(){
     var nm=j.location||j.canton||"?";
     c.names[nm]=(c.names[nm]||0)+1;
   });
-  DATA.companies.forEach(function(co){
-    if(typeof co.lat!=="number"||typeof co.lon!=="number")return;
-    var key=(Math.round(co.lat*20)/20)+"|"+(Math.round(co.lon*20)/20);
-    if(cells[key])cells[key].off++;
-  });
   var arr=Object.keys(cells).map(function(k){
     var c=cells[k],best="?",bn=0;
     Object.keys(c.names).forEach(function(n){if(c.names[n]>bn){bn=c.names[n];best=n;}});
-    c.label=best;
-    return c;
+    c.label=best;return c;
   });
-  arr.sort(function(a,b){return b.count-a.count;}); /* big first: small circles stay on top */
+  arr.sort(function(a,b){return b.count-a.count;});
   return {cells:arr,located:located};
 }
-function updateMapChips(){
-  el("lyrJobs").classList.toggle("on",mapLayers.jobs);
-  el("lyrOff").classList.toggle("on",mapLayers.offices);
-}
+function updateMapChips(){var sl=el("mapOpac");if(sl)sl.value=Math.round(mapOpac*100);}
 function ensureMap(){
   if(lmap||typeof L==="undefined")return;
-  lmap=L.map(el("mapBox"),{
-    zoomControl:false,attributionControl:true,
-    minZoom:7,maxZoom:17,
-    maxBounds:[[45.3,5.3],[48.35,11.2]],maxBoundsViscosity:.8
-  });
+  lmap=L.map(el("mapBox"),{zoomControl:false,attributionControl:true,minZoom:7,maxZoom:17,maxBounds:[[45.3,5.3],[48.35,11.2]],maxBoundsViscosity:.8});
   L.control.zoom({position:"topright"}).addTo(lmap);
   lmap.attributionControl.setPrefix(false);
-  L.tileLayer("https://wmts10.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-grau/default/current/3857/{z}/{x}/{y}.jpeg",
-    {maxZoom:17,minZoom:7,attribution:"&copy; swisstopo"}).addTo(lmap);
-  /* stacking: job circles under office dots so tiny dots stay clickable; rings on top */
-  lmap.createPane("pJobs").style.zIndex=410;
-  lmap.createPane("pOff").style.zIndex=420;
-  lmap.createPane("pRing").style.zIndex=430;
-  lJobs=L.layerGroup();lOff=L.layerGroup();lLbls=L.layerGroup();lHiGrp=L.layerGroup();
+  lTile=L.tileLayer("https://wmts10.geo.admin.ch/1.0.0/ch.swisstopo.pixelkarte-grau/default/current/3857/{z}/{x}/{y}.jpeg",{maxZoom:17,minZoom:7,attribution:"&copy; swisstopo",opacity:mapOpac}).addTo(lmap);
+  lmap.createPane("pBlue").style.zIndex=410;
+  lmap.createPane("pRed").style.zIndex=420;
+  lmap.createPane("pRing").style.zIndex=440;
+  lRed=L.layerGroup();lBlue=L.layerGroup();lLbls=L.layerGroup();lHiGrp=L.layerGroup();
   lmap.fitBounds(CH_BOUNDS);
-  lmap.on("zoomend",function(){updateMapRadii();updateMapLabels();});
+  lmap.on("zoomend",function(){buildRedLayer();updateBlueRadii();});
+  lmap.on("moveend",function(){if(mapMode==="exact")buildRedLayer();});
   lmap.on("click",function(){clearMapFocus();});
 }
-function buildOffMarkers(){
-  if(mapOffMarkers.length||!lmap)return;
+function focusJobsAt(name,lat,lon){
+  ui.jobs.mapFocus={name:name,lat:lat,lon:lon};
+  updateFocusChip();setTab("jobs");renderJobs();window.scrollTo({top:0});
+}
+function buildBlueLayer(){
+  if(mapBlueMarkers.length||!lmap)return;
   buildOffPts();
-  var renderer=L.canvas({padding:.4,pane:"pOff"});
-  var col=mapCssVar("--text","#17181a");
+  var rnd=L.canvas({padding:.4,pane:"pBlue"});
   var r=offR(lmap.getZoom()||8);
   mapOffPts.forEach(function(o){
-    var m=L.circleMarker([o.lat,o.lon],{pane:"pOff",renderer:renderer,radius:r,stroke:false,fillColor:col,fillOpacity:.72,bubblingMouseEvents:false});
-    m.bindTooltip(esc(o.name)+(o.city?" &middot; "+esc(o.city):""),{direction:"top",opacity:1});
-    m.on("click",function(){gotoCompany(o.hash);});
-    mapOffMarkers.push(m);
-    lOff.addLayer(m);
+    if(o.hasJob)return;
+    var m=L.circleMarker([o.lat,o.lon],{pane:"pBlue",renderer:rnd,radius:r,stroke:true,color:"#fff",weight:.6,fillColor:MAP_BLUE,fillOpacity:.82,bubblingMouseEvents:false});
+    m.bindTooltip(esc(o.name)+(o.addr?" &middot; "+esc(o.addr):(o.city?" &middot; "+esc(o.city):"")),{direction:"top",opacity:1});
+    (function(oo){m.on("click",function(){gotoCompany(oo.hash);});})(o);
+    mapBlueMarkers.push(m);lBlue.addLayer(m);
   });
 }
-function buildJobMarkers(){
+function buildRedLayer(){
   if(!lmap)return;
-  lJobs.clearLayers();mapJobMarkers=[];
-  var agg=computeMapCells();
-  mapCellsArr=agg.cells;mapLocated=agg.located;
+  lRed.clearLayers();mapRedMarkers=[];
   var z=lmap.getZoom()||8;
-  mapCellsArr.forEach(function(c){
-    var m=L.circleMarker([c.lat,c.lon],{pane:"pJobs",radius:cityR(c.count,z),stroke:false,fillColor:"#e2001a",fillOpacity:.62,bubblingMouseEvents:false});
-    m._cc=c;
-    m.bindTooltip("<b>"+esc(c.label)+"</b> &middot; "+c.count+" job"+(c.count===1?"":"s")+" &middot; "+c.off+" office"+(c.off===1?"":"s"),{direction:"top",opacity:1});
-    m.on("click",function(){
-      ui.jobs.mapFocus={name:c.label,lat:c.lat,lon:c.lon};
-      updateFocusChip();
-      setTab("jobs");renderJobs();
-      window.scrollTo({top:0});
+  mapMode=z>=MAP_ZTHRESH?"exact":"grouped";
+  if(mapMode==="exact"){
+    buildPostPoints();
+    var rnd=L.canvas({padding:.5,pane:"pRed"});
+    var b=lmap.getBounds().pad(.3);
+    _postPoints.forEach(function(p){
+      if(!b.contains([p.lat,p.lon]))return;
+      var cnt=p.titles.length;
+      var m=L.circleMarker([p.lat,p.lon],{pane:"pRed",renderer:rnd,radius:cityR(cnt,z),stroke:true,color:"#fff",weight:1,fillColor:MAP_RED,fillOpacity:.85,bubblingMouseEvents:false});
+      m._cnt=cnt;m._ll=[p.lat,p.lon];
+      var ttl=p.titles.slice(0,6).map(esc).join("<br>")+(cnt>6?"<br>+"+(cnt-6)+" more":"");
+      m.bindTooltip("<b>"+esc(p.name)+"</b>"+(p.addr?"<br>"+esc(p.addr):"")+"<br>"+ttl,{direction:"top",opacity:1});
+      (function(pp){m.on("click",function(){focusJobsAt(pp.name,pp.lat,pp.lon);});})(p);
+      mapRedMarkers.push(m);lRed.addLayer(m);
     });
-    mapJobMarkers.push(m);
-    lJobs.addLayer(m);
-  });
+  }else{
+    mapCellsArr.forEach(function(c){
+      var m=L.circleMarker([c.lat,c.lon],{pane:"pRed",radius:cityR(c.count,z),stroke:false,fillColor:MAP_RED,fillOpacity:.62,bubblingMouseEvents:false});
+      m._cnt=c.count;m._ll=[c.lat,c.lon];m._cc=c;
+      m.bindTooltip("<b>"+esc(c.label)+"</b> &middot; "+c.count+" open position"+(c.count===1?"":"s"),{direction:"top",opacity:1});
+      (function(cc){m.on("click",function(){focusJobsAt(cc.label,cc.lat,cc.lon);});})(c);
+      mapRedMarkers.push(m);lRed.addLayer(m);
+    });
+  }
   updateMapLabels();
 }
-function updateMapRadii(){
+function updateBlueRadii(){
   if(!lmap)return;
-  var z=lmap.getZoom();
-  for(var i=0;i<mapJobMarkers.length;i++)mapJobMarkers[i].setRadius(cityR(mapJobMarkers[i]._cc.count,z));
-  var ro=offR(z);
-  for(var k=0;k<mapOffMarkers.length;k++)mapOffMarkers[k].setRadius(ro);
-  if(mosRingMk)mosRingMk.setRadius(Math.max(12,ro*2.2));
+  var r=offR(lmap.getZoom());
+  for(var i=0;i<mapBlueMarkers.length;i++)mapBlueMarkers[i].setRadius(r);
+  if(mosRingMk)mosRingMk.setRadius(Math.max(12,r*2.2));
 }
 function updateMapLabels(){
   if(!lmap)return;
   lLbls.clearLayers();
-  if(!mapLayers.jobs)return;
-  var z=lmap.getZoom(),thr=z>=13?1:(z>=11?2:8);
-  mapCellsArr.forEach(function(c){
-    if(c.count<thr)return;
-    lLbls.addLayer(L.marker([c.lat,c.lon],{interactive:false,keyboard:false,
-      icon:L.divIcon({className:"ccw",iconSize:[0,0],html:'<span class="cclbl">'+c.count+"</span>"})}));
-  });
+  var z=lmap.getZoom();
+  if(mapMode==="exact"){
+    for(var i=0;i<mapRedMarkers.length;i++){
+      var mk=mapRedMarkers[i];if(mk._cnt<2)continue;
+      lLbls.addLayer(L.marker(mk._ll,{interactive:false,keyboard:false,icon:L.divIcon({className:"ccw",iconSize:[0,0],html:'<span class="cclbl">'+mk._cnt+"</span>"})}));
+    }
+  }else{
+    var thr=z>=11?2:8;
+    mapCellsArr.forEach(function(c){
+      if(c.count<thr)return;
+      lLbls.addLayer(L.marker([c.lat,c.lon],{interactive:false,keyboard:false,icon:L.divIcon({className:"ccw",iconSize:[0,0],html:'<span class="cclbl">'+c.count+"</span>"})}));
+    });
+  }
 }
 function updateRefMarker(){
   if(!lmap)return;
@@ -2097,8 +2134,7 @@ function updateRefMarker(){
   if(!(state.ref&&typeof state.ref.lat==="number"))return;
   var col=mapCssVar("--text","#17181a");
   var svg='<svg width="26" height="26" viewBox="0 0 26 26"><g stroke="'+col+'" stroke-width="2" fill="none"><circle cx="13" cy="13" r="6"/><line x1="13" y1="1" x2="13" y2="5"/><line x1="13" y1="21" x2="13" y2="25"/><line x1="1" y1="13" x2="5" y2="13"/><line x1="21" y1="13" x2="25" y2="13"/></g></svg>';
-  lRefMk=L.marker([state.ref.lat,state.ref.lon],{interactive:false,keyboard:false,
-    icon:L.divIcon({className:"ccw",iconSize:[0,0],html:'<span class="refx">'+svg+"</span>"})}).addTo(lmap);
+  lRefMk=L.marker([state.ref.lat,state.ref.lon],{interactive:false,keyboard:false,icon:L.divIcon({className:"ccw",iconSize:[0,0],html:'<span class="refx">'+svg+"</span>"})}).addTo(lmap);
 }
 function updateFocusRing(){
   if(!lmap)return;
@@ -2111,9 +2147,8 @@ function setMosHighlight(o){
   mosHighlight=o;
   if(!lmap)return;
   var ro=offR(lmap.getZoom()||8);
-  mosRingMk=L.circleMarker([o.lat,o.lon],{pane:"pRing",radius:Math.max(12,ro*2.2),fill:false,color:"#e2001a",weight:3,interactive:false});
-  mosLblMk=L.marker([o.lat,o.lon],{interactive:false,keyboard:false,
-    icon:L.divIcon({className:"ccw",iconSize:[0,0],html:'<span class="moslbl">'+esc(o.name)+"</span>"})});
+  mosRingMk=L.circleMarker([o.lat,o.lon],{pane:"pRing",radius:Math.max(12,ro*2.2),fill:false,color:MAP_RED,weight:3,interactive:false});
+  mosLblMk=L.marker([o.lat,o.lon],{interactive:false,keyboard:false,icon:L.divIcon({className:"ccw",iconSize:[0,0],html:'<span class="moslbl">'+esc(o.name)+"</span>"})});
   lHiGrp.addLayer(mosRingMk);lHiGrp.addLayer(mosLblMk);
 }
 function clearMosHighlight(){
@@ -2123,39 +2158,38 @@ function clearMosHighlight(){
 }
 function mapThemeRefresh(){
   if(!lmap)return;
-  var col=mapCssVar("--text","#17181a");
-  for(var i=0;i<mapOffMarkers.length;i++)mapOffMarkers[i].setStyle({fillColor:col});
-  if(lFocusRing)lFocusRing.setStyle({color:col});
+  if(lFocusRing)lFocusRing.setStyle({color:mapCssVar("--text","#17181a")});
   updateRefMarker();
 }
 function renderMap(){
-  if(typeof L==="undefined"){
-    el("mapBox").innerHTML='<div class="empty"><b>Map library missing.</b></div>';
-    return;
-  }
+  if(typeof L==="undefined"){el("mapBox").innerHTML='<div class="empty"><b>Map library missing.</b></div>';return;}
   ensureMap();
   if(!lmap)return;
-  buildOffMarkers();
-  buildJobMarkers();
-  if(mapLayers.jobs){if(!lmap.hasLayer(lJobs))lmap.addLayer(lJobs);if(!lmap.hasLayer(lLbls))lmap.addLayer(lLbls);}
-  else{if(lmap.hasLayer(lJobs))lmap.removeLayer(lJobs);if(lmap.hasLayer(lLbls))lmap.removeLayer(lLbls);}
-  if(mapLayers.offices){if(!lmap.hasLayer(lOff))lmap.addLayer(lOff);}
-  else if(lmap.hasLayer(lOff))lmap.removeLayer(lOff);
+  var agg=computeMapCells();mapCellsArr=agg.cells;mapLocated=agg.located;
+  buildBlueLayer();
+  if(!lmap.hasLayer(lBlue))lmap.addLayer(lBlue);
+  buildRedLayer();
+  if(!lmap.hasLayer(lRed))lmap.addLayer(lRed);
+  if(!lmap.hasLayer(lLbls))lmap.addLayer(lLbls);
   if(!lmap.hasLayer(lHiGrp))lmap.addLayer(lHiGrp);
-  updateRefMarker();
-  updateFocusRing();
-  updateMapRadii();
+  updateRefMarker();updateFocusRing();updateBlueRadii();
   var lg=[];
-  if(mapLayers.jobs)lg.push('<span><svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill="#e2001a" opacity=".62"/></svg>Open positions (size = count)</span>');
-  if(mapLayers.offices)lg.push('<span><svg width="10" height="10"><circle cx="5" cy="5" r="2.6" fill="var(--text)" opacity=".72"/></svg>Architecture office</span>');
+  lg.push('<span><svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill="'+MAP_RED+'" opacity=".72"/></svg>Open position(s)</span>');
+  lg.push('<span><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="'+MAP_BLUE+'"/></svg>Office &ndash; no opening</span>');
   lg.push('<span><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="none" stroke="var(--text)"/></svg>Your location'+(state.ref?" ("+esc(state.ref.name)+")":"")+"</span>");
   el("mapLegend").innerHTML=lg.join("");
-  el("mapStat").innerHTML=mapOffCount+" offices &middot; "+mapLocated+" located jobs &middot; "+mapCellsArr.length+" cities with openings";
+  el("mapStat").innerHTML=mapOffCount+" offices &middot; "+mapLocated+" open positions located &middot; zoom past level "+MAP_ZTHRESH+" for exact addresses";
   updateMapChips();
   setTimeout(function(){if(lmap)lmap.invalidateSize();},0);
 }
-el("lyrJobs").addEventListener("click",function(){mapLayers.jobs=!mapLayers.jobs;persistFilters();renderMap();});
-el("lyrOff").addEventListener("click",function(){mapLayers.offices=!mapLayers.offices;persistFilters();renderMap();});
+(function(){
+  var sl=el("mapOpac");
+  if(!sl)return;
+  sl.value=Math.round(mapOpac*100);
+  var on=function(){mapOpac=(+sl.value)/100;if(lTile)lTile.setOpacity(mapOpac);persistFilters();};
+  sl.addEventListener("input",on);
+  sl.addEventListener("change",on);
+})();
 
 /* ---------- office search overlay ---------- */
 function updateMosClear(){
@@ -2189,7 +2223,6 @@ function updateMosClear(){
   }
   function pick(o){
     input.value=o.name;close();
-    if(!mapLayers.offices){mapLayers.offices=true;persistFilters();}
     setMosHighlight(o);
     renderMap();
     updateMosClear();
