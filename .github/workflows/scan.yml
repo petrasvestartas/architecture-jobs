@@ -48,9 +48,9 @@ jobs:
           else
             python scraper.py --career-watch 50
           fi
-      - name: Announce new matching jobs
+      - name: Send daily e-mail digest (early-morning full scan only)
+        if: github.event.schedule == '30 3 * * *'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           PYTHONIOENCODING: utf-8
         working-directory: jobtracker

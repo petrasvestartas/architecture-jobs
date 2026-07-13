@@ -23,6 +23,7 @@ import db
 import geo
 from net import (UA, http_get, get_json, post_json, strip_tags,  # noqa: F401
                  extract_workload)
+from jobfilter import is_non_building
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -616,15 +617,9 @@ ACADEMIA_EXTRA = re.compile(
     r"\b(building|bauwesen|baukultur|constructi\w*|habitat|d-arch|gta|"
     r"denkmal|heritage|monument|housing|wohnen|territoir)\w*\b", re.I)
 
-# software/IT roles that contain "architect" — NZZ/Indeed/LinkedIn noise
-NON_ARCH = re.compile(
-    r"\b(?:it|ict|tech|software|cloud|data|solutions?|systems?|network|"
-    r"security|enterprise|application|integration|plat(?:t)?form|informatik|"
-    r"digital|sap|azure|aws|devops|bi|web|java|\.net|ml|ai|rf|hardware|"
-    r"embedded|firmware)"
-    r"[-\s/]*(?:architekt|architect)"
-    r"|(?:architekt|architect)\w*\s+(?:\.net|java|cloud|sap|azure|aws)\b",
-    re.I)
+# non-building "architect" roles (software/IT/business/landscape/...) are
+# filtered via jobfilter.is_non_building — one rule shared with the site
+# exporter and the notifier so all three agree on "architecture = buildings"
 
 
 # --------------------------------------------------------------------------
@@ -811,10 +806,12 @@ def harvest_career(url, name, loc):
 
 
 def career_accept(j):
-    """put()-level filters: internships (also by URL slug) and
-    engineering-only titles are dropped."""
+    """put()-level filters: internships (also by URL slug), engineering-only
+    titles and non-building 'architect' roles are dropped."""
     slug = urllib.parse.unquote(urllib.parse.urlparse(j["url"]).path)
     if EXCLUDE_ALWAYS.search(j["title"] + " " + slug):
+        return False
+    if is_non_building(j["title"]):
         return False
     hay = j["title"] + " " + (j.get("company_name") or "")
     return not (EXCLUDE_TITLES.search(hay) and not ARCH_CORE.search(hay))
@@ -1049,14 +1046,14 @@ def main():
                     hay_x = title + " " + (j.get("company_name") or "")
                     if EXCLUDE_TITLES.search(hay_x) and not ARCH_CORE.search(hay_x):
                         continue  # Baumanagement/engineering ads & firms
+                    if is_non_building(title):
+                        continue  # buildings-only: software/IT/landscape/... "architect"
                 if name in GENERAL_BOARDS and args.arch_only:
                     hay = title + " " + (j.get("company_name") or "")
                     keyword_ok = ARCH_KEYWORDS.search(hay) or \
                         (name == "academia" and ACADEMIA_EXTRA.search(hay))
                     if not keyword_ok:
                         continue
-                    if NON_ARCH.search(title):
-                        continue  # IT/software "architect" roles
                 src = j.pop("_source", name)
                 insert_job(con, src, j, started)
                 kept += 1

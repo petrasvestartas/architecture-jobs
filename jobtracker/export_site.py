@@ -71,6 +71,7 @@ def _source_rows(con, source_meta):
 
 def export(con=None):
     import scraper as _s  # for SOURCE_META/CONFIG (avoid circular import at module level)
+    from jobfilter import is_non_building  # buildings-only gate
     own = con is None
     if own:
         db.init()
@@ -86,6 +87,8 @@ def export(con=None):
             {"source": r["source"], "url": r["url"]})
     for r in con.execute("""SELECT * FROM jobs WHERE active=1 AND dup_of IS NULL
                             ORDER BY first_seen DESC, posted_at DESC"""):
+        if is_non_building(r["title"]):
+            continue  # buildings-only: drop software/IT/landscape/... "architect"
         jobs.append({
             "url": r["url"], "source": r["source"], "title": r["title"],
             "company": r["company_name"] or "",
@@ -101,6 +104,7 @@ def export(con=None):
     for r in con.execute("SELECT * FROM companies WHERE status='ok' ORDER BY name"):
         companies.append({
             "hash": r["hash"], "name": r["name"], "city": r["city"] or "",
+            "street": r["street"] or "",
             "plz": str(r["plz"]).split(".")[0] if r["plz"] not in (None, "") else "",
             "canton": r["canton"] or "",
             "lat": r["lat"], "lon": r["lon"],

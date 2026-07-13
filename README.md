@@ -13,11 +13,14 @@ Switzerland, centered on Bern, design/Entwurf positions first.
   architekturstellen, architectes.ch, archi-jobs, NZZ, ostjob, Job-Room/RAV,
   jobs.ch, jobup.ch, jobagent network, LinkedIn, Indeed, company career
   pages, watched sites, manual), geocodes, dedupes, filters out
-  engineering / Baumanagement / internship / IT-architect ads, regenerates
-  `public/`, and deploys.
-- `jobtracker/notify.py` runs after every scan: new jobs within 40 km of the
-  reference (or Entwurf within 120 km) become a GitHub issue (phone push)
-  and an email (Gmail SMTP via the `GMAIL_APP_PASSWORD` repo secret).
+  engineering / Baumanagement / internship / non-building "architect"
+  (software, IT, business, landscape, …) ads, regenerates `public/`, and
+  deploys.
+- `jobtracker/notify.py` sends one **daily e-mail digest** early morning
+  (the 05:30 full scan only, never the frequent scans) listing new
+  building-architecture jobs within 40 km of the reference (or Entwurf within
+  120 km), via Gmail SMTP (`GMAIL_APP_PASSWORD` repo secret). Only sent when
+  there is something new; no per-scan phone pushes.
 - `.github/workflows/pages.yml` deploys `public/` to GitHub Pages **on every
   push** to main.
 - `jobtracker/` is the full pipeline: `scraper.py` (sources + career

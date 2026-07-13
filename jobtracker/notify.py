@@ -1,24 +1,27 @@
 # -*- coding: utf-8 -*-
-"""Announce newly found matching jobs as a GitHub issue after a scan.
+"""Daily e-mail digest of new architecture (buildings) jobs near the
+reference place.
 
-A new issue in the repo triggers a push notification in the GitHub mobile
-app (watch the repo with "All activity"). State lives in notified.json —
-on the very first run it is seeded silently with every job already in the
-database, so only genuinely new postings are ever announced.
+Sent once, early morning, by the 05:30 cloud full scan only — never after
+the frequent light scans — and only when there is at least one genuinely
+new building-architecture posting within range. State lives in
+notified.json: on the very first run it is seeded silently with every job
+already in the database, so the first digest never dumps the whole backlog.
 
-    python notify.py            # normal run (after a scan)
-Auth: GITHUB_TOKEN env (CI) or the local `gh` CLI as fallback.
+    python notify.py            # send the digest (e-mail only)
+    python notify.py --dry-run  # print what would be sent, send nothing
+    python notify.py --test     # send a sample e-mail to verify delivery
+E-mail: Gmail SMTP with GMAIL_APP_PASSWORD (repo secret) to config recipients.
 """
 import datetime
 import json
 import os
 import re
-import subprocess
 import sys
-import urllib.request
 
 import db
 import geo
+from jobfilter import is_non_building
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 NOTIFIED = os.path.join(HERE, "notified.json")
@@ -136,28 +139,6 @@ def send_email(subject, html_body, cfg):
     return True
 
 
-def create_issue(title, body):
-    payload = {"title": title, "body": body}
-    token = os.environ.get("GITHUB_TOKEN")
-    if token:
-        req = urllib.request.Request(
-            f"https://api.github.com/repos/{REPO}/issues",
-            data=json.dumps(payload).encode("utf-8"),
-            headers={"Authorization": f"Bearer {token}",
-                     "Accept": "application/vnd.github+json",
-                     "X-GitHub-Api-Version": "2022-11-28",
-                     "Content-Type": "application/json"})
-        with urllib.request.urlopen(req, timeout=30) as r:
-            return json.loads(r.read().decode())["html_url"]
-    # local fallback: authenticated gh CLI
-    p = subprocess.run(["gh", "issue", "create", "--repo", REPO,
-                        "--title", title, "--body", body],
-                       capture_output=True, text=True, encoding="utf-8")
-    if p.returncode != 0:
-        raise RuntimeError(p.stderr.strip()[:300])
-    return p.stdout.strip()
-
-
 def main():
     cfg = _cfg()
     if "--test" in sys.argv:
@@ -172,9 +153,11 @@ def main():
                   "0.4 km · 80-100% · swiss-architects", True)],
                 _joke()), cfg)
         sys.exit(0 if ok else 1)
+    dry = "--dry-run" in sys.argv
     ref = geo.lookup_place(cfg["reference_place"]) or (46.9481, 7.4474, "BE")
     radius = float(cfg["notify_radius_km"])
     e_radius = float(cfg["notify_entwurf_radius_km"])
+    ref_name = cfg["reference_place"]
 
     con = db.connect()
     rows = con.execute("""SELECT title, company_name, location, url, source,
@@ -182,16 +165,19 @@ def main():
                           WHERE active=1 AND dup_of IS NULL""").fetchall()
     con.close()
 
-    if not os.path.exists(NOTIFIED):
+    if not os.path.exists(NOTIFIED) and not dry:
         json.dump(sorted(r["url"] for r in rows), open(NOTIFIED, "w"), indent=0)
-        print(f"notify: seeded {len(rows)} existing jobs, no announcement", flush=True)
+        print(f"notify: seeded {len(rows)} existing jobs, no digest", flush=True)
         return
 
-    seen = set(json.load(open(NOTIFIED, encoding="utf-8")))
+    seen = set(json.load(open(NOTIFIED, encoding="utf-8"))) \
+        if os.path.exists(NOTIFIED) else set()
     fresh = [r for r in rows if r["url"] not in seen]
 
     matches = []
     for r in fresh:
+        if is_non_building(r["title"] or ""):
+            continue  # buildings only — no software/landscape/... "architect"
         d = (geo.haversine_km(ref[0], ref[1], r["lat"], r["lon"])
              if r["lat"] is not None else None)
         entwurf = bool(ENTWURF.search(r["title"] or ""))
@@ -201,26 +187,9 @@ def main():
 
     if matches:
         matches.sort(key=lambda m: (not m[2], m[1] if m[1] is not None else 9e9))
-        ref_name = cfg["reference_place"]
-        stamp = datetime.datetime.now().strftime("%d.%m.%Y %H:%M")
+        stamp = datetime.datetime.now().strftime("%d.%m.%Y")
         title = (f"{len(matches)} new architecture job"
                  f"{'s' if len(matches) > 1 else ''} near {ref_name} — {stamp}")
-        lines = []
-        for r, d, entwurf in matches:
-            km = f"{d:.0f} km" if d is not None else "?"
-            tag = " **ENTWURF**" if entwurf else ""
-            comp = f" — {r['company_name']}" if r["company_name"] else ""
-            lines.append(f"- [{r['title']}]({r['url']}){comp} · "
-                         f"{r['location'] or '?'} · {km} · {r['source']}{tag}")
-        joke = _joke()
-        body = ("\n".join(lines)
-                + f"\n\n[Open the website]({SITE_URL})"
-                + f"\n\n> \U0001F436 {joke}")
-        try:
-            url = create_issue(title, body)
-            print(f"notify: {len(matches)} new matching jobs -> {url}", flush=True)
-        except Exception as e:
-            print(f"notify: issue creation failed: {e}", flush=True)
         items = []
         for r, d, entwurf in matches:
             km = f"{d:.0f} km" if d is not None else "?"
@@ -230,16 +199,22 @@ def main():
             items.append((r["title"], r["url"], meta, entwurf))
         heading = (f"{len(matches)} new position{'s' if len(matches) > 1 else ''} "
                    f"near {ref_name} — sorted Entwurf first, closest first:")
+        if dry:
+            print(f"[dry-run] would e-mail: {title}", flush=True)
+            for t, u, m, entwurf in items:
+                print(f"  {'[ENTWURF] ' if entwurf else ''}{t} · {m}", flush=True)
+            return
         try:
-            send_email(title, email_html(heading, items, joke), cfg)
+            send_email(title, email_html(heading, items, _joke()), cfg)
         except Exception as e:
             print(f"notify: email failed: {e}", flush=True)
     else:
-        print(f"notify: {len(fresh)} new jobs, none within "
-              f"{radius:.0f} km / Entwurf {e_radius:.0f} km", flush=True)
+        print(f"notify: {len(fresh)} new jobs, none building & in range "
+              f"({radius:.0f} km / Entwurf {e_radius:.0f} km)", flush=True)
 
-    seen.update(r["url"] for r in rows)
-    json.dump(sorted(seen), open(NOTIFIED, "w"), indent=0)
+    if not dry:
+        seen.update(r["url"] for r in rows)
+        json.dump(sorted(seen), open(NOTIFIED, "w"), indent=0)
 
 
 if __name__ == "__main__":
