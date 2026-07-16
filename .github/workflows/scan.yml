@@ -59,16 +59,25 @@ jobs:
         run: |
           git config user.name "jobtracker-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Commit only real state (DB + e-mail state) — NEVER the regenerated
+          # public/ files. Those deploy straight from the workspace artifact;
+          # committing them raced with the local 30-min scan's push and caused
+          # data.js merge conflicts (exit 128, deploy skipped).
           if [ "${{ github.event.schedule }}" = "30 3 * * *" ]; then
-            git add -A
+            git add jobtracker/jobtracker.db jobtracker/notified.json
           else
             git add jobtracker/notified.json
           fi
-          git diff --cached --quiet || {
-            git commit -m "Scan state $(date -u +'%F %H:%M')"
-            git pull --rebase --autostash origin main || true
-            git push
-          }
+          git diff --cached --quiet && { echo "no state changes to persist"; exit 0; }
+          git commit -m "Scan state $(date -u +'%F %H:%M')"
+          for i in 1 2 3 4 5; do
+            if git push; then echo "state pushed"; exit 0; fi
+            echo "push rejected (attempt $i) — re-syncing with origin"
+            git pull --rebase -X theirs --autostash origin main \
+              || git rebase --abort 2>/dev/null || true
+          done
+          echo "persist: still could not push; a later scan will re-commit"
+          exit 0
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
