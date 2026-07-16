@@ -1057,36 +1057,7 @@ footer{border-top:1px solid var(--line);padding:16px 0 26px;font-size:12.5px;col
 
   <section class="tab" id="tab-companies">
     <div class="filters">
-      <input type="text" id="cq" class="grow" placeholder="Search firm name or city&hellip;" aria-label="Search companies">
-      <select id="cCanton"><option value="">Canton: all</option></select>
-      <select id="cRadius" title="Distance from reference place">
-        <option value="any">Radius: any</option>
-        <option value="5">&le; 5 km</option>
-        <option value="10">&le; 10 km</option>
-        <option value="15">&le; 15 km</option>
-        <option value="25">&le; 25 km</option>
-        <option value="50">&le; 50 km</option>
-        <option value="100">&le; 100 km</option>
-      </select>
-      <select id="cApplied">
-        <option value="all">Applied: all</option>
-        <option value="yes">Applied</option>
-        <option value="no">Not applied</option>
-      </select>
-      <select id="cRating">
-        <option value="0">Rating: any</option>
-        <option value="2">&ge; 2 &#9733;</option>
-        <option value="3">&ge; 3 &#9733;</option>
-        <option value="4">&ge; 4 &#9733;</option>
-        <option value="5">5 &#9733;</option>
-      </select>
-      <select id="cSort">
-        <option value="distance">Sort: distance</option>
-        <option value="name">Name A&ndash;Z</option>
-        <option value="rating">Rating</option>
-        <option value="jobs">Open jobs</option>
-      </select>
-      <label><input type="checkbox" id="cArch" checked> architecture only</label>
+      <input type="text" id="cq" class="grow" placeholder="Search office name&hellip;" aria-label="Search offices">
     </div>
     <div class="note-inline"><b>STARS = HOW MUCH ARCHITECTURE</b> (from the SIA register)<ul style="list-style:none;margin:4px 0 0;padding:0"><li>&#9733;&#9733;&#9733;&#9733;&ndash;&#9733;&#9733;&#9733;&#9733;&#9733; architecture office</li><li>&#9733;&#9733;&#9733; mixed</li><li>&#9733;&ndash;&#9733;&#9733; engineering firm</li></ul></div>
     <div class="countline" id="cCount"></div>
@@ -1445,12 +1416,6 @@ function restoreFilters(){
   if(!setSel("jSort",ui.jobs.sort))ui.jobs.sort=el("jSort").value;
   el("jHideRej").checked=ui.jobs.hideRej;
   el("cq").value=ui.comps.q;
-  if(!setSel("cCanton",ui.comps.canton))ui.comps.canton=el("cCanton").value;
-  if(!setSel("cRadius",ui.comps.radius))ui.comps.radius=el("cRadius").value;
-  if(!setSel("cApplied",ui.comps.applied))ui.comps.applied=el("cApplied").value;
-  if(!setSel("cRating",String(ui.comps.minRating)))ui.comps.minRating=+el("cRating").value;
-  if(!setSel("cSort",ui.comps.sort))ui.comps.sort=el("cSort").value;
-  el("cArch").checked=ui.comps.arch;
 }
 
 /* ---------- density toggle ---------- */
@@ -1829,33 +1794,17 @@ function gotoCompany(hash){
   setTab("companies");renderComps();
   window.scrollTo({top:0});
 }
-(function buildCantonSel(){
-  var set={};DATA.companies.forEach(function(c){if(c.canton)set[c.canton]=1;});
-  el("cCanton").innerHTML='<option value="">Canton: all</option>'+Object.keys(set).sort().map(function(k){
-    return '<option value="'+esc(k)+'">'+esc(k)+"</option>";
-  }).join("");
-})();
+/* Offices tab is a plain A–Z list of every office — no canton/radius/rating/
+   arch filters or sort. Only a name search and the drill-down-to-one-firm
+   link (hash) from the Jobs tab remain. */
 function filterComps(){
   var f=ui.comps;
   if(f.hash){
     return compIndex.filter(function(x){return x.c.hash===f.hash;});
   }
-  var qn=norm(f.q),r=f.radius==="any"?null:+f.radius;
+  var qn=norm(f.q);
   return compIndex.filter(function(x){
-    var c=x.c;
     if(qn&&x.n.indexOf(qn)<0)return false;
-    if(f.canton&&c.canton!==f.canton)return false;
-    if(f.arch&&!/architecture/i.test(c.specialisations||""))return false;
-    if(f.applied!=="all"){
-      var ap=!!state.company_applied[c.hash];
-      if(f.applied==="yes"&&!ap)return false;
-      if(f.applied==="no"&&ap)return false;
-    }
-    if(f.minRating>0&&(c.rating||0)<f.minRating)return false;
-    if(r!=null){
-      var d=distFrom(c.lat,c.lon);
-      if(d==null||d>r)return false;
-    }
     return true;
   });
 }
@@ -1866,13 +1815,7 @@ function renderComps(){
     return {c:x.c,dist:distFrom(x.c.lat,x.c.lon),open:(jobsByCompany[x.c.hash]||[]).length};
   });
   items.sort(function(a,b){
-    if(f.sort==="name")return a.c.name.localeCompare(b.c.name);
-    if(f.sort==="rating")return (b.c.rating||0)-(a.c.rating||0)||a.c.name.localeCompare(b.c.name);
-    if(f.sort==="jobs")return b.open-a.open||a.c.name.localeCompare(b.c.name);
-    if(a.dist==null&&b.dist==null)return a.c.name.localeCompare(b.c.name);
-    if(a.dist==null)return 1;
-    if(b.dist==null)return -1;
-    return a.dist-b.dist;
+    return a.c.name.localeCompare(b.c.name);   // always alphabetical A–Z
   });
   var total=items.length,capped=items.slice(0,f.limit);
   var head=total+" of "+DATA.companies.length+" companies shown";
@@ -1924,12 +1867,6 @@ function renderComps(){
   appendChunks(cbody,crows,200,300,function(){return epoch===cEpoch;});
 }
 el("cq").addEventListener("input",debounce(function(){ui.comps.q=el("cq").value;ui.comps.hash=null;persistFilters();renderComps();},150));
-el("cCanton").addEventListener("change",function(){ui.comps.canton=this.value;ui.comps.hash=null;persistFilters();renderComps();});
-el("cRadius").addEventListener("change",function(){ui.comps.radius=this.value;ui.comps.hash=null;persistFilters();renderComps();});
-el("cApplied").addEventListener("change",function(){ui.comps.applied=this.value;ui.comps.hash=null;persistFilters();renderComps();});
-el("cRating").addEventListener("change",function(){ui.comps.minRating=+this.value;ui.comps.hash=null;persistFilters();renderComps();});
-el("cSort").addEventListener("change",function(){ui.comps.sort=this.value;persistFilters();renderComps();});
-el("cArch").addEventListener("change",function(){ui.comps.arch=this.checked;ui.comps.hash=null;persistFilters();renderComps();});
 el("cMore").addEventListener("click",function(){ui.comps.limit+=500;renderComps();});
 el("tab-companies").addEventListener("click",function(e){
   if(e.target.id==="cClearHash"){e.preventDefault();ui.comps.hash=null;renderComps();return;}
