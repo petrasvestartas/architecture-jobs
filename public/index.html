@@ -900,6 +900,7 @@ nav.tabs button.on .tct{color:var(--accent)}
 #mosClear:hover{color:var(--bad)}
 .maplegend{display:flex;gap:8px 22px;flex-wrap:wrap;align-items:center;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:9px 2px 0}
 .maplegend span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.maplegend .lgh{font-weight:700;color:var(--fg);margin-right:-8px}
 .mapstat{font-size:12px;color:var(--muted);padding:6px 2px 0;font-variant-numeric:tabular-nums}
 /* ============ density ============ */
 body.compact table.rt td{padding:4px 8px;font-size:12.5px}
@@ -1968,64 +1969,116 @@ function buildPostPoints(){
       la=j.lat;lo=j.lon;name=j.company||j.location||"?";addr=j.location||"";
       key="c:"+(Math.round(la*1e4)/1e4)+","+(Math.round(lo*1e4)/1e4);
     }else return;
-    var p=by[key]||(by[key]={lat:la,lon:lo,name:name,addr:addr,titles:[]});
+    var p=by[key]||(by[key]={lat:la,lon:lo,name:name,addr:addr,titles:[],newest:""});
     p.titles.push(j.title);
+    var d=(j.posted||j.first_seen||"");
+    if(d>p.newest)p.newest=d;  /* freshest posting decides the dot color */
   });
   _postPoints=Object.keys(by).map(function(k){return by[k];});
+  _postPoints.sort(function(a,b){return a.newest<b.newest?-1:1;});  /* newest drawn last = on top */
+}
+/* posting-age color ramp: newest = bright red, older fades to dark pink */
+var AGE_COLORS=["#e2001a","#d13c60","#ad4a6e","#7d4a5e"];
+var _ageCuts=null;
+function ageCuts(){
+  if(_ageCuts)return _ageCuts;
+  function iso(days){var d=new Date(Date.now()-days*864e5);
+    return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");}
+  function dm(isoStr){return isoStr.slice(8,10)+"."+isoStr.slice(5,7)+".";}
+  var c=[iso(7),iso(30),iso(90)];
+  _ageCuts={cuts:c,labels:["since "+dm(c[0]),dm(c[1])+"–"+dm(c[0]),dm(c[2])+"–"+dm(c[1]),"before "+dm(c[2])]};
+  return _ageCuts;
+}
+function ageColor(newest){
+  var a=ageCuts().cuts;
+  if(newest>=a[0])return AGE_COLORS[0];
+  if(newest>=a[1])return AGE_COLORS[1];
+  if(newest>=a[2])return AGE_COLORS[2];
+  return AGE_COLORS[3];
 }
 function updateMapChips(){var sl=el("mapOpac");if(sl)sl.value=Math.round(mapOpac*100);}
-/* one canvas, every dot, redrawn per frame — no per-marker DOM objects */
+/* one canvas, every dot — no per-marker DOM objects. During zoom
+   animations the canvas is CSS-transformed so dots follow continuously
+   (same technique as Leaflet's own renderer); crisp redraw on moveend. */
+var DOT_PAD=0.15;  /* canvas overhang so edges stay covered mid-animation */
 var DotCanvas=L.Layer?L.Layer.extend({
   onAdd:function(map){
     this._map=map;
-    this._canvas=L.DomUtil.create("canvas","mapdotscv");
+    this._canvas=L.DomUtil.create("canvas","mapdotscv leaflet-zoom-animated");
     this._canvas.style.pointerEvents="none";
     map.getPane("pDots").appendChild(this._canvas);
-    map.on("move zoomend viewreset resize",this._reset,this);
+    map.on("viewreset moveend move resize",this._reset,this);
+    map.on("zoom",this._onZoom,this);
+    map.on("zoomanim",this._onAnimZoom,this);
     this._reset();
   },
   onRemove:function(map){
-    map.off("move zoomend viewreset resize",this._reset,this);
+    map.off("viewreset moveend move resize",this._reset,this);
+    map.off("zoom",this._onZoom,this);
+    map.off("zoomanim",this._onAnimZoom,this);
     if(this._canvas.parentNode)this._canvas.parentNode.removeChild(this._canvas);
   },
+  _onZoom:function(){
+    if(this._center!=null)this._updateTransform(this._map.getCenter(),this._map.getZoom());
+  },
+  _onAnimZoom:function(ev){
+    if(this._center!=null)this._updateTransform(ev.center,ev.zoom);
+  },
+  _updateTransform:function(center,zoom){
+    var map=this._map,
+        scale=map.getZoomScale(zoom,this._zoom),
+        viewHalf=map.getSize().multiplyBy(0.5+DOT_PAD),
+        centerPoint=map.project(this._center,zoom),
+        offset=viewHalf.multiplyBy(-scale).add(centerPoint)
+               .subtract(map._getNewPixelOrigin(center,zoom));
+    L.DomUtil.setTransform(this._canvas,offset,scale);
+  },
   _reset:function(){
-    var map=this._map,tl=map.containerPointToLayerPoint([0,0]),sz=map.getSize();
-    L.DomUtil.setPosition(this._canvas,tl);
+    var map=this._map;
+    if(map._animatingZoom)return;  /* transform handles the animation */
+    var sz=map.getSize(),
+        w=Math.round(sz.x*(1+2*DOT_PAD)),h=Math.round(sz.y*(1+2*DOT_PAD));
+    this._origin=L.point(Math.round(sz.x*DOT_PAD),Math.round(sz.y*DOT_PAD));
+    L.DomUtil.setPosition(this._canvas,
+      map.containerPointToLayerPoint([-this._origin.x,-this._origin.y]));
+    this._center=map.getCenter();this._zoom=map.getZoom();
     var dpr=window.devicePixelRatio||1;
-    if(this._canvas.width!==sz.x*dpr||this._canvas.height!==sz.y*dpr){
-      this._canvas.width=sz.x*dpr;this._canvas.height=sz.y*dpr;
-      this._canvas.style.width=sz.x+"px";this._canvas.style.height=sz.y+"px";
+    if(this._canvas.width!==w*dpr||this._canvas.height!==h*dpr){
+      this._canvas.width=w*dpr;this._canvas.height=h*dpr;
+      this._canvas.style.width=w+"px";this._canvas.style.height=h+"px";
     }
     this.redraw();
   },
   redraw:function(){
-    var map=this._map;if(!map||!this._canvas)return;
-    var ctx=this._canvas.getContext("2d"),dpr=window.devicePixelRatio||1,sz=map.getSize();
+    var map=this._map;if(!map||!this._canvas||!this._origin)return;
+    var ctx=this._canvas.getContext("2d"),dpr=window.devicePixelRatio||1,
+        sz=map.getSize(),ox=this._origin.x,oy=this._origin.y,
+        w=sz.x+2*ox,h=sz.y+2*oy;
     ctx.setTransform(dpr,0,0,dpr,0,0);
-    ctx.clearRect(0,0,sz.x,sz.y);
-    var z=map.getZoom(),rb=blueR(z),pad=20,hits=this._hits=[];
+    ctx.clearRect(0,0,w,h);
+    var z=map.getZoom(),rb=blueR(z),hits=this._hits=[];
     ctx.strokeStyle="#fff";
     /* blue: offices without a known opening */
     ctx.globalAlpha=.85;ctx.lineWidth=.6;ctx.fillStyle=MAP_BLUE;
     for(var i=0;i<mapOffPts.length;i++){
       var o=mapOffPts[i];if(o.hasJob)continue;
-      var p=map.latLngToContainerPoint([o.lat,o.lon]);
-      if(p.x<-pad||p.y<-pad||p.x>sz.x+pad||p.y>sz.y+pad)continue;
-      ctx.beginPath();ctx.arc(p.x,p.y,rb,0,6.2832);ctx.fill();ctx.stroke();
+      var p=map.latLngToContainerPoint([o.lat,o.lon]),x=p.x+ox,y=p.y+oy;
+      if(x<-6||y<-6||x>w+6||y>h+6)continue;
+      ctx.beginPath();ctx.arc(x,y,rb,0,6.2832);ctx.fill();ctx.stroke();
       hits.push({x:p.x,y:p.y,r:rb+3,o:o,red:false});
     }
-    /* red: exact open-position locations — never clustered, any zoom */
+    /* red→pink by posting age: exact locations — never clustered, any zoom */
     ctx.globalAlpha=.92;ctx.lineWidth=1;
     for(var k=0;k<_postPoints.length;k++){
       var q=_postPoints[k];
-      var pp=map.latLngToContainerPoint([q.lat,q.lon]);
-      if(pp.x<-pad||pp.y<-pad||pp.x>sz.x+pad||pp.y>sz.y+pad)continue;
+      var pp=map.latLngToContainerPoint([q.lat,q.lon]),qx=pp.x+ox,qy=pp.y+oy;
+      if(qx<-6||qy<-6||qx>w+6||qy>h+6)continue;
       var rr=redR(z,q.titles.length);
-      ctx.beginPath();ctx.fillStyle=MAP_RED;ctx.arc(pp.x,pp.y,rr,0,6.2832);ctx.fill();ctx.stroke();
+      ctx.beginPath();ctx.fillStyle=ageColor(q.newest);ctx.arc(qx,qy,rr,0,6.2832);ctx.fill();ctx.stroke();
       if(q.titles.length>1&&z>=10&&rr>=6){
         ctx.fillStyle="#fff";ctx.font="700 "+Math.round(rr*1.15)+"px Arial,sans-serif";
         ctx.textAlign="center";ctx.textBaseline="middle";
-        ctx.fillText(String(q.titles.length),pp.x,pp.y+.5);
+        ctx.fillText(String(q.titles.length),qx,qy+.5);
       }
       hits.push({x:pp.x,y:pp.y,r:rr+3,o:q,red:true});
     }
@@ -2052,7 +2105,8 @@ function mapHover(e){
   var o=h.o,html;
   if(h.red){
     var ttl=o.titles.slice(0,6).map(esc).join("<br>")+(o.titles.length>6?"<br>+"+(o.titles.length-6)+" more":"");
-    html="<b>"+esc(o.name)+"</b>"+(o.addr?"<br>"+esc(o.addr):"")+"<br>"+ttl;
+    var nd=o.newest?' <span style="color:#888">&middot; newest '+esc(o.newest.slice(8,10)+"."+o.newest.slice(5,7)+".")+"</span>":"";
+    html="<b>"+esc(o.name)+"</b>"+nd+(o.addr?"<br>"+esc(o.addr):"")+"<br>"+ttl;
   }else{
     html=esc(o.name)+(o.addr?" &middot; "+esc(o.addr):(o.city?" &middot; "+esc(o.city):""));
   }
@@ -2078,7 +2132,14 @@ function ensureMap(){
   lmap.on("click",mapClick);
 }
 function focusJobsAt(name,lat,lon){
+  /* a dot click must always show the jobs there — clear every filter
+     that could hide them, then focus */
+  ui.jobs.q="";ui.jobs.srcOff={};ui.jobs.workload="any";ui.jobs.within="any";
+  ui.jobs.status="all";ui.jobs.onlyNew=false;ui.jobs.hideRej=false;
+  el("jq").value="";setSel("jWorkload","any");setSel("jWithin","any");setSel("jStatus","all");
+  el("jHideRej").checked=false;
   ui.jobs.mapFocus={name:name,lat:lat,lon:lon};
+  persistFilters();
   updateFocusChip();setTab("jobs");renderJobs();window.scrollTo({top:0});
 }
 function updateRefMarker(){
@@ -2123,8 +2184,10 @@ function renderMap(){
   if(!lDots){lDots=new DotCanvas();lmap.addLayer(lDots);}
   else lDots.redraw();
   updateRefMarker();updateFocusRing();
-  var lg=[];
-  lg.push('<span><svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill="'+MAP_RED+'" opacity=".72"/></svg>Open position(s) &ndash; exact office location</span>');
+  var lg=[],ac=ageCuts();
+  lg.push('<span class="lgh">Open positions (posted):</span>');
+  for(var li=0;li<4;li++)
+    lg.push('<span><svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill="'+AGE_COLORS[li]+'"/></svg>'+esc(ac.labels[li])+"</span>");
   lg.push('<span><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="'+MAP_BLUE+'"/></svg>Office &ndash; no opening</span>');
   lg.push('<span><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="none" stroke="var(--text)"/></svg>Your location'+(state.ref?" ("+esc(state.ref.name)+")":"")+"</span>");
   el("mapLegend").innerHTML=lg.join("");
