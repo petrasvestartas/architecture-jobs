@@ -1556,8 +1556,18 @@ function setTab(name){
   state.tab=name;save();
   document.querySelectorAll("nav.tabs button").forEach(function(b){b.classList.toggle("on",b.getAttribute("data-tab")===name);});
   document.querySelectorAll("section.tab").forEach(function(s){s.classList.toggle("on",s.id==="tab-"+name);});
+  /* hash routing: each tab switch is a history entry so the browser's
+     Back/Forward buttons navigate between tabs (no dead first step) */
+  if(location.hash!=="#"+name){
+    if(location.hash)location.hash="#"+name;
+    else history.replaceState(null,"","#"+name);
+  }
   if(name==="map")renderMap();
 }
+window.addEventListener("hashchange",function(){
+  var t=location.hash.slice(1),s=t&&document.getElementById("tab-"+t);
+  if(s&&!s.classList.contains("on"))setTab(t);
+});
 el("tabsNav").addEventListener("click",function(e){
   var b=e.target.closest("button[data-tab]");
   if(b)setTab(b.getAttribute("data-tab"));
@@ -2416,7 +2426,11 @@ el("footImport").addEventListener("click",function(e){e.preventDefault();el("bkF
 restoreFilters();
 initNewBanner();
 updateFocusChip();
-setTab("companies"); /* always land on Architecture Offices */
+/* deep-link (#map, #jobs, ...) wins; otherwise land on Architecture Offices */
+(function(){
+  var t0=location.hash.slice(1);
+  setTab(t0&&document.getElementById("tab-"+t0)?t0:"companies");
+})();
 renderStats();
 updateTabCounts();
 updateHdrCounts();
