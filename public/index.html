@@ -1060,6 +1060,10 @@ footer{border-top:1px solid var(--line);padding:16px 0 26px;font-size:12.5px;col
   <section class="tab" id="tab-companies">
     <div class="filters">
       <input type="text" id="cq" class="grow" placeholder="Search office name&hellip;" aria-label="Search offices">
+      <select id="cSort" aria-label="Sort offices">
+        <option value="name">Sort: A&ndash;Z</option>
+        <option value="distance">Nearest first</option>
+      </select>
     </div>
     <div class="note-inline"><b>STARS = HOW MUCH ARCHITECTURE</b> (from the SIA register)<ul style="list-style:none;margin:4px 0 0;padding:0"><li>&#9733;&#9733;&#9733;&#9733;&ndash;&#9733;&#9733;&#9733;&#9733;&#9733; architecture office</li><li>&#9733;&#9733;&#9733; mixed</li><li>&#9733;&ndash;&#9733;&#9733; engineering firm</li></ul></div>
     <div class="countline" id="cCount"></div>
@@ -1367,7 +1371,7 @@ function fmtPhone(p){
 /* ---------- ui (non-persisted) state ---------- */
 var ui={
   jobs:{q:"",srcOff:{},workload:"any",within:"any",status:"all",hideRej:true,needLoc:false,sort:"distance",sortDir:1,onlyNew:false,mapFocus:null,notesOpen:{}},
-  comps:{q:"",canton:"",radius:"any",applied:"all",minRating:0,arch:true,sort:"distance",hash:null,limit:1e9,expanded:{},notesOpen:{}}
+  comps:{q:"",canton:"",radius:"any",applied:"all",minRating:0,arch:true,sort:"name",hash:null,limit:1e9,expanded:{},notesOpen:{}}
 };
 var SORT_DIR_DEF={distance:1,company:1,workload:-1,posted:-1,newest:-1};
 
@@ -1403,7 +1407,7 @@ function restoreFilters(){
     if(typeof c.applied==="string")ui.comps.applied=c.applied;
     if(typeof c.minRating==="number")ui.comps.minRating=c.minRating;
     if(typeof c.arch==="boolean")ui.comps.arch=c.arch;
-    if(typeof c.sort==="string")ui.comps.sort=c.sort;
+    /* office sort is per-visit: every load starts with the plain A–Z list */
     if(f.map&&typeof f.map==="object"){
       if(typeof f.map.opacity==="number"&&f.map.opacity>=0&&f.map.opacity<=1)mapOpac=f.map.opacity;
     }
@@ -1817,7 +1821,13 @@ function renderComps(){
     return {c:x.c,dist:distFrom(x.c.lat,x.c.lon),open:(jobsByCompany[x.c.hash]||[]).length};
   });
   items.sort(function(a,b){
-    return a.c.name.localeCompare(b.c.name);   // always alphabetical A–Z
+    if(f.sort==="distance"){                   // nearest to the reference place
+      if(a.dist==null&&b.dist==null)return a.c.name.localeCompare(b.c.name);
+      if(a.dist==null)return 1;
+      if(b.dist==null)return -1;
+      return a.dist-b.dist||a.c.name.localeCompare(b.c.name);
+    }
+    return a.c.name.localeCompare(b.c.name);   // default: alphabetical A–Z
   });
   var total=items.length,capped=items.slice(0,f.limit);
   var head=total+" of "+DATA.companies.length+" companies shown";
@@ -1870,6 +1880,7 @@ function renderComps(){
   appendChunks(cbody,crows,200,300,function(){return epoch===cEpoch;});
 }
 el("cq").addEventListener("input",debounce(function(){ui.comps.q=el("cq").value;ui.comps.hash=null;persistFilters();renderComps();},150));
+el("cSort").addEventListener("change",function(){ui.comps.sort=this.value;renderComps();});
 el("cMore").addEventListener("click",function(){ui.comps.limit+=500;renderComps();});
 el("tab-companies").addEventListener("click",function(e){
   if(e.target.id==="cClearHash"){e.preventDefault();ui.comps.hash=null;renderComps();return;}
