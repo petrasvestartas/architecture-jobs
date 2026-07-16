@@ -1997,8 +1997,8 @@ function buildPostPoints(){
   _postPoints=Object.keys(by).map(function(k){return by[k];});
   _postPoints.sort(function(a,b){return a.newest<b.newest?-1:1;});  /* newest drawn last = on top */
 }
-/* posting-age color ramp: newest = bright red, older fades to dark pink */
-var AGE_COLORS=["#e2001a","#d13c60","#ad4a6e","#7d4a5e"];
+/* posting-age color ramp: hot red = fresh advertisement, cold blue = old */
+var AGE_COLORS=["#e2001a","#b13884","#6f5ad1","#2f7bff"];
 var _ageCuts=null;
 function ageCuts(){
   if(_ageCuts)return _ageCuts;
@@ -2077,9 +2077,10 @@ var DotCanvas=L.Layer?L.Layer.extend({
     ctx.setTransform(dpr,0,0,dpr,0,0);
     ctx.clearRect(0,0,w,h);
     var z=map.getZoom(),rb=blueR(z),hits=this._hits=[];
-    ctx.strokeStyle="#fff";
-    /* blue: offices without a known opening */
-    ctx.globalAlpha=.85;ctx.lineWidth=.6;ctx.fillStyle=MAP_BLUE;
+    var offCol=mapCssVar("--text","#17181a"),bgCol=mapCssVar("--bg","#ffffff");
+    ctx.strokeStyle=bgCol;
+    /* black (theme fg): offices without a known opening */
+    ctx.globalAlpha=.8;ctx.lineWidth=.6;ctx.fillStyle=offCol;
     for(var i=0;i<mapOffPts.length;i++){
       var o=mapOffPts[i];if(o.hasJob)continue;
       var p=map.latLngToContainerPoint([o.lat,o.lon]),x=p.x+ox,y=p.y+oy;
@@ -2087,8 +2088,8 @@ var DotCanvas=L.Layer?L.Layer.extend({
       ctx.beginPath();ctx.arc(x,y,rb,0,6.2832);ctx.fill();ctx.stroke();
       hits.push({x:p.x,y:p.y,r:rb+3,o:o,red:false});
     }
-    /* red→pink by posting age: exact locations — never clustered, any zoom */
-    ctx.globalAlpha=.92;ctx.lineWidth=1;
+    /* hot-red→cold-blue by posting age: exact locations — never clustered */
+    ctx.strokeStyle="#fff";ctx.globalAlpha=.92;ctx.lineWidth=1;
     for(var k=0;k<_postPoints.length;k++){
       var q=_postPoints[k];
       var pp=map.latLngToContainerPoint([q.lat,q.lon]),qx=pp.x+ox,qy=pp.y+oy;
@@ -2209,6 +2210,7 @@ function mapThemeRefresh(){
   if(!lmap)return;
   if(lFocusRing)lFocusRing.setStyle({color:mapCssVar("--text","#17181a")});
   updateRefMarker();
+  if(lDots)lDots.redraw();  /* office dots use the theme fg color */
 }
 function renderMap(){
   if(typeof L==="undefined"){el("mapBox").innerHTML='<div class="empty"><b>Map library missing.</b></div>';return;}
@@ -2224,7 +2226,7 @@ function renderMap(){
   lg.push('<span class="lgh">Open positions (posted):</span>');
   for(var li=0;li<4;li++)
     lg.push('<span><svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill="'+AGE_COLORS[li]+'"/></svg>'+esc(ac.labels[li])+"</span>");
-  lg.push('<span><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="'+MAP_BLUE+'"/></svg>Office &ndash; no opening</span>');
+  lg.push('<span><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="var(--text)"/></svg>Office &ndash; no opening</span>');
   lg.push('<span><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="none" stroke="var(--text)"/></svg>Your location'+(state.ref?" ("+esc(state.ref.name)+")":"")+"</span>");
   el("mapLegend").innerHTML=lg.join("");
   el("mapStat").innerHTML=mapOffCount+" offices &middot; "+mapLocated+" open positions at exact office locations";

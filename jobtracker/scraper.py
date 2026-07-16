@@ -260,8 +260,20 @@ GENDER_TAG = re.compile(
 BAD_PATH = re.compile(
     r"/dienstleistung|/leistung|/angebot|/journal|/news|/blog|/publikation|"
     r"/wp-json/", re.I)
+# blog-permalink date paths (/2018/11/28/...) are junk ONLY when the title
+# carries no job signal — small firms do post real ads as dated blog posts,
+# and WP upload paths (/uploads/2026/07/inserat.pdf) hold real ad PDFs
+BLOG_DATE = re.compile(r"/20\d\d/\d{1,2}/\d{1,2}/")
+# a dated post is a job when it names a concrete role or seeks someone —
+# a bare "architektur" mention (award/exhibition posts) is not enough
+BLOG_JOB_SIGNAL = re.compile(
+    r"projektleit|bauleit|zeichner|dessinat|konstrukteur|techniker|"
+    r"technicien|architekt\w*\s*[:/*·]?\s*-?in\b|architecte|gesucht|"
+    r"wir suchen|hiring|\bstelle\b|vacan|praktik", re.I)
 SERVICE_TITLE = re.compile(
-    r"^(architektur|architecture|architettura|planung|leistungen|prestations)\b",
+    r"^(architektur|architecture|architettura|planung|leistungen|prestations|"
+    r"st[aä]dtebau|siedlungsbau|hochbau|tiefbau|umbau|neubau|sanierung|"
+    r"wohnungsbau|immobilien|projekte?|referenzen|urbanisme|wettbewerbe?)\b",
     re.I)
 # href targets that are never job ads even when the filename names a role
 DOC_NOISE = re.compile(
@@ -330,8 +342,15 @@ def extract_job_links(body, base_url, company_name, location, arch_only=False,
         path = urllib.parse.unquote(urllib.parse.urlparse(url).path)
         if BAD_PATH.search(path):
             return True  # services/journal/news nav, not a posting
-        if SERVICE_TITLE.match(title) and not _strong_signal(title):
-            return True
+        if (BLOG_DATE.search(path) and not (BLOG_JOB_SIGNAL.search(title)
+                                            or _strong_signal(title))
+                and not CAREER_WORD.search(path)
+                and "inserat" not in path.lower()):
+            return True  # dated blog post without any job signal
+        if (SERVICE_TITLE.match(title) and not _strong_signal(title)
+                and not CAREER_WORD.search(path)
+                and "inserat" not in path.lower()):
+            return True  # bare category title outside any career context
         nt = db.normalize_name(title)
         if own and len(own) >= 6 and nt:
             if nt in own:
