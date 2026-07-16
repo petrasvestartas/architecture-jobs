@@ -885,6 +885,16 @@ nav.tabs button.on .tct{color:var(--accent)}
 #mapBox .leaflet-control-attribution{background:var(--panel);color:var(--muted);font-size:10px;letter-spacing:.03em;padding:2px 6px;border-radius:0;box-shadow:none}
 #mapBox .leaflet-control-attribution a{color:var(--muted)}
 #mapBox .leaflet-tooltip{background:var(--text);color:var(--bg);border:none;border-radius:0;box-shadow:none;font-size:12px;padding:4px 8px}
+#mapBox .leaflet-popup-content-wrapper{background:var(--panel);color:var(--text);border:1px solid var(--line2);border-radius:0;box-shadow:none}
+#mapBox .leaflet-popup-tip{background:var(--panel);border:1px solid var(--line2);box-shadow:none}
+#mapBox .leaflet-popup-content{margin:10px 14px;font-size:12.5px;line-height:1.45}
+#mapBox .leaflet-popup-close-button{color:var(--muted)}
+.mappop b{font-size:13px}
+.mappop .mpaddr{color:var(--muted);font-size:11.5px}
+.mappop ul{list-style:none;margin:8px 0 0;padding:0;max-height:240px;overflow-y:auto}
+.mappop li{padding:3px 0;border-top:1px solid var(--line2)}
+.mappop a{color:var(--accent);text-decoration:none;font-weight:600}
+.mappop a:hover{text-decoration:underline}
 #mapBox .leaflet-tooltip-top:before,#mapBox .leaflet-tooltip-bottom:before,#mapBox .leaflet-tooltip-left:before,#mapBox .leaflet-tooltip-right:before{display:none}
 .cclbl{position:absolute;transform:translate(-50%,-50%);color:#fff;font-weight:700;font-size:11px;line-height:1;pointer-events:none;font-variant-numeric:tabular-nums}
 .moslbl{position:absolute;transform:translate(14px,-50%);background:var(--panel);color:var(--text);border:1px solid var(--text);padding:2px 7px;font-size:12px;font-weight:700;white-space:nowrap;pointer-events:none}
@@ -1979,8 +1989,8 @@ function buildPostPoints(){
       la=j.lat;lo=j.lon;name=j.company||j.location||"?";addr=j.location||"";
       key="c:"+(Math.round(la*1e4)/1e4)+","+(Math.round(lo*1e4)/1e4);
     }else return;
-    var p=by[key]||(by[key]={lat:la,lon:lo,name:name,addr:addr,titles:[],newest:""});
-    p.titles.push(j.title);
+    var p=by[key]||(by[key]={lat:la,lon:lo,name:name,addr:addr,jobs:[],newest:""});
+    p.jobs.push({t:j.title,u:j.url});
     var d=(j.posted||j.first_seen||"");
     if(d>p.newest)p.newest=d;  /* freshest posting decides the dot color */
   });
@@ -2083,12 +2093,12 @@ var DotCanvas=L.Layer?L.Layer.extend({
       var q=_postPoints[k];
       var pp=map.latLngToContainerPoint([q.lat,q.lon]),qx=pp.x+ox,qy=pp.y+oy;
       if(qx<-6||qy<-6||qx>w+6||qy>h+6)continue;
-      var rr=redR(z,q.titles.length);
+      var rr=redR(z,q.jobs.length);
       ctx.beginPath();ctx.fillStyle=ageColor(q.newest);ctx.arc(qx,qy,rr,0,6.2832);ctx.fill();ctx.stroke();
-      if(q.titles.length>1&&z>=10&&rr>=6){
+      if(q.jobs.length>1&&z>=10&&rr>=6){
         ctx.fillStyle="#fff";ctx.font="700 "+Math.round(rr*1.15)+"px Arial,sans-serif";
         ctx.textAlign="center";ctx.textBaseline="middle";
-        ctx.fillText(String(q.titles.length),qx,qy+.5);
+        ctx.fillText(String(q.jobs.length),qx,qy+.5);
       }
       hits.push({x:pp.x,y:pp.y,r:rr+3,o:q,red:true});
     }
@@ -2114,7 +2124,7 @@ function mapHover(e){
   if(!h)return;
   var o=h.o,html;
   if(h.red){
-    var ttl=o.titles.slice(0,6).map(esc).join("<br>")+(o.titles.length>6?"<br>+"+(o.titles.length-6)+" more":"");
+    var ttl=o.jobs.slice(0,6).map(function(x){return esc(x.t);}).join("<br>")+(o.jobs.length>6?"<br>+"+(o.jobs.length-6)+" more":"");
     var nd=o.newest?' <span style="color:#888">&middot; newest '+esc(o.newest.slice(8,10)+"."+o.newest.slice(5,7)+".")+"</span>":"";
     html="<b>"+esc(o.name)+"</b>"+nd+(o.addr?"<br>"+esc(o.addr):"")+"<br>"+ttl;
   }else{
@@ -2125,8 +2135,24 @@ function mapHover(e){
 function mapClick(e){
   var h=mapHitAt(e.containerPoint);
   if(!h){clearMapFocus();return;}
-  if(h.red)focusJobsAt(h.o.name,h.o.lat,h.o.lon);
-  else gotoCompany(h.o.hash);
+  if(lHoverTip){lmap.closeTooltip(lHoverTip);lHoverTip=null;_hoverO=null;}
+  if(h.red){
+    /* go to the position itself: one job -> open its ad directly,
+       several -> a list of the position links at the dot */
+    var o=h.o;
+    if(o.jobs.length===1){
+      window.open(safeUrl(o.jobs[0].u),"_blank","noopener");
+      return;
+    }
+    var html='<div class="mappop"><b>'+esc(o.name)+'</b>'+
+      (o.addr?'<br><span class="mpaddr">'+esc(o.addr)+'</span>':'')+'<ul>'+
+      o.jobs.slice(0,12).map(function(x){
+        return '<li><a href="'+esc(safeUrl(x.u))+'" target="_blank" rel="noopener">'+esc(x.t)+"</a></li>";
+      }).join("")+"</ul>"+
+      (o.jobs.length>12?'<span class="mpaddr">+'+(o.jobs.length-12)+" more on the Jobs tab</span>":"")+
+      "</div>";
+    L.popup({maxWidth:360,autoPan:true}).setLatLng([o.lat,o.lon]).setContent(html).openOn(lmap);
+  }else gotoCompany(h.o.hash);
 }
 function ensureMap(){
   if(lmap||typeof L==="undefined")return;
@@ -2190,7 +2216,7 @@ function renderMap(){
   if(!lmap)return;
   buildOffPts();buildPostPoints();
   mapLocated=0;
-  for(var i=0;i<_postPoints.length;i++)mapLocated+=_postPoints[i].titles.length;
+  for(var i=0;i<_postPoints.length;i++)mapLocated+=_postPoints[i].jobs.length;
   if(!lDots){lDots=new DotCanvas();lmap.addLayer(lDots);}
   else lDots.redraw();
   updateRefMarker();updateFocusRing();
