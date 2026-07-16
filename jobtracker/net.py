@@ -37,6 +37,32 @@ def http_get(url, accept="text/html", tries=3, timeout=30, headers=None):
     raise last
 
 
+def http_get_cond(url, etag=None, last_mod=None, timeout=15):
+    """Single conditional GET (If-None-Match / If-Modified-Since).
+
+    Returns (body, final_url, etag, last_mod, changed). On 304 Not Modified,
+    body/final_url are None and changed is False — the caller can skip
+    parsing entirely. Servers without validators always return changed=True.
+    """
+    import urllib.error
+    h = {"User-Agent": UA, "Accept": "text/html",
+         "Accept-Language": "de-CH,de;q=0.9,en;q=0.8,fr;q=0.7"}
+    if etag:
+        h["If-None-Match"] = etag
+    if last_mod:
+        h["If-Modified-Since"] = last_mod
+    req = urllib.request.Request(url, headers=h)
+    try:
+        with _opener.open(req, timeout=timeout) as r:
+            return (r.read().decode("utf-8", "replace"), r.geturl(),
+                    r.headers.get("ETag") or "",
+                    r.headers.get("Last-Modified") or "", True)
+    except urllib.error.HTTPError as e:
+        if e.code == 304:
+            return None, None, etag or "", last_mod or "", False
+        raise
+
+
 def get_json(url, **kw):
     body, _ = http_get(url, accept="application/json", **kw)
     return json.loads(body)

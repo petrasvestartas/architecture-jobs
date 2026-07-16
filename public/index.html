@@ -776,6 +776,8 @@ table.rt tbody tr.xrow:hover td{background:var(--bg)}
 .jtitle{font-weight:550}
 .jtitle:hover{color:var(--accent)}
 .newb{display:inline-block;background:var(--accent);color:#fff;font-size:9.5px;font-weight:700;letter-spacing:.08em;padding:1.5px 5px;vertical-align:2px;margin-left:5px}
+.wonb{display:inline-block;background:var(--fg);color:var(--bg);font-size:9.5px;font-weight:700;letter-spacing:.08em;padding:1.5px 5px;vertical-align:2px;margin-left:5px;text-decoration:none}
+.wonb:hover{background:var(--accent);color:#fff}
 .altline{font-size:11.5px;color:var(--muted);margin-top:2px}
 .altline a{text-decoration:underline;text-decoration-color:var(--line2)}
 .dist{color:var(--muted);white-space:nowrap;font-size:12.5px}
@@ -1835,6 +1837,7 @@ function renderComps(){
     var c=it.c,h=c.hash,ap=!!state.company_applied[h],note=state.company_notes[h]||"";
     var name=c.website?'<a href="'+esc(safeUrl(c.website))+'" target="_blank" rel="noopener" class="jtitle">'+esc(c.name)+"</a>":'<span class="jtitle">'+esc(c.name)+"</span>";
     var sia=c.sia_url?' <a class="tiny linkish muted" href="'+esc(safeUrl(c.sia_url))+'" target="_blank" rel="noopener">SIA</a>':"";
+    var won=(c.won_at&&(Date.now()-new Date(c.won_at).getTime())<90*864e5)?' <a class="wonb" href="'+esc(safeUrl(c.won_ref||"#"))+'" target="_blank" rel="noopener" title="Mentioned in a recent competition result (espazium) — likely hiring soon">WETTBEWERB</a>':"";
     var rt=c.rating?Math.max(1,Math.min(5,Math.round(c.rating))):0;
     var stars=rt?'<span class="stars" title="'+rt+'/5">'+"★".repeat(rt)+'<span class="off">'+"★".repeat(5-rt)+"</span></span>":'<span class="muted">&mdash;</span>';
     var open=it.open?'<button class="ojbtn" data-exp="'+esc(h)+'" title="Show this firm&#39;s open jobs">'+it.open+(ui.comps.expanded[h]?" ▴":" ▾")+"</button>":'<span class="muted">0</span>';
@@ -1845,7 +1848,7 @@ function renderComps(){
     if(ph)contact.push('<a class="linkish" href="'+esc(safeUrl("tel:"+ph.replace(/\s/g,"")))+'">'+esc(ph)+"</a>");
     var rows='<tr>'+
       '<td data-l="Applied"><input type="checkbox" data-ap="'+esc(h)+'"'+(ap?" checked":"")+' title="Mark as applied"></td>'+
-      '<td data-l="Firm">'+name+sia+"</td>"+
+      '<td data-l="Firm">'+name+sia+won+"</td>"+
       '<td data-l="Location">'+esc(c.city)+(c.canton?' <span class="muted">'+esc(c.canton)+"</span>":"")+' <span class="dist">'+fmtDist(it.dist)+"</span></td>"+
       '<td data-l="Rating">'+stars+"</td>"+
       '<td data-l="Open jobs">'+open+"</td>"+

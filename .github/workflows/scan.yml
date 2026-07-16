@@ -44,9 +44,12 @@ jobs:
         working-directory: jobtracker
         run: |
           if [ "${{ github.event.schedule }}" = "30 3 * * *" ]; then
-            python scraper.py --careers 150 --career-watch 200
+            # full: also Playwright-probe 80 sites with no detected career
+            # page for JS-only ones (chromium is installed for this run) and
+            # stamp offices mentioned in fresh competition results
+            python scraper.py --careers 150 --career-watch 300 --probe-js 80 --competitions
           else
-            python scraper.py --career-watch 50
+            python scraper.py --career-watch 60
           fi
       - name: Send daily e-mail digest (early-morning full scan only)
         if: github.event.schedule == '30 3 * * *'

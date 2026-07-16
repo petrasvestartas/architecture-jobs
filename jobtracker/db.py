@@ -45,7 +45,14 @@ MIGRATIONS = {
     "jobs": [("lat", "REAL"), ("lon", "REAL"), ("canton", "TEXT"),
              ("workload", "TEXT"), ("fingerprint", "TEXT"), ("dup_of", "INTEGER")],
     "companies": [("lat", "REAL"), ("lon", "REAL"), ("career_watched_at", "TEXT"),
-                  ("geo_precision", "TEXT")],
+                  ("geo_precision", "TEXT"),
+                  # conditional-GET validators for cheap career-page change checks
+                  ("career_etag", "TEXT"), ("career_last_mod", "TEXT"),
+                  # when a JS render probe last looked for a career page
+                  ("career_js_probed_at", "TEXT"),
+                  # office appeared in a competition-result article (espazium):
+                  # a strong signal it will hire soon
+                  ("won_at", "TEXT"), ("won_ref", "TEXT")],
 }
 
 

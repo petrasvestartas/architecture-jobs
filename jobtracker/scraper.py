@@ -21,8 +21,8 @@ from concurrent.futures import ThreadPoolExecutor
 
 import db
 import geo
-from net import (UA, http_get, get_json, post_json, strip_tags,  # noqa: F401
-                 extract_workload)
+from net import (UA, http_get, http_get_cond, get_json, post_json,  # noqa: F401
+                 strip_tags, extract_workload)
 from jobfilter import is_non_building
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -513,6 +513,55 @@ def scan_watchsites():
     return jobs
 
 
+PUBLICJOBS_LIST = "https://publicjobs.ch/jobs/architektur-bauwesen"
+PUBLICJOBS_ITEM = re.compile(  # listing cards: <a href="/jobs/..." title="...">
+    r'<a href="(/jobs/[a-z-]+/[a-z-]+/[^"]+)"[^>]*\btitle="([^"]+)"')
+PUBLICJOBS_CANTON = re.compile(r"^/jobs/([a-z-]+)/")
+# Stadt/Kanton Bern job portals are client-side apps: only harvestable where
+# playwright is installed (local scans + the 05:30 cloud full scan)
+BERN_PORTALS = [
+    ("Stadt Bern", "https://jobs.bern.ch/?sort=-startDate"),
+    ("Kanton Bern", "https://www.jobs.sites.be.ch/de/start.html"),
+]
+
+
+def scan_publicsector():
+    """Public-sector positions: publicjobs.ch architektur-bauwesen category
+    (server-rendered, JSON-LD items) + the Stadt/Kanton Bern portals.
+    Hochbauamt, Denkmalpflege and Stadtplanung architect jobs often appear
+    here and nowhere else."""
+    jobs, seen = [], set()
+    for page in range(1, 6):
+        body, _ = http_get(f"{PUBLICJOBS_LIST}?page={page}", tries=2, timeout=25)
+        new = 0
+        for m in PUBLICJOBS_ITEM.finditer(body):
+            path = m.group(1)
+            if path in seen:
+                continue
+            seen.add(path)
+            new += 1
+            title = strip_tags(m.group(2)).strip()  # unescape &amp; etc.
+            c = PUBLICJOBS_CANTON.search(path)
+            loc = c.group(1).replace("-", " ").title() if c else ""
+            jobs.append({"title": title, "company_name": "", "location": loc,
+                         "url": "https://publicjobs.ch" + path, "posted_at": ""})
+        if not new:
+            break
+        time.sleep(0.5)
+    try:
+        import js_watch
+        for name, url in BERN_PORTALS:
+            for u, final, rendered in js_watch.fetch_rendered([url], cap=1):
+                found = extract_job_links(rendered, final, name, "Bern",
+                                          arch_only=True)
+                for j in found:
+                    j["company_name"] = name
+                jobs.extend(found)
+    except Exception as e:
+        print(f"  publicsector: Bern portals skipped ({e})", flush=True)
+    return jobs
+
+
 # board-specific scan functions (built + adversarially verified 2026-07-11);
 # they import net, not scraper, so there is no import cycle
 from sources.archijobs import scan_archijobs               # noqa: E402
@@ -545,13 +594,15 @@ SOURCES = {
     "jobagent": scan_jobagent,
     "linkedin": scan_linkedin,
     "indeed-google": scan_indeed_google,
+    "publicsector": scan_publicsector,
     "watch": scan_watchsites,
     "manual": scan_manual,
     "generic": scan_generic,
 }
 
 GENERAL_BOARDS = {"jobs.ch", "jobup.ch", "linkedin", "generic", "nzz", "ostjob",
-                  "jobroom", "jobagent", "indeed-google", "watch", "academia"}
+                  "jobroom", "jobagent", "indeed-google", "watch", "academia",
+                  "publicsector"}
 
 # shown on the website's Sources tab; search_url doubles as the manual
 # fallback link when a source is blocked or fails
@@ -560,6 +611,9 @@ SOURCE_META = {
             "search_url": "https://www.sia.ch/en/jobs/"},
     "archi-jobs": {"label": "archi-jobs.ch", "home": "https://www.archi-jobs.ch/",
                    "search_url": "https://www.archi-jobs.ch/"},
+    "publicsector": {"label": "Öffentliche Hand (publicjobs/Bern)",
+                     "home": "https://publicjobs.ch/jobs/architektur-bauwesen",
+                     "search_url": "https://publicjobs.ch/jobs/architektur-bauwesen"},
     "hochparterre": {"label": "Hochparterre Stellenmarkt",
                      "home": "https://www.hochparterre.ch/stellenmarkt",
                      "search_url": "https://www.hochparterre.ch/stellenmarkt"},
@@ -682,14 +736,9 @@ def _career_fallback(final):
     return ""
 
 
-def probe_career(company):
-    website = (company["website"] or "").strip().rstrip("/")
-    if not website.startswith("http"):
-        return None
-    try:
-        body, final = http_get(website, tries=1, timeout=15)
-    except Exception:
-        return ""
+def _career_candidates(body, final):
+    """Score the career-page candidates linked from a page, best first.
+    Shared by the static probe and the Playwright re-probe."""
     base = _page_base(body, final)
     base_host = urllib.parse.urlparse(final).netloc.replace("www.", "")
     candidates = []
@@ -715,6 +764,18 @@ def probe_career(company):
         seg = 1 if CAREER_SEG.search(path) else 0
         candidates.append((score, seg, -len(full), full))
     candidates.sort(reverse=True)
+    return candidates
+
+
+def probe_career(company):
+    website = (company["website"] or "").strip().rstrip("/")
+    if not website.startswith("http"):
+        return None
+    try:
+        body, final = http_get(website, tries=1, timeout=15)
+    except Exception:
+        return ""
+    candidates = _career_candidates(body, final)
     few = len(A_TAG.findall(body)) < 5  # JS-rendered nav: barely any anchors
     if candidates and (candidates[0][0] >= 3 or
                        (candidates[0][0] >= 1 and not few)):
@@ -763,6 +824,55 @@ def run_career_probe(con, limit):
     con.commit()
 
 
+def run_js_probe(con, limit):
+    """Playwright pass over sites where the static probe found no career
+    page: render the homepage, pick up career links that only exist after
+    client-side JS (Wix, script-only navs), store the find in career_url.
+    Rotates via career_js_probed_at; real offices near the reference first."""
+    ref = _ref_point()
+    rows = con.execute(f"""
+        SELECT id, name, website FROM companies
+        WHERE status = 'ok' AND website != '' AND website IS NOT NULL
+          AND (career_url IS NULL OR career_url = '')
+        ORDER BY (career_js_probed_at IS NOT NULL), career_js_probed_at,
+                 (rating IS NULL OR rating < 4), (lat IS NULL),
+                 {_dist_order_sql(ref)}
+        LIMIT ?""", (limit,)).fetchall()
+    if not rows:
+        return
+    print(f"js-probing {len(rows)} sites for hidden career pages...", flush=True)
+    urls, by_url = [], {}
+    for r in rows:
+        u = r["website"].strip()
+        if not u.startswith("http"):
+            u = "https://" + u
+        urls.append(u)
+        by_url.setdefault(u, r)
+    try:
+        import js_watch
+        rendered = js_watch.fetch_rendered(urls, cap=limit)
+    except Exception as e:
+        print(f"  js-probe skipped: {e}", flush=True)
+        return
+    got = {u: (f, b) for u, f, b in rendered}
+    stamp, found = now(), 0
+    for u, r in by_url.items():
+        con.execute("UPDATE companies SET career_js_probed_at=? WHERE id=?",
+                    (stamp, r["id"]))
+        if u not in got:
+            continue
+        final, body = got[u]
+        cands = _career_candidates(body, final)
+        few = len(A_TAG.findall(body)) < 5
+        if cands and (cands[0][0] >= 3 or (cands[0][0] >= 1 and not few)):
+            con.execute("""UPDATE companies SET career_url=?, career_checked_at=?
+                           WHERE id=?""", (cands[0][3], stamp, r["id"]))
+            found += 1
+    con.commit()
+    print(f"  js-probe: {found} new career pages from {len(rendered)} "
+          f"rendered sites", flush=True)
+
+
 SUB_SKIP = re.compile(
     r"/wp-json/|oembed|\.(png|jpe?g|gif|svg|mp4|zip|pdf|docx?)([?#]|$)", re.I)
 MORE_JOBS = re.compile(
@@ -790,10 +900,12 @@ def _career_sublinks(body, final):
     return [u for _, _, u in cands[:3 if MORE_JOBS.search(body) else 2]]
 
 
-def harvest_career(url, name, loc):
+def harvest_career(url, name, loc, body=None, final=None):
     """Fetch one career page (+depth-2 sublinks when it yields nothing) and
-    extract postings. Shared by run_career_watch and offline verification."""
-    body, final = http_get(url, tries=1, timeout=15)
+    extract postings. Shared by run_career_watch and offline verification.
+    Pass body/final to reuse an already-downloaded page."""
+    if body is None:
+        body, final = http_get(url, tries=1, timeout=15)
     jobs = extract_job_links(body, final, name, loc, career_page=True)
     if not jobs:
         for u in _career_sublinks(body, final):
@@ -824,14 +936,21 @@ def run_career_watch(con, limit, started):
     rest so every firm gets re-checked within ~2 weeks."""
     ref = _ref_point()
     dist = _dist_order_sql(ref)
+    # watch the detected career page; for real architecture offices (rating>=4)
+    # without one, watch the homepage — small Swiss firms announce jobs there
+    where = """status = 'ok' AND (
+                 (career_url IS NOT NULL AND career_url != '')
+                 OR (rating >= 4 AND website IS NOT NULL AND website != ''))"""
+    fields = """id, name, city, plz, career_etag, career_last_mod,
+                COALESCE(NULLIF(career_url,''), website) AS watch_url,
+                (career_url IS NULL OR career_url = '') AS is_home"""
     near = con.execute(f"""
-        SELECT id, name, career_url, city, plz FROM companies
-        WHERE career_url != '' AND career_url IS NOT NULL AND status = 'ok'
-        ORDER BY (lat IS NULL), {dist} LIMIT ?""", (limit // 2,)).fetchall()
+        SELECT {fields} FROM companies WHERE {where}
+        ORDER BY (won_at IS NULL OR won_at < datetime('now', '-90 day')),
+                 (lat IS NULL), {dist} LIMIT ?""", (limit // 2,)).fetchall()
     have = {r["id"] for r in near}
     rest = [r for r in con.execute(f"""
-        SELECT id, name, career_url, city, plz FROM companies
-        WHERE career_url != '' AND career_url IS NOT NULL AND status = 'ok'
+        SELECT {fields} FROM companies WHERE {where}
         ORDER BY (career_watched_at IS NOT NULL), career_watched_at,
                  (lat IS NULL), {dist} LIMIT ?""", (limit,)).fetchall()
             if r["id"] not in have][:limit - len(near)]
@@ -839,14 +958,20 @@ def run_career_watch(con, limit, started):
     print(f"watching {len(rows)} career pages for job ads...", flush=True)
 
     def work(row):
-        host = urllib.parse.urlparse(row["career_url"]).netloc.replace("www.", "")
+        host = urllib.parse.urlparse(row["watch_url"]).netloc.replace("www.", "")
         if _on_hosts(host, BOARD_HOSTS):
-            return row["id"], [], False  # profile hosted on a board we scrape anyway
+            return row["id"], [], False, None, None  # board profile, scraped anyway
         try:
             loc = " ".join(str(x) for x in (row["plz"], row["city"]) if x)
-            return row["id"], harvest_career(row["career_url"], row["name"], loc), True
+            body, final, etag, lm, changed = http_get_cond(
+                row["watch_url"], row["career_etag"], row["career_last_mod"])
+            if not changed:
+                return row["id"], [], "unchanged", etag, lm
+            jobs = harvest_career(row["watch_url"], row["name"], loc,
+                                  body=body, final=final)
+            return row["id"], jobs, True, etag, lm
         except Exception:
-            return row["id"], [], False
+            return row["id"], [], False, None, None
 
     def put(cid, j):
         if not career_accept(j):
@@ -865,20 +990,32 @@ def run_career_watch(con, limit, started):
     row_by_id = {r["id"]: r for r in rows}
     js_candidates = []
     found = 0
+    unchanged = 0
     with ThreadPoolExecutor(max_workers=8) as ex:
-        for cid, jobs, fetched in ex.map(work, rows):
-            if fetched and not jobs:
+        for cid, jobs, status, etag, lm in ex.map(work, rows):
+            # only detected career pages go to the JS-render pass; a homepage
+            # with no job links is the normal case, not a script-only page
+            if status is True and not jobs and not row_by_id[cid]["is_home"]:
                 js_candidates.append(cid)
+            if status == "unchanged":
+                unchanged += 1
             for j in jobs:
                 found += put(cid, j)
-            con.execute("UPDATE companies SET career_watched_at=? WHERE id=?",
-                        (now(), cid))
+            if etag is None:          # fetch failed: keep stored validators
+                con.execute("UPDATE companies SET career_watched_at=? WHERE id=?",
+                            (now(), cid))
+            else:
+                con.execute("""UPDATE companies SET career_watched_at=?,
+                               career_etag=?, career_last_mod=? WHERE id=?""",
+                            (now(), etag, lm, cid))
+    if unchanged:
+        print(f"  career-page: {unchanged} unchanged (304 skipped)", flush=True)
     # second pass with a real browser: career pages that render their job
     # list client-side yield zero links to plain HTTP (full cloud scan only)
     if js_candidates and os.environ.get("JS_WATCH"):
         try:
             import js_watch
-            pairs = [(cid, row_by_id[cid]["career_url"]) for cid in js_candidates]
+            pairs = [(cid, row_by_id[cid]["watch_url"]) for cid in js_candidates]
             cid_by_url = {}
             for cid, u in pairs:
                 cid_by_url.setdefault(u, cid)
@@ -908,9 +1045,9 @@ def run_career_watch(con, limit, started):
 # canonical preference: direct/specialist sources beat aggregators
 SOURCE_PRIORITY = ["manual", "sia", "archi-jobs", "hochparterre",
                    "swiss-architects", "architekturstellen", "architectes",
-                   "career-page", "academia", "nzz", "ostjob", "jobroom", "jobs.ch",
-                   "jobup.ch", "jobagent", "linkedin", "indeed-google",
-                   "watch", "generic"]
+                   "career-page", "academia", "publicsector", "nzz", "ostjob",
+                   "jobroom", "jobs.ch", "jobup.ch", "jobagent", "linkedin",
+                   "indeed-google", "watch", "generic"]
 
 
 def _prio(source):
@@ -1020,6 +1157,12 @@ def main():
                     help="probe N company websites for career pages")
     ap.add_argument("--career-watch", type=int, default=0,
                     help="check N known career pages for actual job ads")
+    ap.add_argument("--probe-js", type=int, default=0,
+                    help="Playwright-render N sites with no detected career "
+                         "page to find JS-only ones (needs playwright)")
+    ap.add_argument("--competitions", action="store_true",
+                    help="scan espazium competition results and stamp "
+                         "offices that won (they hire soon)")
     ap.add_argument("--no-export", action="store_true",
                     help="skip regenerating site/data.js")
     ap.add_argument("--arch-only", action="store_true", default=True,
@@ -1068,6 +1211,11 @@ def main():
 
     if args.careers:
         run_career_probe(con, args.careers)
+    if args.probe_js:
+        run_js_probe(con, args.probe_js)
+    if args.competitions:
+        import competitions
+        competitions.scan_competitions(con)
     if args.career_watch:
         stats["career-page"] = run_career_watch(con, args.career_watch, started)
 

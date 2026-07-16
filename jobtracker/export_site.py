@@ -114,6 +114,7 @@ def export(con=None):
             "rating": r["rating"], "sia_url": r["sia_url"] or "",
             "applied_db": r["applied"] or 0, "applied_at_db": r["applied_at"],
             "notes_db": r["notes"] or "",
+            "won_at": (r["won_at"] or "")[:10], "won_ref": r["won_ref"] or "",
         })
 
     payload = {
