@@ -88,6 +88,13 @@ jobs:
 
   deploy:
     needs: scan
+    # same group as pages.yml: the local scan's pushes and this workflow both
+    # deploy Pages, and two overlapping deployments make GitHub return
+    # "400 ... due to in progress deployment". Queue instead of colliding;
+    # never cancel in progress (that strands the deployment server-side).
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

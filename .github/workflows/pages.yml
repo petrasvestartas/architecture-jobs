@@ -1,9 +1,26 @@
 name: Deploy website
-# Publishes public/ to GitHub Pages on every push to main.
+# Publishes public/ to GitHub Pages when the site content actually changes.
+#
+# Two independent producers push to main: the local Ubuntu scan (via
+# jobtracker/publish_web.py, every 30 min) and the cloud "Job scan" workflow.
+# Both used to deploy Pages, and this workflow additionally fired on the
+# scan's state-only commits (jobtracker.db / notified.json), so deployments
+# overlapped and GitHub rejected them with
+#   "Failed to create deployment (status: 400) ... due to in progress
+#    deployment. Please cancel <sha> first or wait for it to complete."
+# Two changes stop that:
+#   * paths filter — state-only commits no longer trigger a site deploy;
+#   * shared `pages-deploy` concurrency group with scan.yml + no
+#     cancel-in-progress — deployments queue instead of colliding.
+# cancel-in-progress must stay false: cancelling a run mid-deploy leaves the
+# Pages deployment stuck "in progress" and breaks the *next* run too.
 
 on:
   push:
     branches: [main]
+    paths:
+      - "public/**"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -12,8 +29,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: pages-deploy
+  cancel-in-progress: false
 
 jobs:
   deploy:
