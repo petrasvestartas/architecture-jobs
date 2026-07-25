@@ -246,11 +246,13 @@ ROLE_WORDS = re.compile(
     r"chef[\s.]*\(?fe\)?[\s.]*de projet|chef de projet|direktion|"
     r"gesch[aä]ftsleit|directeur|directrice|deviseur|"
     r"kostenplan|sachbearbeit|stelleninserat|koordinat|coordinat|"
-    r"disegnat|capo\s*progetto|collaborat|direzione lavori",
+    r"disegnat|capo\s*progetto|collaborat|direzione lavori|"
+    r"wettbewerb|concours|entw[uü]rf|entwerfen",
     re.I)
-# these ROLE_WORDS also match nav/project noise (URBAN HOUSE, Collaborateurs);
-# they only count together with a workload % or a gender tag
-WEAK_ROLE = ("urban", "collaborat")
+# these ROLE_WORDS also match nav/project noise (URBAN HOUSE, Collaborateurs,
+# Wettbewerbe/Entwürfe project nav); they only count together with a
+# workload % or a gender tag
+WEAK_ROLE = ("urban", "collaborat", "wettbewerb", "concours", "entw")
 # grammatical gender tags mark real ads: (m/w/d), /in, :in, *in, ProjektleiterIn
 # (case-sensitive: a case-insensitive In\b would match every word ending "in")
 GENDER_TAG = re.compile(
@@ -282,7 +284,9 @@ DOC_NOISE = re.compile(
 MEDIA_EXT = re.compile(r"\.(png|jpe?g|gif|svg|webp|mp4|webm|mp3|zip)$", re.I)
 ATS_HOSTS = ("prospective.ch", "jobbase.io", "refline.ch", "onlyfy.jobs",
              "softgarden.io", "jobs.dvinci.de", "recruitingapp", "umantis.com",
-             "abacuscity.ch", "jobcloud.ai", "recruitee.com")
+             "abacuscity.ch", "jobcloud.ai", "recruitee.com", "personio",
+             "jacando", "ostendis", "teamtailor", "join.com", "greenhouse.io",
+             "lever.co", "smartrecruiters", "workable.com", "bamboohr")
 # never harvest links that point at job boards we scrape directly — the jobs
 # would be misattributed to the company whose page links there
 BOARD_HOSTS = ("swiss-architects.com", "world-architects.com", "jobs.ch",
@@ -900,8 +904,10 @@ MORE_JOBS = re.compile(
 
 
 def _career_sublinks(body, final):
-    """Depth-2 candidates: skip wp-json/binaries, prefer job words in the
-    path over query/nav hits, allow 3 when the page promises open positions."""
+    """Depth-2 candidates as (url, is_ats): skip wp-json/binaries. ATS
+    listing pages rank first — they hold the company's complete list of
+    open positions; then job words in the path over query/nav hits.
+    Allow 3 when the page promises open positions."""
     base = _page_base(body, final)
     base_host = urllib.parse.urlparse(final).netloc.replace("www.", "")
     cands, seen = [], {final.split("#")[0]}
@@ -909,30 +915,37 @@ def _career_sublinks(body, final):
         u = urllib.parse.urljoin(base, href).split("#")[0]
         pr = urllib.parse.urlparse(u)
         h = pr.netloc.replace("www.", "")
+        ats = _on_hosts(h, ATS_HOSTS) or any(a in h for a in ATS_HOSTS)
         if (u in seen or SUB_SKIP.search(u)
-                or not (h == base_host or h.endswith("." + base_host))):
+                or not (ats or h == base_host or h.endswith("." + base_host))):
             continue
         seen.add(u)
-        cands.append((0 if CAREER_SEG.search(pr.path.lower()) else 1,
-                      len(cands), u))
+        rank = 0 if ats else (1 if CAREER_SEG.search(pr.path.lower()) else 2)
+        cands.append((rank, len(cands), u, ats))
     cands.sort()
-    return [u for _, _, u in cands[:3 if MORE_JOBS.search(body) else 2]]
+    return [(u, ats) for _, _, u, ats in
+            cands[:3 if MORE_JOBS.search(body) else 2]]
 
 
 def harvest_career(url, name, loc, body=None, final=None):
-    """Fetch one career page (+depth-2 sublinks when it yields nothing) and
-    extract postings. Shared by run_career_watch and offline verification.
-    Pass body/final to reuse an already-downloaded page."""
+    """Fetch one career page and extract postings, then follow depth-2
+    sublinks: external ATS listing pages always (career pages often show
+    only a teaser while the full position list lives at the ATS), same-site
+    candidates only when the page itself yielded nothing. Shared by
+    run_career_watch and offline verification. Pass body/final to reuse an
+    already-downloaded page."""
     if body is None:
         body, final = http_get(url, tries=1, timeout=15)
     jobs = extract_job_links(body, final, name, loc, career_page=True)
-    if not jobs:
-        for u in _career_sublinks(body, final):
-            try:
-                b2, f2 = http_get(u, tries=1, timeout=15)
-                jobs += extract_job_links(b2, f2, name, loc, career_page=True)
-            except Exception:
-                pass
+    entry_empty = not jobs
+    for u, ats in _career_sublinks(body, final):
+        if not (ats or entry_empty):
+            continue
+        try:
+            b2, f2 = http_get(u, tries=1, timeout=15)
+            jobs += extract_job_links(b2, f2, name, loc, career_page=True)
+        except Exception:
+            pass
     return jobs
 
 
