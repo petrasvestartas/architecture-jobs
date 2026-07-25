@@ -1,0 +1,9 @@
+# Custom runner labels, so actionlint does not report the self-hosted one as
+# a typo. Lint the workflows before pushing -- an invalid workflow file fails
+# in 0s with only "This run likely failed because of a workflow file issue",
+# which is not enough to debug from:
+#
+#   actionlint .github/workflows/*.yml
+self-hosted-runner:
+  labels:
+    - architecture-jobs

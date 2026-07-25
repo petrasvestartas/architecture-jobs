@@ -44,13 +44,17 @@ jobs:
     runs-on: [self-hosted, linux, architecture-jobs]
     timeout-minutes: 90
     env:
-      # Outside the workspace: actions/checkout wipes the workspace, and
-      # rebuilding the venv would re-download ~150 MB of Chromium every run.
-      VENV: ${{ runner.temp }}/../architecture-jobs-venv
       JOBTRACKER_SITE_DIR: ${{ github.workspace }}/public
       PYTHONIOENCODING: utf-8
     steps:
       - uses: actions/checkout@v4
+
+      - name: Locate the persistent virtualenv
+        # Deliberately outside the workspace: actions/checkout wipes that, and
+        # rebuilding would re-download ~150 MB of Chromium on every run.
+        # Set here rather than in the job's `env:` because that block cannot
+        # read the `runner` context, and a literal needs $HOME expanded.
+        run: echo "VENV=$HOME/.cache/architecture-jobs/venv" >> "$GITHUB_ENV"
 
       - name: Ensure the scan virtualenv exists
         run: |
