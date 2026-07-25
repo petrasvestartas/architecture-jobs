@@ -10,7 +10,10 @@ Type=oneshot
 # %h is the user's home; adjust if the clone lives elsewhere.
 WorkingDirectory=%h/code/code_web/architecture-jobs/jobtracker
 ExecStart=%h/code/code_web/architecture-jobs/jobtracker/run_local.sh
-# a light scan is ~5 min; kill it well before the next timer tick so two
-# scans can never write the same SQLite file at once
-TimeoutStartSec=20min
+# A light scan measured 28 min on this machine, not the ~5 min the career
+# page budget suggests, so anything near the 30 min timer interval would
+# kill real scans mid-flight. Overlap is handled by run_local.sh's flock
+# (a tick landing on a running scan exits quietly), which is what actually
+# protects the SQLite file — this timeout only exists to reap a wedged run.
+TimeoutStartSec=50min
 Nice=10

@@ -89,6 +89,10 @@ Sources that block robots are shown on the site's **Sources** tab with a
   during the deep pass (or a manual run during either) exits quietly instead
   of racing. That protects one machine against itself — it does nothing
   about a second machine sharing the same clone.
+- A light scan takes about **28 minutes** here, not the 5 the budget flags
+  suggest, so with a 30-minute timer expect roughly every other tick to skip
+  on the lock. That is fine; if you would rather it not, widen the timer's
+  `OnCalendar` to hourly.
 
 ## Commands
 
