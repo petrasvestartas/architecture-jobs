@@ -1,0 +1,13 @@
+[Unit]
+Description=Swiss architecture job scan (full: career discovery + JS render)
+Documentation=https://github.com/petrasvestartas/architecture-jobs
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/code/code_web/architecture-jobs/jobtracker
+ExecStart=%h/code/code_web/architecture-jobs/jobtracker/run_local.sh --full
+# the deep pass probes ~150 company sites and renders ~80 in Chromium
+TimeoutStartSec=90min
+Nice=10

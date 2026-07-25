@@ -53,13 +53,42 @@ Sources that block robots are shown on the site's **Sources** tab with a
 
 ## Scheduling
 
-- **Windows:** Task Scheduler job `SwissArchJobScan` runs `run_daily.cmd` at
-  07:30 (catches up after boot if the PC was off).
+- **Ubuntu / Linux (current setup):** `systemd/install.sh` installs two user
+  timers — a light scan every 30 min 07:00-21:00 and a full scan at 06:30.
+  Both call `run_local.sh`, which bootstraps `.venv` (Playwright +
+  python-jobspy), rebases onto `origin/main`, scans, and pushes via
+  `publish_web.py`.
+
+      cd jobtracker
+      ./run_local.sh              # one light scan now
+      ./run_local.sh --full       # one deep pass now
+      systemd/install.sh          # install + enable the timers
+      systemd/install.sh --status # when did it last run?
+      systemd/install.sh --remove # uninstall
+      tail -f scraper.log         # watch it work
+
+  User timers pause at logout unless you run
+  `sudo loginctl enable-linger $USER`.
+
+  Worth keeping enabled: the local run has Playwright and python-jobspy on
+  *every* scan (the cloud light scan has neither), and a residential address
+  for boards that throttle datacenter ranges. See the root README for what
+  that measurably buys.
+
+- **Windows (legacy):** Task Scheduler job `SwissArchJobScan` runs
+  `run_light.cmd` at 07:30. Uses the Google Drive layout, where the site is
+  generated outside the clone and copied in; `publish_web.py` detects that
+  and behaves as before.
 - **Mac:** edit the path inside `com.jobtracker.daily.plist` (your Google
   Drive mount), then:
   `cp com.jobtracker.daily.plist ~/Library/LaunchAgents/ && launchctl load ~/Library/LaunchAgents/com.jobtracker.daily.plist`
-- Enable the schedule on **one machine at a time** — the SQLite database lives
-  in Google Drive and must not be written by two machines simultaneously.
+  — or just use `run_local.sh`, which works on macOS too.
+- Enable the schedule on **one machine at a time**: two scans writing the
+  same SQLite database at once will corrupt it. On Ubuntu, `run_local.sh`
+  takes an exclusive `flock` on `.scan.lock`, so a light tick that lands
+  during the deep pass (or a manual run during either) exits quietly instead
+  of racing. That protects one machine against itself — it does nothing
+  about a second machine sharing the same clone.
 
 ## Commands
 
@@ -79,8 +108,10 @@ http://127.0.0.1:5050 — the static site has replaced it.
 
 `scraper.py` sources + career watchdog + dedup · `db.py` SQLite schema ·
 `geo.py` offline Swiss geocoder (GeoNames, `data/CH.txt`) · `export_site.py`
-writes `../site/data.js` · `config.json` reference location · `../site/`
-the website · `jobtracker.db` the database · `scraper.log` daily log
+writes `../site/data.js` · `srchealth.py` flags sources that collapsed
+against their own history · `config.json` reference location · `../site/`
+the website · `jobtracker.db` the database · `scraper.log` daily log ·
+`run_local.sh` + `systemd/` the Linux scheduled runner
 
 **Want it to run even when your computers are off?** Ask Claude to set up the
 free GitHub Pages + Actions variant (cloud scraping, same site on a URL).

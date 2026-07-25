@@ -1,0 +1,15 @@
+[Unit]
+Description=Run the full architecture job scan once a day
+
+[Timer]
+# 06:30 local — after the 05:30 cloud full scan (so the deep local pass
+# starts from a database the cloud has already refreshed) and before the
+# light timer's 07:00 start, so the two normally do not overlap. When they
+# do anyway, run_local.sh's flock makes the loser skip its tick.
+OnCalendar=*-*-* 06:30
+Persistent=true
+RandomizedDelaySec=300
+Unit=architecture-jobs-full.service
+
+[Install]
+WantedBy=timers.target

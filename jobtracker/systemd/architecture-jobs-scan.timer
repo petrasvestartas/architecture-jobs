@@ -1,0 +1,15 @@
+[Unit]
+Description=Run the light architecture job scan every 30 minutes, 07:00-21:00
+
+[Timer]
+# 07:00, 07:30, ... 21:30 local time
+OnCalendar=*-*-* 07..21:00/30
+# if the machine was asleep or off at the scheduled time, run once on wake
+Persistent=true
+# stagger slightly so every machine on the network does not hit the boards
+# at exactly :00 and :30
+RandomizedDelaySec=90
+Unit=architecture-jobs-scan.service
+
+[Install]
+WantedBy=timers.target

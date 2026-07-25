@@ -4,3 +4,6 @@ __pycache__/
 *.tmp
 *.db-wal
 *.db-shm
+
+.venv/
+*.lock

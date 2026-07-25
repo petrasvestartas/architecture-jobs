@@ -1,0 +1,16 @@
+[Unit]
+Description=Swiss architecture job scan (light) + publish to GitHub Pages
+Documentation=https://github.com/petrasvestartas/architecture-jobs
+# no point starting before the link is up: every source is remote
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# %h is the user's home; adjust if the clone lives elsewhere.
+WorkingDirectory=%h/code/code_web/architecture-jobs/jobtracker
+ExecStart=%h/code/code_web/architecture-jobs/jobtracker/run_local.sh
+# a light scan is ~5 min; kill it well before the next timer tick so two
+# scans can never write the same SQLite file at once
+TimeoutStartSec=20min
+Nice=10

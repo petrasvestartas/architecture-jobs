@@ -1,0 +1,107 @@
+name: Job scan (local runner)
+# The same scan as scan.yml, executed on the self-hosted runner at home
+# instead of GitHub's datacenter. Two things that buys us:
+#
+#   * a residential address — swiss-architects.com served 139 jobs from here
+#     against 127 from Actions, and the jobagent network (~440 jobs a scan)
+#     has refused datacenter ranges outright since 2026-07-15;
+#   * Playwright and python-jobspy on *every* run. The hosted light scan has
+#     neither, so it silently skips Indeed/Google Jobs and cannot read career
+#     pages that build their job list in JavaScript.
+#
+# It does not deploy Pages itself: it pushes public/, and pages.yml (running
+# on GitHub's own runners) picks that up. Keeps the deploy path in one place.
+#
+# When the machine is off, runs queue rather than fail. cancel-in-progress
+# below is what stops them piling up — each new tick discards the previous
+# stuck one, so coming back after a week costs one run, not a hundred.
+
+on:
+  schedule:
+    # offset half an hour from scan.yml so the two normally do not overlap:
+    # cloud scans on the hour, this one on the half hour.
+    - cron: "30 4 * * *"     # full scan, 06:30 Swiss summer time
+    - cron: "30 5-17 * * *"  # light scan hourly, 07:30-19:30
+  workflow_dispatch:
+    inputs:
+      full:
+        description: "Run the deep pass (career discovery + JS render)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  # Separate from scan.yml's group on purpose. A job waiting for an offline
+  # self-hosted runner still occupies its concurrency group, so sharing one
+  # with the cloud scan would let a powered-down laptop block cloud scans.
+  group: scan-local
+  cancel-in-progress: true
+
+jobs:
+  scan:
+    runs-on: [self-hosted, linux, architecture-jobs]
+    timeout-minutes: 90
+    env:
+      # Outside the workspace: actions/checkout wipes the workspace, and
+      # rebuilding the venv would re-download ~150 MB of Chromium every run.
+      VENV: ${{ runner.temp }}/../architecture-jobs-venv
+      JOBTRACKER_SITE_DIR: ${{ github.workspace }}/public
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ensure the scan virtualenv exists
+        run: |
+          set -eu
+          # Ubuntu ships python3 without ensurepip, so `python3 -m venv` fails
+          # on a stock install; uv is the reliable path and is already here.
+          UV="$(command -v uv || echo "$HOME/.local/bin/uv")"
+          if [ ! -x "$VENV/bin/python" ]; then
+            if [ -x "$UV" ]; then "$UV" venv --python 3.12 "$VENV"
+            else python3 -m venv "$VENV"; fi
+          fi
+          if ! "$VENV/bin/python" -c "import playwright, jobspy" 2>/dev/null; then
+            if [ -x "$UV" ]; then
+              "$UV" pip install --python "$VENV/bin/python" playwright python-jobspy
+            else
+              "$VENV/bin/pip" install playwright python-jobspy
+            fi
+            "$VENV/bin/python" -m playwright install chromium
+          fi
+          "$VENV/bin/python" -c "import playwright, jobspy; print('deps ok')"
+
+      - name: Run the scan
+        working-directory: jobtracker
+        env:
+          # career pages that need a real browser, on every run
+          JS_WATCH: "1"
+        run: |
+          set -eu
+          if [ "${{ github.event.schedule }}" = "30 4 * * *" ] \
+             || [ "${{ inputs.full }}" = "true" ]; then
+            "$VENV/bin/python" scraper.py --careers 150 --career-watch 300 \
+                --probe-js 80 --competitions
+          else
+            "$VENV/bin/python" scraper.py --careers 40 --career-watch 250
+          fi
+
+      - name: Commit and push
+        run: |
+          git config user.name "jobtracker-local"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # public/ so pages.yml deploys, the DB so history and dedup state
+          # survive; notified.json stays cloud-owned (the digest is sent by
+          # scan.yml alone, and two writers would double-send or drop mail).
+          git add public jobtracker/jobtracker.db
+          git diff --cached --quiet && { echo "nothing changed"; exit 0; }
+          git commit -m "Data refresh (local runner) $(date -u +'%F %H:%M')"
+          for i in 1 2 3 4 5; do
+            if git push; then echo "pushed"; exit 0; fi
+            echo "push rejected (attempt $i) — re-syncing with origin"
+            git pull --rebase -X theirs --autostash origin main \
+              || git rebase --abort 2>/dev/null || true
+          done
+          echo "could not push; the next scan will retry"
+          exit 0
