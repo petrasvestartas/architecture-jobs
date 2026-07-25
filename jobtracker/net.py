@@ -7,12 +7,27 @@ creating an import cycle with scraper.py.
 import html
 import http.cookiejar
 import json
+import os
 import re
 import time
 import urllib.request
 
-UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
+# Keep the Chrome major roughly current. "Chrome/126.0" was two years stale
+# by mid-2026 and is a giveaway that nothing here is a browser: in
+# interleaved requests to architekten-jobs.ch, with every other header held
+# constant, the 126 string was refused three times while a current one was
+# served. Bumping it is hygiene rather than a proven fix — the same host now
+# refuses this whole machine regardless — but a stale major can only cost us.
+#
+# To refresh, read the version off the browser Playwright already installs:
+#   .venv/bin/python -c "from playwright.sync_api import sync_playwright; \
+#     p=sync_playwright().start(); b=p.chromium.launch(); \
+#     print(b.new_context().new_page().evaluate('navigator.userAgent'))"
+# JOBTRACKER_UA overrides it without a code change if a board starts
+# objecting between refreshes.
+UA = os.environ.get("JOBTRACKER_UA") or (
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36")
 
 # one shared opener with an in-memory cookie jar: several boards
 # (swiss-architects, jobagent) gate on cookies + Referer

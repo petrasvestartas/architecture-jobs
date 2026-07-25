@@ -6,9 +6,24 @@ Swiss architecture jobs (~1000). Listing pages are server-rendered HTML at
 https://architekten-jobs.ch/search?page=N (~105 items/page).
 
 Anti-bot note (DataDome): the first response sets a `datadome` cookie; if
-that cookie is sent back, every following request gets 403. The fix is to
-drop the site's cookies before each request so every page fetch looks like
-a fresh visitor. No other bypass is needed or used.
+that cookie is sent back, every following request gets 403, so the site's
+cookies are dropped before each request. No other bypass is used.
+
+Since 2026-07-15 that is no longer enough: the cloud scan has recorded 0
+jobs here every single day since, where it used to find ~440. What was
+measured on 2026-07-25 from a residential connection: the listing page
+served once (111 items), then 403 for every request after a short burst,
+and still 403 an hour and a half later — DataDome flagging the address, not
+a header we can fix. Headless Chromium is refused the same way, and so are
+the sibling domains (jobagent.ch, emploi-batiment.ch) and the sitemap.
+
+So this source is currently unreachable from both the cloud and one home
+connection, and no bypass is attempted. A local scan is still the better
+bet — it is a different address, unflagged, making 8 requests a run — but
+it is worth trying, not a guaranteed fix. Meanwhile scan_jobagent raises
+instead of returning an empty list, so the run records BLOCKED and the
+website offers a manual-search link rather than silently claiming the
+board is empty.
 
 Fields: no posted date is exposed on the listing pages -> posted_at = "".
 Canton comes from the data-gtm-jp attribute on each result item.
@@ -80,6 +95,7 @@ def scan_jobagent():
     jobs = []
     seen = set()
     retries_left = RETRY_BUDGET
+    first_error = None
     for page in range(1, PAGE_CAP + 1):
         if page > 1:
             time.sleep(1.0)
@@ -87,8 +103,12 @@ def scan_jobagent():
             body, used_retry = _fetch_page(page, retries_left)
             if used_retry:
                 retries_left -= 1
-        except Exception:
-            break  # blocked or down; keep whatever we already have
+        except Exception as e:
+            # blocked or down; keep whatever we already have, but remember
+            # why we stopped — a swallowed 403 here is what let this source
+            # report "0 jobs, all good" for eleven days straight
+            first_error = first_error or e
+            break
 
         new = 0
         for m in ITEM_RE.finditer(body):
@@ -126,6 +146,11 @@ def scan_jobagent():
             new += 1
         if new == 0:
             break  # past the last page (or only repeats)
+    if not jobs and first_error is not None:
+        # nothing at all AND a failed fetch: report it so the run records
+        # "BLOCKED: ..." and the site offers a manual-search link, instead
+        # of an empty list that is indistinguishable from a quiet board
+        raise first_error
     return jobs
 
 

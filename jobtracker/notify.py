@@ -62,6 +62,30 @@ def _esc(s):
 SITE_URL = "https://petrasvestartas.github.io/architecture-jobs/"
 
 
+def _health_note():
+    """One line naming sources that collapsed against their own history.
+
+    Without it a board can die quietly and the digest just gets shorter —
+    which reads as "a slow week", not "we stopped scanning a third of the
+    market". Only shown when something is actually wrong.
+    """
+    try:
+        con = db.connect()
+        row = con.execute("SELECT source_stats FROM runs "
+                          "ORDER BY id DESC LIMIT 1").fetchone()
+        con.close()
+        health = (json.loads(row["source_stats"] or "{}") or {}).get("_health")
+    except Exception:
+        return ""
+    if not health:
+        return ""
+    names = ", ".join(sorted(health))
+    return ('<p style="font-size:12.5px;color:#b00020;margin-top:14px;'
+            'border-top:1px solid #e5e5e0;padding-top:12px">'
+            f'&#9888; Not scanning right now: <b>{_esc(names)}</b>. '
+            'The Job Websites tab has a "search manually" link for each.</p>')
+
+
 def email_html(heading, items, joke):
     """A tidy, site-styled HTML email. items = [(title, url, meta, entwurf)]."""
     rows = []
@@ -91,6 +115,7 @@ def email_html(heading, items, joke):
         'font-size:13px;letter-spacing:1px">OPEN ALL JOBS</a></div>'
         '<p style="font-size:12px;color:#888888;margin-top:14px">'
         'Website password: <b>lina</b></p>'
+        + _health_note() +
         '<p style="font-size:12.5px;color:#888888;font-style:italic;'
         'border-top:1px solid #e5e5e0;padding-top:12px;margin-top:8px">'
         f'&#128054; {_esc(joke)}</p></div>')

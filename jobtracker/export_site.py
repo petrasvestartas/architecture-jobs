@@ -31,8 +31,8 @@ DIRECTORIES = [
      "url": "https://www.bern.ch/themen/arbeiten-fuer-die-stadt-bern/offene-stellen"},
     {"label": "berner-stellen.ch (all jobs in Kanton Bern)",
      "url": "https://berner-stellen.ch/"},
-    {"label": "Hochparterre Stellenmarkt",
-     "url": "https://www.hochparterre.ch/stellenmarkt"},
+    {"label": "Hochparterre Stellenplattform",
+     "url": "https://www.hochparterre.ch/stellenplattform"},
 ]
 
 
@@ -47,12 +47,18 @@ def _source_rows(con, source_meta):
             stats = json.loads(last["source_stats"] or "{}")
         except ValueError:
             stats = {}
+    # sources that returned a plausible-looking count but collapsed against
+    # their own history (srchealth) — "ok · 0 found" is what let the jobagent
+    # outage hide for eleven days
+    health = stats.get("_health") or {}
     counts = {r["source"]: r["c"] for r in con.execute(
         "SELECT source, COUNT(*) c FROM jobs WHERE active=1 GROUP BY source")}
     rows = []
     for name, meta in source_meta.items():
         raw = stats.get(name)
-        if isinstance(raw, int):
+        if name in health:
+            status, detail = "degraded", health[name]
+        elif isinstance(raw, int):
             status, detail = "ok", f"{raw} found"
         elif isinstance(raw, str) and raw.startswith("BLOCKED"):
             status, detail = "blocked", raw

@@ -637,9 +637,10 @@ SOURCE_META = {
     "publicsector": {"label": "Öffentliche Hand (publicjobs/Bern)",
                      "home": "https://publicjobs.ch/jobs/architektur-bauwesen",
                      "search_url": "https://publicjobs.ch/jobs/architektur-bauwesen"},
-    "hochparterre": {"label": "Hochparterre Stellenmarkt",
-                     "home": "https://www.hochparterre.ch/stellenmarkt",
-                     "search_url": "https://www.hochparterre.ch/stellenmarkt"},
+    "hochparterre": {"label": "Hochparterre Stellenplattform",
+                     # /stellenmarkt 404s — the platform is /stellenplattform
+                     "home": "https://www.hochparterre.ch/stellenplattform",
+                     "search_url": "https://www.hochparterre.ch/stellenplattform"},
     "swiss-architects": {"label": "Swiss-Architects Jobs",
                          "home": "https://www.swiss-architects.com/de/stellenanzeigen",
                          "search_url": "https://www.swiss-architects.com/de/stellenanzeigen"},
@@ -1260,6 +1261,15 @@ def main():
     jn, cn = geo.backfill(con)
     stats["geocoded"] = f"{jn} jobs, {cn} companies"
     stats["duplicates_marked"] = dedupe(con)
+
+    # a source that quietly yields 0 reads as "no jobs today"; compare every
+    # source against its own history so an outage is noticed the same day
+    # rather than after weeks (see srchealth.py)
+    import srchealth
+    verdicts = srchealth.check(con, stats, set(SOURCES) | {"career-page"})
+    srchealth.report(verdicts)
+    if verdicts:
+        stats["_health"] = verdicts
 
     con.execute("INSERT INTO runs (started, finished, source_stats, ok) VALUES (?,?,?,1)",
                 (started, now(), json.dumps(stats)))

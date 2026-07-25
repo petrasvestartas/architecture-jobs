@@ -816,6 +816,7 @@ tr.noterow textarea{width:100%;min-height:56px;resize:vertical;font-size:13px}
 .pill.ok{color:var(--ok)}
 .pill.blocked{color:var(--bad)}
 .pill.failed{color:var(--warn)}
+.pill.degraded{color:var(--bad)}
 .pill.idle{color:var(--idle)}
 .scard .meta{font-size:12.5px;color:var(--muted)}
 .scard .manual{display:inline-block;margin-top:8px;font-weight:600;font-size:13px;color:var(--accent)}
@@ -2340,9 +2341,9 @@ function updateMosClear(){
 function renderSources(){
   el("srcCards").innerHTML=DATA.sources.map(function(s){
     var st=(s.status||"idle").toLowerCase();
-    if(["ok","blocked","failed","idle"].indexOf(st)<0)st="idle";
+    if(["ok","blocked","failed","degraded","idle"].indexOf(st)<0)st="idle";
     var nm=s.home?'<a href="'+esc(safeUrl(s.home))+'" target="_blank" rel="noopener" class="linkish">'+esc(s.label)+"</a>":'<span class="nm">'+esc(s.label)+"</span>";
-    var manual=(st==="blocked"||st==="failed")&&s.search_url?
+    var manual=(st==="blocked"||st==="failed"||st==="degraded")&&s.search_url?
       '<a class="manual" href="'+esc(safeUrl(s.search_url))+'" target="_blank" rel="noopener">Search manually &rarr;</a>':"";
     return '<div class="scard"><div class="hd">'+nm+'<span class="pill '+st+'">'+esc(st)+"</span></div>"+
       '<div class="meta">'+(s.active_jobs||0)+" active jobs &middot; last run "+esc(s.last_run?fmtDateTime(s.last_run):"never")+"</div>"+
