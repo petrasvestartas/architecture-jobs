@@ -9,8 +9,12 @@ name: Job scan (local runner)
 #     neither, so it silently skips Indeed/Google Jobs and cannot read career
 #     pages that build their job list in JavaScript.
 #
-# It does not deploy Pages itself: it pushes public/, and pages.yml (running
-# on GitHub's own runners) picks that up. Keeps the deploy path in one place.
+# It deploys Pages itself, in a job of its own on a GitHub-hosted runner.
+# Letting pages.yml pick up the push instead would be tidier but does not
+# work: pushes authenticated with GITHUB_TOKEN deliberately do not trigger
+# further workflow runs, so the site would silently never update. scan.yml
+# has the same job for the same reason; the shared pages-deploy concurrency
+# group keeps the three deploy paths from colliding.
 #
 # When the machine is off, runs queue rather than fail. cancel-in-progress
 # below is what stops them piling up — each new tick discards the previous
@@ -31,6 +35,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   # Separate from scan.yml's group on purpose. A job waiting for an offline
@@ -109,3 +115,23 @@ jobs:
           done
           echo "could not push; the next scan will retry"
           exit 0
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: scan
+    # same group as pages.yml and scan.yml: only one Pages deployment may be
+    # in flight, and cancelling one mid-flight strands it server-side
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
