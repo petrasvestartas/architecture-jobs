@@ -292,7 +292,8 @@ ATS_HOSTS = ("prospective.ch", "jobbase.io", "refline.ch", "onlyfy.jobs",
 BOARD_HOSTS = ("swiss-architects.com", "world-architects.com", "jobs.ch",
                "jobup.ch", "jobagent.ch", "architekten-jobs.ch",
                "emploi-batiment.ch", "hochparterre.ch", "archi-jobs.ch",
-               "architekturstellen.ch", "architectes.ch", "ostjob.ch",
+               "architekturstellen.ch", "architectes.ch", "architalent.ch",
+               "ostjob.ch",
                "nzz.ch", "indeed.com", "linkedin.com", "jobscout24.ch")
 
 
@@ -591,6 +592,7 @@ from sources.archijobs import scan_archijobs               # noqa: E402
 from sources.nzz import scan_nzz, scan_ostjob              # noqa: E402
 from sources.architekturstellen import scan_architekturstellen  # noqa: E402
 from sources.architectes import scan_architectes           # noqa: E402
+from sources.architalent import scan_architalent           # noqa: E402
 from sources.hochparterre import scan_hochparterre         # noqa: E402
 from sources.swissarchitects import scan_swissarchitects   # noqa: E402
 from sources.jobagent import scan_jobagent                 # noqa: E402
@@ -608,6 +610,7 @@ SOURCES = {
     "swiss-architects": scan_swissarchitects,
     "architekturstellen": scan_architekturstellen,
     "architectes": scan_architectes,
+    "architalent": scan_architalent,
     "academia": scan_academia,
     "nzz": scan_nzz,
     "ostjob": scan_ostjob,
@@ -650,6 +653,9 @@ SOURCE_META = {
     "architectes": {"label": "architectes.ch (Romandie)",
                     "home": "https://www.architectes.ch/fr/annonces-offres-demploi",
                     "search_url": "https://www.architectes.ch/fr/annonces-offres-demploi"},
+    "architalent": {"label": "architalent.ch",
+                    "home": "https://architalent.ch/en/jobs",
+                    "search_url": "https://architalent.ch/en/jobs/search"},
     "nzz": {"label": "NZZ Jobs", "home": "https://jobs.nzz.ch/",
             "search_url": "https://jobs.nzz.ch/suche?q=Architektur"},
     "ostjob": {"label": "ostjob.ch", "home": "https://www.ostjob.ch/",
@@ -1078,7 +1084,7 @@ def run_career_watch(con, limit, started):
 # canonical preference: direct/specialist sources beat aggregators
 SOURCE_PRIORITY = ["manual", "sia", "archi-jobs", "hochparterre",
                    "swiss-architects", "architekturstellen", "architectes",
-                   "career-page", "academia", "publicsector", "nzz", "ostjob",
+                   "architalent", "career-page", "academia", "publicsector", "nzz", "ostjob",
                    "jobroom", "jobs.ch", "jobup.ch", "jobagent", "linkedin",
                    "indeed-google", "watch", "generic"]
 
