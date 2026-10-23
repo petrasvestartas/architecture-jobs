@@ -26,7 +26,7 @@ import sys
 import time
 import urllib.parse
 
-from net import http_get, get_json, strip_tags, extract_workload
+from net import http_get, get_json, post_json, strip_tags, extract_workload
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SITE_DIR = os.environ.get("JOBTRACKER_SITE_DIR") or \
@@ -41,54 +41,130 @@ CATEGORIES = [
     {"key": "research", "label": "Research"},
 ]
 
-# firms from the application letters (+ a few close peers). kind decides the
-# fetcher; cat is the category every posting of that firm is filed under.
+# Firms from the application letters plus their Swiss peers. kind picks the
+# fetcher, ref is its argument, cat files every kept posting. Options:
+#   only     — big employers with many unrelated roles (ABB, Implenia, ...):
+#              keep a posting only if its title classifies into one of these
+#              categories, e.g. only timber roles at a general contractor
+#   match    — jobsch: substring the posting's company name must contain
+#              (the free-text search also returns other firms)
+#   path     — page: regex the posting link must match (skips service nav)
+#   render   — page: the list is built in JavaScript; render it in Chromium
+#   link     — no readable list; shown under "Companies watched" only
+ROBO = ("robotics", "software", "research")
 COMPANIES = [
-    ("ANYbotics", "robotics", "lever", "anybotics"),
-    ("RIVR", "robotics", "lever", "rivr"),
-    ("Gravis Robotics", "robotics", "lever", "gravisrobotics"),
-    ("mimic robotics", "robotics", "lever", "mimic"),
-    ("Sereact", "robotics", "ashby", "sereact"),
-    ("Ascento", "robotics", "breezy", "ascento-ag"),
-    ("Duatic", "robotics", "page", "https://www.duatic.com/jobs"),
+    # --- robotics: startups / scale-ups (ATS feeds) ---
+    ("ANYbotics", "robotics", "lever", "anybotics", {}),
+    ("RIVR", "robotics", "lever", "rivr", {}),
+    ("Gravis Robotics", "robotics", "lever", "gravisrobotics", {}),
+    ("mimic robotics", "robotics", "lever", "mimic", {}),
+    ("Sereact", "robotics", "ashby", "sereact", {}),
+    ("Exclaim Robotics", "robotics", "ashby", "exclaim", {}),
+    ("Ascento", "robotics", "breezy", "ascento-ag", {}),
+    ("Verity", "robotics", "breezy", "verity-ag", {}),
+    ("Voliro", "robotics", "bamboo", "voliroar", {}),
+    ("Auterion", "robotics", "greenhouse", "auterion", {}),
+    ("Flyability", "robotics", "workable", "flyability", {}),
+    ("Scandit", "software", "greenhouse", "scandit", {"only": ROBO}),
+    ("Embotech", "robotics", "page", "https://embotech.ai/career", {}),
+    ("Duatic", "robotics", "page", "https://www.duatic.com/jobs", {"render": True}),
     ("Tethys Robotics", "robotics", "page",
-     "https://www.tethys-robotics.ch/company/jobs"),
-    ("Exclaim Robotics", "robotics", "page", "https://exclaimrobotics.com/careers/"),
-    ("Hexagon Robotics", "robotics", "page", "https://robotics.hexagon.com/careers/"),
-    ("Verity", "robotics", "page", "https://www.verity.net/careers"),
-    ("Voliro", "robotics", "page", "https://voliro.com/careers/"),
+     "https://www.tethys-robotics.ch/company/jobs", {"link": True}),
+    ("Hexagon Robotics", "robotics", "page",
+     "https://hexagon-robotics.onlyfy.jobs/", {"render": True}),
+    ("Sevensense (ABB)", "robotics", "page", "https://www.sevensense.ai/", {"link": True}),
+    # --- robotics / automation: industrial (jobs.ch, robotics+software roles) ---
+    ("ABB", "robotics", "workday", "abb.wd3/abb/External_Career_Page",
+     {"country": "Switzerland", "only": ROBO,
+      "home": "https://careers.abb/global/en/search-results?keywords=robotics"}),
+    ("ABB Robotics", "robotics", "linkedin", "ABB Robotics", {"match": "abb", "only": ROBO}),
+    ("Stäubli", "robotics", "linkedin", "Stäubli robotics",
+     {"match": "ubli", "only": ROBO}),
+    ("KUKA", "robotics", "linkedin", "KUKA", {"match": "kuka", "only": ROBO}),
+    ("Güdel", "robotics", "jobsch", "Güdel", {"match": "güdel", "only": ROBO}),
+    ("Hilti", "robotics", "jobsch", "Hilti", {"match": "hilti", "only": ROBO}),
+    ("Hilti (LinkedIn)", "robotics", "linkedin", "Hilti robotics software",
+     {"match": "hilti", "only": ROBO}),
+    ("Schindler", "robotics", "jobsch", "Schindler", {"match": "schindler", "only": ROBO}),
+    ("Kistler", "robotics", "jobsch", "Kistler", {"match": "kistler", "only": ROBO}),
+    ("Bystronic", "robotics", "jobsch", "Bystronic", {"match": "bystronic", "only": ROBO}),
+    ("Mikron", "robotics", "jobsch", "Mikron", {"match": "mikron", "only": ROBO}),
+    ("Swisslog", "robotics", "jobsch", "Swisslog", {"match": "swisslog", "only": ROBO}),
+    ("Wingtra", "robotics", "jobsch", "Wingtra", {"match": "wingtra", "only": ROBO}),
+    ("Leica Geosystems", "software", "jobsch", "Leica Geosystems",
+     {"match": "leica", "only": ROBO}),
+    # --- timber: builders, engineers, software ---
     ("Blumer Lehmann", "timber", "page",
-     "https://www.blumer-lehmann.com/de/karriere/offene-stellen"),
-    ("Balteschwiler", "timber", "page", "https://balteschwiler.ch/unternehmen/jobs/"),
-    ("Walt Galmarini", "timber", "page", "https://waltgalmarini.ch/en/work-with-us/"),
-    ("Pirmin Jung", "timber", "page", "https://www.pirminjung.ch/jobs"),
-    ("Hector Egger Holzbau", "timber", "page", "https://www.hector-egger.ch/de/jobs"),
-    ("Lignatur", "timber", "page", "https://www.lignatur.ch/unternehmen/jobs-karriere"),
-    ("Design-to-Production", "timber", "page", "https://www.designtoproduction.com/"),
+     "https://www.blumer-lehmann.com/en/careers/job-vacancies.html",
+     {"render": True, "path": r"/job-vacancies/."}),
+    ("Hector Egger Holzbau", "timber", "page",
+     "https://my.jobalino.ch/public/component/jobsfactory?task=framelistjobs"
+     "&company_name=hector-egger-holzbau-ag", {"path": r"/public/job/"}),
+    ("Balteschwiler", "timber", "page", "https://balteschwiler.ch/unternehmen/jobs/",
+     {"path": r"(?i)stellenausschreibung"}),
+    ("Neue Holzbau (n'H)", "timber", "page", "https://www.neueholzbau.ch/karriere/stellen",
+     {"path": r"ostendis\.com/publication/"}),
+    ("Strüby", "timber", "page", "https://www.strueby.ch/unternehmen/jobs/",
+     {"path": r"/stellen/."}),
+    ("Renggli", "timber", "jobsch", "Renggli", {"match": "renggli"}),
+    ("ERNE Holzbau", "timber", "jobsch", "ERNE Holzbau", {"match": "erne", "only": ("timber",)}),
+    ("Implenia Holzbau", "timber", "jobsch", "Implenia Holzbau",
+     {"match": "implenia", "only": ("timber",)}),
+    ("HUSNER Holzbau", "timber", "jobsch", "Husner", {"match": "husner"}),
+    ("Künzli Holz", "timber", "jobsch", "Künzli Holz", {"match": "künzli"}),
+    ("Blättler Holzbau", "timber", "jobsch", "Blättler Holzbau", {"match": "blättler"}),
+    ("Kaufmann Oberholzer", "timber", "jobsch", "Kaufmann Oberholzer",
+     {"match": "kaufmann oberholzer"}),
+    ("Schilliger Holz", "timber", "jobsch", "Schilliger", {"match": "schilliger"}),
+    ("Zaugg", "timber", "jobsch", "Zaugg Holzbau", {"match": "zaugg", "only": ("timber",)}),
+    ("Swiss Krono", "timber", "jobsch", "Swiss Krono", {"match": "krono"}),
+    ("Gruner (Holzbau)", "timber", "jobsch", "Gruner Holzbau",
+     {"match": "gruner", "only": ("timber",)}),
+    ("Timbatec", "timber", "jobsch", "Timbatec", {"match": "timbatec"}),
+    ("Pirmin Jung", "timber", "page", "https://www.pirminjung.ch/jobs", {"link": True}),
+    ("Lignatur", "timber", "page", "https://www.lignatur.ch/unternehmen/jobs-karriere",
+     {"link": True}),
+    ("SJB Kempter Fitze", "timber", "page", "https://sjb.ch/karriere/arbeiten-bei-sjb/",
+     {"link": True}),
+    ("Walt Galmarini", "timber", "page", "https://waltgalmarini.ch/en/work-with-us/",
+     {"link": True}),
+    ("Design-to-Production", "timber", "page", "https://www.designtoproduction.com/",
+     {"link": True}),
+    ("Technowood", "timber", "page", "https://www.technowood.swiss/", {"link": True}),
+    ("cadwork", "timber", "page", "https://cadwork.com/", {"link": True}),
+    ("Holzbau Schweiz jobs", "timber", "page",
+     "https://www.holzbau-schweiz.ch/de/unser-angebot/jobs/", {"link": True}),
+    # --- research ---
     ("Disney Research Studios", "research", "page",
-     "https://studios.disneyresearch.com/careers/"),
+     "https://studios.disneyresearch.com/careers/", {"link": True}),
 ]
 
 # board keyword searches; the term only finds candidates — each title is
 # classified on its own words below, never by the term that found it
 BOARD_TERMS = [
-    "robotics", "Robotik", "robot software", "ROS",
+    "robotics", "Robotik", "robot software", "ROS", "Robotics Engineer",
+    "Roboterprogrammierer", "Robotik Ingenieur", "industrial robot",
+    "motion control", "Computer Vision Engineer",
     "Holzbau", "Holzbauingenieur", "Arbeitsvorbereitung Holzbau",
-    "timber", "construction bois",
+    "Projektleiter Holzbau", "Holzbautechniker", "Holzbau Konstrukteur",
+    "Werkplaner Holzbau", "Ingenieurholzbau", "Elementbau Holz", "cadwork",
+    "Abbund", "timber",
     "C++", "computational design", "geometry", "computer graphics",
     "CAD software", "DevOps", "Rust", "computer vision",
     "digital fabrication", "research scientist",
 ]
-LINKEDIN_TERMS = ["robotics software engineer", "computational design",
-                  "Holzbau", "C++ developer geometry"]
+LINKEDIN_TERMS = ["robotics software engineer", "robotics engineer",
+                  "computational design", "Holzbau", "Holzbauingenieur",
+                  "timber construction", "C++ developer geometry"]
 
 CAT_RULES = [  # first match wins
     ("timber", re.compile(
         r"holz|timber|\bwood|\bbois\b|charpent|zimmer(?:mann|ei|leute|in)|"
-        r"abbund|brettsperr|\bclt\b|lignum", re.I)),
+        r"abbund|brettsperr|\bclt\b|lignum|cadwork|elementbau|leimwerk", re.I)),
     ("robotics", re.compile(
-        r"robot|\bros\b|autonom|kinemat|motion planning|perception|"
-        r"mechatron|manipulat|legged|\bslam\b|\bdrone|\buav\b", re.I)),
+        r"robot|\bros\b|autonom|kinemat|motion planning|motion control|"
+        r"perception|mechatron|manipulat|legged|\bslam\b|\bdrone|\buav\b|"
+        r"lidar|machine vision|bildverarbeitung", re.I)),
     ("research", re.compile(
         r"research|forsch|scientist|postdoc|post-doc|wissenschaftl|"
         r"senior assistant|oberassist|lecturer|dozent", re.I)),
@@ -138,12 +214,38 @@ EXCLUDE = re.compile(
     r"production technician|field technician|\blehre\b|"
     r"aussendienst|berater|technico-commercial|kalkulator|"
     r"responsable du d[ée]partement|tempor|zwischenjahr|d[ée]coupe|"
-    r"\btester\b", re.I)
+    r"\btester\b|\bkoch\b|k[öo]chin|kantine|carpenter|plant operator|"
+    r"machine operator|sawmill|s[aä]gewerk|\bbuyer\b|eink[aä]ufer|"
+    r"schreiner|maler\b|assembly technician", re.I)
 # board searches also surface medicine/biology/physics on generic words
 # (robotic surgery, computational biology, quantum geometry)
 OFF_DOMAIN = re.compile(
     r"biolog|clinical|klinisch|medizin|medical|surg|chirurg|pharma|"
     r"quantum|metabol|lymph|patholog|radiolog", re.I)
+
+# French-speaking Switzerland is out (user's choice, 2026-10-23): Geneva,
+# Vaud, Neuchâtel, Jura, Fribourg and the French-speaking Valais, matched on
+# the posting's location, plus French-language ads ("H/F", "ingénieur", ...)
+# whatever location they give
+ROMANDIE = re.compile(
+    r"gen[eè]v|genf|lausanne|vaud|waadt|\bvd\b|neuch[aâ]tel|\bne\b|jura\b|"
+    r"del[ée]mont|fribourg|freiburg|\bfr\b|sion\b|sitten|martigny|monthey|"
+    r"sierre|morges|nyon|yverdon|vevey|montreux|bulle\b|prilly|renens|"
+    r"[ée]cublens|epfl|aigle\b|villeneuve|paudex|carouge|meyrin|thônex|"
+    r"thonex|plan-les-ouates|les acacias|la chaux-de-fonds|le locle|"
+    r"le mouret|villaz|voll[eè]ges|matran|romont|payerne|gland\b|rolle\b|"
+    r"pully|crissier|bussigny|marly\b|granges-paccot|romandie|suisse romande",
+    re.I)
+FRENCH_AD = re.compile(
+    r"\(h\s*/\s*f|\bh/f\b|ing[ée]nieur|chef(?:fe)?\s+de projet|technicien|"
+    r"charpent|menuisier|dessinat|responsable\b|collaborat(?:eur|rice)|"
+    r"sp[ée]cialiste|conducteur|\bbois\b|\bpour\b|\bavec\b", re.I)
+
+
+def is_romandie(j):
+    return bool(ROMANDIE.search(j.get("location") or "")
+                or FRENCH_AD.search(j.get("title") or ""))
+
 
 # keep postings in or near Switzerland, or remote
 NEAR = re.compile(
@@ -176,7 +278,7 @@ def _job(cat, title, company, location, url, source, posted=""):
 
 # ---------- company ATS APIs ----------
 
-def fetch_lever(name, cat, slug):
+def fetch_lever(name, cat, slug, opt):
     out = []
     for p in get_json(f"https://api.lever.co/v0/postings/{slug}?mode=json"):
         c = p.get("categories") or {}
@@ -190,7 +292,7 @@ def fetch_lever(name, cat, slug):
     return out
 
 
-def fetch_ashby(name, cat, slug):
+def fetch_ashby(name, cat, slug, opt):
     d = get_json(f"https://api.ashbyhq.com/posting-api/job-board/{slug}")
     out = []
     for p in d.get("jobs") or []:
@@ -204,13 +306,91 @@ def fetch_ashby(name, cat, slug):
     return out
 
 
-def fetch_breezy(name, cat, slug):
+def fetch_breezy(name, cat, slug, opt):
     out = []
     for p in get_json(f"https://{slug}.breezy.hr/json"):
         loc = (p.get("location") or {}).get("name") or ""
         out.append(_job(cat, p.get("name"), name, loc, p.get("url"),
                         "breezy", p.get("published_date")))
     return out
+
+
+def fetch_greenhouse(name, cat, slug, opt):
+    d = get_json(f"https://boards-api.greenhouse.io/v1/boards/{slug}/jobs")
+    return [_job(cat, p.get("title"), name, (p.get("location") or {}).get("name"),
+                 p.get("absolute_url"), "greenhouse", p.get("updated_at"))
+            for p in d.get("jobs") or []]
+
+
+def fetch_bamboo(name, cat, slug, opt):
+    d = get_json(f"https://{slug}.bamboohr.com/careers/list")
+    out = []
+    for p in d.get("result") or []:
+        loc = p.get("location") or {}
+        loc = ", ".join(x for x in (loc.get("city"), loc.get("state")) if x)
+        out.append(_job(cat, p.get("jobOpeningName"), name, loc,
+                        f"https://{slug}.bamboohr.com/careers/{p.get('id')}", "bamboohr"))
+    return out
+
+
+def fetch_workable(name, cat, slug, opt):
+    d = post_json(f"https://apply.workable.com/api/v3/accounts/{slug}/jobs",
+                  {"query": "", "location": [], "department": [], "worktype": [],
+                   "remote": []})
+    out = []
+    for p in d.get("results") or []:
+        loc = p.get("location") or {}
+        loc = ", ".join(x for x in (loc.get("city"), loc.get("country")) if x)
+        out.append(_job(cat, p.get("title"), name, loc,
+                        f"https://apply.workable.com/{slug}/j/{p.get('shortcode')}/",
+                        "workable", p.get("published")))
+    return out
+
+
+def fetch_workday(name, cat, ref, opt):
+    """Workday CXS search API; ref is "host/tenant/site". Restricted to one
+    country through its facet id, looked up from the first response."""
+    host, tenant, site = ref.split("/")
+    base = f"https://{host}.myworkdayjobs.com"
+    api = f"{base}/wday/cxs/{tenant}/{site}/jobs"
+    facets = {}
+    first = post_json(api, {"appliedFacets": {}, "limit": 1, "offset": 0,
+                            "searchText": ""})
+    for group in first.get("facets") or []:
+        for f in [group] + (group.get("values") or []):
+            if f.get("facetParameter") != "locationCountry":
+                continue
+            for v in f.get("values") or []:
+                # descriptors follow Accept-Language (net.py sends de-CH)
+                if v.get("descriptor") in (opt["country"], "Schweiz", "Suisse"):
+                    facets = {"locationCountry": [v["id"]]}
+    if not facets:
+        raise RuntimeError(f"no {opt['country']} facet")
+    out, offset = [], 0
+    while offset < 400:
+        d = post_json(api, {"appliedFacets": facets, "limit": 20,
+                            "offset": offset, "searchText": ""})
+        posts = d.get("jobPostings") or []
+        for p in posts:
+            out.append(_job(cat, p.get("title"), name,
+                            p.get("locationsText") + ", " + opt["country"],
+                            f"{base}/{site}{p.get('externalPath')}", "workday"))
+        offset += 20
+        if not posts or offset >= (d.get("total") or 0):
+            break
+    return out
+
+
+def fetch_jobsch(name, cat, query, opt):
+    """jobs.ch free-text search on the firm's name, kept to that firm."""
+    out = _jobcloud("https://www.jobs.ch", "detail_en", "jobs.ch", [query], pages=5)
+    return [dict(j, cat=cat, company=j["company"] or name) for j in out
+            if opt["match"] in j["company"].lower()]
+
+
+def fetch_linkedin(name, cat, query, opt):
+    out = scan_linkedin([query])
+    return [dict(j, cat=cat) for j in out if opt["match"] in j["company"].lower()]
 
 
 # ---------- career pages without an API ----------
@@ -231,16 +411,72 @@ NAV_TEXT = re.compile(
     r"open positions|team|about|kontakt|contact)$", re.I)
 
 
-def fetch_page(name, cat, url):
-    body, final = http_get(url, tries=2, timeout=20)
+# Jobalino-style listings run the whole card into the anchor text:
+# "Projektleiter:in Holzbau 80% - 100% Festanstellung Vor Ort Hector Egger ..."
+CARD_TAIL = re.compile(r"\s+(?:Festanstellung|Befristet|Tempor[aä]r|Vor Ort|"
+                       r"Workload)\b.*$")
+# ... and some put the location before or after the title:
+# "Zurich Motion Planning Software Engineer", "Staff ML Engineer Zürich | Full-time"
+CITY = (r"(?:Z[uü]rich|Munich|M[uü]nchen|Rotterdam|Bern|Basel|Stuttgart|"
+        r"Berlin|Boston|Lausanne|Gen[eè]v[ae])(?:,\s*[A-Z][a-z]+(?: [A-Z][a-z]+)*)?")
+LEAD_LOC = re.compile(rf"^((?:Multiple locations\s*\([^)]*\)|{CITY}(?:\s+or\s+{CITY})*))\s+(?=\S)")
+TRAIL_LOC = re.compile(rf"\s+({CITY}(?:\s+or\s+{CITY})*)$")
+
+
+def _split_loc(text):
+    text = text.split(" | ")[0].strip()
+    loc = ""
+    m = LEAD_LOC.match(text)
+    if m:
+        loc, text = m.group(1), text[m.end():]
+    m = TRAIL_LOC.search(text)
+    if m:
+        loc, text = loc or m.group(1), text[:m.start()]
+    return text.strip(), loc
+
+_browser = None
+
+
+def _render(url):
+    """Page HTML after JavaScript ran, via the Chromium that the scan workflow
+    installs. None when Playwright is unavailable (the plain fetch is used)."""
+    global _browser
+    try:
+        if _browser is None:
+            from playwright.sync_api import sync_playwright
+            pw = sync_playwright().start()
+            _browser = pw.chromium.launch()
+        page = _browser.new_page()
+        try:
+            page.goto(url, timeout=45000, wait_until="domcontentloaded")
+            try:
+                page.wait_for_load_state("networkidle", timeout=15000)
+            except Exception:
+                pass  # chatty pages never go idle; the DOM is there anyway
+            return page.content(), page.url
+        finally:
+            page.close()
+    except ImportError:
+        return None
+
+
+def fetch_page(name, cat, url, opt):
+    got = _render(url) if opt.get("render") else None
+    body, final = got or http_get(url, tries=2, timeout=20)
+    path = re.compile(opt["path"]) if opt.get("path") else None
     out, seen = [], set()
     for m in ANCHOR.finditer(body):
         text = re.sub(r"\s+", " ", strip_tags(m.group(2))).strip()
+        workload = extract_workload(text)
+        text, loc = _split_loc(CARD_TAIL.sub("", text))
         if not (8 <= len(text) <= 140) or NAV_TEXT.match(text):
             continue
-        if not ROLE.search(text):
-            continue
         href = urllib.parse.urljoin(final, m.group(1).strip())
+        if path:
+            if not path.search(href):
+                continue
+        elif not ROLE.search(text):
+            continue
         if not href.startswith("http") or href.rstrip("/") == final.rstrip("/"):
             continue
         if re.search(r"linkedin\.com|facebook|instagram|xing\.com|mailto:", href):
@@ -248,23 +484,39 @@ def fetch_page(name, cat, url):
         if href in seen:
             continue
         seen.add(href)
-        out.append(_job(cat, text, name, "", href, "career page"))
+        j = _job(cat, text, name, loc, href, "career page")
+        j["workload"] = j["workload"] or workload
+        out.append(j)
     return out
 
 
-FETCHERS = {"lever": fetch_lever, "ashby": fetch_ashby,
-            "breezy": fetch_breezy, "page": fetch_page}
+FETCHERS = {"lever": fetch_lever, "ashby": fetch_ashby, "breezy": fetch_breezy,
+            "greenhouse": fetch_greenhouse, "bamboo": fetch_bamboo,
+            "workable": fetch_workable, "workday": fetch_workday,
+            "jobsch": fetch_jobsch,
+            "linkedin": fetch_linkedin, "page": fetch_page}
+HOME = {
+    "lever": "https://jobs.lever.co/{}", "ashby": "https://jobs.ashbyhq.com/{}",
+    "breezy": "https://{}.breezy.hr/", "greenhouse": "https://boards.greenhouse.io/{}",
+    "bamboo": "https://{}.bamboohr.com/careers", "workable": "https://apply.workable.com/{}/",
+    "workday": "https://{}",
+    "jobsch": "https://www.jobs.ch/en/vacancies/?term={}",
+    "linkedin": "https://www.linkedin.com/jobs/search/?location=Switzerland&keywords={}",
+    "page": "{}",
+}
 
 
 def scan_companies():
     jobs, watch = [], []
-    for name, cat, kind, ref in COMPANIES:
-        home = ref if kind == "page" else {
-            "lever": f"https://jobs.lever.co/{ref}",
-            "ashby": f"https://jobs.ashbyhq.com/{ref}",
-            "breezy": f"https://{ref}.breezy.hr/"}[kind]
+    for name, cat, kind, ref, opt in COMPANIES:
+        home = opt.get("home") or HOME[kind].format(
+            urllib.parse.quote(ref, safe=":/?&=")
+            if kind in ("page", "workday") else urllib.parse.quote(ref))
+        if opt.get("link"):
+            watch.append({"name": name, "cat": cat, "url": home, "status": "link"})
+            continue
         try:
-            found = FETCHERS[kind](name, cat, ref)
+            found = FETCHERS[kind](name, cat, ref, opt)
             kept = []
             for j in found:
                 if not j["title"] or not j["url"] or EXCLUDE.search(j["title"]):
@@ -272,6 +524,12 @@ def scan_companies():
                 # API postings carry locations; page anchors usually do not
                 if j["location"] and not NEAR.search(j["location"]):
                     continue
+                if is_romandie(j):
+                    continue
+                if opt.get("only") and classify(j["title"]) not in opt["only"]:
+                    continue
+                if opt.get("only"):
+                    j["cat"] = classify(j["title"])
                 kept.append(j)
             jobs += kept
             watch.append({"name": name, "cat": cat, "url": home,
@@ -286,10 +544,10 @@ def scan_companies():
 
 # ---------- job boards ----------
 
-def _jobcloud(base, link_key, source):
+def _jobcloud(base, link_key, source, terms, pages=3):
     out, seen = [], set()
-    for term in BOARD_TERMS:
-        for page in (1, 2, 3):
+    for term in terms:
+        for page in range(1, pages + 1):
             q = urllib.parse.urlencode({"query": term, "rows": 20, "page": page})
             try:
                 d = get_json(f"{base}/api/v1/public/search?{q}")
@@ -324,9 +582,9 @@ LINKEDIN_CARD = re.compile(
     re.S)
 
 
-def scan_linkedin():
+def scan_linkedin(terms):
     out = []
-    for term in LINKEDIN_TERMS:
+    for term in terms:
         q = urllib.parse.urlencode({"keywords": term, "location": "Switzerland",
                                     "f_TPR": "r1209600"})  # last 14 days
         try:
@@ -343,13 +601,13 @@ def scan_linkedin():
 
 
 def scan_boards():
-    raw = (_jobcloud("https://www.jobs.ch", "detail_en", "jobs.ch")
-           + _jobcloud("https://www.jobup.ch", "detail_fr", "jobup.ch")
-           + scan_linkedin())
+    # no jobup.ch: it is the French-speaking region's board (see ROMANDIE)
+    raw = (_jobcloud("https://www.jobs.ch", "detail_en", "jobs.ch", BOARD_TERMS)
+           + scan_linkedin(LINKEDIN_TERMS))
     kept = []
     for j in raw:
         if (not j["title"] or EXCLUDE.search(j["title"])
-                or OFF_DOMAIN.search(j["title"])):
+                or OFF_DOMAIN.search(j["title"]) or is_romandie(j)):
             continue
         cat = classify(j["title"])
         # "software" is the broadest bucket (every bank has DevOps roles),
@@ -373,9 +631,17 @@ def _key(j):
 def main():
     started = datetime.datetime.now().astimezone()
     today = started.date().isoformat()
-    company_jobs, watch = scan_companies()
+    try:
+        company_jobs, watch = scan_companies()
+    finally:
+        if _browser is not None:
+            _browser.close()
+    read = [w for w in watch if w["status"] != "link"]
     print(f"profile: {len(company_jobs)} company postings from "
-          f"{sum(w['status'] == 'ok' for w in watch)}/{len(watch)} firms", flush=True)
+          f"{sum(w['status'] == 'ok' for w in read)}/{len(read)} firms", flush=True)
+    for w in read:
+        if w["status"] == "failed":
+            print(f"  {w['name']}: {w['detail']}", flush=True)
     board_jobs = []
     try:
         board_jobs = scan_boards()

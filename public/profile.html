@@ -173,7 +173,7 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
   }
   function renderWatch(){
     el("watch").innerHTML=D.watch.map(function(w){
-      var n=w.status==="ok"?w.count+" open":'<span class="bad">failed</span>';
+      var n=w.status==="ok"?w.count+" open":w.status==="link"?"check site ↗":'<span class="bad">failed</span>';
       return '<a href="'+esc(w.url)+'" target="_blank" rel="noopener" title="'+esc(labels[w.cat]||w.cat)+(w.detail?" - "+esc(w.detail):"")+'">'+
         '<span>'+esc(w.name)+'</span><span class="n">'+n+'</span></a>';
     }).join("");
