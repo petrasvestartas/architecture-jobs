@@ -1,7 +1,8 @@
 name: Job scan
 # Hourly light scans (07:00-19:00 CH) deploy fresh data straight to Pages;
-# the 05:30 full scan additionally probes company career pages (including a
-# headless-browser pass for script-only pages) and commits the database.
+# the 05:30 full scan additionally runs career discovery, the JS-only site
+# probe and competition results. Every run uses the headless browser and
+# commits the database.
 # Every run announces new matching jobs as a GitHub issue + email.
 
 on:
@@ -23,33 +24,34 @@ concurrency:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Install dependencies
-        run: pip install --quiet python-jobspy
-      - name: Install headless browser (full scan only)
-        if: github.event.schedule == '30 3 * * *'
-        run: |
-          pip install --quiet playwright
-          python -m playwright install --with-deps chromium
+        run: pip install --quiet python-jobspy playwright
+      - name: Install headless browser
+        # every run, not just the full scan: since scan-local.yml (the
+        # self-hosted runner) was retired, this is the only scan that reads
+        # career pages which build their job list in JavaScript
+        run: python -m playwright install --with-deps chromium
       - name: Run the scan (full at 05:30, light otherwise)
         env:
           JOBTRACKER_SITE_DIR: ${{ github.workspace }}/public
           PYTHONIOENCODING: utf-8
-          JS_WATCH: ${{ github.event.schedule == '30 3 * * *' && '1' || '' }}
+          JS_WATCH: "1"
         working-directory: jobtracker
         run: |
           if [ "${{ github.event.schedule }}" = "30 3 * * *" ]; then
             # full: also Playwright-probe 80 sites with no detected career
-            # page for JS-only ones (chromium is installed for this run) and
-            # stamp offices mentioned in fresh competition results
+            # page for JS-only ones and stamp offices mentioned in fresh
+            # competition results
             python scraper.py --careers 150 --career-watch 300 --probe-js 80 --competitions
           else
-            python scraper.py --career-watch 60
+            # same slice the local runner used to scan
+            python scraper.py --careers 40 --career-watch 250
           fi
       - name: Send daily e-mail digest (early-morning full scan only)
         if: github.event.schedule == '30 3 * * *'
@@ -66,11 +68,9 @@ jobs:
           # public/ files. Those deploy straight from the workspace artifact;
           # committing them raced with the local 30-min scan's push and caused
           # data.js merge conflicts (exit 128, deploy skipped).
-          if [ "${{ github.event.schedule }}" = "30 3 * * *" ]; then
-            git add jobtracker/jobtracker.db jobtracker/notified.json
-          else
-            git add jobtracker/notified.json
-          fi
+          # The DB goes in on every run now that the local runner, which used
+          # to commit it hourly, is retired.
+          git add jobtracker/jobtracker.db jobtracker/notified.json
           git diff --cached --quiet && { echo "no state changes to persist"; exit 0; }
           git commit -m "Scan state $(date -u +'%F %H:%M')"
           for i in 1 2 3 4 5; do
