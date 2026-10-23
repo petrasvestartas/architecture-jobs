@@ -53,6 +53,15 @@ jobs:
             # same slice the local runner used to scan
             python scraper.py --careers 40 --career-watch 250
           fi
+      - name: Profile scan (robotics / timber / software / research)
+        # separate pipeline: own output (public/profile.js), never touches
+        # the architecture DB or data.js; a failure must not block the deploy
+        continue-on-error: true
+        env:
+          JOBTRACKER_SITE_DIR: ${{ github.workspace }}/public
+          PYTHONIOENCODING: utf-8
+        working-directory: jobtracker
+        run: python profile_jobs.py
       - name: Send daily e-mail digest (early-morning full scan only)
         if: github.event.schedule == '30 3 * * *'
         env:
@@ -71,6 +80,10 @@ jobs:
           # The DB goes in on every run now that the local runner, which used
           # to commit it hourly, is retired.
           git add jobtracker/jobtracker.db jobtracker/notified.json
+          # profile.js is the exception to "never public/": no other writer
+          # touches it, and pages.yml deploys from the repo on every local
+          # push, so an uncommitted copy would vanish from the site
+          git add jobtracker/profile_state.json public/profile.js 2>/dev/null || true
           git diff --cached --quiet && { echo "no state changes to persist"; exit 0; }
           git commit -m "Scan state $(date -u +'%F %H:%M')"
           for i in 1 2 3 4 5; do
