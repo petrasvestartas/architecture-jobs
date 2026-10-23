@@ -1136,6 +1136,44 @@ def dedupe(con):
     return marked
 
 
+# A board that returned its listing successfully is authoritative: whatever
+# it no longer lists has closed, so it leaves the site after EXPIRE_GRACE
+# (one missed run, or a posting sliding past a page cap for a day, is not
+# enough). The rest keep the old 14-day window:
+#   * linkedin / indeed-google only ever return the last 7 days of postings,
+#     so "not returned" says nothing about a live older one;
+#   * career-page is watched in rotation, a page is revisited every few runs;
+#   * manual / generic / watch are user-maintained or re-tagged sources;
+#   * a source that failed or collapsed this run (srchealth) proves nothing.
+# Rows are deactivated, not deleted: the history keeps dedup fingerprints
+# and the "already e-mailed" state intact if a posting reappears.
+EXPIRE_GRACE = datetime.timedelta(days=2)
+EXPIRE_FALLBACK = datetime.timedelta(days=14)
+WINDOWED_SOURCES = {"linkedin", "indeed-google", "career-page", "manual",
+                    "generic", "watch"}
+
+
+def expire_jobs(con, stats, verdicts, started, only_source=None):
+    run_start = datetime.datetime.fromisoformat(started)
+    fast = (run_start - EXPIRE_GRACE).isoformat()
+    slow = (run_start - EXPIRE_FALLBACK).isoformat()
+    n = con.execute("UPDATE jobs SET active=0 WHERE active=1 AND last_seen < ?",
+                    (slow,)).rowcount
+    for name, value in stats.items():
+        if name not in SOURCES or name in WINDOWED_SOURCES or name in verdicts:
+            continue
+        if only_source and name != only_source:
+            continue
+        if isinstance(value, bool) or not isinstance(value, int) or value == 0:
+            continue  # failed (error string) or empty: not authoritative
+        n += con.execute("UPDATE jobs SET active=0 WHERE active=1 AND source=? "
+                         "AND last_seen < ?", (name, fast)).rowcount
+    con.commit()
+    if n:
+        print(f"expired {n} postings no longer listed", flush=True)
+    return n
+
+
 # --------------------------------------------------------------------------
 # Main
 # --------------------------------------------------------------------------
@@ -1258,16 +1296,6 @@ def main():
     if args.career_watch:
         stats["career-page"] = run_career_watch(con, args.career_watch, started)
 
-    # deactivate postings not seen for 14 days
-    cutoff = (datetime.datetime.now() - datetime.timedelta(days=14)).isoformat()
-    con.execute("UPDATE jobs SET active=0 WHERE last_seen < ?", (cutoff,))
-
-    # match first so backfill can inherit coordinates from matched firms
-    stats["matched_to_companies"] = match_companies(con)
-    jn, cn = geo.backfill(con)
-    stats["geocoded"] = f"{jn} jobs, {cn} companies"
-    stats["duplicates_marked"] = dedupe(con)
-
     # a source that quietly yields 0 reads as "no jobs today"; compare every
     # source against its own history so an outage is noticed the same day
     # rather than after weeks (see srchealth.py)
@@ -1276,6 +1304,16 @@ def main():
     srchealth.report(verdicts)
     if verdicts:
         stats["_health"] = verdicts
+
+    stats["expired"] = expire_jobs(con, stats, verdicts, started, args.source)
+
+    # match first so backfill can inherit coordinates from matched firms
+    stats["matched_to_companies"] = match_companies(con)
+    jn, cn = geo.backfill(con)
+    stats["geocoded"] = f"{jn} jobs, {cn} companies"
+    # after expiry: dedupe works on active rows only, so a closed master
+    # posting must not keep its live duplicates hidden
+    stats["duplicates_marked"] = dedupe(con)
 
     con.execute("INSERT INTO runs (started, finished, source_stats, ok) VALUES (?,?,?,1)",
                 (started, now(), json.dumps(stats)))
