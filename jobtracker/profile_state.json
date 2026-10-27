@@ -929,7 +929,7 @@
 "skills": [
 "computer vision"
 ],
-"tries": 2
+"tries": 3
 },
 "last_seen": "2026-10-27"
 },
@@ -2100,6 +2100,21 @@
 "skills": [
 "timber",
 "architecture / AEC"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
+"https://opench.bamboohr.com/careers/827": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 7,
+"skills": [
+"C++",
+"Python",
+"structural design"
 ],
 "tries": 1
 },
@@ -4070,6 +4085,17 @@
 "fit": 0,
 "skills": [],
 "tries": 3
+},
+"last_seen": "2026-10-27"
+},
+"https://www.nussbaum.ch/de/offene-stellen/senior-software-engineer-web-and-cloud-80–100-441.html": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": false,
+"fit": 0,
+"skills": [],
+"tries": 1
 },
 "last_seen": "2026-10-27"
 },

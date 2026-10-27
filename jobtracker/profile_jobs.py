@@ -34,6 +34,7 @@ import sys
 import time
 import urllib.parse
 
+import profile_feedback
 import profile_match
 from net import http_get, get_json, post_json, strip_tags, extract_workload
 
@@ -1001,7 +1002,11 @@ def main():
     print(f"profile: {len(board_jobs)} board postings", flush=True)
 
     # company feeds first: the same role on a board is a duplicate of it
-    jobs, keys = [], set()
+    # "Not a fit" from the page (profile_feedback.py): those postings and
+    # near-identical titles are never offered again
+    rejected = profile_feedback.load()
+    rejected_titles = [r["title"] for r in rejected.values() if r.get("title")]
+    jobs, keys, dropped = [], set(), 0
     for j in company_jobs + dir_jobs + board_jobs:
         k = _key(j)
         if k in keys:
@@ -1009,6 +1014,10 @@ def main():
         keys.add(k)
         # applied here so stored results from older runs are filtered too
         if not swiss(j["location"]) or academic(j):
+            continue
+        if j["url"] in rejected or profile_feedback.similar(j["title"],
+                                                           rejected_titles):
+            dropped += 1
             continue
         j = dict(j)
         j.pop("directory", None)
@@ -1034,7 +1043,8 @@ def main():
                "categories": CATEGORIES, "weak_score": WEAK_SCORE,
                "fit_bands": [profile_match.STRONG, profile_match.GOOD],
                "jobs": jobs, "watch": watch + dir_watch,
-               "directory": dir_stats}
+               "directory": dir_stats,
+               "rejected": {"count": len(rejected), "dropped": dropped}}
     os.makedirs(SITE_DIR, exist_ok=True)
     with open(os.path.join(SITE_DIR, "profile.js"), "w", encoding="utf-8") as f:
         f.write("window.PROFILE = ")

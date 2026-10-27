@@ -62,6 +62,13 @@ jobs:
           PYTHONIOENCODING: utf-8
         working-directory: jobtracker
         run: python profile_directory.py --limit 300
+      - name: Profile "not a fit" feedback (issues sent from profile.html)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PYTHONIOENCODING: utf-8
+        working-directory: jobtracker
+        run: python profile_feedback.py
       - name: Profile scan (robotics / timber / software / research)
         # separate pipeline: own output (public/profile.js), never touches
         # the architecture DB or data.js; a failure must not block the deploy
@@ -92,7 +99,9 @@ jobs:
           # profile.js is the exception to "never public/": no other writer
           # touches it, and pages.yml deploys from the repo on every local
           # push, so an uncommitted copy would vanish from the site
-          git add jobtracker/profile_state.json public/profile.js             jobtracker/profile_companies.json jobtracker/profile_found.json             2>/dev/null || true
+          git add jobtracker/profile_state.json public/profile.js \
+            jobtracker/profile_companies.json jobtracker/profile_found.json \
+            jobtracker/profile_rejected.json 2>/dev/null || true
           git diff --cached --quiet && { echo "no state changes to persist"; exit 0; }
           git commit -m "Scan state $(date -u +'%F %H:%M')"
           for i in 1 2 3 4 5; do

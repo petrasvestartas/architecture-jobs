@@ -72,6 +72,11 @@ ul.jobs li{display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:9px 
 .applied{opacity:.55}
 .apBtn{border:1px solid var(--line2);padding:2px 8px;font-size:11.5px;color:var(--muted);background:var(--panel)}
 .apBtn.on{border-color:var(--ok);color:var(--ok)}
+.nfBtn{border:1px solid var(--line2);padding:2px 8px;font-size:11.5px;color:var(--muted);background:var(--panel)}
+.nfBtn:hover{border-color:var(--bad);color:var(--bad)}
+.rejected{opacity:.45}
+.fb a{color:var(--accent);font-weight:600}
+.fb:empty{display:none}
 .empty{padding:30px 0;color:var(--muted)}
 h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin:30px 0 8px}
 .watch{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:6px}
@@ -111,7 +116,9 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
     <label><input type="checkbox" id="newOnly"> New (3 days)</label>
     <label><input type="checkbox" id="weak"> Show weak matches</label>
     <label><input type="checkbox" id="hideApplied"> Hide applied</label>
+    <label><input type="checkbox" id="showRejected"> Show "not a fit"</label>
   </div>
+  <p class="note fb" id="fb"></p>
   <ul class="jobs" id="list"></ul>
   <h2>Companies watched</h2>
   <div class="watch" id="watch"></div>
@@ -124,10 +131,39 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
 (function(){
   var D=window.PROFILE||{jobs:[],categories:[],watch:[],weak_score:2};
   var KEY="jobtracker_profile_v1";
-  var st={cat:"all",applied:{},theme:null,sort:"fit"};
+  var st={cat:"all",applied:{},rejected:{},theme:null,sort:"fit"};
   var BANDS=D.fit_bands||[12,7];
   function band(j){return (j.fit||0)>=BANDS[0]?1:(j.fit||0)>=BANDS[1]?2:0;}
   try{var s=JSON.parse(localStorage.getItem(KEY)||"{}");for(var k in s)st[k]=s[k];}catch(e){}
+  var byUrl={};D.jobs.forEach(function(j){byUrl[j.url]=j;});
+  // until 2026-10-27 "Mark applied" was the only button and was used for
+  // postings that do not fit: turn those marks into "not a fit" once
+  if(!st.appliedMigrated){
+    Object.keys(st.applied||{}).forEach(function(u){
+      var j=byUrl[u]||{};
+      st.rejected[u]={t:j.title||"",c:j.company||"",d:st.applied[u]};
+    });
+    st.applied={};st.appliedMigrated=1;save();
+  }
+  // "not a fit" also hides near-identical titles (same rule as the scan's
+  // profile_feedback.similar: Jaccard >= 0.6 on the title's content words)
+  var STOP={};("m w d f x a h in innen und and or oder of the for fur de du la le mit with senior junior sr jr lead staff principal all alle genders per sofort nach vereinbarung zurich zuerich switzerland schweiz ch remote").split(" ").forEach(function(w){STOP[w]=1;});
+  function toks(t){
+    var s=String(t||"").toLowerCase().replace(/ä/g,"a").replace(/ö/g,"o").replace(/ü/g,"u").replace(/[éè]/g,"e")
+      .replace(/\d+\s*(?:-|–|bis)?\s*\d*\s*%/g," ");
+    var o={};s.split(/[^a-z0-9+#]+/).forEach(function(w){if(w&&!STOP[w]&&!/^\d+$/.test(w))o[w]=1;});return Object.keys(o);
+  }
+  var rejToks=[];
+  function rebuildRej(){rejToks=Object.keys(st.rejected).map(function(u){return toks(st.rejected[u].t);}).filter(function(a){return a.length;});}
+  function similarRejected(j){
+    if(st.rejected[j.url])return true;
+    var a=toks(j.title);if(!a.length)return false;
+    return rejToks.some(function(b){
+      var inter=a.filter(function(w){return b.indexOf(w)>=0;}).length;
+      return inter/(a.length+b.length-inter)>=0.6;
+    });
+  }
+  rebuildRej();
   try{var main=JSON.parse(localStorage.getItem("jobtracker_state_v1")||"{}");if(!st.theme)st.theme=main.theme;}catch(e){}
   function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
   function el(id){return document.getElementById(id);}
@@ -158,6 +194,7 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
       if(!el("weak").checked&&j.score<D.weak_score&&!band(j))return false;
       if(el("newOnly").checked&&!isNew(j))return false;
       if(el("hideApplied").checked&&st.applied[j.url])return false;
+      if(!el("showRejected").checked&&similarRejected(j))return false;
       if(q&&(j.title+" "+j.company+" "+j.location+" "+(j.skills||[]).join(" ")).toLowerCase().indexOf(q)<0)return false;
       return true;
     });
@@ -174,11 +211,12 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
   function render(){
     renderTabs();
     var js=visible(st.cat);
+    renderFeedback();
     el("list").innerHTML=js.length?js.map(function(j){
-      var ap=!!st.applied[j.url];
+      var ap=!!st.applied[j.url],rj=!!st.rejected[j.url];
       var meta=[j.company?'<span class="co">'+esc(j.company)+'</span>':"",esc(j.location),j.workload?esc(j.workload)+"%":"",esc(j.source)]
         .filter(Boolean).join(" &middot; ");
-      return '<li class="'+(ap?"applied":"")+'"><div class="jt"><a href="'+esc(j.url)+'" target="_blank" rel="noopener">'+esc(j.title)+'</a></div>'+
+      return '<li class="'+(ap?"applied":"")+(rj||similarRejected(j)?" rejected":"")+'"><div class="jt"><a href="'+esc(j.url)+'" target="_blank" rel="noopener">'+esc(j.title)+'</a></div>'+
         '<div class="jm">'+meta+'</div>'+
         ((j.skills&&j.skills.length)?'<div class="sk">'+j.skills.map(function(s){return '<span>'+esc(s)+'</span>';}).join("")+'</div>':"")+
         '<div class="jr">'+(band(j)===1?'<span class="tag fit1" title="CV match '+j.fit+'">Strong match</span>':band(j)===2?'<span class="tag fit2" title="CV match '+j.fit+'">Good match</span>':"")+
@@ -186,7 +224,8 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
         (isNew(j)?'<span class="tag new">New</span>':"")+
         (st.cat==="all"?'<span class="tag">'+esc(labels[j.cat]||j.cat)+'</span>':"")+
         '<span>'+esc(j.posted||j.first_seen)+'</span>'+
-        '<button class="apBtn'+(ap?" on":"")+'" data-url="'+esc(j.url)+'">'+(ap?"Applied":"Mark applied")+'</button></div></li>';
+        '<button class="apBtn'+(ap?" on":"")+'" data-url="'+esc(j.url)+'">'+(ap?"Applied":"Mark applied")+'</button>'+
+        '<button class="nfBtn" data-url="'+esc(j.url)+'" title="Hide this and similar postings; send to the tracker so it stops offering them">'+(rj?"Restore":"Not a fit")+'</button></div></li>';
     }).join(""):'<li class="empty">No postings match these filters.</li>';
   }
   function watchHtml(list){
@@ -212,12 +251,46 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
     st.cat=b.getAttribute("data-cat");save();render();
   });
   el("list").addEventListener("click",function(e){
+    var nf=e.target.closest(".nfBtn");
+    if(nf){
+      var v=nf.getAttribute("data-url"),j=byUrl[v]||{};
+      if(st.rejected[v])delete st.rejected[v];
+      else st.rejected[v]={t:j.title||"",c:j.company||"",d:new Date().toISOString().slice(0,10)};
+      rebuildRej();save();render();return;
+    }
     var b=e.target.closest(".apBtn");if(!b)return;
     var u=b.getAttribute("data-url");
     if(st.applied[u])delete st.applied[u];else st.applied[u]=new Date().toISOString().slice(0,10);
     save();render();
   });
-  ["q","newOnly","weak","hideApplied"].forEach(function(id){el(id).addEventListener("input",render);});
+  // "not a fit" marks live in this browser until sent: the link opens a
+  // prefilled GitHub issue that the next scan folds into profile_rejected.json
+  var REPO="https://github.com/petrasvestartas/architecture-jobs";
+  function unsent(){return Object.keys(st.rejected).filter(function(u){return !st.rejected[u].sent;});}
+  function issueUrl(urls){
+    var body="Postings marked \"Not a fit\" on profile.html. The scan drops these and near-identical titles.\n\n",n=0;
+    for(var i=0;i<urls.length;i++){
+      var r=st.rejected[urls[i]],line="- "+urls[i]+" | "+(r.t||"").replace(/\|/g,"/")+" | "+(r.c||"").replace(/\|/g,"/")+"\n";
+      if(encodeURIComponent(body+line).length>6500)break;  // GitHub URL limit
+      body+=line;n++;
+    }
+    return {n:n,url:REPO+"/issues/new?labels=profile-feedback&title="+encodeURIComponent("Not a fit ("+n+")")+"&body="+encodeURIComponent(body)};
+  }
+  function renderFeedback(){
+    var all=Object.keys(st.rejected).length,u=unsent();
+    var srv=(D.rejected||{});
+    var txt=all?all+" marked \"not a fit\" in this browser (similar titles are hidden too). ":"";
+    if(srv.count)txt+="The tracker already excludes "+srv.count+" (and "+srv.dropped+" postings like them). ";
+    el("fb").innerHTML=esc(txt)+(u.length?'<a href="#" id="sendFb">Send '+u.length+' to the tracker ↗</a> (opens a GitHub issue: press "Submit new issue")':"");
+  }
+  el("fb").addEventListener("click",function(e){
+    if(!e.target.closest("#sendFb"))return;
+    e.preventDefault();
+    var u=unsent(),iu=issueUrl(u);
+    u.slice(0,iu.n).forEach(function(k){st.rejected[k].sent=new Date().toISOString().slice(0,10);});
+    save();window.open(iu.url,"_blank","noopener");render();
+  });
+  ["q","newOnly","weak","hideApplied","showRejected"].forEach(function(id){el(id).addEventListener("input",render);});
   el("sort").value=st.sort==="new"?"new":"fit";
   el("sort").addEventListener("change",function(){st.sort=el("sort").value;save();render();});
   render();renderWatch();

@@ -1192,12 +1192,12 @@
 "status": "ok"
 },
 "CHE225080737": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE232491778": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1236,47 +1236,47 @@
 "status": "ok"
 },
 "CHE237229644": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE243130557": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE244463406": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE245929815": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE246988921": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE247128358": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE252048736": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE253370324": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE253945526": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [
 {
 "cat": "software",
@@ -1286,14 +1286,14 @@
 "posted": "",
 "source": "career page",
 "title": "Olten Senior Software Engineer Web and Cloud 80–100%",
-"url": "https://www.nussbaum.ch/de/offene-stellen/senior-software-engineer-web-and-cloud-80&ndash;100-441.html",
+"url": "https://www.nussbaum.ch/de/offene-stellen/senior-software-engineer-web-and-cloud-80–100-441.html",
 "workload": "80-100"
 }
 ],
 "status": "ok"
 },
 "CHE254375198": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1310,12 +1310,12 @@
 "status": "ok"
 },
 "CHE254536426": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE255258069": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1332,32 +1332,44 @@
 "status": "ok"
 },
 "CHE259947742": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE260209740": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE261478395": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
+"checked": "2026-10-27T17:02+01:00",
+"jobs": [
+{
+"cat": "software",
+"company": "Open Autonomy Advisors GmbH",
+"directory": true,
+"location": "Zürich, Switzerland",
+"posted": "",
+"source": "bamboohr",
+"title": "Implementation Engineer (Software Engineer – Internal Tools and Automation)",
+"url": "https://opench.bamboohr.com/careers/827",
+"workload": ""
+}
+],
 "status": "ok"
 },
 "CHE261717329": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE263963187": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE266307648": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T17:02+01:00",
 "jobs": [],
 "status": "ok"
 },
