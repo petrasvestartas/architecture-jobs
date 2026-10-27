@@ -144,7 +144,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -221,7 +221,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -243,7 +243,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -254,7 +254,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -265,7 +265,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -276,7 +276,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -289,7 +289,7 @@
 "skills": [
 "timber"
 ],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -300,7 +300,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -311,7 +311,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -322,7 +322,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -339,7 +339,7 @@
 "skills": [
 "timber"
 ],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -547,10 +547,29 @@
 },
 "https://ch.linkedin.com/jobs/view/c%2B%2B-software-engineer-backend-systemintegration-m-w-d-at-rocken%C2%AE-4483240491": {
 "first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 7,
+"skills": [
+"C++",
+"open source / CI"
+],
+"tries": 1
+},
 "last_seen": "2026-10-27"
 },
 "https://ch.linkedin.com/jobs/view/c%2B%2B-softwareentwickler-at-alten-4473124450": {
 "first_seen": "2026-10-23",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"C++"
+],
+"tries": 1
+},
 "last_seen": "2026-10-27"
 },
 "https://ch.linkedin.com/jobs/view/flight-guidance-motion-planning-engineer-at-harmattan-ai-4448318174": {
@@ -654,6 +673,15 @@
 },
 "https://ch.linkedin.com/jobs/view/senior-c%2B%2B-engineer-%E2%80%93-tech-lead-at-cascination-4478659778": {
 "first_seen": "2026-10-23",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"C++"
+],
+"tries": 1
+},
 "last_seen": "2026-10-27"
 },
 "https://ch.linkedin.com/jobs/view/senior-computational-optimisation-engineer-at-corintis-4455975297": {
@@ -670,6 +698,15 @@
 },
 "https://ch.linkedin.com/jobs/view/software-engineer-c%2B%2B-qt-at-elleon-4482881556": {
 "first_seen": "2026-10-23",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 6,
+"skills": [
+"C++"
+],
+"tries": 1
+},
 "last_seen": "2026-10-27"
 },
 "https://ch.linkedin.com/jobs/view/software-engineer-simulation-robotics-at-skydio-4420200794": {
@@ -844,7 +881,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -855,7 +892,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -868,7 +905,7 @@
 "skills": [
 "simulation"
 ],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -879,6 +916,19 @@
 "desc": false,
 "fit": 0,
 "skills": [],
+"tries": 2
+},
+"last_seen": "2026-10-27"
+},
+"https://hexagon-robotics.onlyfy.jobs/en/job/id7dujsb6qpyq3yjo436cjs6ssqxp7t": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": false,
+"fit": 2,
+"skills": [
+"computer vision"
+],
 "tries": 1
 },
 "last_seen": "2026-10-27"
@@ -890,7 +940,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -901,7 +951,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -2204,7 +2254,7 @@
 "skills": [
 "BIM / CAD"
 ],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -3399,6 +3449,21 @@
 },
 "last_seen": "2026-10-27"
 },
+"https://www.jobs.ch/en/vacancies/detail/4580add9-9f63-4d6c-b8da-f888bc59231d/": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 7,
+"skills": [
+"industrial robots",
+"CNC / CAM",
+"teaching"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
 "https://www.jobs.ch/en/vacancies/detail/4c138fc2-5810-4dde-b678-751be6c54c2f/": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-23"
@@ -3441,6 +3506,17 @@
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-23"
 },
+"https://www.jobs.ch/en/vacancies/detail/63f6369a-f762-49b0-9077-900c52d3820e/": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 0,
+"skills": [],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
 "https://www.jobs.ch/en/vacancies/detail/65d23522-6f48-48df-ba36-a44988236955/": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-23"
@@ -3452,6 +3528,33 @@
 "https://www.jobs.ch/en/vacancies/detail/73274c5e-f471-43ff-9669-63b771b1cd1c/": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-23"
+},
+"https://www.jobs.ch/en/vacancies/detail/73d3fdf5-9ad4-4bc5-89f3-05affa1108a4/": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 1,
+"skills": [
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
+"https://www.jobs.ch/en/vacancies/detail/76c7518e-ff0a-41ba-b3b1-f5b74f09731e/": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 7,
+"skills": [
+"CNC / CAM",
+"simulation"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
 },
 "https://www.jobs.ch/en/vacancies/detail/79563b71-7b72-43a7-8055-68f468383048/": {
 "first_seen": "2026-10-23",
@@ -3479,6 +3582,21 @@
 "fit": 6,
 "skills": [
 "timber"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
+"https://www.jobs.ch/en/vacancies/detail/7f1d5589-3068-464f-84db-1c585bd3ab3c/": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 5,
+"skills": [
+"timber",
+"BIM / CAD",
+"research"
 ],
 "tries": 1
 },
@@ -3650,6 +3768,19 @@
 },
 "last_seen": "2026-10-27"
 },
+"https://www.jobs.ch/en/vacancies/detail/c2b7cb53-33a4-43b6-8b56-81d460ab6719/": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 3,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
 "https://www.jobs.ch/en/vacancies/detail/c3dd261f-c542-415b-bcf0-94f99590e6fd/": {
 "first_seen": "2026-10-23",
 "fit": {
@@ -3663,6 +3794,31 @@
 },
 "last_seen": "2026-10-27"
 },
+"https://www.jobs.ch/en/vacancies/detail/cb52edc2-eff7-4a44-9d46-f8242a61aba1/": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 4,
+"skills": [
+"timber",
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
+"https://www.jobs.ch/en/vacancies/detail/dc5e30da-b245-4445-b021-e4e71da87c56/": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 0,
+"skills": [],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
 "https://www.jobs.ch/en/vacancies/detail/e6030439-bbad-45d9-85f4-8b2ce4f97e53/": {
 "first_seen": "2026-10-23",
 "fit": {
@@ -3671,6 +3827,19 @@
 "fit": 7,
 "skills": [
 "timber",
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
+"https://www.jobs.ch/en/vacancies/detail/e63eb0fd-87f9-4fa0-a50d-9447341d1d14/": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 1,
+"skills": [
 "BIM / CAD"
 ],
 "tries": 1
@@ -3700,6 +3869,21 @@
 "timber",
 "CNC / CAM",
 "BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
+"https://www.jobs.ch/en/vacancies/detail/edb94af8-45e7-4749-b6db-1136814823f4/": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"timber",
+"BIM / CAD",
+"architecture / AEC"
 ],
 "tries": 1
 },
@@ -3885,7 +4069,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },
@@ -3896,7 +4080,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },

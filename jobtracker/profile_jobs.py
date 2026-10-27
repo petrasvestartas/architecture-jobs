@@ -285,16 +285,6 @@ def is_romandie(j):
                 or FRENCH_AD.search(j.get("title") or ""))
 
 
-# keep postings in or near Switzerland, or remote
-NEAR = re.compile(
-    r"switzerland|schweiz|suisse|svizzera|\bch\b|z[uü]rich|bern|basel|"
-    r"lausanne|gen[eè]v|genf|luzern|lucerne|\bzug\b|winterthur|st\.?\s?gallen|"
-    r"schlieren|d[uü]bendorf|baden|aarau|biel|fribourg|neuch[aâ]tel|lugano|"
-    r"chur|thun|wallisellen|opfikon|oerlikon|altendorf|gossau|"
-    r"remote|europe|emea|germany|deutschland|stuttgart|m[uü]nchen|munich|"
-    r"austria|[öo]sterreich|wien|vienna|liechtenstein|vaduz", re.I)
-
-
 def professional(j):
     """Trades are out everywhere; timber postings must also name an
     office/engineering role (CNC operators, crews and foremen are not)."""
@@ -303,18 +293,62 @@ def professional(j):
     return True
 
 
-# "(remote)" on a US or Asian posting is not remote from Switzerland
-FAR = re.compile(
-    r"united states|\busa?\b|us remote|california|new york|texas|japan|tokyo|"
-    r"singapore|taiwan|china|india|united kingdom|\buk\b|london|canada|"
-    r"australia|israel|korea|brazil|mexico", re.I)
-SWISS = re.compile(r"switzerland|schweiz|suisse|svizzera|\bch\b|z[uü]rich", re.I)
+# Only postings based in Switzerland (user, 2026-10-27: "remove all non
+# suisse based offerings"): no Germany / Austria / Liechtenstein, and no
+# "remote" without a Swiss location. A location counts as Swiss when any of
+# its parts ("Zurich, Austin, Oxford") names the country, carries a Swiss
+# postal code or is a place in the GeoNames postal table (data/CH.txt).
+SWISS = re.compile(r"switzerland|schweiz|suisse|svizzera|\bch\b", re.I)
+SWISS_PLZ = re.compile(r"(?:^|\bch-?)\s*[1-9]\d{3}\b", re.I)
+EXONYMS = {"zurich", "geneva", "lucerne", "basle", "berne", "bale"}
+CH_TXT = os.path.join(HERE, "data", "CH.txt")
+_places = None
 
 
-def near(loc):
-    if FAR.search(loc) and not SWISS.search(loc):
-        return False
-    return bool(NEAR.search(loc))
+def _fold(s):
+    s = s.lower()
+    for a, b in (("ä", "a"), ("ö", "o"), ("ü", "u"), ("é", "e"), ("è", "e"),
+                 ("à", "a"), ("â", "a"), ("ô", "o"), ("ç", "c")):
+        s = s.replace(a, b)
+    return re.sub(r"[^a-z]+", " ", s).strip()
+
+
+def _swiss_places():
+    global _places
+    if _places is None:
+        _places = set(EXONYMS)
+        with open(CH_TXT, encoding="utf-8") as f:
+            for line in f:
+                cols = line.split("\t")
+                for name in (cols[2], cols[7]):
+                    # "Aarau 1", "Buchs ZH" -> "aarau", "buchs"
+                    n = _fold(re.sub(r"\s+\d+$|\s+[A-Z]{2}$", "", name))
+                    if n:
+                        _places.add(n)
+    return _places
+
+
+def swiss(loc):
+    """True for a Swiss location; an empty one is the firm's own (all
+    scanned firms and boards are Swiss) and passes."""
+    loc = re.sub(r"\(remote\)", " ", loc or "", flags=re.I).strip()
+    if not loc or loc.lower() == "unknown":
+        return True
+    if SWISS.search(loc):
+        return True
+    places = _swiss_places()
+    for part in re.split(r"[,;/|()]| or | and | oder | und ", loc):
+        part = part.strip()
+        if SWISS_PLZ.match(part):
+            return True
+        # drop canton suffixes and street addresses: "Roggwil TG",
+        # "Stuttgart Schockenriedstr. 17" (the city is the first word)
+        part = re.sub(r"\s+[A-Z]{2}$", "", part)
+        f = _fold(part)
+        if f and (f in places or f.split(" ")[0] in places
+                  and len(f.split(" ")[0]) > 3):
+            return True
+    return False
 
 
 def classify(title, default=None):
@@ -652,7 +686,7 @@ def scan_companies():
                 if not j["title"] or not j["url"] or EXCLUDE.search(j["title"]):
                     continue
                 # API postings carry locations; page anchors usually do not
-                if j["location"] and not near(j["location"]):
+                if not swiss(j["location"]):
                     continue
                 if is_romandie(j):
                     continue
@@ -711,7 +745,7 @@ def _keep_firm_job(j, e):
     if (not j["title"] or not j["url"] or EXCLUDE.search(j["title"])
             or OFF_DOMAIN.search(j["title"]) or is_romandie(j)):
         return False
-    if j["location"] and not near(j["location"]):
+    if not swiss(j["location"]):
         return False
     found_cat = classify(j["title"])
     # a register firm named "... Automation" also hires electricians and
@@ -870,7 +904,8 @@ def scan_boards():
     kept = []
     for j in raw:
         if (not j["title"] or EXCLUDE.search(j["title"])
-                or OFF_DOMAIN.search(j["title"]) or is_romandie(j)):
+                or OFF_DOMAIN.search(j["title"]) or is_romandie(j)
+                or not swiss(j["location"])):
             continue
         cat = classify(j["title"])
         # "software" is the broadest bucket (every bank has DevOps roles),
@@ -951,6 +986,8 @@ def main():
         if k in keys:
             continue
         keys.add(k)
+        if not swiss(j["location"]):  # also stored results from older runs
+            continue
         j = dict(j)
         j.pop("directory", None)
         j["score"] = score(j["title"] + " " + j["company"])
