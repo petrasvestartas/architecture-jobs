@@ -13,11 +13,18 @@ Output is its own pair of files next to the main site:
 Sources:
   * company ATS APIs (Lever / Ashby / Breezy) for the firms applied to;
   * company career pages without an API (anchor text scan);
-  * jobs.ch / jobup.ch keyword searches and LinkedIn guest search, kept to
+  * the company directory from profile_directory.py (every timber and
+    robotics firm in the commercial register plus profile_curated.json),
+    read in rotation through each firm's careers page or ATS feed;
+  * jobs.ch, job-room.ch keyword searches and LinkedIn guest search, kept to
     titles that classify into one of the categories and score as relevant.
+
+Trade and site-crew roles (carpenter, CNC operator, foreman, installer) are
+never kept; timber postings must name an office / engineering role.
 
     python profile_jobs.py
 """
+import concurrent.futures
 import datetime
 import json
 import os
@@ -153,6 +160,11 @@ BOARD_TERMS = [
     "CAD software", "DevOps", "Rust", "computer vision",
     "digital fabrication", "research scientist",
 ]
+# job-room.ch is the federal employment service's board (SECO/RAV), where
+# employers must report vacancies in some trades and many others post too
+JOBROOM_TERMS = ["Holzbau", "Holzbauingenieur", "Ingenieurholzbau", "Robotik",
+                 "Robotics", "Roboter", "C++", "Computer Vision", "Geometrie",
+                 "computational design", "digitale Fabrikation", "CAD Entwickler"]
 LINKEDIN_TERMS = ["robotics software engineer", "robotics engineer",
                   "computational design", "Holzbau", "Holzbauingenieur",
                   "timber construction", "C++ developer geometry"]
@@ -197,7 +209,7 @@ WEAK_SCORE = 2
 EXCLUDE = re.compile(
     r"lehrling|lernende|lehrstelle|\bapprenti|\bauszubild|praktik|"
     r"\bintern(?:ship)?\b|werkstudent|working student|stagiaire|\bstage\b|"
-    r"sales|verkauf|vertrieb|account manag|key account|marketing|"
+    r"sales|verk[aä]uf|vertrieb|account manag|key account|marketing|"
     r"buchhalt|accounting|finance|controller|\bhr\b|human resources|"
     r"recruit|talent acqui|personal(?:fach|ber)|business develop|"
     r"kaufm|kauffrau|kaufmann|sachbearbeit|assistenz|office manag|"
@@ -216,7 +228,31 @@ EXCLUDE = re.compile(
     r"responsable du d[ée]partement|tempor|zwischenjahr|d[ée]coupe|"
     r"\btester\b|\bkoch\b|k[öo]chin|kantine|carpenter|plant operator|"
     r"machine operator|sawmill|s[aä]gewerk|\bbuyer\b|eink[aä]ufer|"
-    r"schreiner|maler\b|assembly technician", re.I)
+    r"schreiner|joiner|maler\b|assembly technician|"
+    # shop-floor and site-crew roles (user, 2026-10-27: "don't search for
+    # jobs like carpenter") — CNC operators, foremen, installers, site crews
+    r"maschinist|machinist|automatiker|foreman|vorarbeit|construction worker|"
+    r"bauarbeit|installer|installateur|\bfachkraft|fachmann|fachfrau|"
+    r"logistiker|logistician|mechatroniker|mechatronics technician|bauf[üu]hrer|"
+    r"site (?:foreman|manager)|handwerk|craftsm|operator|bediener|"
+    r"produktionsmitarbeit|mitarbeiter(?:in)? produktion|staplerfahrer|"
+    r"zimmerfrau|"
+    r"holzbearbeiter|s[aä]ger\b|spengler|dachdecker|ger[üu]stbau|"
+    # back office and interior joinery at timber firms
+    r"finanz|rechnungswesen|m[öo]bel|parkett|k[üu]chen", re.I)
+
+# timber firms and the register directory mostly hire trades; there a
+# posting must name a professional (office / engineering / lead) role
+PROFESSIONAL = re.compile(
+    r"ingenieur|engineer|projektleit|project (?:lead|manag)|projektmanag|"
+    r"konstrukt|planer|planning|avor|arbeitsvorbereit|work preparation|"
+    r"cnc[- ]?programm|programmier|entwickl|developer|software|scientist|"
+    r"research|forsch|wissenschaft|techniker|technician|technolog|"
+    r"head of|leiter|leitung|lead\b|director|chief|architekt(?!ur)|"
+    r"architect(?!ure)|"
+    r"digital|\bbim\b|\bcad\b|data|computational|geometr|statik|"
+    r"tragwerk|structural|bauphysik|innovation|produktmanag|product manag",
+    re.I)
 # board searches also surface medicine/biology/physics on generic words
 # (robotic surgery, computational biology, quantum geometry)
 OFF_DOMAIN = re.compile(
@@ -255,6 +291,28 @@ NEAR = re.compile(
     r"chur|thun|wallisellen|opfikon|oerlikon|altendorf|gossau|"
     r"remote|europe|emea|germany|deutschland|stuttgart|m[uü]nchen|munich|"
     r"austria|[öo]sterreich|wien|vienna|liechtenstein|vaduz", re.I)
+
+
+def professional(j):
+    """Trades are out everywhere; timber postings must also name an
+    office/engineering role (CNC operators, crews and foremen are not)."""
+    if j["cat"] == "timber" or j.get("directory"):
+        return bool(PROFESSIONAL.search(j["title"]))
+    return True
+
+
+# "(remote)" on a US or Asian posting is not remote from Switzerland
+FAR = re.compile(
+    r"united states|\busa?\b|us remote|california|new york|texas|japan|tokyo|"
+    r"singapore|taiwan|china|india|united kingdom|\buk\b|london|canada|"
+    r"australia|israel|korea|brazil|mexico", re.I)
+SWISS = re.compile(r"switzerland|schweiz|suisse|svizzera|\bch\b|z[uü]rich", re.I)
+
+
+def near(loc):
+    if FAR.search(loc) and not SWISS.search(loc):
+        return False
+    return bool(NEAR.search(loc))
 
 
 def classify(title, default=None):
@@ -381,6 +439,46 @@ def fetch_workday(name, cat, ref, opt):
     return out
 
 
+def fetch_personio(name, cat, slug, opt):
+    body, _ = http_get(f"https://{slug}.jobs.personio.de/xml?language=de",
+                       accept="application/xml", tries=2, timeout=20)
+    out = []
+    for p in re.findall(r"<position>(.*?)</position>", body, re.S):
+        def tag(t):
+            m = re.search(rf"<{t}>(.*?)</{t}>", p, re.S)
+            return strip_tags(re.sub(r"<!\[CDATA\[|\]\]>", "", m.group(1))) if m else ""
+        out.append(_job(cat, tag("name"), name, tag("office"),
+                        f"https://{slug}.jobs.personio.de/job/{tag('id')}",
+                        "personio", tag("createdAt")))
+    return out
+
+
+def fetch_recruitee(name, cat, slug, opt):
+    d = get_json(f"https://{slug}.recruitee.com/api/offers/")
+    return [_job(cat, p.get("title"), name,
+                 p.get("location") or p.get("city") or "",
+                 p.get("careers_url"), "recruitee", p.get("published_at"))
+            for p in d.get("offers") or []]
+
+
+def fetch_smartrecruiters(name, cat, slug, opt):
+    d = get_json(f"https://api.smartrecruiters.com/v1/companies/{slug}/postings"
+                 "?country=ch&limit=100")
+    out = []
+    for p in d.get("content") or []:
+        loc = p.get("location") or {}
+        loc = ", ".join(x for x in (loc.get("city"), loc.get("country")) if x)
+        out.append(_job(cat, p.get("name"), name, loc,
+                        f"https://jobs.smartrecruiters.com/{slug}/{p.get('id')}",
+                        "smartrecruiters", p.get("releasedDate")))
+    return out
+
+
+def fetch_teamtailor(name, cat, slug, opt):
+    return fetch_page(name, cat, f"https://{slug}.teamtailor.com/jobs",
+                      {"path": r"/jobs/\d"})
+
+
 def fetch_jobsch(name, cat, query, opt):
     """jobs.ch free-text search on the firm's name, kept to that firm."""
     out = _jobcloud("https://www.jobs.ch", "detail_en", "jobs.ch", [query], pages=5)
@@ -463,6 +561,28 @@ def _render(url):
 def fetch_page(name, cat, url, opt):
     got = _render(url) if opt.get("render") else None
     body, final = got or http_get(url, tries=2, timeout=20)
+    return page_jobs(body, final, name, cat, opt)
+
+
+# opt "strict" (directory firms: small sites whose menus are full of
+# "Architektur", "Planung", "Für Architekten"): the anchor must read like an
+# ad — a gender tag or workload, or a link into a jobs/careers path
+AD_TAG = re.compile(r"\((?:[mwfdxa]\s*/\s*)*[mwfdxa]\)|\b[mwfd]/[mwfd]\b|"
+                    r":in\b|\*in\b|/-?in\b|\(alle|\(all |%", re.I)
+CAREER_PATH = re.compile(r"job|stelle|karriere|career|inserat|vakan|vacan|offene",
+                         re.I)
+OLD_AD = re.compile(r"\b20(?:0\d|1\d|2[0-4])\b")  # "06.2020 - Projektleiter gesucht"
+NOT_AD = re.compile(r"^(?:f[uü]r|routenplaner|job-quiz|quiz)\b", re.I)
+
+
+def _ad_like(text, href):
+    if OLD_AD.search(text) or NOT_AD.match(text) or not PROFESSIONAL.search(text):
+        return False
+    return bool(AD_TAG.search(text)
+                or CAREER_PATH.search(urllib.parse.urlparse(href).path))
+
+
+def page_jobs(body, final, name, cat, opt):
     path = re.compile(opt["path"]) if opt.get("path") else None
     out, seen = [], set()
     for m in ANCHOR.finditer(body):
@@ -476,6 +596,8 @@ def fetch_page(name, cat, url, opt):
             if not path.search(href):
                 continue
         elif not ROLE.search(text):
+            continue
+        if opt.get("strict") and not _ad_like(text, href):
             continue
         if not href.startswith("http") or href.rstrip("/") == final.rstrip("/"):
             continue
@@ -493,13 +615,18 @@ def fetch_page(name, cat, url, opt):
 FETCHERS = {"lever": fetch_lever, "ashby": fetch_ashby, "breezy": fetch_breezy,
             "greenhouse": fetch_greenhouse, "bamboo": fetch_bamboo,
             "workable": fetch_workable, "workday": fetch_workday,
-            "jobsch": fetch_jobsch,
+            "personio": fetch_personio, "recruitee": fetch_recruitee,
+            "smartrecruiters": fetch_smartrecruiters,
+            "teamtailor": fetch_teamtailor, "jobsch": fetch_jobsch,
             "linkedin": fetch_linkedin, "page": fetch_page}
 HOME = {
     "lever": "https://jobs.lever.co/{}", "ashby": "https://jobs.ashbyhq.com/{}",
     "breezy": "https://{}.breezy.hr/", "greenhouse": "https://boards.greenhouse.io/{}",
     "bamboo": "https://{}.bamboohr.com/careers", "workable": "https://apply.workable.com/{}/",
     "workday": "https://{}",
+    "personio": "https://{}.jobs.personio.de/", "recruitee": "https://{}.recruitee.com/",
+    "smartrecruiters": "https://careers.smartrecruiters.com/{}",
+    "teamtailor": "https://{}.teamtailor.com/jobs",
     "jobsch": "https://www.jobs.ch/en/vacancies/?term={}",
     "linkedin": "https://www.linkedin.com/jobs/search/?location=Switzerland&keywords={}",
     "page": "{}",
@@ -522,7 +649,7 @@ def scan_companies():
                 if not j["title"] or not j["url"] or EXCLUDE.search(j["title"]):
                     continue
                 # API postings carry locations; page anchors usually do not
-                if j["location"] and not NEAR.search(j["location"]):
+                if j["location"] and not near(j["location"]):
                     continue
                 if is_romandie(j):
                     continue
@@ -530,6 +657,8 @@ def scan_companies():
                     continue
                 if opt.get("only"):
                     j["cat"] = classify(j["title"])
+                if not professional(j):
+                    continue
                 kept.append(j)
             jobs += kept
             watch.append({"name": name, "cat": cat, "url": home,
@@ -540,6 +669,118 @@ def scan_companies():
                           "detail": str(e)[:120]})
         time.sleep(0.3)
     return jobs, watch
+
+
+# ---------- company directory (profile_directory.py) ----------
+# Every timber / robotics firm in the commercial register plus the curated
+# list, with the careers page or ATS feed found for each. Too many to read
+# every run: each run reads ROTATE of them, least recently read first, and
+# keeps what every firm last showed in profile_found.json.
+
+DIRECTORY = os.path.join(HERE, "profile_companies.json")
+FOUND = os.path.join(HERE, "profile_found.json")
+ROTATE = int(os.environ.get("PROFILE_ROTATE") or 200)
+STALE_DAYS = 4  # postings of a firm not read for this long drop out
+
+
+def _name_key(s):
+    return re.sub(r"[^a-z0-9]", "", (s or "").lower())
+
+
+def _read_firm(e):
+    import scraper  # career sublink heuristics shared with the architecture scan
+    feed = e.get("feed")
+    if feed and feed[0] in FETCHERS:
+        return FETCHERS[feed[0]](e["name"], e["cat"], feed[1], {})
+    body, final = http_get(e["careers"], tries=2, timeout=20)
+    jobs = page_jobs(body, final, e["name"], e["cat"], {"strict": True})
+    if not jobs:  # teaser page: the list sits one link further (or at an ATS)
+        for u, _ in scraper._career_sublinks(body, final):
+            try:
+                b2, f2 = http_get(u, tries=1, timeout=15)
+            except Exception:
+                continue
+            jobs += page_jobs(b2, f2, e["name"], e["cat"], {"strict": True})
+    return jobs
+
+
+def _keep_firm_job(j, e):
+    if (not j["title"] or not j["url"] or EXCLUDE.search(j["title"])
+            or OFF_DOMAIN.search(j["title"]) or is_romandie(j)):
+        return False
+    if j["location"] and not near(j["location"]):
+        return False
+    found_cat = classify(j["title"])
+    # a register firm named "... Automation" also hires electricians and
+    # PLC programmers for buildings: there only robotics/software titles count
+    if e.get("source") == "zefix" and e["cat"] != "timber" and not found_cat:
+        return False
+    # big software / research employers (Google, ETH, Empa) list hundreds of
+    # unrelated roles: there the title itself must score for the profile
+    if e["cat"] in ("software", "research") and score(j["title"]) < 2:
+        return False
+    j["cat"] = found_cat or e["cat"]
+    j["directory"] = True
+    return professional(j)
+
+
+def scan_directory(started):
+    try:
+        firms = json.load(open(DIRECTORY, encoding="utf-8"))
+    except (OSError, ValueError):
+        return [], [], {}
+    try:
+        found = json.load(open(FOUND, encoding="utf-8"))
+    except (OSError, ValueError):
+        found = {}
+    known = [_name_key(c[0].split(" (")[0]) for c in COMPANIES]
+    readable = {k: e for k, e in firms.items()
+                if e.get("status") == "ok" and (e.get("careers") or e.get("feed"))
+                and not any(_name_key(e["name"]).startswith(n) for n in known)}
+    order = sorted(readable, key=lambda k: (found.get(k) or {}).get("checked", ""))
+    batch = order[:ROTATE]
+    now = started.isoformat(timespec="minutes")
+
+    def read(k):
+        try:
+            return k, [j for j in _read_firm(readable[k])
+                       if _keep_firm_job(j, readable[k])], None
+        except Exception as ex:
+            return k, None, str(ex)[:120]
+
+    with concurrent.futures.ThreadPoolExecutor(8) as pool:
+        for k, jobs, err in pool.map(read, batch):
+            prev = found.get(k) or {}
+            if jobs is None:  # failed: keep what it showed last time
+                found[k] = dict(prev, checked=now, status="failed", detail=err)
+            else:
+                found[k] = {"checked": now, "status": "ok", "jobs": jobs}
+    stale = (started - datetime.timedelta(days=STALE_DAYS)).isoformat(timespec="minutes")
+    found = {k: v for k, v in found.items() if k in readable}
+    with open(FOUND, "w", encoding="utf-8") as f:
+        json.dump(found, f, ensure_ascii=False, indent=0, sort_keys=True)
+
+    jobs, watch = [], []
+    for k, v in found.items():
+        if v.get("checked", "") < stale or not v.get("jobs"):
+            continue
+        e = readable[k]
+        jobs += v["jobs"]
+        watch.append({"name": e["name"], "cat": e["cat"],
+                      "url": e.get("careers") or e.get("website"),
+                      "status": "ok", "count": len(v["jobs"]), "dir": True})
+    by_cat = {}
+    for e in firms.values():
+        if e.get("status") != "off-topic":
+            by_cat[e["cat"]] = by_cat.get(e["cat"], 0) + 1
+    stats = {"firms": sum(by_cat.values()), "by_cat": by_cat,
+             "readable": len(readable),
+             "read_recently": sum(1 for v in found.values()
+                                  if v.get("checked", "") >= stale),
+             "read_now": len(batch)}
+    print(f"profile: directory read {len(batch)} of {len(readable)} firms, "
+          f"{len(jobs)} postings", flush=True)
+    return jobs, watch, stats
 
 
 # ---------- job boards ----------
@@ -600,10 +841,29 @@ def scan_linkedin(terms):
     return out
 
 
+def scan_jobroom(terms):
+    from sources import jobroom
+    out = []
+    for term in terms:
+        try:
+            data = post_json(jobroom.API.format(page=0, size=jobroom.SIZE),
+                             jobroom._body(term), headers=jobroom.HEADERS)
+        except Exception:
+            continue
+        for w in data if isinstance(data, list) else []:
+            j = jobroom._parse_item(w)
+            if j:
+                out.append(_job(None, j["title"], j["company_name"],
+                                j["location"], j["url"], "job-room",
+                                j["posted_at"]))
+        time.sleep(0.8)
+    return out
+
+
 def scan_boards():
     # no jobup.ch: it is the French-speaking region's board (see ROMANDIE)
     raw = (_jobcloud("https://www.jobs.ch", "detail_en", "jobs.ch", BOARD_TERMS)
-           + scan_linkedin(LINKEDIN_TERMS))
+           + scan_jobroom(JOBROOM_TERMS) + scan_linkedin(LINKEDIN_TERMS))
     kept = []
     for j in raw:
         if (not j["title"] or EXCLUDE.search(j["title"])
@@ -616,7 +876,8 @@ def scan_boards():
         if not cat or score(j["title"]) < need:
             continue
         j["cat"] = cat
-        kept.append(j)
+        if professional(j):
+            kept.append(j)
     return kept
 
 
@@ -642,6 +903,11 @@ def main():
     for w in read:
         if w["status"] == "failed":
             print(f"  {w['name']}: {w['detail']}", flush=True)
+    dir_jobs, dir_watch, dir_stats = [], [], {}
+    try:
+        dir_jobs, dir_watch, dir_stats = scan_directory(started)
+    except Exception as e:
+        print(f"profile: directory failed: {e}", flush=True)
     board_jobs = []
     try:
         board_jobs = scan_boards()
@@ -651,11 +917,13 @@ def main():
 
     # company feeds first: the same role on a board is a duplicate of it
     jobs, keys = [], set()
-    for j in company_jobs + board_jobs:
+    for j in company_jobs + dir_jobs + board_jobs:
         k = _key(j)
         if k in keys:
             continue
         keys.add(k)
+        j = dict(j)
+        j.pop("directory", None)
         j["score"] = score(j["title"] + " " + j["company"])
         jobs.append(j)
 
@@ -675,7 +943,8 @@ def main():
     jobs.sort(key=lambda j: (j["first_seen"], j["score"]), reverse=True)
     payload = {"generated": started.isoformat(timespec="minutes"),
                "categories": CATEGORIES, "weak_score": WEAK_SCORE,
-               "jobs": jobs, "watch": watch}
+               "jobs": jobs, "watch": watch + dir_watch,
+               "directory": dir_stats}
     os.makedirs(SITE_DIR, exist_ok=True)
     with open(os.path.join(SITE_DIR, "profile.js"), "w", encoding="utf-8") as f:
         f.write("window.PROFILE = ")

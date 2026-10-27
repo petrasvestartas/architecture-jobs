@@ -53,6 +53,15 @@ jobs:
             # same slice the local runner used to scan
             python scraper.py --careers 40 --career-watch 250
           fi
+      - name: Profile company directory upkeep (full scan only)
+        # refreshes the register firms from Zefix and probes up to 300
+        # firms whose website / careers page is unknown or due a re-check
+        if: github.event.schedule == '30 3 * * *'
+        continue-on-error: true
+        env:
+          PYTHONIOENCODING: utf-8
+        working-directory: jobtracker
+        run: python profile_directory.py --limit 300
       - name: Profile scan (robotics / timber / software / research)
         # separate pipeline: own output (public/profile.js), never touches
         # the architecture DB or data.js; a failure must not block the deploy
@@ -83,7 +92,7 @@ jobs:
           # profile.js is the exception to "never public/": no other writer
           # touches it, and pages.yml deploys from the repo on every local
           # push, so an uncommitted copy would vanish from the site
-          git add jobtracker/profile_state.json public/profile.js 2>/dev/null || true
+          git add jobtracker/profile_state.json public/profile.js             jobtracker/profile_companies.json jobtracker/profile_found.json             2>/dev/null || true
           git diff --cached --quiet && { echo "no state changes to persist"; exit 0; }
           git commit -m "Scan state $(date -u +'%F %H:%M')"
           for i in 1 2 3 4 5; do

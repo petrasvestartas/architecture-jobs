@@ -1,0 +1,1241 @@
+[
+ {
+  "name": "BFH Architektur, Holz und Bau",
+  "cat": "research",
+  "website": "https://www.bfh.ch/ahb/de/",
+  "careers": "https://www.bfh.ch/de/ueber-die-bfh/karriere/jobs/",
+  "city": "Biel"
+ },
+ {
+  "name": "BFH Technik und Informatik",
+  "cat": "research",
+  "website": "https://www.bfh.ch/ti/de/",
+  "careers": "https://www.bfh.ch/de/ueber-die-bfh/karriere/jobs/",
+  "city": "Biel / Burgdorf"
+ },
+ {
+  "name": "CSCS Swiss National Supercomputing Centre",
+  "cat": "research",
+  "website": "https://www.cscs.ch",
+  "careers": "https://www.cscs.ch/about/working-at-cscs",
+  "city": "Lugano"
+ },
+ {
+  "name": "CSEM",
+  "cat": "research",
+  "website": "https://www.csem.ch",
+  "careers": "https://www.csem.ch/en/jobs/",
+  "city": "Alpnach / Landquart / Muttenz"
+ },
+ {
+  "name": "Disney Research Studios",
+  "cat": "research",
+  "website": "https://studios.disneyresearch.com",
+  "careers": "https://studios.disneyresearch.com/careers/",
+  "city": "Zurich"
+ },
+ {
+  "name": "Empa",
+  "cat": "research",
+  "website": "https://www.empa.ch",
+  "careers": "https://apply.refline.ch/673276/search.html?lang=en",
+  "city": "Dübendorf"
+ },
+ {
+  "name": "FHGR Fachhochschule Graubünden",
+  "cat": "research",
+  "website": "https://www.fhgr.ch",
+  "careers": "https://jobs.fhgr.ch/Jobs/All?lang=ger",
+  "city": "Chur"
+ },
+ {
+  "name": "FHNW Institut Digitales Bauen",
+  "cat": "research",
+  "website": "https://www.fhnw.ch/de/architektur-bau-geomatik/ueber-uns/institute/digitales-bauen",
+  "careers": "https://apply.refline.ch/655298/search.html",
+  "city": "Muttenz"
+ },
+ {
+  "name": "HSLU Technik & Architektur",
+  "cat": "research",
+  "website": "https://www.hslu.ch/de-ch/technik-architektur/",
+  "careers": "https://www.hslu.ch/de-ch/hochschule-luzern/ueber-uns/jobs-und-karriere/",
+  "city": "Horw"
+ },
+ {
+  "name": "Huawei Zurich Research Center",
+  "cat": "research",
+  "website": "https://www.huawei.com/ch-en/",
+  "careers": "",
+  "city": "Zurich"
+ },
+ {
+  "name": "IBM Research Zurich",
+  "cat": "research",
+  "website": "https://research.ibm.com/labs/zurich",
+  "careers": "https://www.zurich.ibm.com/careers/",
+  "city": "Rüschlikon"
+ },
+ {
+  "name": "IDSIA (USI-SUPSI)",
+  "cat": "research",
+  "website": "https://idsia.usi-supsi.ch",
+  "careers": "https://www.supsi.ch/lavora-con-noi",
+  "city": "Lugano"
+ },
+ {
+  "name": "inspire AG",
+  "cat": "research",
+  "website": "https://inspire.ch",
+  "careers": "https://inspire.ch/de/ueber-uns/jobs/",
+  "city": "Zurich / St. Gallen"
+ },
+ {
+  "name": "Lignum",
+  "cat": "research",
+  "website": "https://www.lignum.ch",
+  "careers": "",
+  "city": "Zurich"
+ },
+ {
+  "name": "OST Ostschweizer Fachhochschule",
+  "cat": "research",
+  "website": "https://www.ost.ch",
+  "careers": "https://jobs-ost.ch",
+  "city": "Rapperswil / St. Gallen / Buchs SG"
+ },
+ {
+  "name": "PSI Paul Scherrer Institut",
+  "cat": "research",
+  "website": "https://www.psi.ch",
+  "careers": "https://www.psi.ch/de/hr/stellenangebote",
+  "city": "Villigen"
+ },
+ {
+  "name": "SUPSI",
+  "cat": "research",
+  "website": "https://www.supsi.ch",
+  "careers": "https://www.supsi.ch/lavora-con-noi",
+  "city": "Lugano / Mendrisio"
+ },
+ {
+  "name": "Switzerland Innovation Park Biel/Bienne",
+  "cat": "research",
+  "website": "https://sipbb.ch",
+  "careers": "https://sipbb.ch/de/job-karriere/",
+  "city": "Biel"
+ },
+ {
+  "name": "USI Università della Svizzera italiana",
+  "cat": "research",
+  "website": "https://www.usi.ch",
+  "careers": "https://www.usi.ch/en/university/info/job-opportunities",
+  "city": "Lugano / Mendrisio"
+ },
+ {
+  "name": "UZH Robotics and Perception Group",
+  "cat": "research",
+  "website": "https://rpg.ifi.uzh.ch",
+  "careers": "https://rpg.ifi.uzh.ch/positions.html",
+  "city": "Zurich"
+ },
+ {
+  "name": "WSL",
+  "cat": "research",
+  "website": "https://www.wsl.ch",
+  "careers": "https://apply.refline.ch/273855/search.html?lang=de",
+  "city": "Birmensdorf"
+ },
+ {
+  "name": "Wyss Zurich",
+  "cat": "research",
+  "website": "https://www.wysszurich.ch",
+  "careers": "https://www.wysszurich.ch/about-us/careers/",
+  "city": "Zurich"
+ },
+ {
+  "name": "ZHAW School of Engineering",
+  "cat": "research",
+  "website": "https://www.zhaw.ch/de/engineering",
+  "careers": "https://www.zhaw.ch/de/jobs/offene-stellen",
+  "city": "Winterthur"
+ },
+ {
+  "name": "ABB Robotics",
+  "cat": "robotics",
+  "website": "https://www.abb.com/global/en/areas/robotics",
+  "careers": "https://careers.abb/global/en/search-results?keywords=robotics",
+  "city": "Zurich / Baden"
+ },
+ {
+  "name": "ANYbotics",
+  "cat": "robotics",
+  "website": "https://www.anybotics.com",
+  "careers": "https://jobs.lever.co/anybotics",
+  "city": "Zurich"
+ },
+ {
+  "name": "Ascento",
+  "cat": "robotics",
+  "website": "https://www.ascento.ai",
+  "careers": "https://ascento-ag.breezy.hr/",
+  "city": "Zurich"
+ },
+ {
+  "name": "Auterion",
+  "cat": "robotics",
+  "website": "https://auterion.com",
+  "careers": "https://auterion.com/company/careers/",
+  "city": "Zurich"
+ },
+ {
+  "name": "Beckhoff Automation Schweiz",
+  "cat": "robotics",
+  "website": "https://www.beckhoff.com/de-ch",
+  "careers": "https://www.beckhoff.com/de-ch/unternehmen/stellenangebote/",
+  "city": "Schaffhausen"
+ },
+ {
+  "name": "Besi Switzerland",
+  "cat": "robotics",
+  "website": "https://www.besi.com",
+  "careers": "https://www.besi.com/careers/jobs/",
+  "city": "Cham"
+ },
+ {
+  "name": "Bota Systems",
+  "cat": "robotics",
+  "website": "https://www.botasys.com",
+  "careers": "https://bota-systems-ag.breezy.hr/",
+  "city": "Zurich"
+ },
+ {
+  "name": "Bubble Robotics",
+  "cat": "robotics",
+  "website": "https://www.bubble-robotics.com",
+  "careers": "https://oceanic-moth-c6e.notion.site/Bubble-Job-Board-230fecba7dbb801f8de6dca2c1b990d3",
+  "city": "Zurich"
+ },
+ {
+  "name": "Bystronic",
+  "cat": "robotics",
+  "website": "https://www.bystronic.com",
+  "careers": "https://www.bystronic.com/int/en/career",
+  "city": "Niederönz"
+ },
+ {
+  "name": "Daedalean (Destinus)",
+  "cat": "robotics",
+  "website": "https://www.destinus.com",
+  "careers": "https://apply.workable.com/destinusgroup/",
+  "city": "Zurich"
+ },
+ {
+  "name": "Duatic",
+  "cat": "robotics",
+  "website": "https://www.duatic.com",
+  "careers": "https://www.duatic.com/jobs",
+  "city": "Zurich"
+ },
+ {
+  "name": "Dufour Aerospace",
+  "cat": "robotics",
+  "website": "https://www.dufour.aero",
+  "careers": "https://www.dufour.aero/careers",
+  "city": "Visp / Winterthur"
+ },
+ {
+  "name": "Embotech",
+  "cat": "robotics",
+  "website": "https://embotech.ai",
+  "careers": "https://embotech.ai/career",
+  "city": "Zurich"
+ },
+ {
+  "name": "Ethon AI",
+  "cat": "robotics",
+  "website": "https://www.ethon.com",
+  "careers": "https://www.ethon.com/careers",
+  "city": "Zurich"
+ },
+ {
+  "name": "Exclaim Robotics",
+  "cat": "robotics",
+  "website": "https://exclaimrobotics.com",
+  "careers": "https://jobs.ashbyhq.com/exclaim",
+  "city": "Zurich"
+ },
+ {
+  "name": "FANUC Switzerland",
+  "cat": "robotics",
+  "website": "https://www.fanuc.eu",
+  "careers": "https://www.fanuc.eu/eu-en/shape-your-future-fanuc",
+  "city": "Biel"
+ },
+ {
+  "name": "Fixposition",
+  "cat": "robotics",
+  "website": "https://www.fixposition.com",
+  "careers": "https://www.fixposition.com/pages/about-us#career-link",
+  "city": "Schlieren"
+ },
+ {
+  "name": "Flexion Robotics",
+  "cat": "robotics",
+  "website": "https://flexion.ai",
+  "careers": "https://flexion.ai/careers",
+  "city": "Zurich"
+ },
+ {
+  "name": "Flink Robotics",
+  "cat": "robotics",
+  "website": "https://www.flink.so",
+  "careers": "https://www.flink.so/about#join",
+  "city": "Zurich"
+ },
+ {
+  "name": "Floating Robotics",
+  "cat": "robotics",
+  "website": "https://www.floatingrobotics.com",
+  "careers": "https://www.floatingrobotics.com/careers.html",
+  "city": "Zurich"
+ },
+ {
+  "name": "Fotokite",
+  "cat": "robotics",
+  "website": "https://fotokite.com",
+  "careers": "https://fotokite.bamboohr.com/careers",
+  "city": "Zurich"
+ },
+ {
+  "name": "Fritz Studer",
+  "cat": "robotics",
+  "website": "https://www.studer.com",
+  "careers": "https://www.studer.com/de/karriere/stellenmarkt/",
+  "city": "Thun"
+ },
+ {
+  "name": "GF Machining Solutions (United Machining)",
+  "cat": "robotics",
+  "website": "https://www.machining.com",
+  "careers": "https://www.machining.com/career-overview/job-openings",
+  "city": "Biel / Losone"
+ },
+ {
+  "name": "Gravis Robotics",
+  "cat": "robotics",
+  "website": "https://gravisrobotics.com",
+  "careers": "https://jobs.lever.co/gravisrobotics",
+  "city": "Zurich"
+ },
+ {
+  "name": "Güdel",
+  "cat": "robotics",
+  "website": "https://www.gudel.com",
+  "careers": "https://www.gudel.com/careers",
+  "city": "Langenthal"
+ },
+ {
+  "name": "Hexagon Robotics",
+  "cat": "robotics",
+  "website": "https://robotics.hexagon.com",
+  "careers": "https://hexagon-robotics.onlyfy.jobs/",
+  "city": "Zurich / Heerbrugg"
+ },
+ {
+  "name": "Hilti",
+  "cat": "robotics",
+  "website": "https://www.hilti.group",
+  "careers": "https://careers.hilti.group/en",
+  "city": "Schaan (LI) / Adliswil"
+ },
+ {
+  "name": "Hocoma (DIH)",
+  "cat": "robotics",
+  "website": "https://www.hocoma.com",
+  "careers": "https://www.hocoma.com/hocoma/jobs/",
+  "city": "Volketswil"
+ },
+ {
+  "name": "Jenny Science",
+  "cat": "robotics",
+  "website": "https://www.jennyscience.com",
+  "careers": "https://www.jennyscience.com/de/ueber-uns/karriere",
+  "city": "Rain LU"
+ },
+ {
+  "name": "Kistler",
+  "cat": "robotics",
+  "website": "https://www.kistler.com",
+  "careers": "https://www.kistler.com/CH/de/kistler-stellenangebote/jobs",
+  "city": "Winterthur"
+ },
+ {
+  "name": "Komax",
+  "cat": "robotics",
+  "website": "https://www.komaxgroup.com",
+  "careers": "https://www.komaxgroup.com/en-ch/careers-switzerland",
+  "city": "Dierikon"
+ },
+ {
+  "name": "KUKA Schweiz",
+  "cat": "robotics",
+  "website": "https://www.kuka.com/de-ch",
+  "careers": "https://www.kuka.com/de-ch/unternehmen/karriere/stellenangebote",
+  "city": "Neuenhof"
+ },
+ {
+  "name": "LOXO",
+  "cat": "robotics",
+  "website": "https://www.loxo.ch",
+  "careers": "",
+  "city": "Bern"
+ },
+ {
+  "name": "MagnebotiX",
+  "cat": "robotics",
+  "website": "https://www.magnebotix.com",
+  "careers": "",
+  "city": "Zurich"
+ },
+ {
+  "name": "Manukai",
+  "cat": "robotics",
+  "website": "https://www.manukai.ch",
+  "careers": "https://www.manukai.ch/careers",
+  "city": "Zurich"
+ },
+ {
+  "name": "maxon",
+  "cat": "robotics",
+  "website": "https://www.maxongroup.com",
+  "careers": "https://www.maxongroup.com/en/career/job-vacancies",
+  "city": "Sachseln"
+ },
+ {
+  "name": "Mecas",
+  "cat": "robotics",
+  "website": "https://www.mecas.ai",
+  "careers": "",
+  "city": "Zurich"
+ },
+ {
+  "name": "Menzi Muck",
+  "cat": "robotics",
+  "website": "https://menzimuck.com",
+  "careers": "https://menzimuck.com/karriere/offene-stellenangebote-2/",
+  "city": "Kriessern"
+ },
+ {
+  "name": "Mesh (robotic rebar)",
+  "cat": "robotics",
+  "website": "https://www.mesh.ch",
+  "careers": "https://www.mesh.ch/careers",
+  "city": "Zurich"
+ },
+ {
+  "name": "Mikron",
+  "cat": "robotics",
+  "website": "https://www.mikron.com",
+  "careers": "https://www.mikron.com/en/group/our-people/join-us/jobs",
+  "city": "Biel / Agno"
+ },
+ {
+  "name": "mimic robotics",
+  "cat": "robotics",
+  "website": "https://www.mimicrobotics.com",
+  "careers": "https://www.mimicrobotics.com/careers",
+  "city": "Zurich"
+ },
+ {
+  "name": "Nanoflex Robotics",
+  "cat": "robotics",
+  "website": "https://nanoflexrobotics.com",
+  "careers": "",
+  "city": "Glattbrugg"
+ },
+ {
+  "name": "noonee",
+  "cat": "robotics",
+  "website": "https://www.noonee.com",
+  "careers": "",
+  "city": "Zurich"
+ },
+ {
+  "name": "NUM",
+  "cat": "robotics",
+  "website": "https://num.com",
+  "careers": "https://www.num.com/de/unternehmen/karriere",
+  "city": "Teufen AR"
+ },
+ {
+  "name": "RAI Institute Zurich",
+  "cat": "robotics",
+  "website": "https://rai-inst.com",
+  "careers": "https://jobs.lever.co/rai",
+  "city": "Zurich"
+ },
+ {
+  "name": "Rapyuta Robotics",
+  "cat": "robotics",
+  "website": "https://www.rapyuta-robotics.com",
+  "careers": "https://www.rapyuta-robotics.com/careers/",
+  "city": "Zurich"
+ },
+ {
+  "name": "RIVR",
+  "cat": "robotics",
+  "website": "https://www.rivr.ai",
+  "careers": "https://jobs.lever.co/rivr",
+  "city": "Zurich"
+ },
+ {
+  "name": "roboa",
+  "cat": "robotics",
+  "website": "https://www.roboa.ch",
+  "careers": "https://www.roboa.ch/career",
+  "city": "Zurich"
+ },
+ {
+  "name": "SAEKI",
+  "cat": "robotics",
+  "website": "https://saeki.ch",
+  "careers": "https://saeki.jobs.personio.de/",
+  "city": "Zurich"
+ },
+ {
+  "name": "Schindler",
+  "cat": "robotics",
+  "website": "https://www.schindler.com",
+  "careers": "https://www.schindler.com/en/careers.html",
+  "city": "Ebikon"
+ },
+ {
+  "name": "Sereact",
+  "cat": "robotics",
+  "website": "https://sereact.ai",
+  "careers": "https://jobs.ashbyhq.com/sereact",
+  "city": "Zurich"
+ },
+ {
+  "name": "Sevensense Robotics (ABB)",
+  "cat": "robotics",
+  "website": "https://www.sevensense.ai",
+  "careers": "https://join.com/companies/sevensense",
+  "city": "Zurich"
+ },
+ {
+  "name": "Sherlock Robotics",
+  "cat": "robotics",
+  "website": "https://www.sherlockrobotics.com",
+  "careers": "",
+  "city": "Zurich"
+ },
+ {
+  "name": "Skydio",
+  "cat": "robotics",
+  "website": "https://www.skydio.com",
+  "careers": "https://jobs.ashbyhq.com/skydio",
+  "city": "Zurich"
+ },
+ {
+  "name": "Sony AI Zurich",
+  "cat": "robotics",
+  "website": "https://ai.sony",
+  "careers": "https://ai.sony/join-us",
+  "city": "Zurich"
+ },
+ {
+  "name": "Starrag",
+  "cat": "robotics",
+  "website": "https://www.starrag.com",
+  "careers": "https://www.starrag.com/en-us/career/default/index",
+  "city": "Rorschacherberg"
+ },
+ {
+  "name": "Stäubli",
+  "cat": "robotics",
+  "website": "https://www.staubli.com",
+  "careers": "",
+  "city": "Pfäffikon SZ / Horgen"
+ },
+ {
+  "name": "SwissDrones",
+  "cat": "robotics",
+  "website": "https://www.swissdrones.com",
+  "careers": "https://swissdrones.jobs.personio.com",
+  "city": "Buchs SG"
+ },
+ {
+  "name": "Swisslog",
+  "cat": "robotics",
+  "website": "https://www.swisslog.com",
+  "careers": "https://www.swisslog.com/de-de/karriere/offene-stellen",
+  "city": "Buchs AG"
+ },
+ {
+  "name": "Tecan",
+  "cat": "robotics",
+  "website": "https://www.tecan.com",
+  "careers": "https://careers.tecan.com/go/HQ-Switzerland/4365401/",
+  "city": "Männedorf"
+ },
+ {
+  "name": "Tethys Robotics",
+  "cat": "robotics",
+  "website": "https://www.tethys-robotics.ch",
+  "careers": "https://www.tethys-robotics.ch/company/jobs",
+  "city": "Zurich"
+ },
+ {
+  "name": "Tinamu Labs",
+  "cat": "robotics",
+  "website": "https://tinamu-labs.com",
+  "careers": "https://tinamu-labs.com/jobs/",
+  "city": "Zurich"
+ },
+ {
+  "name": "United Grinding",
+  "cat": "robotics",
+  "website": "https://www.grinding.ch",
+  "careers": "https://www.grinding.ch/de/karriere/stellenmarkt/",
+  "city": "Bern"
+ },
+ {
+  "name": "Verity",
+  "cat": "robotics",
+  "website": "https://verity.net",
+  "careers": "https://verity-ag.breezy.hr/",
+  "city": "Zurich"
+ },
+ {
+  "name": "Voliro",
+  "cat": "robotics",
+  "website": "https://voliro.com",
+  "careers": "https://voliroar.bamboohr.com/careers",
+  "city": "Zurich"
+ },
+ {
+  "name": "Wingtra",
+  "cat": "robotics",
+  "website": "https://wingtra.com",
+  "careers": "https://wingtra.com/company/career/",
+  "city": "Zurich"
+ },
+ {
+  "name": "Witty Machines",
+  "cat": "robotics",
+  "website": "https://www.witty-machines.com",
+  "careers": "https://www.witty-machines.com/careers",
+  "city": "Zurich"
+ },
+ {
+  "name": "Xelerit Robotics (Forgis)",
+  "cat": "robotics",
+  "website": "https://www.xelerit-robotics.com",
+  "careers": "",
+  "city": "Zurich"
+ },
+ {
+  "name": "Zühlke",
+  "cat": "robotics",
+  "website": "https://www.zuehlke.com",
+  "careers": "https://zuehlke.wd3.myworkdayjobs.com/Zuhlke-Careers",
+  "city": "Schlieren"
+ },
+ {
+  "name": "Allplan Schweiz",
+  "cat": "software",
+  "website": "https://www.allplan.com",
+  "careers": "",
+  "city": "Wallisellen"
+ },
+ {
+  "name": "Amberg Technologies",
+  "cat": "software",
+  "website": "https://ambergtechnologies.com",
+  "careers": "https://ambergtechnologies.com/career/job-offers",
+  "city": "Regensdorf"
+ },
+ {
+  "name": "Apple Zurich",
+  "cat": "software",
+  "website": "https://www.apple.com",
+  "careers": "https://jobs.apple.com/en-us/search?location=zurich-ZUR",
+  "city": "Zurich"
+ },
+ {
+  "name": "Archilogic",
+  "cat": "software",
+  "website": "https://www.archilogic.com",
+  "careers": "https://archilogic.bamboohr.com/careers",
+  "city": "Zurich"
+ },
+ {
+  "name": "BSF Swissphoto",
+  "cat": "software",
+  "website": "https://www.bsf-swissphoto.com",
+  "careers": "https://www.bsf-swissphoto.com/jobs",
+  "city": "Regensdorf"
+ },
+ {
+  "name": "CADFEM (Suisse)",
+  "cat": "software",
+  "website": "https://www.cadfem.net/ch/de/",
+  "careers": "",
+  "city": "Aadorf"
+ },
+ {
+  "name": "cadwork informatik",
+  "cat": "software",
+  "website": "https://cadwork.com",
+  "careers": "",
+  "city": "Basel"
+ },
+ {
+  "name": "ComputerWorks (Vectorworks Schweiz)",
+  "cat": "software",
+  "website": "https://www.computerworks.ch",
+  "careers": "https://www.computerworks.ch/unternehmen/karriere",
+  "city": "Münchenstein"
+ },
+ {
+  "name": "COMSOL Schweiz",
+  "cat": "software",
+  "website": "https://www.comsol.ch",
+  "careers": "https://www.comsol.com/company/careers",
+  "city": "Zurich"
+ },
+ {
+  "name": "cubus",
+  "cat": "software",
+  "website": "https://www.cubus-software.com",
+  "careers": "",
+  "city": "Zurich"
+ },
+ {
+  "name": "Dassault Systèmes",
+  "cat": "software",
+  "website": "https://www.3ds.com",
+  "careers": "https://www.3ds.com/careers/jobs",
+  "city": "Zurich"
+ },
+ {
+  "name": "Design-to-Production",
+  "cat": "software",
+  "website": "https://www.designtoproduction.com",
+  "careers": "https://www.designtoproduction.com/#stellen",
+  "city": "Erlenbach ZH"
+ },
+ {
+  "name": "Esri R&D Center Zurich (CityEngine, ArcGIS Urban)",
+  "cat": "software",
+  "website": "https://www.esri.com",
+  "careers": "https://www.esri.com/en-us/about/careers/job-search?location=Zurich",
+  "city": "Zurich"
+ },
+ {
+  "name": "Esri Schweiz",
+  "cat": "software",
+  "website": "https://www.esri.ch",
+  "careers": "",
+  "city": "Zurich"
+ },
+ {
+  "name": "Google Zurich",
+  "cat": "software",
+  "website": "https://about.google",
+  "careers": "https://www.google.com/about/careers/applications/jobs/results/?location=Zurich%2C%20Switzerland",
+  "city": "Zurich"
+ },
+ {
+  "name": "incon.ai (Instructive Construction)",
+  "cat": "software",
+  "website": "https://incon.ai",
+  "careers": "",
+  "city": "Zurich"
+ },
+ {
+  "name": "iNovitas (infra3D)",
+  "cat": "software",
+  "website": "https://www.inovitas.ch",
+  "careers": "https://jobs.inovitas.ch/",
+  "city": "Baden-Dättwil"
+ },
+ {
+  "name": "Leica Geosystems (Hexagon)",
+  "cat": "software",
+  "website": "https://leica-geosystems.com",
+  "careers": "https://leica-geosystems.com/about-us/careers",
+  "city": "Heerbrugg"
+ },
+ {
+  "name": "Mensch und Maschine Schweiz",
+  "cat": "software",
+  "website": "https://www.mum.ch",
+  "careers": "https://mum.jobs.personio.de",
+  "city": "Zurich / Suhr"
+ },
+ {
+  "name": "Messerli Informatik (ELITECAD)",
+  "cat": "software",
+  "website": "https://www.messerli.ch",
+  "careers": "https://www.messerli.ch/de/jobs-und-karriere",
+  "city": "Spreitenbach"
+ },
+ {
+  "name": "Meta Reality Labs Zurich",
+  "cat": "software",
+  "website": "https://www.meta.com",
+  "careers": "https://www.metacareers.com/jobs?offices[0]=Zurich%2C%20Switzerland",
+  "city": "Zurich"
+ },
+ {
+  "name": "Microsoft Spatial AI Lab Zurich",
+  "cat": "software",
+  "website": "https://www.microsoft.com/en-us/research/lab/spatial-ai-zurich/",
+  "careers": "https://www.microsoft.com/en-us/research/lab/spatial-ai-zurich/opportunities/",
+  "city": "Zurich"
+ },
+ {
+  "name": "Nightnurse Images",
+  "cat": "software",
+  "website": "https://www.nightnurse.ch",
+  "careers": "https://www.nightnurse.ch/ueber-uns#jobs",
+  "city": "Zurich"
+ },
+ {
+  "name": "NVIDIA Zurich",
+  "cat": "software",
+  "website": "https://www.nvidia.com",
+  "careers": "https://nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite",
+  "city": "Zurich"
+ },
+ {
+  "name": "Raumgleiter",
+  "cat": "software",
+  "website": "https://raumgleiter.com",
+  "careers": "",
+  "city": "Schlieren"
+ },
+ {
+  "name": "Scandit",
+  "cat": "software",
+  "website": "https://www.scandit.com",
+  "careers": "https://www.scandit.com/careers/current-openings/",
+  "city": "Zurich"
+ },
+ {
+  "name": "Siemens Schweiz",
+  "cat": "software",
+  "website": "https://www.siemens.com/de-ch/",
+  "careers": "https://jobs.siemens.com/de_DE/externaljobs/SearchJobs/?42386=%5B812129%5D&42386_format=17546&listFilterMode=1",
+  "city": "Zug / Zurich"
+ },
+ {
+  "name": "Snap Zurich",
+  "cat": "software",
+  "website": "https://www.snap.com",
+  "careers": "https://careers.snap.com/jobs?location=Zurich",
+  "city": "Zurich"
+ },
+ {
+  "name": "Spectroplast",
+  "cat": "software",
+  "website": "https://www.spectroplast.com",
+  "careers": "https://www.spectroplast.com/de/careers",
+  "city": "Schlieren"
+ },
+ {
+  "name": "swisstopo",
+  "cat": "software",
+  "website": "https://www.swisstopo.admin.ch",
+  "careers": "https://www.swisstopo.admin.ch/de/stellenangebote",
+  "city": "Wabern (Bern)"
+ },
+ {
+  "name": "Synopsys Switzerland (Ansys)",
+  "cat": "software",
+  "website": "https://www.synopsys.com",
+  "careers": "https://careers.synopsys.com/search-jobs",
+  "city": "Zurich"
+ },
+ {
+  "name": "uniqFEED",
+  "cat": "software",
+  "website": "https://www.uniqfeed.com",
+  "careers": "https://uniqfeed-ag.jobs.personio.com/",
+  "city": "Zurich"
+ },
+ {
+  "name": "VAULTED",
+  "cat": "software",
+  "website": "https://vaulted.swiss",
+  "careers": "https://vaulted.swiss/jobs",
+  "city": "Zurich"
+ },
+ {
+  "name": "vyzn",
+  "cat": "software",
+  "website": "https://www.vyzn.tech",
+  "careers": "https://join.com/companies/vyzn",
+  "city": "Zurich"
+ },
+ {
+  "name": "B3 (Kolb)",
+  "cat": "timber",
+  "website": "https://b-3.ch",
+  "careers": "https://b-3.ch/menschen/karriere/",
+  "city": "Romanshorn"
+ },
+ {
+  "name": "Balteschwiler",
+  "cat": "timber",
+  "website": "https://balteschwiler.ch",
+  "careers": "https://balteschwiler.ch/unternehmen/jobs/",
+  "city": "Laufenburg"
+ },
+ {
+  "name": "Bauwerk Parkett",
+  "cat": "timber",
+  "website": "https://www.bauwerk-parkett.com/ch/de",
+  "careers": "https://www.bauwerk-parkett.com/ch/de/karriere",
+  "city": "St. Margrethen"
+ },
+ {
+  "name": "BlessHess",
+  "cat": "timber",
+  "website": "https://www.blesshess.ch",
+  "careers": "https://www.blesshess.ch/team/#karriere",
+  "city": "Luzern"
+ },
+ {
+  "name": "Blumer Lehmann",
+  "cat": "timber",
+  "website": "https://www.blumer-lehmann.com",
+  "careers": "https://www.blumer-lehmann.com/karriere/offene-stellen.html",
+  "city": "Gossau SG"
+ },
+ {
+  "name": "Conzett Bronzini Partner",
+  "cat": "timber",
+  "website": "https://cbp.ch",
+  "careers": "https://cbp.ch/job",
+  "city": "Chur"
+ },
+ {
+  "name": "ERNE Holzbau",
+  "cat": "timber",
+  "website": "https://www.erne.net",
+  "careers": "https://www.erne.net/de/karriere-jobs/stellenangebote/",
+  "city": "Laufenburg"
+ },
+ {
+  "name": "Fischer Timber Consult",
+  "cat": "timber",
+  "website": "https://timberconsult.ch",
+  "careers": "",
+  "city": "Bubikon"
+ },
+ {
+  "name": "Haupt",
+  "cat": "timber",
+  "website": "https://www.haupt-ag.ch",
+  "careers": "https://www.haupt-ag.ch/offene-stellen/",
+  "city": "Ruswil"
+ },
+ {
+  "name": "Hector Egger",
+  "cat": "timber",
+  "website": "https://www.hector-egger.ch",
+  "careers": "https://www.hector-egger.ch/de/jobs",
+  "city": "Langenthal"
+ },
+ {
+  "name": "Holzindustrie Schweiz",
+  "cat": "timber",
+  "website": "https://www.holz-bois.ch",
+  "careers": "https://www.holz-bois.ch/de/offene-stellen.html",
+  "city": "Bern"
+ },
+ {
+  "name": "Holzkonstrukt",
+  "cat": "timber",
+  "website": "https://holzkonstrukt.ch",
+  "careers": "https://holzkonstrukt.ch/jobs",
+  "city": "Zurich / Biel"
+ },
+ {
+  "name": "Häring",
+  "cat": "timber",
+  "website": "https://www.haring.ch",
+  "careers": "https://careers.jobeagle.io/de/companies/haring",
+  "city": "Eiken / Pratteln"
+ },
+ {
+  "name": "IHT Ingenieurbüro für Holz + Technik",
+  "cat": "timber",
+  "website": "https://iht-ing.ch",
+  "careers": "https://iht-ing.ch/stellenangebote",
+  "city": "Schaffhausen"
+ },
+ {
+  "name": "Implenia Holzbau",
+  "cat": "timber",
+  "website": "https://implenia.com",
+  "careers": "https://implenia.com/karriere/jobs/",
+  "city": "Rümlang"
+ },
+ {
+  "name": "Indermühle Bauingenieure",
+  "cat": "timber",
+  "website": "https://www.i-b.ch",
+  "careers": "https://www.i-b.ch/buero/job",
+  "city": "Thun"
+ },
+ {
+  "name": "Ingenta",
+  "cat": "timber",
+  "website": "https://ingenta.ch",
+  "careers": "https://ingenta.ch/jobs",
+  "city": "Bern"
+ },
+ {
+  "name": "Kaufmann Oberholzer",
+  "cat": "timber",
+  "website": "https://www.kaufmann-oberholzer.ch",
+  "careers": "https://www.kaufmann-oberholzer.ch/unternehmen/stellen.html",
+  "city": "Roggwil TG / Schönenberg"
+ },
+ {
+  "name": "Kühni",
+  "cat": "timber",
+  "website": "https://www.kuehni.ch",
+  "careers": "https://www.kuehni.ch/unternehmen/jobs/",
+  "city": "Ramsei"
+ },
+ {
+  "name": "Kündig",
+  "cat": "timber",
+  "website": "https://kuendig.ch",
+  "careers": "https://kuendig.ch/unternehmen/karriere",
+  "city": "Wetzikon"
+ },
+ {
+  "name": "Künzli Holz",
+  "cat": "timber",
+  "website": "https://www.kuenzli-davos.ch",
+  "careers": "https://karriere.kuenzli-davos.ch/",
+  "city": "Davos"
+ },
+ {
+  "name": "Lauber Ingenieure",
+  "cat": "timber",
+  "website": "https://www.lauber-ing.ch",
+  "careers": "",
+  "city": "Luzern"
+ },
+ {
+  "name": "Leimholz Haag",
+  "cat": "timber",
+  "website": "https://www.leimholz.ch",
+  "careers": "https://www.leimholz.ch/de/unternehmen?scroll_to=section_126",
+  "city": "Haag (Rheintal)"
+ },
+ {
+  "name": "Lignatur",
+  "cat": "timber",
+  "website": "https://www.lignatur.ch",
+  "careers": "https://www.lignatur.ch/unternehmen/jobs-karriere",
+  "city": "Waldstatt"
+ },
+ {
+  "name": "lignumetal engineering",
+  "cat": "timber",
+  "website": "https://www.lignumetal.ch",
+  "careers": "https://www.lignumetal.ch/#jobs",
+  "city": "Emmen"
+ },
+ {
+  "name": "Lüchinger Meyer Partner",
+  "cat": "timber",
+  "website": "https://lmp-ing.ch",
+  "careers": "https://lmp-ing.ch/stellen/",
+  "city": "Zurich / Luzern"
+ },
+ {
+  "name": "Makiol Wiederkehr",
+  "cat": "timber",
+  "website": "https://www.holzbauing.ch",
+  "careers": "https://www.holzbauing.ch/stellenangebote",
+  "city": "Beinwil am See"
+ },
+ {
+  "name": "Neue Holzbau (n'H)",
+  "cat": "timber",
+  "website": "https://www.neueholzbau.ch",
+  "careers": "https://www.neueholzbau.ch/karriere/stellen",
+  "city": "Lungern"
+ },
+ {
+  "name": "OLWO",
+  "cat": "timber",
+  "website": "https://www.olwo.ch",
+  "careers": "https://www.olwo.ch/de/ueber-uns/offene-stellen.html",
+  "city": "Worb"
+ },
+ {
+  "name": "Pirmin Jung",
+  "cat": "timber",
+  "website": "https://www.pirminjung.ch",
+  "careers": "https://www.pirminjung.ch/jobs",
+  "city": "Sursee / Rain"
+ },
+ {
+  "name": "Pius Schuler",
+  "cat": "timber",
+  "website": "https://pius-schuler.ch",
+  "careers": "https://pius-schuler.ch/stellen/",
+  "city": "Rothenthurm"
+ },
+ {
+  "name": "Renggli",
+  "cat": "timber",
+  "website": "https://www.renggli.swiss",
+  "careers": "https://www.renggli.swiss/de/jobs/",
+  "city": "Schötz"
+ },
+ {
+  "name": "Schilliger Holz",
+  "cat": "timber",
+  "website": "https://www.schilliger.ch",
+  "careers": "https://jobs.schilliger.ch",
+  "city": "Küssnacht SZ"
+ },
+ {
+  "name": "Schnetzer Puskas",
+  "cat": "timber",
+  "website": "https://www.schnetzerpuskas.com",
+  "careers": "https://www.schnetzerpuskas.com/de/buero/arbeiten-bei-uns",
+  "city": "Basel / Zurich"
+ },
+ {
+  "name": "Schwab-System",
+  "cat": "timber",
+  "website": "https://www.schwab-system.ch",
+  "careers": "",
+  "city": "Gals"
+ },
+ {
+  "name": "Schällibaum",
+  "cat": "timber",
+  "website": "https://www.schaellibaum.ch",
+  "careers": "https://www.schaellibaum.ch/unternehmen/jobs-karriere",
+  "city": "Wattwil"
+ },
+ {
+  "name": "SFS Group (timber fasteners)",
+  "cat": "timber",
+  "website": "https://www.sfs.com",
+  "careers": "https://join.sfs.com/ch/en/vacancies/index.jsp",
+  "city": "Heerbrugg"
+ },
+ {
+  "name": "SJB Kempter Fitze",
+  "cat": "timber",
+  "website": "https://sjb.ch",
+  "careers": "https://sjb.ch/karriere/arbeiten-bei-sjb/",
+  "city": "Herisau / Frauenfeld"
+ },
+ {
+  "name": "Steinemann Technology",
+  "cat": "timber",
+  "website": "https://www.steinemann.com",
+  "careers": "https://www.steinemann.com/jobs/",
+  "city": "St. Gallen"
+ },
+ {
+  "name": "Strüby",
+  "cat": "timber",
+  "website": "https://www.strueby.ch",
+  "careers": "https://www.strueby.ch/unternehmen/jobs/",
+  "city": "Seewen SZ"
+ },
+ {
+  "name": "Stuberholz",
+  "cat": "timber",
+  "website": "https://www.stuberholz.ch",
+  "careers": "https://www.stuberholz.ch/unternehmen/team/karriere/",
+  "city": "Schüpfen"
+ },
+ {
+  "name": "Swiss Krono",
+  "cat": "timber",
+  "website": "https://www.swisskrono.com/ch-de",
+  "careers": "https://www.swisskrono.com/ch-de/ueber-uns/karriere/",
+  "city": "Menznau"
+ },
+ {
+  "name": "Swiss Wood Solutions",
+  "cat": "timber",
+  "website": "https://www.swisswoodsolutions.ch",
+  "careers": "https://www.swisswoodsolutions.ch/de/ueber-uns/karriere-in-einem-start-up",
+  "city": "Altdorf UR"
+ },
+ {
+  "name": "Technowood",
+  "cat": "timber",
+  "website": "https://www.technowood.swiss",
+  "careers": "https://www.technowood.swiss/unternehmen/jobs/",
+  "city": "Alt St. Johann"
+ },
+ {
+  "name": "Timbatec",
+  "cat": "timber",
+  "website": "https://www.timbatec.com",
+  "careers": "https://www.timbatec.com/chde/karriere/offene-stellen/",
+  "city": "Thun / Bern / Zurich"
+ },
+ {
+  "name": "Timber Solution",
+  "cat": "timber",
+  "website": "https://timbersolution.ch",
+  "careers": "",
+  "city": "Bern"
+ },
+ {
+  "name": "Tschopp Holzbau",
+  "cat": "timber",
+  "website": "https://www.tschopp-holzbau.ch",
+  "careers": "https://www.tschopp-holzbau.ch/1/Karriere/Offene-Stellen",
+  "city": "Hochdorf"
+ },
+ {
+  "name": "Uffer",
+  "cat": "timber",
+  "website": "https://www.uffer.swiss",
+  "careers": "https://www.uffer.swiss/arbeitswelt/jobs",
+  "city": "Savognin"
+ },
+ {
+  "name": "Walt Galmarini",
+  "cat": "timber",
+  "website": "https://waltgalmarini.ch",
+  "careers": "https://waltgalmarini.ch/karriere/stellen/",
+  "city": "Zurich"
+ },
+ {
+  "name": "WoodTec Fankhauser",
+  "cat": "timber",
+  "website": "https://www.woodtec.ch",
+  "careers": "https://www.woodtec.ch/1029-2/ueber-uns/#Jobs",
+  "city": "Malters"
+ },
+ {
+  "name": "Zaugg Rohrbach",
+  "cat": "timber",
+  "website": "https://zaugg-rohrbach.ch",
+  "careers": "https://jobs.zaugg-rohrbach.ch/",
+  "city": "Rohrbach BE"
+ }
+]

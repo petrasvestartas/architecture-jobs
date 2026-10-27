@@ -98,7 +98,7 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
   </div>
 </header>
 <main class="wrap">
-  <p class="note">Robotics, timber-industry, software/geometry and research roles matching the profile from the application letters. Kept separate from the architecture list: own scan, own data file.</p>
+  <p class="note">Robotics, timber-industry, software/geometry and research roles matching the profile from the application letters, read from the companies' own careers pages and job systems, plus jobs.ch, job-room.ch and LinkedIn. Trade and site-crew jobs (carpenter, CNC operator, foreman) are left out. Kept separate from the architecture list: own scan, own data file.</p>
   <div class="filters">
     <input type="text" id="q" class="grow" placeholder="Search title, company, location&hellip;" aria-label="Search">
     <label><input type="checkbox" id="newOnly"> New (3 days)</label>
@@ -108,6 +108,9 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
   <ul class="jobs" id="list"></ul>
   <h2>Companies watched</h2>
   <div class="watch" id="watch"></div>
+  <h2>Directory firms with openings</h2>
+  <p class="note" id="dirNote"></p>
+  <div class="watch" id="dirWatch"></div>
 </main>
 <script src="profile.js"></script>
 <script>
@@ -171,12 +174,23 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
         '<button class="apBtn'+(ap?" on":"")+'" data-url="'+esc(j.url)+'">'+(ap?"Applied":"Mark applied")+'</button></div></li>';
     }).join(""):'<li class="empty">No postings match these filters.</li>';
   }
-  function renderWatch(){
-    el("watch").innerHTML=D.watch.map(function(w){
+  function watchHtml(list){
+    return list.map(function(w){
       var n=w.status==="ok"?w.count+" open":w.status==="link"?"check site ↗":'<span class="bad">failed</span>';
       return '<a href="'+esc(w.url)+'" target="_blank" rel="noopener" title="'+esc(labels[w.cat]||w.cat)+(w.detail?" - "+esc(w.detail):"")+'">'+
         '<span>'+esc(w.name)+'</span><span class="n">'+n+'</span></a>';
     }).join("");
+  }
+  function renderWatch(){
+    el("watch").innerHTML=watchHtml(D.watch.filter(function(w){return !w.dir;}));
+    var dw=D.watch.filter(function(w){return w.dir;}).sort(function(a,b){return b.count-a.count;});
+    el("dirWatch").innerHTML=watchHtml(dw);
+    var s=D.directory||{};
+    el("dirNote").textContent=s.firms?
+      s.firms+" Swiss firms in the directory ("+Object.keys(s.by_cat||{}).map(function(k){return s.by_cat[k]+" "+(labels[k]||k).toLowerCase();}).join(", ")+
+      "): every timber and robotics firm in the commercial register plus a researched list. "+
+      s.readable+" have a careers page or job feed that is read directly, about "+s.read_now+" per scan; "+
+      dw.length+" currently list a matching opening.":"Directory not built yet.";
   }
   el("tabs").addEventListener("click",function(e){
     var b=e.target.closest("button[data-cat]");if(!b)return;
