@@ -47,7 +47,7 @@ CATEGORIES = [
     {"key": "robotics", "label": "Robotics"},
     {"key": "timber", "label": "Timber industry"},
     {"key": "software", "label": "Software / geometry"},
-    {"key": "research", "label": "Research"},
+    {"key": "research", "label": "Industrial research"},
 ]
 
 # Firms from the application letters plus their Swiss peers. kind picks the
@@ -260,6 +260,27 @@ PROFESSIONAL = re.compile(
 OFF_DOMAIN = re.compile(
     r"biolog|clinical|klinisch|medizin|medical|surg|chirurg|pharma|"
     r"quantum|metabol|lymph|patholog|radiolog", re.I)
+
+# Industry only (user, 2026-10-27: "remove all university positions in
+# ethz zhaw, i want to move to industry"): no universities, universities of
+# applied sciences or public research institutes as employer, and no
+# academic posts anywhere. Company research labs (Disney, IBM, ABB) stay.
+ACADEMIC_EMPLOYER = re.compile(
+    r"\beth\b|eth z[uü]rich|\bepfl\b|zhaw|hslu|fhnw|\bbfh\b|fhgr|supsi|"
+    r"\bost\b|ostschweizer|fachhochschule|hochschule|universit|\buzh\b|"
+    r"\bunibe\b|\bunibas\b|\busi\b|\bempa\b|paul scherrer|\bpsi\b|\bwsl\b|"
+    r"eawag|idsia|cscs|wyss zurich|school of (?:engineering|management)|"
+    r"haute [ée]cole|polytechni", re.I)
+ACADEMIC_TITLE = re.compile(
+    r"postdoc|post-doc|\bphd\b|doktorand|professor|professur|"
+    r"scientific assistant|research assistant|wissenschaftliche[rn]? "
+    r"(?:mitarbeit|assistent)|lecturer|dozent|oberassist|senior assistant|"
+    r"lehrbeauftragt|assistenzprofess|tenure", re.I)
+
+
+def academic(j):
+    return bool(ACADEMIC_EMPLOYER.search(j.get("company") or "")
+                or ACADEMIC_TITLE.search(j["title"]))
 
 # French-speaking Switzerland is out (user's choice, 2026-10-23): Geneva,
 # Vaud, Neuchâtel, Jura, Fribourg and the French-speaking Valais, matched on
@@ -986,7 +1007,8 @@ def main():
         if k in keys:
             continue
         keys.add(k)
-        if not swiss(j["location"]):  # also stored results from older runs
+        # applied here so stored results from older runs are filtered too
+        if not swiss(j["location"]) or academic(j):
             continue
         j = dict(j)
         j.pop("directory", None)

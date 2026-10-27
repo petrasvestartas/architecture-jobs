@@ -1,26 +1,5 @@
 [
  {
-  "name": "BFH Architektur, Holz und Bau",
-  "cat": "research",
-  "website": "https://www.bfh.ch/ahb/de/",
-  "careers": "https://www.bfh.ch/de/ueber-die-bfh/karriere/jobs/",
-  "city": "Biel"
- },
- {
-  "name": "BFH Technik und Informatik",
-  "cat": "research",
-  "website": "https://www.bfh.ch/ti/de/",
-  "careers": "https://www.bfh.ch/de/ueber-die-bfh/karriere/jobs/",
-  "city": "Biel / Burgdorf"
- },
- {
-  "name": "CSCS Swiss National Supercomputing Centre",
-  "cat": "research",
-  "website": "https://www.cscs.ch",
-  "careers": "https://www.cscs.ch/about/working-at-cscs",
-  "city": "Lugano"
- },
- {
   "name": "CSEM",
   "cat": "research",
   "website": "https://www.csem.ch",
@@ -33,34 +12,6 @@
   "website": "https://studios.disneyresearch.com",
   "careers": "https://studios.disneyresearch.com/careers/",
   "city": "Zurich"
- },
- {
-  "name": "Empa",
-  "cat": "research",
-  "website": "https://www.empa.ch",
-  "careers": "https://apply.refline.ch/673276/search.html?lang=en",
-  "city": "Dübendorf"
- },
- {
-  "name": "FHGR Fachhochschule Graubünden",
-  "cat": "research",
-  "website": "https://www.fhgr.ch",
-  "careers": "https://jobs.fhgr.ch/Jobs/All?lang=ger",
-  "city": "Chur"
- },
- {
-  "name": "FHNW Institut Digitales Bauen",
-  "cat": "research",
-  "website": "https://www.fhnw.ch/de/architektur-bau-geomatik/ueber-uns/institute/digitales-bauen",
-  "careers": "https://apply.refline.ch/655298/search.html",
-  "city": "Muttenz"
- },
- {
-  "name": "HSLU Technik & Architektur",
-  "cat": "research",
-  "website": "https://www.hslu.ch/de-ch/technik-architektur/",
-  "careers": "https://www.hslu.ch/de-ch/hochschule-luzern/ueber-uns/jobs-und-karriere/",
-  "city": "Horw"
  },
  {
   "name": "Huawei Zurich Research Center",
@@ -77,13 +28,6 @@
   "city": "Rüschlikon"
  },
  {
-  "name": "IDSIA (USI-SUPSI)",
-  "cat": "research",
-  "website": "https://idsia.usi-supsi.ch",
-  "careers": "https://www.supsi.ch/lavora-con-noi",
-  "city": "Lugano"
- },
- {
   "name": "inspire AG",
   "cat": "research",
   "website": "https://inspire.ch",
@@ -96,69 +40,6 @@
   "website": "https://www.lignum.ch",
   "careers": "",
   "city": "Zurich"
- },
- {
-  "name": "OST Ostschweizer Fachhochschule",
-  "cat": "research",
-  "website": "https://www.ost.ch",
-  "careers": "https://jobs-ost.ch",
-  "city": "Rapperswil / St. Gallen / Buchs SG"
- },
- {
-  "name": "PSI Paul Scherrer Institut",
-  "cat": "research",
-  "website": "https://www.psi.ch",
-  "careers": "https://www.psi.ch/de/hr/stellenangebote",
-  "city": "Villigen"
- },
- {
-  "name": "SUPSI",
-  "cat": "research",
-  "website": "https://www.supsi.ch",
-  "careers": "https://www.supsi.ch/lavora-con-noi",
-  "city": "Lugano / Mendrisio"
- },
- {
-  "name": "Switzerland Innovation Park Biel/Bienne",
-  "cat": "research",
-  "website": "https://sipbb.ch",
-  "careers": "https://sipbb.ch/de/job-karriere/",
-  "city": "Biel"
- },
- {
-  "name": "USI Università della Svizzera italiana",
-  "cat": "research",
-  "website": "https://www.usi.ch",
-  "careers": "https://www.usi.ch/en/university/info/job-opportunities",
-  "city": "Lugano / Mendrisio"
- },
- {
-  "name": "UZH Robotics and Perception Group",
-  "cat": "research",
-  "website": "https://rpg.ifi.uzh.ch",
-  "careers": "https://rpg.ifi.uzh.ch/positions.html",
-  "city": "Zurich"
- },
- {
-  "name": "WSL",
-  "cat": "research",
-  "website": "https://www.wsl.ch",
-  "careers": "https://apply.refline.ch/273855/search.html?lang=de",
-  "city": "Birmensdorf"
- },
- {
-  "name": "Wyss Zurich",
-  "cat": "research",
-  "website": "https://www.wysszurich.ch",
-  "careers": "https://www.wysszurich.ch/about-us/careers/",
-  "city": "Zurich"
- },
- {
-  "name": "ZHAW School of Engineering",
-  "cat": "research",
-  "website": "https://www.zhaw.ch/de/engineering",
-  "careers": "https://www.zhaw.ch/de/jobs/offene-stellen",
-  "city": "Winterthur"
  },
  {
   "name": "ABB Robotics",

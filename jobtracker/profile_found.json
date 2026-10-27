@@ -871,7 +871,7 @@
 "status": "ok"
 },
 "CHE149554033": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [
 {
 "cat": "timber",
@@ -888,37 +888,37 @@
 "status": "ok"
 },
 "CHE150235238": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE152896818": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE155348418": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE155359333": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE156238399": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE157342964": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE158744288": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [
 {
 "cat": "timber",
@@ -935,47 +935,47 @@
 "status": "ok"
 },
 "CHE158855048": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE161081264": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE161592180": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE162642484": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE164525317": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE166155007": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE166196584": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE169106904": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE170648388": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1003,62 +1003,62 @@
 "status": "ok"
 },
 "CHE172399457": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "detail": "'ascii' codec can't encode character '\\xfc' in position 5: ordinal not in range(128)",
 "status": "failed"
 },
 "CHE174532052": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE174918977": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE175202108": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE177833544": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE178334918": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE179642943": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE184359588": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE194562079": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE194829667": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE198623998": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE200669919": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1075,82 +1075,82 @@
 "status": "ok"
 },
 "CHE202122833": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE204946911": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE205719217": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE205743807": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE207355439": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE207416354": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE207845809": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE209475600": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE209957833": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE212040289": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE213398397": {
-"checked": "2026-10-27T10:19+00:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE213704436": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE214800568": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE217853118": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE218548994": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE222098103": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1167,27 +1167,27 @@
 "status": "ok"
 },
 "CHE222623363": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE223811772": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE223863237": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE223868884": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE224025090": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:56+01:00",
 "jobs": [],
 "status": "ok"
 },
@@ -2275,16 +2275,6 @@
 ],
 "status": "ok"
 },
-"curated:bfharchitekturholzundbau": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
-"curated:bfhtechnikundinformatik": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
 "curated:blesshess": {
 "checked": "2026-10-27T10:51+01:00",
 "jobs": [],
@@ -2399,11 +2389,6 @@
 "jobs": [],
 "status": "ok"
 },
-"curated:cscsswissnationalsupercomputingcentre": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
 "curated:csem": {
 "checked": "2026-10-27T10:51+01:00",
 "jobs": [],
@@ -2447,11 +2432,6 @@
 "jobs": [],
 "status": "ok"
 },
-"curated:empa": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
 "curated:esrirdcenterzurichcityenginearcgisurban": {
 "checked": "2026-10-27T10:51+01:00",
 "jobs": [],
@@ -2470,28 +2450,6 @@
 "curated:fanucswitzerland": {
 "checked": "2026-10-27T10:51+01:00",
 "jobs": [],
-"status": "ok"
-},
-"curated:fhgrfachhochschulegraubuenden": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
-"curated:fhnwinstitutdigitalesbauen": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [
-{
-"cat": "software",
-"company": "FHNW Institut Digitales Bauen",
-"directory": true,
-"location": "",
-"posted": "",
-"source": "career page",
-"title": "Professor*in für AI-Native Software Engineering (60-100%)",
-"url": "https://apply.refline.ch/655298/4603/pub/2/index.html",
-"workload": "60-100"
-}
-],
 "status": "ok"
 },
 "curated:fixposition": {
@@ -2677,17 +2635,7 @@
 "jobs": [],
 "status": "ok"
 },
-"curated:hslutechnikarchitektur": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
 "curated:ibmresearchzurich": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
-"curated:idsiausisupsi": {
 "checked": "2026-10-27T10:51+01:00",
 "jobs": [],
 "status": "ok"
@@ -2932,17 +2880,7 @@
 "jobs": [],
 "status": "ok"
 },
-"curated:ostostschweizerfachhochschule": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
 "curated:piusschuler": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
-"curated:psipaulscherrerinstitut": {
 "checked": "2026-10-27T10:51+01:00",
 "jobs": [],
 "status": "ok"
@@ -3281,11 +3219,6 @@
 ],
 "status": "ok"
 },
-"curated:supsi": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
 "curated:swissdrones": {
 "checked": "2026-10-27T10:51+01:00",
 "jobs": [],
@@ -3297,11 +3230,6 @@
 "status": "ok"
 },
 "curated:swisswoodsolutions": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
-"curated:switzerlandinnovationparkbielbienne": {
 "checked": "2026-10-27T10:51+01:00",
 "jobs": [],
 "status": "ok"
@@ -3387,16 +3315,6 @@
 "jobs": [],
 "status": "ok"
 },
-"curated:usiuniversitadellasvizzeraitaliana": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
-"curated:uzhroboticsandperceptiongroup": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
 "curated:vaulted": {
 "checked": "2026-10-27T10:51+01:00",
 "jobs": [],
@@ -3415,44 +3333,6 @@
 "curated:woodtecfankhauser": {
 "checked": "2026-10-27T10:51+01:00",
 "jobs": [],
-"status": "ok"
-},
-"curated:wsl": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
-"curated:wysszurich": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
-"status": "ok"
-},
-"curated:zhawschoolofengineering": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [
-{
-"cat": "robotics",
-"company": "ZHAW School of Engineering",
-"directory": true,
-"location": "",
-"posted": "",
-"source": "career page",
-"title": "Senior Robotics Engineer / Postdoctoral Researcher 60-100 % Department: School of Engineering; Workplace: Winterthur",
-"url": "https://www.zhaw.ch/de/jobs/offene-stellen/stelleninserat/job/detail/3854561",
-"workload": "60-100"
-},
-{
-"cat": "software",
-"company": "ZHAW School of Engineering",
-"directory": true,
-"location": "",
-"posted": "",
-"source": "career page",
-"title": "Koordinator:in Schuladministrations-Software 100 % Departement: School of Management and Law; Standort: Winterthur",
-"url": "https://www.zhaw.ch/de/jobs/offene-stellen/stelleninserat/job/detail/3854359",
-"workload": "100"
-}
-],
 "status": "ok"
 },
 "curated:zuehlke": {

@@ -30040,28 +30040,6 @@
 "status": "ok",
 "website": "https://www.besi.com"
 },
-"curated:bfharchitekturholzundbau": {
-"careers": "https://www.bfh.ch/de/ueber-die-bfh/karriere/jobs/",
-"cat": "research",
-"feed": null,
-"name": "BFH Architektur, Holz und Bau",
-"probed": "2026-10-27",
-"seat": "Biel",
-"source": "curated",
-"status": "ok",
-"website": "https://www.bfh.ch/ahb/de/"
-},
-"curated:bfhtechnikundinformatik": {
-"careers": "https://www.bfh.ch/de/ueber-die-bfh/karriere/jobs/",
-"cat": "research",
-"feed": null,
-"name": "BFH Technik und Informatik",
-"probed": "2026-10-27",
-"seat": "Biel / Burgdorf",
-"source": "curated",
-"status": "ok",
-"website": "https://www.bfh.ch/ti/de/"
-},
 "curated:blesshess": {
 "careers": "https://www.blesshess.ch/team/#karriere",
 "cat": "timber",
@@ -30185,17 +30163,6 @@
 "status": "ok",
 "website": "https://cbp.ch"
 },
-"curated:cscsswissnationalsupercomputingcentre": {
-"careers": "https://www.cscs.ch/about/working-at-cscs",
-"cat": "research",
-"feed": null,
-"name": "CSCS Swiss National Supercomputing Centre",
-"probed": "2026-10-27",
-"seat": "Lugano",
-"source": "curated",
-"status": "ok",
-"website": "https://www.cscs.ch"
-},
 "curated:csem": {
 "careers": "https://www.csem.ch/en/jobs/",
 "cat": "research",
@@ -30298,17 +30265,6 @@
 "status": "ok",
 "website": "https://embotech.ai"
 },
-"curated:empa": {
-"careers": "https://apply.refline.ch/673276/search.html?lang=en",
-"cat": "research",
-"feed": null,
-"name": "Empa",
-"probed": "2026-10-27",
-"seat": "Dübendorf",
-"source": "curated",
-"status": "ok",
-"website": "https://www.empa.ch"
-},
 "curated:erneholzbau": {
 "careers": "https://www.erne.net/de/karriere-jobs/stellenangebote/",
 "cat": "timber",
@@ -30377,28 +30333,6 @@
 "source": "curated",
 "status": "ok",
 "website": "https://www.fanuc.eu"
-},
-"curated:fhgrfachhochschulegraubuenden": {
-"careers": "https://jobs.fhgr.ch/Jobs/All?lang=ger",
-"cat": "research",
-"feed": null,
-"name": "FHGR Fachhochschule Graubünden",
-"probed": "2026-10-27",
-"seat": "Chur",
-"source": "curated",
-"status": "ok",
-"website": "https://www.fhgr.ch"
-},
-"curated:fhnwinstitutdigitalesbauen": {
-"careers": "https://apply.refline.ch/655298/search.html",
-"cat": "research",
-"feed": null,
-"name": "FHNW Institut Digitales Bauen",
-"probed": "2026-10-27",
-"seat": "Muttenz",
-"source": "curated",
-"status": "ok",
-"website": "https://www.fhnw.ch/de/architektur-bau-geomatik/ueber-uns/institute/digitales-bauen"
 },
 "curated:fischertimberconsult": {
 "careers": "",
@@ -30621,17 +30555,6 @@
 "status": "ok",
 "website": "https://holzkonstrukt.ch"
 },
-"curated:hslutechnikarchitektur": {
-"careers": "https://www.hslu.ch/de-ch/hochschule-luzern/ueber-uns/jobs-und-karriere/",
-"cat": "research",
-"feed": null,
-"name": "HSLU Technik & Architektur",
-"probed": "2026-10-27",
-"seat": "Horw",
-"source": "curated",
-"status": "ok",
-"website": "https://www.hslu.ch/de-ch/technik-architektur/"
-},
 "curated:huaweizurichresearchcenter": {
 "careers": "",
 "cat": "research",
@@ -30653,17 +30576,6 @@
 "source": "curated",
 "status": "ok",
 "website": "https://research.ibm.com/labs/zurich"
-},
-"curated:idsiausisupsi": {
-"careers": "https://www.supsi.ch/lavora-con-noi",
-"cat": "research",
-"feed": null,
-"name": "IDSIA (USI-SUPSI)",
-"probed": "2026-10-27",
-"seat": "Lugano",
-"source": "curated",
-"status": "ok",
-"website": "https://idsia.usi-supsi.ch"
 },
 "curated:ihtingenieurbuerofuerholztechnik": {
 "careers": "https://iht-ing.ch/stellenangebote",
@@ -31144,17 +31056,6 @@
 "status": "ok",
 "website": "https://www.olwo.ch"
 },
-"curated:ostostschweizerfachhochschule": {
-"careers": "https://jobs-ost.ch",
-"cat": "research",
-"feed": null,
-"name": "OST Ostschweizer Fachhochschule",
-"probed": "2026-10-27",
-"seat": "Rapperswil / St. Gallen / Buchs SG",
-"source": "curated",
-"status": "ok",
-"website": "https://www.ost.ch"
-},
 "curated:pirminjung": {
 "careers": "https://www.pirminjung.ch/jobs",
 "cat": "timber",
@@ -31176,17 +31077,6 @@
 "source": "curated",
 "status": "ok",
 "website": "https://pius-schuler.ch"
-},
-"curated:psipaulscherrerinstitut": {
-"careers": "https://www.psi.ch/de/hr/stellenangebote",
-"cat": "research",
-"feed": null,
-"name": "PSI Paul Scherrer Institut",
-"probed": "2026-10-27",
-"seat": "Villigen",
-"source": "curated",
-"status": "ok",
-"website": "https://www.psi.ch"
 },
 "curated:raiinstitutezurich": {
 "careers": "https://jobs.lever.co/rai",
@@ -31510,17 +31400,6 @@
 "status": "ok",
 "website": "https://www.stuberholz.ch"
 },
-"curated:supsi": {
-"careers": "https://www.supsi.ch/lavora-con-noi",
-"cat": "research",
-"feed": null,
-"name": "SUPSI",
-"probed": "2026-10-27",
-"seat": "Lugano / Mendrisio",
-"source": "curated",
-"status": "ok",
-"website": "https://www.supsi.ch"
-},
 "curated:swissdrones": {
 "careers": "https://swissdrones.jobs.personio.com",
 "cat": "robotics",
@@ -31578,17 +31457,6 @@
 "source": "curated",
 "status": "ok",
 "website": "https://www.swisswoodsolutions.ch"
-},
-"curated:switzerlandinnovationparkbielbienne": {
-"careers": "https://sipbb.ch/de/job-karriere/",
-"cat": "research",
-"feed": null,
-"name": "Switzerland Innovation Park Biel/Bienne",
-"probed": "2026-10-27",
-"seat": "Biel",
-"source": "curated",
-"status": "ok",
-"website": "https://sipbb.ch"
 },
 "curated:synopsysswitzerlandansys": {
 "careers": "https://careers.synopsys.com/search-jobs",
@@ -31714,28 +31582,6 @@
 "status": "ok",
 "website": "https://www.grinding.ch"
 },
-"curated:usiuniversitadellasvizzeraitaliana": {
-"careers": "https://www.usi.ch/en/university/info/job-opportunities",
-"cat": "research",
-"feed": null,
-"name": "USI Università della Svizzera italiana",
-"probed": "2026-10-27",
-"seat": "Lugano / Mendrisio",
-"source": "curated",
-"status": "ok",
-"website": "https://www.usi.ch"
-},
-"curated:uzhroboticsandperceptiongroup": {
-"careers": "https://rpg.ifi.uzh.ch/positions.html",
-"cat": "research",
-"feed": null,
-"name": "UZH Robotics and Perception Group",
-"probed": "2026-10-27",
-"seat": "Zurich",
-"source": "curated",
-"status": "ok",
-"website": "https://rpg.ifi.uzh.ch"
-},
 "curated:vaulted": {
 "careers": "https://vaulted.swiss/jobs",
 "cat": "software",
@@ -31830,28 +31676,6 @@
 "status": "ok",
 "website": "https://www.woodtec.ch"
 },
-"curated:wsl": {
-"careers": "https://apply.refline.ch/273855/search.html?lang=de",
-"cat": "research",
-"feed": null,
-"name": "WSL",
-"probed": "2026-10-27",
-"seat": "Birmensdorf",
-"source": "curated",
-"status": "ok",
-"website": "https://www.wsl.ch"
-},
-"curated:wysszurich": {
-"careers": "https://www.wysszurich.ch/about-us/careers/",
-"cat": "research",
-"feed": null,
-"name": "Wyss Zurich",
-"probed": "2026-10-27",
-"seat": "Zurich",
-"source": "curated",
-"status": "ok",
-"website": "https://www.wysszurich.ch"
-},
 "curated:xeleritroboticsforgis": {
 "careers": "",
 "cat": "robotics",
@@ -31873,17 +31697,6 @@
 "source": "curated",
 "status": "ok",
 "website": "https://zaugg-rohrbach.ch"
-},
-"curated:zhawschoolofengineering": {
-"careers": "https://www.zhaw.ch/de/jobs/offene-stellen",
-"cat": "research",
-"feed": null,
-"name": "ZHAW School of Engineering",
-"probed": "2026-10-27",
-"seat": "Winterthur",
-"source": "curated",
-"status": "ok",
-"website": "https://www.zhaw.ch/de/engineering"
 },
 "curated:zuehlke": {
 "careers": "https://zuehlke.wd3.myworkdayjobs.com/Zuhlke-Careers",
