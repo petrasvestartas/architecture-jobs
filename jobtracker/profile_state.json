@@ -50,6 +50,20 @@
 },
 "last_seen": "2026-10-27"
 },
+"https://apply.careers.microsoft.com/careers/job/1970393556988117": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 4,
+"skills": [
+"Python",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
 "https://apply.careers.microsoft.com/careers/job/1970393557041033": {
 "first_seen": "2026-10-27",
 "fit": {
@@ -869,6 +883,22 @@
 "fit": 1,
 "skills": [
 "research"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
+"https://fotokite.bamboohr.com/careers/165": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 8,
+"skills": [
+"C++",
+"Python",
+"ROS / kinematics",
+"open source / CI"
 ],
 "tries": 1
 },
@@ -2273,6 +2303,19 @@
 },
 "last_seen": "2026-10-27"
 },
+"https://sramber.pi-asp.de/bewerber-web?company=4500-FIRMA-ID&tenant=&lang=DS#position,id=0e12507b-c295-4f2a-87b4-74f28ac9ebb0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": false,
+"fit": 2,
+"skills": [
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
 "https://staho.ch/jobs/projektleiter-holzbau/": {
 "first_seen": "2026-10-27",
 "fit": {
@@ -2289,6 +2332,45 @@
 },
 "https://storage.googleapis.com/rindlisbacherag-cms/Inserat_fuer_Zeichner_In_CAD_64eadd6a23/Inserat_fuer_Zeichner_In_CAD_64eadd6a23.pdf": {
 "first_seen": "2026-10-27",
+"last_seen": "2026-10-27"
+},
+"https://swissdrones.jobs.personio.de/job/2300943": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 1,
+"skills": [
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
+"https://swissdrones.jobs.personio.de/job/2529890": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 2,
+"skills": [
+"Python"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
+"https://swissdrones.jobs.personio.de/job/2657853": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 1,
+"skills": [
+"BIM / CAD"
+],
+"tries": 1
+},
 "last_seen": "2026-10-27"
 },
 "https://technorobot.ch/wp-content/uploads/2026/03/Stelleninserat_Programmierer_Technik_19.03.2026_V03-3.pdf": {
@@ -2727,6 +2809,15 @@
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/leiter-montage-holz--und-modulbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"timber"
+],
+"tries": 1
+},
 "last_seen": "2026-10-27"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/leiter-montage-holz--und-modulbau-%28m-w-d%290.html": {
@@ -2785,6 +2876,15 @@
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"timber"
+],
+"tries": 1
+},
 "last_seen": "2026-10-27"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau-%28m-w-d%290.html": {
@@ -2802,6 +2902,15 @@
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---modulbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"timber"
+],
+"tries": 1
+},
 "last_seen": "2026-10-27"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---modulbau-%28m-w-d%290.html": {
@@ -2810,6 +2919,15 @@
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertig--und-modulbau-%28m-w-d%29-.html": {
 "first_seen": "2026-10-23",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"timber"
+],
+"tries": 1
+},
 "last_seen": "2026-10-27"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertiger-hochbau---modulbau-%28m-w-d%29.html": {
@@ -2818,6 +2936,15 @@
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertiger-hochbau---modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"timber"
+],
+"tries": 1
+},
 "last_seen": "2026-10-27"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-projektleitung-holzbau-%28m-w-d%29.html": {
@@ -2916,6 +3043,20 @@
 "structural design",
 "simulation",
 "research",
+"teaching"
+],
+"tries": 1
+},
+"last_seen": "2026-10-27"
+},
+"https://www.ethon.com/careers/forward-deployed-engineer": {
+"first_seen": "2026-10-27",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"Python",
 "teaching"
 ],
 "tries": 1
@@ -4095,7 +4236,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-27"
 },

@@ -1,71 +1,72 @@
 {
 "CHE100062869": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE101011716": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE101188272": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE101448467": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE101878690": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE101952033": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE101987959": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE102037233": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE102299721": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE102411024": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE102459433": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE102511909": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE103204634": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
+"detail": "HTTP Error 403: Forbidden",
 "jobs": [],
-"status": "ok"
+"status": "failed"
 },
 "CHE103348859": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -104,48 +105,47 @@
 "status": "ok"
 },
 "CHE103392174": {
-"checked": "2026-10-27T11:20+01:00",
-"detail": "<urlopen error timed out>",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
-"status": "failed"
+"status": "ok"
 },
 "CHE103436340": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE103534422": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE103646630": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE103860465": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE103888972": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE104949636": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE105383826": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE105598479": {
-"checked": "2026-10-27T11:20+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
@@ -1374,182 +1374,182 @@
 "status": "ok"
 },
 "CHE268034533": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE272897141": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE276144715": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE276310534": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE283483507": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE283660927": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE286186767": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE287423473": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE289953078": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE293760944": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE294022406": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE296566568": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE297450000": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE299951069": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE301503618": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE302487258": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE307502764": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE309904926": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE314173619": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE314392481": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE315925144": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE318232149": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE319410896": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "detail": "unknown url type: 'jobs/'",
 "status": "failed"
 },
 "CHE319868798": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE321869169": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE323987058": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE326657278": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE332255913": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE334014504": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE334319487": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE338075410": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE339684505": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE342139964": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE342293358": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE344479885": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE354410820": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1610,17 +1610,17 @@
 "status": "ok"
 },
 "CHE355115387": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE359733992": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE361783893": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1637,92 +1637,92 @@
 "status": "ok"
 },
 "CHE366845834": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE367698429": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE370773497": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE373687061": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE373903069": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE379154550": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE383329574": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "detail": "'ascii' codec can't encode character '\\xfc' in position 5: ordinal not in range(128)",
 "status": "failed"
 },
 "CHE384585861": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE391501237": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE403233867": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE404445828": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE405916204": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE410387062": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE411910115": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE415128941": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE415738045": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE415781963": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE415846746": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1739,72 +1739,72 @@
 "status": "ok"
 },
 "CHE420848030": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE421339104": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE421663177": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE422212989": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE425287021": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE433706971": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE436516533": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE437300266": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE437658621": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE452923144": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE456141761": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE462087555": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE463933684": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE470372213": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "software",
@@ -1821,57 +1821,57 @@
 "status": "ok"
 },
 "CHE471024878": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE474396655": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE475228204": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE477604867": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE477999726": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE481785832": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE483250803": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE483887047": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE487887359": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE494206522": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE496149102": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1888,17 +1888,18 @@
 "status": "ok"
 },
 "CHE499636114": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:allplanschweiz": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
+"detail": "HTTP Error 403: Forbidden",
 "jobs": [],
-"status": "ok"
+"status": "failed"
 },
 "curated:ambergtechnologies": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "software",
@@ -1908,24 +1909,24 @@
 "posted": "",
 "source": "career page",
 "title": "BIM Koordinator*in mit Fokus auf \"Scan to BIM\" 80 - 100% Köln",
-"url": "https://sramber.pi-asp.de/bewerber-web?company=4500-FIRMA-ID&amp;tenant=&amp;lang=DS#position,id=0e12507b-c295-4f2a-87b4-74f28ac9ebb0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+"url": "https://sramber.pi-asp.de/bewerber-web?company=4500-FIRMA-ID&tenant=&lang=DS#position,id=0e12507b-c295-4f2a-87b4-74f28ac9ebb0,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
 "workload": "80-100"
 }
 ],
 "status": "ok"
 },
 "curated:applezurich": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:archilogic": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:b3kolb": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -2019,17 +2020,17 @@
 "status": "ok"
 },
 "curated:bauwerkparkett": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:beckhoffautomationschweiz": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:besiswitzerland": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -2288,12 +2289,12 @@
 "status": "ok"
 },
 "curated:blesshess": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:botasystems": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -2321,45 +2322,23 @@
 "status": "ok"
 },
 "curated:bsfswissphoto": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:bubblerobotics": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:computerworksvectorworksschweiz": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:comsolschweiz": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
-{
-"cat": "software",
-"company": "COMSOL Schweiz",
-"directory": true,
-"location": "",
-"posted": "",
-"source": "career page",
-"title": "Experienced Software Engineer – Java/.NET Platform",
-"url": "https://www.comsol.com/company/careers/job/10051/",
-"workload": ""
-},
-{
-"cat": "software",
-"company": "COMSOL Schweiz",
-"directory": true,
-"location": "",
-"posted": "",
-"source": "career page",
-"title": "Frontend Team Lead – Simulation Software",
-"url": "https://www.comsol.com/company/careers/job/10061/",
-"workload": ""
-},
 {
 "cat": "software",
 "company": "COMSOL Schweiz",
@@ -2397,17 +2376,17 @@
 "status": "ok"
 },
 "curated:conzettbronzinipartner": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:csem": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:daedaleandestinus": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -2435,42 +2414,54 @@
 "status": "ok"
 },
 "curated:dassaultsystemes": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:dufouraerospace": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:esrirdcenterzurichcityenginearcgisurban": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:esrischweiz": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:ethonai": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
+"checked": "2026-10-27T16:18+00:00",
+"jobs": [
+{
+"cat": "robotics",
+"company": "Ethon AI",
+"directory": true,
+"location": "",
+"posted": "",
+"source": "career page",
+"title": "Forward Deployed Engineer Zürich · On-site · Full time Read more",
+"url": "https://www.ethon.com/careers/forward-deployed-engineer",
+"workload": ""
+}
+],
 "status": "ok"
 },
 "curated:fanucswitzerland": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:fixposition": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:flexionrobotics": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -2564,7 +2555,7 @@
 "status": "ok"
 },
 "curated:flinkrobotics": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "software",
@@ -2581,32 +2572,44 @@
 "status": "ok"
 },
 "curated:floatingrobotics": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:fotokite": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
+"checked": "2026-10-27T16:18+00:00",
+"jobs": [
+{
+"cat": "software",
+"company": "Fotokite",
+"directory": true,
+"location": "Zurich, ZH",
+"posted": "",
+"source": "bamboohr",
+"title": "(Senior) Generalist Software Engineer",
+"url": "https://fotokite.bamboohr.com/careers/165",
+"workload": ""
+}
+],
 "status": "ok"
 },
 "curated:fritzstuder": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:gfmachiningsolutionsunitedmachining": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:googlezurich": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:haering": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -2623,47 +2626,47 @@
 "status": "ok"
 },
 "curated:haupt": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:hectoregger": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:hocomadih": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:holzindustrieschweiz": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:holzkonstrukt": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:ibmresearchzurich": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:ihtingenieurbuerofuerholztechnik": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:indermuehlebauingenieure": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:ingenta": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -2691,17 +2694,17 @@
 "status": "ok"
 },
 "curated:inovitasinfra3d": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:inspireag": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:jennyscience": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -2740,22 +2743,22 @@
 "status": "ok"
 },
 "curated:komax": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:kuehni": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:kuendig": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:leimholzhaag": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -2772,70 +2775,70 @@
 "status": "ok"
 },
 "curated:lignumetalengineering": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:luechingermeyerpartner": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:makiolwiederkehr": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:manukai": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:maxon": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
+"detail": "HTTP Error 403: Forbidden",
+"jobs": [],
+"status": "failed"
+},
+"curated:menschundmaschineschweiz": {
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
-"curated:menschundmaschineschweiz": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [
-{
-"cat": "software",
-"company": "Mensch und Maschine Schweiz",
-"directory": true,
-"location": "Remote",
-"posted": "2026-07-20",
-"source": "personio",
-"title": "Technical Support - ECAD Software (m/w/d)",
-"url": "https://mum.jobs.personio.de/job/2719946",
-"workload": ""
-}
-],
-"status": "ok"
-},
 "curated:menzimuck": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:meshroboticrebar": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:messerliinformatikelitecad": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:metarealitylabszurich": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "detail": "HTTP Error 400: Bad Request",
 "status": "failed"
 },
 "curated:microsoftspatialailabzurich": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
+{
+"cat": "research",
+"company": "Microsoft Spatial AI Lab Zurich",
+"directory": true,
+"location": "",
+"posted": "",
+"source": "career page",
+"title": "Senior Data Scientist – Product Analytics – XBOX Growth",
+"url": "https://apply.careers.microsoft.com/careers/job/1970393556988117",
+"workload": ""
+},
 {
 "cat": "research",
 "company": "Microsoft Spatial AI Lab Zurich",
@@ -2857,63 +2860,52 @@
 "title": "Principal Data Scientist",
 "url": "https://apply.careers.microsoft.com/careers/job/1970393557041033",
 "workload": ""
-},
-{
-"cat": "research",
-"company": "Microsoft Spatial AI Lab Zurich",
-"directory": true,
-"location": "",
-"posted": "",
-"source": "career page",
-"title": "Principal Data Scientist – FDE",
-"url": "https://apply.careers.microsoft.com/careers/job/1970393556939565",
-"workload": ""
 }
 ],
 "status": "ok"
 },
 "curated:nightnurseimages": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:num": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:nvidiazurich": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:olwo": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:piusschuler": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:raiinstitutezurich": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:rapyutarobotics": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:roboa": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:saeki": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -2927,17 +2919,6 @@
 "workload": ""
 },
 {
-"cat": "robotics",
-"company": "SAEKI",
-"directory": true,
-"location": "Munich (Factory ONE)",
-"posted": "2026-03-07",
-"source": "personio",
-"title": "Factory Deployment Lead",
-"url": "https://saeki.jobs.personio.de/job/2556747",
-"workload": ""
-},
-{
 "cat": "software",
 "company": "SAEKI",
 "directory": true,
@@ -2946,28 +2927,6 @@
 "source": "personio",
 "title": "Junior Computational Geometry Engineer",
 "url": "https://saeki.jobs.personio.de/job/2797702",
-"workload": ""
-},
-{
-"cat": "robotics",
-"company": "SAEKI",
-"directory": true,
-"location": "Munich (Factory ONE)",
-"posted": "2026-10-02",
-"source": "personio",
-"title": "LPBF Additive Manufacturing Technician",
-"url": "https://saeki.jobs.personio.de/job/2824490",
-"workload": ""
-},
-{
-"cat": "robotics",
-"company": "SAEKI",
-"directory": true,
-"location": "Munich (Factory ONE)",
-"posted": "2026-09-23",
-"source": "personio",
-"title": "Metrology Technician (m/f/d)",
-"url": "https://saeki.jobs.personio.de/job/2811624",
 "workload": ""
 },
 {
@@ -2996,7 +2955,7 @@
 "status": "ok"
 },
 "curated:schaellibaum": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -3035,7 +2994,7 @@
 "status": "ok"
 },
 "curated:schnetzerpuskas": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -3052,17 +3011,17 @@
 "status": "ok"
 },
 "curated:sfsgrouptimberfasteners": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:siemensschweiz": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:skydio": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -3167,7 +3126,7 @@
 "status": "ok"
 },
 "curated:snapzurich": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "software",
@@ -3184,27 +3143,27 @@
 "status": "ok"
 },
 "curated:sonyaizurich": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:spectroplast": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:starrag": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:steinemanntechnology": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:stuberholz": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -3232,27 +3191,61 @@
 "status": "ok"
 },
 "curated:swissdrones": {
-"checked": "2026-10-27T10:51+01:00",
-"jobs": [],
+"checked": "2026-10-27T16:18+00:00",
+"jobs": [
+{
+"cat": "robotics",
+"company": "SwissDrones",
+"directory": true,
+"location": "Buchs",
+"posted": "2026-02-13",
+"source": "personio",
+"title": "Flight Test Engineer (a)",
+"url": "https://swissdrones.jobs.personio.de/job/2529890",
+"workload": ""
+},
+{
+"cat": "robotics",
+"company": "SwissDrones",
+"directory": true,
+"location": "Buchs",
+"posted": "2026-06-03",
+"source": "personio",
+"title": "System Engineer Avionics - Flight Control (a)",
+"url": "https://swissdrones.jobs.personio.de/job/2657853",
+"workload": ""
+},
+{
+"cat": "robotics",
+"company": "SwissDrones",
+"directory": true,
+"location": "Buchs",
+"posted": "2025-08-20",
+"source": "personio",
+"title": "System Integration Engineer Electronics (a)",
+"url": "https://swissdrones.jobs.personio.de/job/2300943",
+"workload": ""
+}
+],
 "status": "ok"
 },
 "curated:swisstopo": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:swisswoodsolutions": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:synopsysswitzerlandansys": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:tecan": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -3280,17 +3273,17 @@
 "status": "ok"
 },
 "curated:tinamulabs": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:tschoppholzbau": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:uffer": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -3318,37 +3311,37 @@
 "status": "ok"
 },
 "curated:uniqfeed": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "detail": "HTTP Error 404: Not Found",
 "status": "failed"
 },
 "curated:unitedgrinding": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:vaulted": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:vyzn": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:wittymachines": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:woodtecfankhauser": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:zuehlke": {
-"checked": "2026-10-27T10:51+01:00",
+"checked": "2026-10-27T16:18+00:00",
 "jobs": [],
 "status": "ok"
 }
