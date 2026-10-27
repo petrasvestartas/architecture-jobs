@@ -60,9 +60,15 @@ ul.jobs li{display:grid;grid-template-columns:1fr auto;gap:2px 14px;padding:9px 
 .jt a:hover{text-decoration:underline}
 .jm{font-size:12.5px;color:var(--muted);grid-column:1}
 .jm .co{color:var(--text)}
-.jr{grid-row:1/3;grid-column:2;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--faint);white-space:nowrap}
+.jr{grid-row:1/4;grid-column:2;display:flex;align-items:center;gap:8px;font-size:12px;color:var(--faint);white-space:nowrap}
 .tag{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:1px 6px;border:1px solid var(--line2);color:var(--muted)}
 .tag.new{border-color:var(--accent);color:var(--accent)}
+.tag.fit1{border-color:var(--ok);color:var(--ok)}
+.tag.fit2{border-color:var(--line2);color:var(--text)}
+.tag.de{border-style:dashed}
+.sk{grid-column:1;display:flex;flex-wrap:wrap;gap:4px;margin-top:3px}
+.sk span{font-size:11px;padding:0 6px;background:var(--accent-soft);color:var(--text)}
+.filters select{font:inherit;font-size:13px;color:var(--text);background:var(--panel);border:1px solid var(--line2);padding:5px 6px}
 .applied{opacity:.55}
 .apBtn{border:1px solid var(--line2);padding:2px 8px;font-size:11.5px;color:var(--muted);background:var(--panel)}
 .apBtn.on{border-color:var(--ok);color:var(--ok)}
@@ -98,9 +104,10 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
   </div>
 </header>
 <main class="wrap">
-  <p class="note">Robotics, timber-industry, software/geometry and research roles matching the profile from the application letters, read from the companies' own careers pages and job systems, plus jobs.ch, job-room.ch and LinkedIn. Trade and site-crew jobs (carpenter, CNC operator, foreman) are left out. Kept separate from the architecture list: own scan, own data file.</p>
+  <p class="note">Robotics, timber-industry, software/geometry and research roles, each scored on its full description against the CV (Oct 2026): the chips show which CV skills an ad asks for, "German C1+" marks ads that want more than B1. Read from the companies' own careers pages and job systems, plus jobs.ch, job-room.ch and LinkedIn. Trade and site-crew jobs (carpenter, CNC operator, foreman) are left out. Kept separate from the architecture list: own scan, own data file.</p>
   <div class="filters">
-    <input type="text" id="q" class="grow" placeholder="Search title, company, location&hellip;" aria-label="Search">
+    <input type="text" id="q" class="grow" placeholder="Search title, company, location, skill&hellip;" aria-label="Search">
+    <select id="sort" aria-label="Sort"><option value="fit">Best match to CV</option><option value="new">Newest</option></select>
     <label><input type="checkbox" id="newOnly"> New (3 days)</label>
     <label><input type="checkbox" id="weak"> Show weak matches</label>
     <label><input type="checkbox" id="hideApplied"> Hide applied</label>
@@ -117,7 +124,9 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
 (function(){
   var D=window.PROFILE||{jobs:[],categories:[],watch:[],weak_score:2};
   var KEY="jobtracker_profile_v1";
-  var st={cat:"all",applied:{},theme:null};
+  var st={cat:"all",applied:{},theme:null,sort:"fit"};
+  var BANDS=D.fit_bands||[12,7];
+  function band(j){return (j.fit||0)>=BANDS[0]?1:(j.fit||0)>=BANDS[1]?2:0;}
   try{var s=JSON.parse(localStorage.getItem(KEY)||"{}");for(var k in s)st[k]=s[k];}catch(e){}
   try{var main=JSON.parse(localStorage.getItem("jobtracker_state_v1")||"{}");if(!st.theme)st.theme=main.theme;}catch(e){}
   function save(){try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}}
@@ -143,14 +152,17 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
 
   function visible(cat){
     var q=el("q").value.trim().toLowerCase();
-    return D.jobs.filter(function(j){
+    var out=D.jobs.filter(function(j){
       if(cat!=="all"&&j.cat!==cat)return false;
-      if(!el("weak").checked&&j.score<D.weak_score)return false;
+      // weak = neither the title nor the description matches the CV much
+      if(!el("weak").checked&&j.score<D.weak_score&&!band(j))return false;
       if(el("newOnly").checked&&!isNew(j))return false;
       if(el("hideApplied").checked&&st.applied[j.url])return false;
-      if(q&&(j.title+" "+j.company+" "+j.location).toLowerCase().indexOf(q)<0)return false;
+      if(q&&(j.title+" "+j.company+" "+j.location+" "+(j.skills||[]).join(" ")).toLowerCase().indexOf(q)<0)return false;
       return true;
     });
+    if(st.sort==="fit")out.sort(function(a,b){return (b.fit||0)-(a.fit||0)||(b.first_seen>a.first_seen?1:b.first_seen<a.first_seen?-1:0);});
+    return out;
   }
   function renderTabs(){
     var keys=["all"].concat(D.categories.map(function(c){return c.key;}));
@@ -168,7 +180,10 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
         .filter(Boolean).join(" &middot; ");
       return '<li class="'+(ap?"applied":"")+'"><div class="jt"><a href="'+esc(j.url)+'" target="_blank" rel="noopener">'+esc(j.title)+'</a></div>'+
         '<div class="jm">'+meta+'</div>'+
-        '<div class="jr">'+(isNew(j)?'<span class="tag new">New</span>':"")+
+        ((j.skills&&j.skills.length)?'<div class="sk">'+j.skills.map(function(s){return '<span>'+esc(s)+'</span>';}).join("")+'</div>':"")+
+        '<div class="jr">'+(band(j)===1?'<span class="tag fit1" title="CV match '+j.fit+'">Strong match</span>':band(j)===2?'<span class="tag fit2" title="CV match '+j.fit+'">Good match</span>':"")+
+        (j.de?'<span class="tag de" title="The ad asks for fluent / native German">German C1+</span>':"")+
+        (isNew(j)?'<span class="tag new">New</span>':"")+
         (st.cat==="all"?'<span class="tag">'+esc(labels[j.cat]||j.cat)+'</span>':"")+
         '<span>'+esc(j.posted||j.first_seen)+'</span>'+
         '<button class="apBtn'+(ap?" on":"")+'" data-url="'+esc(j.url)+'">'+(ap?"Applied":"Mark applied")+'</button></div></li>';
@@ -203,6 +218,8 @@ h2{font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
     save();render();
   });
   ["q","newOnly","weak","hideApplied"].forEach(function(id){el(id).addEventListener("input",render);});
+  el("sort").value=st.sort==="new"?"new":"fit";
+  el("sort").addEventListener("change",function(){st.sort=el("sort").value;save();render();});
   render();renderWatch();
 })();
 </script>

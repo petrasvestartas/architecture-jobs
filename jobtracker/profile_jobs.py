@@ -26,6 +26,7 @@ never kept; timber postings must name an office / engineering role.
 """
 import concurrent.futures
 import datetime
+import html
 import json
 import os
 import re
@@ -33,6 +34,7 @@ import sys
 import time
 import urllib.parse
 
+import profile_match
 from net import http_get, get_json, post_json, strip_tags, extract_workload
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -591,7 +593,8 @@ def page_jobs(body, final, name, cat, opt):
         text, loc = _split_loc(CARD_TAIL.sub("", text))
         if not (8 <= len(text) <= 140) or NAV_TEXT.match(text):
             continue
-        href = urllib.parse.urljoin(final, m.group(1).strip())
+        # hrefs can carry entities ("80&ndash;100-441.html")
+        href = urllib.parse.urljoin(final, html.unescape(m.group(1).strip()))
         if path:
             if not path.search(href):
                 continue
@@ -881,6 +884,32 @@ def scan_boards():
     return kept
 
 
+# ---------- CV match (profile_match.py) ----------
+
+MATCH_TRIES = 3  # postings whose description would not load are retried
+
+
+def match_cv(jobs, state):
+    """Score every posting against the CV from its full description. Each
+    URL is fetched once; the result lives in its profile_state.json entry."""
+    todo = [j for j in jobs
+            if "fit" not in state[j["url"]]
+            or (not state[j["url"]]["fit"].get("desc")
+                and state[j["url"]]["fit"].get("tries", 0) < MATCH_TRIES)]
+
+    def one(j):
+        return j["url"], profile_match.fit(j)
+
+    with concurrent.futures.ThreadPoolExecutor(8) as pool:
+        for url, f in pool.map(one, todo):
+            f["tries"] = state[url].get("fit", {}).get("tries", 0) + 1
+            state[url]["fit"] = f
+    for j in jobs:
+        f = state[j["url"]]["fit"]
+        j["fit"], j["skills"], j["de"] = f["fit"], f["skills"], f["de"]
+    print(f"profile: matched {len(todo)} new postings against the CV", flush=True)
+
+
 # ---------- output ----------
 
 def _key(j):
@@ -935,6 +964,7 @@ def main():
         s = state.setdefault(j["url"], {"first_seen": today})
         s["last_seen"] = today
         j["first_seen"] = s["first_seen"]
+    match_cv(jobs, state)
     cutoff = (started.date() - datetime.timedelta(days=FORGET_DAYS)).isoformat()
     state = {u: s for u, s in state.items() if s.get("last_seen", "") >= cutoff}
     with open(STATE, "w", encoding="utf-8") as f:
@@ -943,6 +973,7 @@ def main():
     jobs.sort(key=lambda j: (j["first_seen"], j["score"]), reverse=True)
     payload = {"generated": started.isoformat(timespec="minutes"),
                "categories": CATEGORIES, "weak_score": WEAK_SCORE,
+               "fit_bands": [profile_match.STRONG, profile_match.GOOD],
                "jobs": jobs, "watch": watch + dir_watch,
                "directory": dir_stats}
     os.makedirs(SITE_DIR, exist_ok=True)
