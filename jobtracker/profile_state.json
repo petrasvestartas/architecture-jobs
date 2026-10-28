@@ -106,6 +106,19 @@
 },
 "last_seen": "2026-10-28"
 },
+"https://apply.careers.microsoft.com/careers?query=200063235&start=0&pid=1970393557044951&sort_by=relevance": {
+"first_seen": "2026-10-28",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 2,
+"skills": [
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-10-28"
+},
 "https://apply.refline.ch/655298/4603/pub/2/index.html": {
 "first_seen": "2026-10-27",
 "fit": {
@@ -229,6 +242,17 @@
 "tries": 1
 },
 "last_seen": "2026-10-27"
+},
+"https://auterion.com/company/careers-open-position/8855179002?gh_jid=8855179002": {
+"first_seen": "2026-10-28",
+"fit": {
+"de": false,
+"desc": false,
+"fit": 0,
+"skills": [],
+"tries": 1
+},
+"last_seen": "2026-10-28"
 },
 "https://auterion.com/company/careers-open-position/8857626002?gh_jid=8857626002": {
 "first_seen": "2026-10-23",
@@ -645,6 +669,21 @@
 },
 "last_seen": "2026-10-27"
 },
+"https://ch.linkedin.com/jobs/view/holzbau-werkplaner-in-80-100%25-at-bl%C3%A4ttler-holzbau-4484486365": {
+"first_seen": "2026-10-28",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 10,
+"skills": [
+"timber",
+"CNC / CAM",
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-10-28"
+},
 "https://ch.linkedin.com/jobs/view/mechanical-engineer-robotics-at-cdds-4483354357": {
 "first_seen": "2026-10-25",
 "last_seen": "2026-10-26"
@@ -702,6 +741,23 @@
 },
 "last_seen": "2026-10-28"
 },
+"https://ch.linkedin.com/jobs/view/robotics-software-engineer-at-ecolab-4468233312": {
+"first_seen": "2026-10-28",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 9,
+"skills": [
+"C++",
+"Python",
+"BIM / CAD",
+"ROS / kinematics",
+"computer vision"
+],
+"tries": 1
+},
+"last_seen": "2026-10-28"
+},
 "https://ch.linkedin.com/jobs/view/robotics-software-engineer-grasping-at-intrinsic-4463089677": {
 "first_seen": "2026-10-23",
 "fit": {
@@ -745,6 +801,24 @@
 "https://ch.linkedin.com/jobs/view/senior-computational-optimisation-engineer-at-corintis-4455975297": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-23"
+},
+"https://ch.linkedin.com/jobs/view/senior-software-engineer-f-m-d-mission-control-c%2B%2B-python-at-hexagon-robotics-4482538303": {
+"first_seen": "2026-10-28",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 15,
+"skills": [
+"C++",
+"Python",
+"ROS / kinematics",
+"computer vision",
+"open source / CI",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-10-28"
 },
 "https://ch.linkedin.com/jobs/view/senior-vision-perception-engineer-at-cdds-4483338987": {
 "first_seen": "2026-10-25",
@@ -3444,6 +3518,20 @@
 "C++",
 "Python",
 "simulation"
+],
+"tries": 1
+},
+"last_seen": "2026-10-28"
+},
+"https://www.job-room.ch/job-search/b0185ec0-49bb-4df5-be9c-7fdbe36e8b43": {
+"first_seen": "2026-10-28",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 7,
+"skills": [
+"C++",
+"open source / CI"
 ],
 "tries": 1
 },
