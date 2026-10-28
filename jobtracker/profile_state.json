@@ -2876,7 +2876,16 @@
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/leiter-montage-holz--und-modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
-"last_seen": "2026-10-27"
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-10-28"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/logistiker-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
