@@ -1,72 +1,72 @@
 {
 "CHE100062869": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE101011716": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE101188272": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE101448467": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE101878690": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE101952033": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE101987959": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE102037233": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE102299721": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE102411024": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE102459433": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE102511909": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE103204634": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "detail": "HTTP Error 403: Forbidden",
 "jobs": [],
 "status": "failed"
 },
 "CHE103348859": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -105,108 +105,108 @@
 "status": "ok"
 },
 "CHE103392174": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE103436340": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE103534422": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE103646630": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE103860465": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE103888972": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
+"detail": "HTTP Error 500: Server Error",
 "jobs": [],
-"status": "ok"
+"status": "failed"
 },
 "CHE104949636": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE105383826": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE105598479": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE105794661": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE105828113": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE105954752": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE105965187": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE105965276": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106039490": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106060053": {
-"checked": "2026-10-28T21:38+00:00",
-"detail": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)>",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
-"status": "failed"
+"status": "ok"
 },
 "CHE106294852": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106304539": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106574263": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106648944": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "detail": "HTTP Error 404: Not Found",
 "status": "failed"
 },
 "CHE106807616": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -223,268 +223,268 @@
 "status": "ok"
 },
 "CHE106819430": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106888827": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106892266": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106898197": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106900285": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106904001": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106910473": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106912348": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106923872": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106932115": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE106979140": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107012648": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107046647": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107050554": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107053699": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107058113": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107064852": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107083401": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107134441": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107135274": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107144250": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107168517": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107183652": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107186403": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107201741": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107221258": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "detail": "HTTP Error 404: Not Found",
 "jobs": [],
 "status": "failed"
 },
 "CHE107221608": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107221873": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107222045": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107229633": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107236604": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107278494": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107278548": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107281556": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107282136": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107287814": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107349125": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107398023": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107508317": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107631159": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107803704": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107804773": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107817669": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107833071": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107914781": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107965063": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE107995727": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE108170764": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE108197220": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE108265293": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "detail": "'ascii' codec can't encode character '\\xfc' in position 5: ordinal not in range(128)",
 "status": "failed"
 },
 "CHE108302155": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE108336504": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "detail": "'ascii' codec can't encode character '\\xfc' in position 28: ordinal not in range(128)",
 "status": "failed"
 },
 "CHE108364877": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -501,112 +501,112 @@
 "status": "ok"
 },
 "CHE108427466": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE108537592": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE108656162": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE108692152": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE108751719": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE108777966": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109027715": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109040182": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109058383": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109082080": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109395656": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109435178": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109515995": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109522914": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109565585": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109625632": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109636788": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109805795": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109866785": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109886411": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109905310": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE109907065": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
@@ -1297,7 +1297,7 @@
 "status": "ok"
 },
 "CHE255258069": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1314,224 +1314,212 @@
 "status": "ok"
 },
 "CHE259947742": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE260209740": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE261478395": {
-"checked": "2026-10-28T21:38+00:00",
-"jobs": [
-{
-"cat": "software",
-"company": "Open Autonomy Advisors GmbH",
-"directory": true,
-"location": "Zürich, Switzerland",
-"posted": "",
-"source": "bamboohr",
-"title": "Implementation Engineer (Software Engineer – Internal Tools and Automation)",
-"url": "https://opench.bamboohr.com/careers/827",
-"workload": ""
-}
-],
+"checked": "2026-10-29T11:22+00:00",
+"jobs": [],
 "status": "ok"
 },
 "CHE261717329": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE263963187": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE266307648": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE268034533": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE272897141": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE276144715": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE276310534": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE283483507": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE283660927": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE286186767": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE287423473": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE289953078": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE293760944": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE294022406": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE296566568": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE297450000": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE299951069": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE301503618": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE302487258": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE307502764": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE309904926": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE314173619": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE314392481": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE315925144": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE318232149": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE319410896": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "detail": "unknown url type: 'jobs/'",
 "status": "failed"
 },
 "CHE319868798": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE321869169": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE323987058": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE326657278": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE332255913": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE334014504": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE334319487": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE338075410": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE339684505": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE342139964": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE342293358": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE344479885": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE354410820": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1592,17 +1580,17 @@
 "status": "ok"
 },
 "CHE355115387": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE359733992": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE361783893": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1619,92 +1607,92 @@
 "status": "ok"
 },
 "CHE366845834": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE367698429": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE370773497": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE373687061": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE373903069": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE379154550": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE383329574": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "detail": "'ascii' codec can't encode character '\\xfc' in position 5: ordinal not in range(128)",
 "status": "failed"
 },
 "CHE384585861": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE391501237": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE403233867": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE404445828": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE405916204": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE410387062": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE411910115": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE415128941": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE415738045": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE415781963": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE415846746": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1721,97 +1709,109 @@
 "status": "ok"
 },
 "CHE420848030": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE421339104": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE421663177": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE422212989": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE425287021": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE433706971": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE436516533": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE437300266": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE437658621": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE452923144": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE456141761": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE462087555": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE463933684": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE470372213": {
-"checked": "2026-10-28T21:38+00:00",
-"jobs": [],
+"checked": "2026-10-29T11:22+00:00",
+"jobs": [
+{
+"cat": "software",
+"company": "TECHNOROBOT AG",
+"directory": true,
+"location": "",
+"posted": "",
+"source": "career page",
+"title": "Programmierer / Techniker (m/w/d) 100%",
+"url": "https://technorobot.ch/wp-content/uploads/2026/03/Stelleninserat_Programmierer_Technik_19.03.2026_V03-3.pdf",
+"workload": "100"
+}
+],
 "status": "ok"
 },
 "CHE471024878": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE474396655": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE475228204": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE477604867": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE477999726": {
-"checked": "2026-10-28T21:38+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
@@ -3211,45 +3211,22 @@
 "status": "ok"
 },
 "curated:swisstopo": {
-"checked": "2026-10-28T17:06+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:swisswoodsolutions": {
-"checked": "2026-10-28T17:06+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:synopsysswitzerlandansys": {
-"checked": "2026-10-28T17:06+00:00",
-"jobs": [
-{
-"cat": "software",
-"company": "Synopsys Switzerland (Ansys)",
-"directory": true,
-"location": "",
-"posted": "",
-"source": "career page",
-"title": "Principal Engineer, Agentic AI (CAD/EDA) Bengaluru, India Category: Engineering Posted: 10/27/2026 Job ID: 18373",
-"url": "https://careers.synopsys.com/job/bengaluru/principal-engineer-agentic-ai-cad-eda/44408/102541516352",
-"workload": ""
-},
-{
-"cat": "software",
-"company": "Synopsys Switzerland (Ansys)",
-"directory": true,
-"location": "",
-"posted": "",
-"source": "career page",
-"title": "Staff Software Engineer, Full Stack United States Off-site Category: Engineering Posted: 10/26/2026 Job ID: 19325",
-"url": "https://careers.synopsys.com/job/sunnyvale/staff-software-engineer-full-stack/44408/102534457712",
-"workload": ""
-}
-],
+"checked": "2026-10-29T11:22+00:00",
+"jobs": [],
 "status": "ok"
 },
 "curated:tecan": {
-"checked": "2026-10-28T17:06+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -3277,17 +3254,17 @@
 "status": "ok"
 },
 "curated:tinamulabs": {
-"checked": "2026-10-28T17:06+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:tschoppholzbau": {
-"checked": "2026-10-28T17:06+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:uffer": {
-"checked": "2026-10-28T17:06+00:00",
+"checked": "2026-10-29T11:22+00:00",
 "jobs": [
 {
 "cat": "timber",
