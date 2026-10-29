@@ -709,6 +709,19 @@
 },
 "last_seen": "2026-10-29"
 },
+"https://ch.linkedin.com/jobs/view/field-service-engineer-robotics-at-st%C3%A4ubli-4457912601": {
+"first_seen": "2026-10-29",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"industrial robots"
+],
+"tries": 1
+},
+"last_seen": "2026-10-29"
+},
 "https://ch.linkedin.com/jobs/view/flight-guidance-motion-planning-engineer-at-harmattan-ai-4448318174": {
 "first_seen": "2026-10-23",
 "fit": {
@@ -3049,7 +3062,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/logistiker-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -3125,7 +3138,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---modulbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -3490,6 +3503,21 @@
 },
 "last_seen": "2026-10-27"
 },
+"https://www.job-room.ch/job-search/10f251a6-7f9d-43db-b2ae-4914e5131818": {
+"first_seen": "2026-10-29",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 12,
+"skills": [
+"timber",
+"industrial robots",
+"CNC / CAM"
+],
+"tries": 1
+},
+"last_seen": "2026-10-29"
+},
 "https://www.job-room.ch/job-search/131edda6-9a92-4cdb-8aa2-3fbc9ed75813": {
 "first_seen": "2026-10-27",
 "fit": {
@@ -3732,6 +3760,19 @@
 "tries": 1
 },
 "last_seen": "2026-10-28"
+},
+"https://www.job-room.ch/job-search/fbf87698-8e85-440a-b5ee-2a35f1d83003": {
+"first_seen": "2026-10-29",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 1,
+"skills": [
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/01086e5b-0d66-472e-8417-48074b84db8c/": {
 "first_seen": "2026-10-23",
@@ -4393,6 +4434,21 @@
 "https://www.jobs.ch/en/vacancies/detail/f2792851-8bab-4b3e-9888-b37623a17254/": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-27"
+},
+"https://www.jobs.ch/en/vacancies/detail/fc5cd0a7-0074-4907-b93e-38ef90b12d7d/": {
+"first_seen": "2026-10-29",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 12,
+"skills": [
+"timber",
+"industrial robots",
+"CNC / CAM"
+],
+"tries": 1
+},
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/fd8136a3-751d-41ba-8cac-9f482dbe7143/": {
 "first_seen": "2026-10-23",
