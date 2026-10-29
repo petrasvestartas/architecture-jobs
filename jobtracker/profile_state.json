@@ -18,7 +18,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://alpiger-holzbau.ch/dienstleistungen/architektur/": {
 "first_seen": "2026-10-27",
@@ -35,7 +35,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://apply.careers.microsoft.com/careers/job/1970393556939565": {
 "first_seen": "2026-10-27",
@@ -106,6 +106,61 @@
 },
 "last_seen": "2026-10-28"
 },
+"https://apply.careers.microsoft.com/careers/job/1970393557044567": {
+"first_seen": "2026-10-29",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 4,
+"skills": [
+"Python",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-10-29"
+},
+"https://apply.careers.microsoft.com/careers/job/1970393557044677": {
+"first_seen": "2026-10-29",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 2,
+"skills": [
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-10-29"
+},
+"https://apply.careers.microsoft.com/careers/job/1970393557044882": {
+"first_seen": "2026-10-29",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 5,
+"skills": [
+"Python",
+"C#",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-10-29"
+},
+"https://apply.careers.microsoft.com/careers/job/1970393557044951": {
+"first_seen": "2026-10-29",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 2,
+"skills": [
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-10-29"
+},
 "https://apply.careers.microsoft.com/careers?query=200063235&start=0&pid=1970393557044951&sort_by=relevance": {
 "first_seen": "2026-10-28",
 "fit": {
@@ -145,7 +200,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://apply.workable.com/destinusgroup/j/A02989A44A/": {
 "first_seen": "2026-10-27",
@@ -160,7 +215,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://artho-ag.ch/p/holzbau-architektur/": {
 "first_seen": "2026-10-27",
@@ -186,7 +241,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://auterion.com/company/careers-open-position/8470060002?gh_jid=8470060002": {
 "first_seen": "2026-10-23",
@@ -250,9 +305,9 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 2
+"tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://auterion.com/company/careers-open-position/8857626002?gh_jid=8857626002": {
 "first_seen": "2026-10-23",
@@ -274,7 +329,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://auterion.com/company/careers-open-position/8888953002?gh_jid=8888953002": {
 "first_seen": "2026-10-23",
@@ -307,7 +362,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://b-3.ch/menschen/karriere/menschen/karriere/bautechnikerin-fachbereich-hoch-,-infrastruktur-und-kunstbauten.html": {
 "first_seen": "2026-10-27",
@@ -318,7 +373,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://b-3.ch/menschen/karriere/menschen/karriere/duplikat-von-junior-gesamtprojektleiterin-infrastruktur-und-industriebauten.html": {
 "first_seen": "2026-10-27",
@@ -329,7 +384,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://b-3.ch/menschen/karriere/menschen/karriere/holzbautechnikerin-werkplanung.html": {
 "first_seen": "2026-10-27",
@@ -342,7 +397,7 @@
 ],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://b-3.ch/menschen/karriere/menschen/karriere/jung.projektleiter.baumanagement.html": {
 "first_seen": "2026-10-27",
@@ -353,7 +408,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://b-3.ch/menschen/karriere/menschen/karriere/junior-bauleiterin-industrie-,-gewerbe-,-und-infrastrukturbau.html": {
 "first_seen": "2026-10-27",
@@ -364,7 +419,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://b-3.ch/menschen/karriere/menschen/karriere/projektleiterin-baumanagement.html": {
 "first_seen": "2026-10-27",
@@ -375,7 +430,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://balteschwiler.ch/wp-content/uploads/2023/04/2024_Stellenausschreibung-CNC-Maschinistin.pdf": {
 "first_seen": "2026-10-23",
@@ -392,7 +447,7 @@
 ],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://besi.kandidatenportal.eu/job/264184?referrer=Homepage": {
 "first_seen": "2026-10-27",
@@ -409,7 +464,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://besi.kandidatenportal.eu/job/267812?referrer=Homepage": {
 "first_seen": "2026-10-27",
@@ -424,7 +479,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://besi.kandidatenportal.eu/job/269727?referrer=Homepage": {
 "first_seen": "2026-10-27",
@@ -439,7 +494,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://besi.kandidatenportal.eu/job/270686?referrer=Homepage": {
 "first_seen": "2026-10-27",
@@ -453,7 +508,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://bota-systems-ag.breezy.hr/p/ad6e036124e9-junior-manufacturing-technician": {
 "first_seen": "2026-10-27",
@@ -464,7 +519,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://bota-systems-ag.breezy.hr/p/ef4ed3e866a1-junior-sensor-validation-test-engineer": {
 "first_seen": "2026-10-27",
@@ -478,7 +533,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://careers.jobeagle.io/de/companies/haring/6ff9840c-158d-4441-835a-87a1644e9457": {
 "first_seen": "2026-10-27",
@@ -492,7 +547,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://careers.snap.com/job?id=R0047259": {
 "first_seen": "2026-10-27",
@@ -507,7 +562,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://careers.synopsys.com/job/bengaluru/principal-engineer-agentic-ai-cad-eda/44408/102541516352": {
 "first_seen": "2026-10-28",
@@ -524,7 +579,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://careers.synopsys.com/job/sunnyvale/staff-software-engineer-full-stack/44408/102534457712": {
 "first_seen": "2026-10-28",
@@ -538,7 +593,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://careers.tecan.com/job/Manufacturing-Engineer/1437075333/": {
 "first_seen": "2026-10-27",
@@ -549,7 +604,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://careers.tecan.com/job/Production-Engineer/1393509133/": {
 "first_seen": "2026-10-27",
@@ -562,7 +617,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://cdn.prod.website-files.com/69dc93b3821010806c215fa7/6ab6271389d1a360f584b042_2609_AVMSystem_SeniorSystemEngineer.pdf": {
 "first_seen": "2026-10-23",
@@ -604,7 +659,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://cdn.prod.website-files.com/69dc93b3821010806c215fa7/6ad1dd13dbe19b4d9a8717d7_2610_AVM%20V%26V%20Lead%20Delivery%20Manager.pdf": {
 "first_seen": "2026-10-23",
@@ -617,7 +672,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://ch.linkedin.com/jobs/view/autonomy-engineer-deep-learning-at-skydio-4420220197": {
 "first_seen": "2026-10-25",
@@ -652,7 +707,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://ch.linkedin.com/jobs/view/flight-guidance-motion-planning-engineer-at-harmattan-ai-4448318174": {
 "first_seen": "2026-10-23",
@@ -682,7 +737,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://ch.linkedin.com/jobs/view/mechanical-engineer-robotics-at-cdds-4483354357": {
 "first_seen": "2026-10-25",
@@ -775,7 +830,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://ch.linkedin.com/jobs/view/senior-%E2%80%AFresearch-scientist-in%E2%80%AFindustrial-sensor-systems%E2%80%AF-80%25-100%25-f-m-d-at-abb-4481776130": {
 "first_seen": "2026-10-23",
@@ -796,7 +851,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://ch.linkedin.com/jobs/view/senior-computational-optimisation-engineer-at-corintis-4455975297": {
 "first_seen": "2026-10-23",
@@ -818,7 +873,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://ch.linkedin.com/jobs/view/senior-vision-perception-engineer-at-cdds-4483338987": {
 "first_seen": "2026-10-25",
@@ -849,7 +904,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://ch.linkedin.com/jobs/view/software-engineer-simulation-robotics-at-skydio-4420200794": {
 "first_seen": "2026-10-25",
@@ -886,7 +941,7 @@
 ],
 "tries": 2
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://dubachholzbau.ch/planung-und-projektleitung/": {
 "first_seen": "2026-10-27",
@@ -907,7 +962,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://flexion.ai/careers/567cbc": {
 "first_seen": "2026-10-27",
@@ -923,7 +978,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://flexion.ai/careers/57aed5": {
 "first_seen": "2026-10-27",
@@ -940,7 +995,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://flexion.ai/careers/5c56a0": {
 "first_seen": "2026-10-27",
@@ -953,7 +1008,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://flexion.ai/careers/5e51f3": {
 "first_seen": "2026-10-27",
@@ -971,7 +1026,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://flexion.ai/careers/5e5be3": {
 "first_seen": "2026-10-27",
@@ -987,7 +1042,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://flexion.ai/careers/5e5d00": {
 "first_seen": "2026-10-27",
@@ -1001,7 +1056,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://flexion.ai/careers/5ea462": {
 "first_seen": "2026-10-27",
@@ -1014,7 +1069,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://fotokite.bamboohr.com/careers/165": {
 "first_seen": "2026-10-27",
@@ -1030,7 +1085,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://hexagon-robotics.onlyfy.jobs/en/job/8btryg49w5gs8x22icm2i6eqfartm57": {
 "first_seen": "2026-10-23",
@@ -1041,7 +1096,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://hexagon-robotics.onlyfy.jobs/en/job/8z1h9bd9zjwrxyvch4a1e16m8cwvlz8": {
 "first_seen": "2026-10-23",
@@ -1052,7 +1107,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://hexagon-robotics.onlyfy.jobs/en/job/b8ycqm3jag1dwhqhj72d0om1ocvcwsh": {
 "first_seen": "2026-10-23",
@@ -1065,7 +1120,7 @@
 ],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://hexagon-robotics.onlyfy.jobs/en/job/eypa81cq3yxwh9l7fy29gptry1o4fo0": {
 "first_seen": "2026-10-23",
@@ -1076,7 +1131,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://hexagon-robotics.onlyfy.jobs/en/job/id7dujsb6qpyq3yjo436cjs6ssqxp7t": {
 "first_seen": "2026-10-27",
@@ -1089,7 +1144,7 @@
 ],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://hexagon-robotics.onlyfy.jobs/en/job/kkgk7oetv3fzoz12ulc3in7b1gsbm7k": {
 "first_seen": "2026-10-23",
@@ -1100,7 +1155,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://hexagon-robotics.onlyfy.jobs/en/job/vmbkjc1tjqdmjamhz9tucsmsnzuc6e5": {
 "first_seen": "2026-10-23",
@@ -1111,7 +1166,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://holzbau-buehlmann.ch/062020---projektleiter-gesucht.html": {
 "first_seen": "2026-10-27",
@@ -1142,7 +1197,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://ingenta.ch/wp-content/uploads/2026/07/2026_Stelleninserat-Bauleiter.pdf": {
 "first_seen": "2026-10-27",
@@ -1155,7 +1210,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.ashbyhq.com/flink/2f7cd7b3-8e88-438b-9f2b-d44be10584a9": {
 "first_seen": "2026-10-27",
@@ -1170,7 +1225,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.ashbyhq.com/sereact/0a25cbf5-db56-4f5e-81b8-c46b477d247c": {
 "first_seen": "2026-10-23",
@@ -1304,7 +1359,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.ashbyhq.com/sereact/9a79bf5b-6f9b-4350-859b-6179a450ebc5": {
 "first_seen": "2026-10-23",
@@ -1390,7 +1445,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.ashbyhq.com/sereact/d9b3b7a1-fb7a-4c83-a77d-106912cfa5f6": {
 "first_seen": "2026-10-23",
@@ -1437,7 +1492,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.ashbyhq.com/skydio/06005374-11e5-468f-8080-b9dd29acb9c5": {
 "first_seen": "2026-10-27",
@@ -1456,7 +1511,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.ashbyhq.com/skydio/06a6d97a-4fcb-40a0-9283-642a444d005b": {
 "first_seen": "2026-10-27",
@@ -1479,7 +1534,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.ashbyhq.com/skydio/1208ec60-0fb6-4e5d-bf1f-af1312139a84": {
 "first_seen": "2026-10-27",
@@ -1495,7 +1550,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.ashbyhq.com/skydio/134f29cc-da9f-4214-9d9c-d044f93af39e": {
 "first_seen": "2026-10-27",
@@ -1523,7 +1578,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.ashbyhq.com/skydio/379b23ea-14ff-4602-9b79-52d00bb96fda": {
 "first_seen": "2026-10-27",
@@ -1555,7 +1610,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.ashbyhq.com/skydio/4c4874bf-02da-4ccc-8918-2cca08feaf21": {
 "first_seen": "2026-10-27",
@@ -1576,7 +1631,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.ashbyhq.com/skydio/50dad059-b43b-4be1-84ab-2c350a68848f": {
 "first_seen": "2026-10-27",
@@ -1592,7 +1647,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.ashbyhq.com/skydio/5655fbe3-66b0-4951-afdc-3b67f71e6938": {
 "first_seen": "2026-10-27",
@@ -1637,7 +1692,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.ashbyhq.com/skydio/7a8f3e6c-d576-41af-a81e-bf4fe20da12a": {
 "first_seen": "2026-10-27",
@@ -1796,7 +1851,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.ashbyhq.com/skydio/dcb04687-9b4f-425d-8c37-1111cf3ccf3d": {
 "first_seen": "2026-10-27",
@@ -1847,7 +1902,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/anybotics/3b337f71-7867-45a7-9efa-ad08cbe84cd5": {
 "first_seen": "2026-10-23",
@@ -1862,7 +1917,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/anybotics/41220f43-53f8-4336-94a1-eaed97c34784": {
 "first_seen": "2026-10-23",
@@ -1873,7 +1928,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/anybotics/53462ccd-2b76-4cd5-b8c5-32c329e3c05d": {
 "first_seen": "2026-10-23",
@@ -1884,7 +1939,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/anybotics/63f0c6db-0a1f-4a4a-87dd-9a43c9c2bdd2": {
 "first_seen": "2026-10-23",
@@ -1901,7 +1956,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/anybotics/b8d4bf79-20ea-44b0-84e2-cd644dc8e58a": {
 "first_seen": "2026-10-23",
@@ -1914,7 +1969,24 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
+},
+"https://jobs.lever.co/anybotics/d526ffba-4a8e-47d5-93b4-90e05662e152": {
+"first_seen": "2026-10-29",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 11,
+"skills": [
+"point clouds / scanning",
+"C++",
+"Python",
+"simulation",
+"ROS / kinematics"
+],
+"tries": 1
+},
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/anybotics/d5ae4dd1-c48d-41da-ba50-60ce3b44ceb0": {
 "first_seen": "2026-10-23",
@@ -1925,7 +1997,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/anybotics/df94dc1d-e83d-4008-a6ee-46c7a54d5572": {
 "first_seen": "2026-10-23",
@@ -1936,7 +2008,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/anybotics/dfae4234-0ca9-4ea9-85ff-7d1ec557540b": {
 "first_seen": "2026-10-23",
@@ -1947,7 +2019,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/anybotics/e893a06a-66ad-4068-a95b-3d26fa2e52a1": {
 "first_seen": "2026-10-23",
@@ -1961,7 +2033,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/anybotics/fd173f45-9f01-40b2-b46a-aca5133f6861": {
 "first_seen": "2026-10-23",
@@ -1974,7 +2046,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/gravisrobotics/90a1b015-38cb-47a0-857a-da82861578a7": {
 "first_seen": "2026-10-23",
@@ -1993,11 +2065,29 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/gravisrobotics/a216726e-368a-4d09-bc57-37f9b053c1b0": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-23"
+},
+"https://jobs.lever.co/gravisrobotics/b992f865-ac8d-4a0d-9344-ca0a56e1e6b1": {
+"first_seen": "2026-10-29",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 12,
+"skills": [
+"point clouds / scanning",
+"C++",
+"Python",
+"ROS / kinematics",
+"research",
+"architecture / AEC"
+],
+"tries": 1
+},
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/gravisrobotics/fe9d2c3e-84d6-4b0f-ad31-70176d175c5c": {
 "first_seen": "2026-10-23",
@@ -2017,7 +2107,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/rivr/2b332a67-ca91-4f10-9c1a-452a9ad923e5": {
 "first_seen": "2026-10-23",
@@ -2031,7 +2121,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/rivr/43e8cea7-b0f7-40fc-9447-8edc91b0cdd2": {
 "first_seen": "2026-10-23",
@@ -2045,7 +2135,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/rivr/5bc972e3-75ff-4ac3-a24b-ce6bb494e957": {
 "first_seen": "2026-10-23",
@@ -2060,7 +2150,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/rivr/6994881d-0368-495b-bb91-fca6b545ccb3": {
 "first_seen": "2026-10-23",
@@ -2074,7 +2164,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/rivr/97545732-2103-4b5e-ae7a-01c06459ecfa": {
 "first_seen": "2026-10-23",
@@ -2089,7 +2179,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/rivr/a66abf83-7206-4b34-8513-a09c2524ead2": {
 "first_seen": "2026-10-23",
@@ -2103,7 +2193,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/rivr/ba7a7a2b-fb2b-4dfb-83df-1cf2d8b0a222": {
 "first_seen": "2026-10-23",
@@ -2118,7 +2208,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/rivr/cef33379-0112-4850-8365-ff459389407d": {
 "first_seen": "2026-10-23",
@@ -2134,7 +2224,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/rivr/d5c46417-896e-4418-83af-529ada547a57": {
 "first_seen": "2026-10-23",
@@ -2148,7 +2238,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://jobs.lever.co/rivr/e397465d-5914-4955-900b-fafc420ade66": {
 "first_seen": "2026-10-23",
@@ -2162,7 +2252,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://koch-ag.ch/architektur/": {
 "first_seen": "2026-10-27",
@@ -2181,7 +2271,7 @@
 ],
 "tries": 2
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://krattigerholzbau.ch/firma/offene-stellen/projektleiter-avor-holzbau-krattiger-holzbau-ag-amriswil/": {
 "first_seen": "2026-10-27",
@@ -2195,7 +2285,7 @@
 ],
 "tries": 2
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://krattigerholzbau.ch/firma/offene-stellen/projektleiter-bauleiter-holzbau-amriswil/": {
 "first_seen": "2026-10-27",
@@ -2209,7 +2299,7 @@
 ],
 "tries": 2
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://maps.google.com/maps?daddr=46.54271568416431,+7.771298423804183": {
 "first_seen": "2026-10-27",
@@ -2247,7 +2337,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://my.jobalino.ch/public/job/645b47e9d818d/projektleiter-in-holzbau_5830?origin=joblist": {
 "first_seen": "2026-10-23",
@@ -2261,7 +2351,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://opench.bamboohr.com/careers/827": {
 "first_seen": "2026-10-27",
@@ -2276,7 +2366,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://phbe.ch/wp-content/uploads/2026/10/stelleninserat-pl-boden-parkettleger-neu.pdf": {
 "first_seen": "2026-10-27",
@@ -2324,7 +2414,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://saeki.jobs.personio.de/job/2797702": {
 "first_seen": "2026-10-27",
@@ -2347,7 +2437,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://saeki.jobs.personio.de/job/2811624": {
 "first_seen": "2026-10-27",
@@ -2391,7 +2481,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://saeki.jobs.personio.de/job/2860436": {
 "first_seen": "2026-10-27",
@@ -2408,7 +2498,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://search.ch/map/..Zimmerei-Hirschi-AG,Trub,L%C3%A4ngengrund-8": {
 "first_seen": "2026-10-27",
@@ -2442,7 +2532,7 @@
 ],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://staho.ch/jobs/projektleiter-holzbau/": {
 "first_seen": "2026-10-27",
@@ -2456,7 +2546,7 @@
 ],
 "tries": 2
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://storage.googleapis.com/rindlisbacherag-cms/Inserat_fuer_Zeichner_In_CAD_64eadd6a23/Inserat_fuer_Zeichner_In_CAD_64eadd6a23.pdf": {
 "first_seen": "2026-10-27",
@@ -2473,7 +2563,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://swissdrones.jobs.personio.de/job/2529890": {
 "first_seen": "2026-10-27",
@@ -2486,7 +2576,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://swissdrones.jobs.personio.de/job/2657853": {
 "first_seen": "2026-10-27",
@@ -2499,7 +2589,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://technorobot.ch/wp-content/uploads/2026/03/Stelleninserat_Programmierer_Technik_19.03.2026_V03-3.pdf": {
 "first_seen": "2026-10-27",
@@ -2530,7 +2620,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://verity-ag.breezy.hr/p/f79da3a47d38-junior-software-engineer-drone-choreographer": {
 "first_seen": "2026-10-23",
@@ -2548,7 +2638,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://von-siebenthal.ch/de/architektur.html": {
 "first_seen": "2026-10-27",
@@ -2567,7 +2657,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/projektleiterin-/-bauleiterin-holzbau": {
 "first_seen": "2026-10-27",
@@ -2582,7 +2672,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/projektleiterin-fensterbau": {
 "first_seen": "2026-10-27",
@@ -2596,7 +2686,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/projektleiterin-fensterbau-1": {
 "first_seen": "2026-10-27",
@@ -2609,7 +2699,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/projektleiterin-privatkunden": {
 "first_seen": "2026-10-27",
@@ -2623,7 +2713,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.amstutzzimmerei.ch/de/Angebote/Detailansicht?eid=378": {
 "first_seen": "2026-10-27",
@@ -2638,7 +2728,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Besi_Netherlands/260929_Vacature_Software_Developer__002_.pdf": {
 "first_seen": "2026-10-27",
@@ -2651,7 +2741,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Besi_Netherlands/Quality_Engineer.pdf": {
 "first_seen": "2026-10-27",
@@ -2664,7 +2754,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Besi_Singapore/Besi_Singapore_Order_Project_Engineer.pdf": {
 "first_seen": "2026-10-27",
@@ -2677,7 +2767,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Besi_Singapore/Besi_Singapore_Process_Engineer.pdf": {
 "first_seen": "2026-10-27",
@@ -2690,7 +2780,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Besi_Singapore/Besi_Singapore_System_Engineer_TC.pdf": {
 "first_seen": "2026-10-27",
@@ -2703,7 +2793,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Besi_Singapore/Besi_Singapore__Project_Manager_Sustaining.pdf": {
 "first_seen": "2026-10-27",
@@ -2716,7 +2806,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Besi_Singapore/Besi_Taiwan_Field_Service_Engineer.pdf": {
 "first_seen": "2026-10-27",
@@ -2729,7 +2819,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Besi_Singapore/Besi_Taiwan_Software_Engineer.pdf": {
 "first_seen": "2026-10-27",
@@ -2743,7 +2833,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Besi_Singapore/Besi_Taiwan_Software_Manager.pdf": {
 "first_seen": "2026-10-27",
@@ -2756,7 +2846,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Besi_Singapore/Software_Engineer_Packaging.pdf": {
 "first_seen": "2026-10-27",
@@ -2769,7 +2859,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Switzerland/DevOps_Engineer.pdf": {
 "first_seen": "2026-10-27",
@@ -2783,7 +2873,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Switzerland/Director_Global_Customer_Project_Management_July26.pdf": {
 "first_seen": "2026-10-27",
@@ -2797,7 +2887,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Switzerland/Electronics_Engineer_April_2025.pdf": {
 "first_seen": "2026-10-27",
@@ -2810,7 +2900,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Switzerland/Manufacturing_Engineer__aug26_.pdf": {
 "first_seen": "2026-10-27",
@@ -2824,7 +2914,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Switzerland/Motion_Control_Engineer.pdf": {
 "first_seen": "2026-10-27",
@@ -2837,7 +2927,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.besi.com/fileadmin/data/Jobs/Switzerland/System_Architect_Mechatronic_-_Job_ad.pdf": {
 "first_seen": "2026-10-27",
@@ -2851,7 +2941,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.blumer-lehmann.com/bauprojekte-realisieren/planung-und-entwicklung/architektur-und-projektentwicklung.html": {
 "first_seen": "2026-10-23",
@@ -2912,7 +3002,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/junior-projektleiter-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -2925,7 +3015,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/kalkulator-schluesselfertiger-hochbau---holzbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -2946,7 +3036,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/leiter-montage-holz--und-modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -2988,7 +3078,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/polier-holzbau-montage-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -3009,7 +3099,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -3022,7 +3112,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -3048,7 +3138,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -3074,7 +3164,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertiger-hochbau---modulbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -3091,7 +3181,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-projektleitung-holzbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -3104,7 +3194,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/vorarbeiter-holzbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -3162,7 +3252,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.comsol.com/company/careers/job/3291/": {
 "first_seen": "2026-10-27",
@@ -3177,7 +3267,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.comsol.com/company/careers/job/9031/": {
 "first_seen": "2026-10-27",
@@ -3193,7 +3283,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.ethon.com/careers/forward-deployed-engineer": {
 "first_seen": "2026-10-27",
@@ -3207,7 +3297,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.google.ch/maps/dir//Hardegger+Holzbau+AG,+Mooswiesstrasse+82,+9200+Gossau/@47.4306193,9.2889543,14z/data=!4m9!4m8!1m0!1m5!1m1!1s0x479ae0c22dce928f:0x60b814065bca31b8!2m2!1d9.26364!2d47.41438!3e0": {
 "first_seen": "2026-10-27",
@@ -3230,7 +3320,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.holzbau-niederberger.ch/ueber-uns/projektleiter": {
 "first_seen": "2026-10-27",
@@ -3249,7 +3339,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.holzbau-schweiz.ch/de/bildung/weiterbildung/holzbau-techniker-in-hf/": {
 "first_seen": "2026-10-27",
@@ -3263,7 +3353,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.holzbau-schweiz.ch/de/holzbau-techniker": {
 "first_seen": "2026-10-27",
@@ -3283,7 +3373,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.holzbautechnik.ch/ueber-uns/projektleiter.html": {
 "first_seen": "2026-10-27",
@@ -3307,7 +3397,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.hunziker-holzbau.ch/jobs/offene-stellen/job-quiz-projektleiter-in-holzbau": {
 "first_seen": "2026-10-27",
@@ -3326,7 +3416,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jennyscience.com/de/ueber-uns/karriere/Online-Inserate/karriere_Konstrukteur": {
 "first_seen": "2026-10-27",
@@ -3339,7 +3429,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jennyscience.com/de/ueber-uns/karriere/Online-Inserate/karriere_Produktionsleiter": {
 "first_seen": "2026-10-27",
@@ -3350,7 +3440,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.job-room.ch/job-search/01776ba5-301e-4f9d-9530-9a580a192f73": {
 "first_seen": "2026-10-27",
@@ -3384,7 +3474,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.job-room.ch/job-search/0b06881b-7bc1-418f-b961-8e304af35ebe": {
 "first_seen": "2026-10-27",
@@ -3477,7 +3567,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.job-room.ch/job-search/84351081-fd05-4aa6-849c-3ab36f18870c": {
 "first_seen": "2026-10-27",
@@ -3492,7 +3582,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.job-room.ch/job-search/9ac248be-a51e-4313-acba-34e260ff4c39": {
 "first_seen": "2026-10-27",
@@ -3506,7 +3596,27 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
+},
+"https://www.job-room.ch/job-search/9c0d47d6-787c-4cbf-834b-15a21619fc98": {
+"first_seen": "2026-10-29",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 16,
+"skills": [
+"geometry",
+"point clouds / scanning",
+"C++",
+"Python",
+"simulation",
+"ROS / kinematics",
+"research",
+"architecture / AEC"
+],
+"tries": 1
+},
+"last_seen": "2026-10-29"
 },
 "https://www.job-room.ch/job-search/a63f0c5c-e113-45d9-9c31-14776b40edf2": {
 "first_seen": "2026-10-27",
@@ -3521,7 +3631,22 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
+},
+"https://www.job-room.ch/job-search/a947f33e-9c96-48b6-8904-932148b30e1c": {
+"first_seen": "2026-10-29",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 8,
+"skills": [
+"C++",
+"Rust",
+"open source / CI"
+],
+"tries": 1
+},
+"last_seen": "2026-10-29"
 },
 "https://www.job-room.ch/job-search/b0185ec0-49bb-4df5-be9c-7fdbe36e8b43": {
 "first_seen": "2026-10-28",
@@ -3535,7 +3660,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.job-room.ch/job-search/b2b05bd2-9073-421a-ba30-171ee55d4c78": {
 "first_seen": "2026-10-27",
@@ -3549,7 +3674,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.job-room.ch/job-search/c3b9448f-98e8-459f-9081-4a85a1db745e": {
 "first_seen": "2026-10-27",
@@ -3577,7 +3702,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.job-room.ch/job-search/e69b9c6b-8b08-4ccc-8782-fe2f1f299774": {
 "first_seen": "2026-10-27",
@@ -3592,7 +3717,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.job-room.ch/job-search/ea13c0ee-f389-4682-bab6-eb45530cfed4": {
 "first_seen": "2026-10-27",
@@ -3621,7 +3746,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/033c06b5-b30f-4669-8e2a-4659fcf779fa/": {
 "first_seen": "2026-10-23",
@@ -3679,7 +3804,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/1f2480f7-3a61-4d56-bca2-b7940c716343/": {
 "first_seen": "2026-10-23",
@@ -3697,7 +3822,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/2fcba9af-c8e4-4e4b-ad29-6eacda4b6655/": {
 "first_seen": "2026-10-23",
@@ -3710,7 +3835,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/345b39c0-c91d-455d-b175-b7b790fe6ff2/": {
 "first_seen": "2026-10-23",
@@ -3725,7 +3850,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/353cabee-9dea-41b0-a7a0-65d1fe599b84/": {
 "first_seen": "2026-10-28",
@@ -3739,7 +3864,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/361acd43-aa9c-4ff9-9a59-b69017488813/": {
 "first_seen": "2026-10-23",
@@ -3758,7 +3883,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/3b9a15f3-40ce-4f9f-b008-7acb0e158925/": {
 "first_seen": "2026-10-23",
@@ -3777,7 +3902,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/4580add9-9f63-4d6c-b8da-f888bc59231d/": {
 "first_seen": "2026-10-27",
@@ -3792,7 +3917,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/4c138fc2-5810-4dde-b678-751be6c54c2f/": {
 "first_seen": "2026-10-23",
@@ -3822,7 +3947,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/5d6cb323-4509-44cf-8fd8-aa66ce6c498f/": {
 "first_seen": "2026-10-23",
@@ -3845,7 +3970,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/65d23522-6f48-48df-ba36-a44988236955/": {
 "first_seen": "2026-10-23",
@@ -3870,7 +3995,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/76c7518e-ff0a-41ba-b3b1-f5b74f09731e/": {
 "first_seen": "2026-10-27",
@@ -3884,7 +4009,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/79563b71-7b72-43a7-8055-68f468383048/": {
 "first_seen": "2026-10-23",
@@ -3902,7 +4027,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/7ceff537-b3a1-4725-9077-383716e8f25c/": {
 "first_seen": "2026-10-23",
@@ -3915,7 +4040,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/7f1d5589-3068-464f-84db-1c585bd3ab3c/": {
 "first_seen": "2026-10-27",
@@ -3930,11 +4055,26 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/840478be-8977-4121-9787-483a05122238/": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-23"
+},
+"https://www.jobs.ch/en/vacancies/detail/8af56adf-92bd-44ca-8303-de85f2db4ae9/": {
+"first_seen": "2026-10-29",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 9,
+"skills": [
+"timber",
+"BIM / CAD",
+"structural design"
+],
+"tries": 1
+},
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/913a2dfc-4fe6-4650-b779-2d7a59feabf7/": {
 "first_seen": "2026-10-23",
@@ -3950,7 +4090,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/963c479c-9e89-491a-bdf5-0e25c12e2b79/": {
 "first_seen": "2026-10-23",
@@ -3967,7 +4107,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/98c6cedf-48ee-4e74-af63-67ebeba35a63/": {
 "first_seen": "2026-10-23",
@@ -3980,7 +4120,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/994f5966-5992-4ecb-a13a-f9a04fd9c11d/": {
 "first_seen": "2026-10-23",
@@ -3997,7 +4137,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/9fa17c21-1c31-41c6-b24f-ae765d4f6df3/": {
 "first_seen": "2026-10-23",
@@ -4028,7 +4168,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/ad11d905-62e8-4dd7-8293-65aa312d274f/": {
 "first_seen": "2026-10-23",
@@ -4045,7 +4185,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/b5a19bfe-867a-402e-8041-6f81e60419b7/": {
 "first_seen": "2026-10-23",
@@ -4081,7 +4221,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/be37c1f4-ecb5-4b4e-9d64-6232dfc7a51a/": {
 "first_seen": "2026-10-26",
@@ -4096,7 +4236,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/c2b7cb53-33a4-43b6-8b56-81d460ab6719/": {
 "first_seen": "2026-10-27",
@@ -4109,7 +4249,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/c3dd261f-c542-415b-bcf0-94f99590e6fd/": {
 "first_seen": "2026-10-23",
@@ -4122,7 +4262,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/cb52edc2-eff7-4a44-9d46-f8242a61aba1/": {
 "first_seen": "2026-10-27",
@@ -4136,7 +4276,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/dc5e30da-b245-4445-b021-e4e71da87c56/": {
 "first_seen": "2026-10-27",
@@ -4147,7 +4287,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/e6030439-bbad-45d9-85f4-8b2ce4f97e53/": {
 "first_seen": "2026-10-23",
@@ -4161,7 +4301,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/e63eb0fd-87f9-4fa0-a50d-9447341d1d14/": {
 "first_seen": "2026-10-27",
@@ -4174,7 +4314,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/e6efacb7-6163-4672-8500-2cc4d698f26b/": {
 "first_seen": "2026-10-23",
@@ -4187,7 +4327,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/ed651059-9864-4b6f-981b-d06b542daaa4/": {
 "first_seen": "2026-10-23",
@@ -4202,7 +4342,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/edb94af8-45e7-4749-b6db-1136814823f4/": {
 "first_seen": "2026-10-27",
@@ -4217,7 +4357,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/ef94c195-7a34-47ee-babf-56bc8b98e1aa/": {
 "first_seen": "2026-10-23",
@@ -4232,7 +4372,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/f06a3138-fcf2-4578-a9db-9df0e63e3cbe/": {
 "first_seen": "2026-10-23",
@@ -4248,7 +4388,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobs.ch/en/vacancies/detail/f2792851-8bab-4b3e-9888-b37623a17254/": {
 "first_seen": "2026-10-23",
@@ -4269,7 +4409,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.jobup.ch/fr/emplois/detail/0e3f4fc7-0b6f-4b8e-a53c-f0510c778ce0/": {
 "first_seen": "2026-10-23",
@@ -4374,7 +4514,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.lignatur.ch/unternehmen/jobs-karriere/projektleiterin-auftragsbearbeitung": {
 "first_seen": "2026-10-23",
@@ -4412,7 +4552,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.remund-holzbau.ch/files/100-Stelleninserat-Technikerin-HF-Bauplanung-84x145mm.pdf": {
 "first_seen": "2026-10-27",
@@ -4423,7 +4563,7 @@
 "skills": [],
 "tries": 3
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.roethlisberger-zimmerei.ch/planung.html": {
 "first_seen": "2026-10-27",
@@ -4444,7 +4584,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.schaellibaum.ch/unternehmen/jobs-karriere/bauleiterin-hochbau": {
 "first_seen": "2026-10-27",
@@ -4455,7 +4595,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.schaellibaum.ch/unternehmen/jobs-karriere/chefbauleiterin-infrastrukturbau": {
 "first_seen": "2026-10-27",
@@ -4466,7 +4606,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.schnetzerpuskas.com/de/jobsdetails/projektleiterin-holzbau": {
 "first_seen": "2026-10-27",
@@ -4480,7 +4620,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.spaeti-holzbau.ch/architektur": {
 "first_seen": "2026-10-27",
@@ -4545,7 +4685,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.strueby.ch/stellen/gebaeudetechnikplaner-lueftung-m-w-d/": {
 "first_seen": "2026-10-23",
@@ -4560,7 +4700,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.strueby.ch/stellen/konstrukteur-holzbau-junior-fachplaner-m-w-d/": {
 "first_seen": "2026-10-23",
@@ -4575,7 +4715,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.strueby.ch/stellen/projekt-bauleiter-m-w-d/": {
 "first_seen": "2026-10-23",
@@ -4589,7 +4729,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.strueby.ch/stellen/projektentwickler-wohnbau-m-w-d/": {
 "first_seen": "2026-10-23",
@@ -4603,7 +4743,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.strueby.ch/stellen/projektleiter-bauphysik-m-w-d/": {
 "first_seen": "2026-10-23",
@@ -4617,7 +4757,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.strueby.ch/stellen/projektleiter-fassadenbau-holzbau-m-w-d/": {
 "first_seen": "2026-10-23",
@@ -4631,7 +4771,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.strueby.ch/stellen/real-estate-development-manager-m-w-d/": {
 "first_seen": "2026-10-23",
@@ -4649,7 +4789,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.strueby.ch/stellen/verkaeufer-und-projektleiter-strattura-m-w-d/": {
 "first_seen": "2026-10-23",
@@ -4670,7 +4810,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.stuberholz.ch/unternehmen/team/karriere/praktikum-holzbautechniker/": {
 "first_seen": "2026-10-27",
@@ -4683,7 +4823,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.uffer.swiss/arbeitswelt/jobs/bauleiter-in-savognin-m-w-d": {
 "first_seen": "2026-10-27",
@@ -4696,7 +4836,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.uffer.swiss/arbeitswelt/jobs/projektleiter-in-techniker-in-hf-holzbau-m-w-d": {
 "first_seen": "2026-10-27",
@@ -4712,7 +4852,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.voegeli-architekten.ch/": {
 "first_seen": "2026-10-27",
@@ -4727,7 +4867,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-10-29"
 },
 "https://www.wiedmer-holzbau.ch/planung-immobilien/bauplanung": {
 "first_seen": "2026-10-27",

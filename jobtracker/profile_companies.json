@@ -18877,6 +18877,21 @@
 "uid": "CHE247128358",
 "website": "https://www.marti-holzbau.ch/"
 },
+"CHE247150300": {
+"canton": "SZ",
+"careers": "",
+"cat": "robotics",
+"check_purpose": false,
+"ehraid": 1774271,
+"feed": null,
+"name": "Common Ground Robotics GmbH",
+"probed": "2026-10-29",
+"seat": "Freienbach",
+"source": "zefix",
+"status": "no careers page",
+"uid": "CHE247150300",
+"website": "https://www.commonground.ch/"
+},
 "CHE247591029": {
 "canton": "AG",
 "careers": "",
@@ -26142,6 +26157,19 @@
 "uid": "CHE408522209",
 "website": ""
 },
+"CHE408614107": {
+"canton": "SG",
+"cat": "robotics",
+"check_purpose": false,
+"ehraid": 1774097,
+"name": "Drone Operations Zell",
+"probed": "2026-10-29",
+"seat": "St. Gallen",
+"source": "zefix",
+"status": "no website",
+"uid": "CHE408614107",
+"website": ""
+},
 "CHE408776721": {
 "canton": "BE",
 "careers": "",
@@ -28672,6 +28700,21 @@
 "status": "no careers page",
 "uid": "CHE472337908",
 "website": "https://www.zahlerholzbau.ch/"
+},
+"CHE472437154": {
+"canton": "ZH",
+"careers": "",
+"cat": "timber",
+"check_purpose": false,
+"ehraid": 1774183,
+"feed": null,
+"name": "Hugener Holzbau AG",
+"probed": "2026-10-29",
+"seat": "Embrach",
+"source": "zefix",
+"status": "no careers page",
+"uid": "CHE472437154",
+"website": "https://hugener-holzbau.ch/"
 },
 "CHE472652741": {
 "canton": "BE",
