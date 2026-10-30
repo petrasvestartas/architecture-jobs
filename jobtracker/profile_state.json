@@ -280,7 +280,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 2
+"tries": 3
 },
 "last_seen": "2026-10-30"
 },
@@ -337,7 +337,7 @@
 "skills": [
 "computer vision"
 ],
-"tries": 2
+"tries": 3
 },
 "last_seen": "2026-10-30"
 },
@@ -2782,6 +2782,19 @@
 },
 "last_seen": "2026-10-30"
 },
+"https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/projektleiterin-service": {
+"first_seen": "2026-10-30",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 1,
+"skills": [
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-10-30"
+},
 "https://www.amstutzzimmerei.ch/de/Angebote/Detailansicht?eid=378": {
 "first_seen": "2026-10-27",
 "last_seen": "2026-10-27"
@@ -3103,7 +3116,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-29"
+"last_seen": "2026-10-30"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/leiter-montage-holz--und-modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -3279,6 +3292,19 @@
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/vorarbeiter-holzbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-27"
+},
+"https://www.blumer-lehmann.com/en/careers/job-vacancies/zeichner-architektur-gu-%28m-w-d%29.html": {
+"first_seen": "2026-10-30",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-10-30"
 },
 "https://www.burri.world/jobs/wirtschaftsinformatiker-in-fokus-interne-digitalisierung-und-prozessentwicklung": {
 "first_seen": "2026-10-27",
