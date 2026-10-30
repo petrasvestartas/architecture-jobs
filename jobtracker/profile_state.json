@@ -161,6 +161,36 @@
 },
 "last_seen": "2026-10-30"
 },
+"https://apply.careers.microsoft.com/careers/job/1970393557044968": {
+"first_seen": "2026-10-30",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"open source / CI",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-10-30"
+},
+"https://apply.careers.microsoft.com/careers/job/1970393557048767": {
+"first_seen": "2026-10-30",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 7,
+"skills": [
+"Python",
+"simulation",
+"open source / CI",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-10-30"
+},
 "https://apply.careers.microsoft.com/careers?query=200063235&start=0&pid=1970393557044951&sort_by=relevance": {
 "first_seen": "2026-10-28",
 "fit": {
@@ -250,7 +280,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-30"
 },
@@ -307,7 +337,7 @@
 "skills": [
 "computer vision"
 ],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-10-30"
 },
@@ -3175,7 +3205,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-29"
+"last_seen": "2026-10-30"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -3205,7 +3235,16 @@
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertiger-hochbau---modulbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
-"last_seen": "2026-10-26"
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-10-30"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertiger-hochbau---modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
