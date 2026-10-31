@@ -616,82 +616,82 @@
 "status": "failed"
 },
 "CHE109912008": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE110030428": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE110039599": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE110213070": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE110324232": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE110329442": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE110345429": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE110423733": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE110567556": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE110607581": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE111688369": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE111716037": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE111737973": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE112002354": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "detail": "HTTP Error 404: Not Found",
 "status": "failed"
 },
 "CHE112057697": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE112300194": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -708,178 +708,178 @@
 "status": "ok"
 },
 "CHE112366572": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE112444373": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE112668665": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE112700760": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE112811158": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE112894776": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE112965471": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE113190181": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE113329906": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE113458320": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE113574469": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE113809247": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE114026667": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "detail": "HTTP Error 404: Not Found",
 "jobs": [],
 "status": "failed"
 },
 "CHE114143971": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE114287920": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE114348898": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE114457613": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE114585725": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE114630030": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE114805192": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE114840136": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE115309441": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE115375656": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE115724389": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE115789638": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE115823235": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE115999868": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE116182918": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE131808613": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE132334919": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE139688123": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE144595349": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "detail": "'ascii' codec can't encode character '\\xfc' in position 5: ordinal not in range(128)",
 "status": "failed"
 },
 "CHE145830151": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE147700855": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE149554033": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -896,37 +896,37 @@
 "status": "ok"
 },
 "CHE150235238": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE152896818": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE155348418": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE155359333": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE156238399": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE157342964": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE158744288": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -943,107 +943,107 @@
 "status": "ok"
 },
 "CHE158855048": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE161081264": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE161592180": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE162642484": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE164525317": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE166155007": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE166196584": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE169106904": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE170648388": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE172399457": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "detail": "'ascii' codec can't encode character '\\xfc' in position 5: ordinal not in range(128)",
 "status": "failed"
 },
 "CHE174532052": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE174918977": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE175202108": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE177833544": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE178334918": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE179642943": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE184359588": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE194562079": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE194829667": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE198623998": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE200669919": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1060,82 +1060,82 @@
 "status": "ok"
 },
 "CHE202122833": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE204946911": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE205719217": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE205743807": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE207355439": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE207416354": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE207845809": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE209475600": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE209957833": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE212040289": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE213398397": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE213704436": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE214800568": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE217853118": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE218548994": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE222098103": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1152,37 +1152,37 @@
 "status": "ok"
 },
 "CHE222623363": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE223811772": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE223863237": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE223868884": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE224025090": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE225080737": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE232491778": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1221,48 +1221,48 @@
 "status": "ok"
 },
 "CHE237229644": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE243130557": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE244463406": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE245929815": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE246988921": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "detail": "HTTP Error 404: Not Found",
 "jobs": [],
 "status": "failed"
 },
 "CHE247128358": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE252048736": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE253370324": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE253945526": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "software",
@@ -1279,7 +1279,7 @@
 "status": "ok"
 },
 "CHE254375198": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1296,7 +1296,7 @@
 "status": "ok"
 },
 "CHE254536426": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
@@ -1823,32 +1823,32 @@
 "status": "ok"
 },
 "CHE481785832": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE483250803": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE483887047": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE487887359": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE494206522": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "CHE496149102": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1865,18 +1865,18 @@
 "status": "ok"
 },
 "CHE499636114": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:allplanschweiz": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "detail": "HTTP Error 403: Forbidden",
 "jobs": [],
 "status": "failed"
 },
 "curated:ambergtechnologies": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "software",
@@ -1893,17 +1893,17 @@
 "status": "ok"
 },
 "curated:applezurich": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:archilogic": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:b3kolb": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -1997,17 +1997,17 @@
 "status": "ok"
 },
 "curated:bauwerkparkett": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:beckhoffautomationschweiz": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:besiswitzerland": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -2266,12 +2266,12 @@
 "status": "ok"
 },
 "curated:blesshess": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:botasystems": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -2299,22 +2299,22 @@
 "status": "ok"
 },
 "curated:bsfswissphoto": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:bubblerobotics": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:computerworksvectorworksschweiz": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:comsolschweiz": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "software",
@@ -2353,17 +2353,17 @@
 "status": "ok"
 },
 "curated:conzettbronzinipartner": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:csem": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:daedaleandestinus": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -2380,27 +2380,27 @@
 "status": "ok"
 },
 "curated:dassaultsystemes": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:dufouraerospace": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:esrirdcenterzurichcityenginearcgisurban": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:esrischweiz": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:ethonai": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -2417,17 +2417,17 @@
 "status": "ok"
 },
 "curated:fanucswitzerland": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:fixposition": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:flexionrobotics": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -2521,7 +2521,7 @@
 "status": "ok"
 },
 "curated:flinkrobotics": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "software",
@@ -2538,12 +2538,12 @@
 "status": "ok"
 },
 "curated:floatingrobotics": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:fotokite": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "software",
@@ -2560,22 +2560,22 @@
 "status": "ok"
 },
 "curated:fritzstuder": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:gfmachiningsolutionsunitedmachining": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:googlezurich": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:haering": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -2592,47 +2592,47 @@
 "status": "ok"
 },
 "curated:haupt": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:hectoregger": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:hocomadih": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:holzindustrieschweiz": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:holzkonstrukt": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:ibmresearchzurich": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:ihtingenieurbuerofuerholztechnik": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:indermuehlebauingenieure": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:ingenta": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -2660,17 +2660,17 @@
 "status": "ok"
 },
 "curated:inovitasinfra3d": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:inspireag": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:jennyscience": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -2709,22 +2709,22 @@
 "status": "ok"
 },
 "curated:komax": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:kuehni": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:kuendig": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:leimholzhaag": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -2741,58 +2741,58 @@
 "status": "ok"
 },
 "curated:lignumetalengineering": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:luechingermeyerpartner": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:makiolwiederkehr": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:manukai": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:maxon": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "detail": "HTTP Error 403: Forbidden",
 "jobs": [],
 "status": "failed"
 },
 "curated:menschundmaschineschweiz": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:menzimuck": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:meshroboticrebar": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:messerliinformatikelitecad": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:metarealitylabszurich": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "detail": "HTTP Error 400: Bad Request",
 "status": "failed"
 },
 "curated:microsoftspatialailabzurich": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "research",
@@ -2820,47 +2820,47 @@
 "status": "ok"
 },
 "curated:nightnurseimages": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:num": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:nvidiazurich": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:olwo": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:piusschuler": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:raiinstitutezurich": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:rapyutarobotics": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:roboa": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:saeki": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -2888,7 +2888,7 @@
 "status": "ok"
 },
 "curated:schaellibaum": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -2927,7 +2927,7 @@
 "status": "ok"
 },
 "curated:schnetzerpuskas": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "timber",
@@ -2944,17 +2944,17 @@
 "status": "ok"
 },
 "curated:sfsgrouptimberfasteners": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:siemensschweiz": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:skydio": {
-"checked": "2026-10-31T10:07+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [
 {
 "cat": "robotics",
@@ -3244,37 +3244,37 @@
 "status": "ok"
 },
 "curated:uniqfeed": {
-"checked": "2026-10-30T17:43+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "detail": "HTTP Error 404: Not Found",
 "status": "failed"
 },
 "curated:unitedgrinding": {
-"checked": "2026-10-30T17:43+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:vaulted": {
-"checked": "2026-10-30T17:43+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:vyzn": {
-"checked": "2026-10-30T17:43+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:wittymachines": {
-"checked": "2026-10-30T17:43+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:woodtecfankhauser": {
-"checked": "2026-10-30T17:43+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 },
 "curated:zuehlke": {
-"checked": "2026-10-30T17:43+00:00",
+"checked": "2026-10-31T16:04+00:00",
 "jobs": [],
 "status": "ok"
 }
