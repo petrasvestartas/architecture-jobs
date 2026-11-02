@@ -14911,6 +14911,18 @@
 "uid": "CHE157488763",
 "website": "https://www.pro-holzbau.ch/"
 },
+"CHE157721304": {
+"canton": "ZH",
+"cat": "robotics",
+"check_purpose": false,
+"ehraid": 1774533,
+"name": "Körner Process & Automation Engineering",
+"probed": "2026-11-02",
+"seat": "Lindau",
+"source": "zefix",
+"status": "off-topic",
+"uid": "CHE157721304"
+},
 "CHE158612014": {
 "canton": "SH",
 "cat": "robotics",
