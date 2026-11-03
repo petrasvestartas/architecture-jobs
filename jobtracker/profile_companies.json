@@ -19862,21 +19862,6 @@
 "uid": "CHE267134304",
 "website": ""
 },
-"CHE267345249": {
-"canton": "BE",
-"careers": "",
-"cat": "robotics",
-"check_purpose": false,
-"ehraid": 1697932,
-"feed": null,
-"name": "Drohnendienstleistung Flückiger GmbH",
-"probed": "2026-10-27",
-"seat": "Huttwil",
-"source": "zefix",
-"status": "no careers page",
-"uid": "CHE267345249",
-"website": "https://drohnendienstleistung.ch/"
-},
 "CHE267603291": {
 "canton": "TG",
 "careers": "https://www.zaugg-timber.ch/jobs",
@@ -19976,6 +19961,18 @@
 "status": "no careers page",
 "uid": "CHE269440781",
 "website": "https://waser-zimmerei.ch/"
+},
+"CHE270024685": {
+"canton": "GR",
+"cat": "robotics",
+"check_purpose": false,
+"ehraid": 1774743,
+"name": "Grischa Automation GmbH",
+"probed": "2026-11-03",
+"seat": "Untervaz",
+"source": "zefix",
+"status": "off-topic",
+"uid": "CHE270024685"
 },
 "CHE270053600": {
 "canton": "BL",
@@ -22443,6 +22440,19 @@
 "source": "zefix",
 "status": "no website",
 "uid": "CHE322755953",
+"website": ""
+},
+"CHE322758041": {
+"canton": "BE",
+"cat": "timber",
+"check_purpose": false,
+"ehraid": 1774777,
+"name": "Eggimann Holzbau GmbH",
+"probed": "2026-11-03",
+"seat": "Worb",
+"source": "zefix",
+"status": "no website",
+"uid": "CHE322758041",
 "website": ""
 },
 "CHE323987058": {
