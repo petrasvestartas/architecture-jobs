@@ -191,6 +191,53 @@
 },
 "last_seen": "2026-11-03"
 },
+"https://apply.careers.microsoft.com/careers/job/1970393557050053": {
+"first_seen": "2026-11-03",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 7,
+"skills": [
+"Python",
+"simulation",
+"open source / CI",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-03"
+},
+"https://apply.careers.microsoft.com/careers/job/1970393557050071": {
+"first_seen": "2026-11-03",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 9,
+"skills": [
+"C++",
+"Python",
+"graphics / GPU",
+"open source / CI",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-03"
+},
+"https://apply.careers.microsoft.com/careers/job/1970393557050076": {
+"first_seen": "2026-11-03",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 4,
+"skills": [
+"Python",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-03"
+},
 "https://apply.careers.microsoft.com/careers?query=200063235&start=0&pid=1970393557044951&sort_by=relevance": {
 "first_seen": "2026-10-28",
 "fit": {
@@ -429,6 +476,17 @@
 "fit": 0,
 "skills": [],
 "tries": 3
+},
+"last_seen": "2026-11-03"
+},
+"https://auterion.com/company/careers-open-position/8928020002?gh_jid=8928020002": {
+"first_seen": "2026-11-03",
+"fit": {
+"de": false,
+"desc": false,
+"fit": 0,
+"skills": [],
+"tries": 1
 },
 "last_seen": "2026-11-03"
 },
@@ -2412,6 +2470,17 @@
 "tries": 1
 },
 "last_seen": "2026-10-29"
+},
+"https://jobs.siemens.com/de_DE/externaljobs/JobDetail/528134": {
+"first_seen": "2026-11-03",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 0,
+"skills": [],
+"tries": 1
+},
+"last_seen": "2026-11-03"
 },
 "https://koch-ag.ch/architektur/": {
 "first_seen": "2026-10-27",
