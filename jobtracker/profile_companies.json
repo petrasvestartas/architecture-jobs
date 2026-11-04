@@ -14701,6 +14701,19 @@
 "uid": "CHE153691093",
 "website": ""
 },
+"CHE153970050": {
+"canton": "ZH",
+"cat": "robotics",
+"check_purpose": false,
+"ehraid": 1253041,
+"name": "droneLIONS GmbH",
+"probed": "2026-11-04",
+"seat": "Flurlingen",
+"source": "zefix",
+"status": "no website",
+"uid": "CHE153970050",
+"website": ""
+},
 "CHE154453076": {
 "canton": "SZ",
 "careers": "",
@@ -16022,6 +16035,19 @@
 "source": "zefix",
 "status": "no website",
 "uid": "CHE180698471",
+"website": ""
+},
+"CHE181188652": {
+"canton": "GR",
+"cat": "robotics",
+"check_purpose": false,
+"ehraid": 1774897,
+"name": "Mark Cargo Drone",
+"probed": "2026-11-04",
+"seat": "Lumnezia",
+"source": "zefix",
+"status": "no website",
+"uid": "CHE181188652",
 "website": ""
 },
 "CHE181420139": {
