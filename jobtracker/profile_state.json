@@ -975,7 +975,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-11-04"
 },
 "https://ch.linkedin.com/jobs/view/robot-platform-engineer-humanoid-mensch-at-neura-robotics-4440514551": {
 "first_seen": "2026-10-23",
@@ -2666,6 +2666,22 @@
 },
 "last_seen": "2026-10-29"
 },
+"https://opench.bamboohr.com/careers/829": {
+"first_seen": "2026-11-04",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 8,
+"skills": [
+"C++",
+"Rust",
+"Python",
+"C#"
+],
+"tries": 1
+},
+"last_seen": "2026-11-04"
+},
 "https://phbe.ch/wp-content/uploads/2026/10/stelleninserat-pl-boden-parkettleger-neu.pdf": {
 "first_seen": "2026-10-27",
 "last_seen": "2026-10-27"
@@ -3501,7 +3517,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-04"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-projektleitung-holzbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -3873,6 +3889,20 @@
 },
 "last_seen": "2026-10-27"
 },
+"https://www.job-room.ch/job-search/2098ff34-3297-410d-ba50-5f9d83a26a29": {
+"first_seen": "2026-11-04",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"Python",
+"C#"
+],
+"tries": 1
+},
+"last_seen": "2026-11-04"
+},
 "https://www.job-room.ch/job-search/35c7f6d7-04b6-4447-8a35-42d101e04c8c": {
 "first_seen": "2026-11-02",
 "fit": {
@@ -3883,6 +3913,20 @@
 "timber",
 "CNC / CAM",
 "BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-11-04"
+},
+"https://www.job-room.ch/job-search/447e58e1-bb98-45bf-a4bd-f8f19a5b9369": {
+"first_seen": "2026-11-04",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 4,
+"skills": [
+"industrial robots",
+"computer vision"
 ],
 "tries": 1
 },
@@ -3964,6 +4008,20 @@
 "tries": 1
 },
 "last_seen": "2026-10-28"
+},
+"https://www.job-room.ch/job-search/77ddf64e-fb05-4d53-8d78-73fc3b3878f1": {
+"first_seen": "2026-11-04",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"Python",
+"computer vision"
+],
+"tries": 1
+},
+"last_seen": "2026-11-04"
 },
 "https://www.job-room.ch/job-search/7fefefaf-7448-44c4-be8d-f54310c095a2": {
 "first_seen": "2026-10-27",
@@ -4145,6 +4203,21 @@
 },
 "last_seen": "2026-10-29"
 },
+"https://www.job-room.ch/job-search/d19f4a62-b66a-4934-bfd9-2c137158fb9f": {
+"first_seen": "2026-11-04",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 8,
+"skills": [
+"C++",
+"Rust",
+"open source / CI"
+],
+"tries": 1
+},
+"last_seen": "2026-11-04"
+},
 "https://www.job-room.ch/job-search/d3bd4a9f-186b-4abd-9f18-cb69d88d7601": {
 "first_seen": "2026-11-01",
 "fit": {
@@ -4188,6 +4261,20 @@
 "tries": 1
 },
 "last_seen": "2026-10-28"
+},
+"https://www.job-room.ch/job-search/efb11da3-b8b8-4776-acb3-b2415d82aa8d": {
+"first_seen": "2026-11-04",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 7,
+"skills": [
+"C++",
+"open source / CI"
+],
+"tries": 1
+},
+"last_seen": "2026-11-04"
 },
 "https://www.job-room.ch/job-search/fbf87698-8e85-440a-b5ee-2a35f1d83003": {
 "first_seen": "2026-10-29",
