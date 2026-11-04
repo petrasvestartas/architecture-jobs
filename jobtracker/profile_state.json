@@ -308,6 +308,30 @@
 },
 "last_seen": "2026-11-04"
 },
+"https://apply.workable.com/destinusgroup/j/A243C1965B/": {
+"first_seen": "2026-11-04",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 1,
+"skills": [
+"open source / CI"
+],
+"tries": 1
+},
+"last_seen": "2026-11-04"
+},
+"https://apply.workable.com/destinusgroup/j/F1C5B24D74/": {
+"first_seen": "2026-11-04",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 0,
+"skills": [],
+"tries": 1
+},
+"last_seen": "2026-11-04"
+},
 "https://artho-ag.ch/p/holzbau-architektur/": {
 "first_seen": "2026-10-27",
 "last_seen": "2026-10-27"
@@ -486,7 +510,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 2
+"tries": 3
 },
 "last_seen": "2026-11-04"
 },
@@ -1312,6 +1336,22 @@
 "desc": true,
 "fit": 1,
 "skills": [
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-04"
+},
+"https://flexion.ai/careers/5f48a3": {
+"first_seen": "2026-11-04",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 7,
+"skills": [
+"Python",
+"graphics / GPU",
+"simulation",
 "research"
 ],
 "tries": 1
@@ -3422,7 +3462,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-04"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertig--und-modulbau-%28m-w-d%29-.html": {
 "first_seen": "2026-10-23",
@@ -4430,7 +4470,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-04"
 },
 "https://www.jobs.ch/en/vacancies/detail/5c3afffc-b869-4a0b-a628-2baa6914222b/": {
 "first_seen": "2026-10-23",
@@ -4806,7 +4846,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-04"
 },
 "https://www.jobs.ch/en/vacancies/detail/cb52edc2-eff7-4a44-9d46-f8242a61aba1/": {
 "first_seen": "2026-10-27",
@@ -4957,7 +4997,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-04"
 },
 "https://www.jobs.ch/en/vacancies/detail/f06a3138-fcf2-4578-a9db-9df0e63e3cbe/": {
 "first_seen": "2026-10-23",
@@ -5162,6 +5202,17 @@
 "fit": 0,
 "skills": [],
 "tries": 3
+},
+"last_seen": "2026-11-04"
+},
+"https://www.nussbaum.ch/de/offene-stellen/teamleiter-in-instandhaltung-100-479.html": {
+"first_seen": "2026-11-04",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 0,
+"skills": [],
+"tries": 1
 },
 "last_seen": "2026-11-04"
 },
