@@ -812,7 +812,16 @@
 },
 "https://cdn.prod.website-files.com/69dc93b3821010806c215fa7/6ab6271389d1a360f584b042_2609_AVMSystem_SeniorSystemEngineer.pdf": {
 "first_seen": "2026-10-23",
-"last_seen": "2026-10-26"
+"fit": {
+"de": false,
+"desc": true,
+"fit": 1,
+"skills": [
+"C#"
+],
+"tries": 1
+},
+"last_seen": "2026-11-05"
 },
 "https://cdn.prod.website-files.com/69dc93b3821010806c215fa7/6abd0f31d9a24dc2266e08fe_2026_Autonomous_Driving_Perception_Engineer.pdf": {
 "first_seen": "2026-10-23",
@@ -956,6 +965,23 @@
 },
 "last_seen": "2026-11-05"
 },
+"https://ch.linkedin.com/jobs/view/konstruktionsplaner-holzbau-m-w-d-at-rocken%C2%AE-4486795483": {
+"first_seen": "2026-11-05",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 13,
+"skills": [
+"timber",
+"CNC / CAM",
+"BIM / CAD",
+"structural design",
+"architecture / AEC"
+],
+"tries": 1
+},
+"last_seen": "2026-11-05"
+},
 "https://ch.linkedin.com/jobs/view/mechanical-engineer-robotics-at-cdds-4483354357": {
 "first_seen": "2026-10-25",
 "last_seen": "2026-10-26"
@@ -1011,7 +1037,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-10-28"
+"last_seen": "2026-11-05"
 },
 "https://ch.linkedin.com/jobs/view/robotics-software-engineer-at-ecolab-4468233312": {
 "first_seen": "2026-10-28",
@@ -1369,6 +1395,20 @@
 "Python",
 "graphics / GPU",
 "simulation",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-05"
+},
+"https://flexion.ai/careers/5f5f0d": {
+"first_seen": "2026-11-05",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"Python",
 "research"
 ],
 "tries": 1
@@ -4135,6 +4175,21 @@
 },
 "last_seen": "2026-11-04"
 },
+"https://www.job-room.ch/job-search/ab1f661a-3267-443e-8142-401acdf78018": {
+"first_seen": "2026-11-05",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 9,
+"skills": [
+"C++",
+"Python",
+"open source / CI"
+],
+"tries": 1
+},
+"last_seen": "2026-11-05"
+},
 "https://www.job-room.ch/job-search/b0185ec0-49bb-4df5-be9c-7fdbe36e8b43": {
 "first_seen": "2026-10-28",
 "fit": {
@@ -4602,7 +4657,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-04"
+"last_seen": "2026-11-05"
 },
 "https://www.jobs.ch/en/vacancies/detail/5c3afffc-b869-4a0b-a628-2baa6914222b/": {
 "first_seen": "2026-10-23",
@@ -4978,7 +5033,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-04"
+"last_seen": "2026-11-05"
 },
 "https://www.jobs.ch/en/vacancies/detail/cb52edc2-eff7-4a44-9d46-f8242a61aba1/": {
 "first_seen": "2026-10-27",
@@ -5129,7 +5184,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-04"
+"last_seen": "2026-11-05"
 },
 "https://www.jobs.ch/en/vacancies/detail/f06a3138-fcf2-4578-a9db-9df0e63e3cbe/": {
 "first_seen": "2026-10-23",
