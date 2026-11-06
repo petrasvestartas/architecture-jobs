@@ -1069,6 +1069,20 @@
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-23"
 },
+"https://ch.linkedin.com/jobs/view/projektleiterin-holzbau-at-keller-holz-und-fassadenbau-4488186878": {
+"first_seen": "2026-11-06",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 7,
+"skills": [
+"timber",
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-11-06"
+},
 "https://ch.linkedin.com/jobs/view/prototype-developer-software-developer-c%2B%2B-at-qualityai-4473931985": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-24"
@@ -1246,6 +1260,19 @@
 "computer vision",
 "open source / CI",
 "research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-06"
+},
+"https://ch.linkedin.com/jobs/view/senior-solutions-applications-engineer-autonomous-mobile-robot-at-abb-4488186220": {
+"first_seen": "2026-11-06",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"industrial robots"
 ],
 "tries": 1
 },
@@ -3104,6 +3131,19 @@
 "first_seen": "2026-10-27",
 "last_seen": "2026-10-27"
 },
+"https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/bauleiterin-holzbau": {
+"first_seen": "2026-11-06",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-11-06"
+},
 "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/junior-projektleiterin-fensterbau": {
 "first_seen": "2026-10-27",
 "fit": {
@@ -3160,6 +3200,20 @@
 "tries": 1
 },
 "last_seen": "2026-10-30"
+},
+"https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/projektleiterin-holzbau": {
+"first_seen": "2026-11-06",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 7,
+"skills": [
+"timber",
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-11-06"
 },
 "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/projektleiterin-privatkunden": {
 "first_seen": "2026-10-27",
@@ -3843,7 +3897,7 @@
 "desc": false,
 "fit": 0,
 "skills": [],
-"tries": 1
+"tries": 2
 },
 "last_seen": "2026-11-06"
 },
@@ -4152,6 +4206,21 @@
 },
 "last_seen": "2026-11-04"
 },
+"https://www.job-room.ch/job-search/5bbc4f1a-ec04-42d3-a91e-0f2a50347651": {
+"first_seen": "2026-11-06",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 9,
+"skills": [
+"timber",
+"Rhino / Grasshopper",
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-11-06"
+},
 "https://www.job-room.ch/job-search/74edd24b-090a-4b61-9ec3-a69bcefc095d": {
 "first_seen": "2026-10-27",
 "fit": {
@@ -4165,6 +4234,17 @@
 "tries": 1
 },
 "last_seen": "2026-10-28"
+},
+"https://www.job-room.ch/job-search/765e86be-911d-497d-b043-56e197fc162c": {
+"first_seen": "2026-11-06",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 0,
+"skills": [],
+"tries": 1
+},
+"last_seen": "2026-11-06"
 },
 "https://www.job-room.ch/job-search/77ddf64e-fb05-4d53-8d78-73fc3b3878f1": {
 "first_seen": "2026-11-04",
@@ -5002,6 +5082,17 @@
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-25"
 },
+"https://www.jobs.ch/en/vacancies/detail/9ce3ac0a-83d9-435e-b220-2648b4451e69/": {
+"first_seen": "2026-11-06",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 0,
+"skills": [],
+"tries": 1
+},
+"last_seen": "2026-11-06"
+},
 "https://www.jobs.ch/en/vacancies/detail/9f0f5f27-6a20-4cc1-83cb-6fa81e349d34/": {
 "first_seen": "2026-10-23",
 "fit": {
@@ -5107,6 +5198,21 @@
 "https://www.jobs.ch/en/vacancies/detail/b6b9a82d-d964-40fc-9c65-ac3fa0f11cb6/": {
 "first_seen": "2026-10-26",
 "last_seen": "2026-10-26"
+},
+"https://www.jobs.ch/en/vacancies/detail/b94dc2b4-f947-4cf9-9de1-3e1f6130be2f/": {
+"first_seen": "2026-11-06",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 9,
+"skills": [
+"timber",
+"Rhino / Grasshopper",
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-11-06"
 },
 "https://www.jobs.ch/en/vacancies/detail/bba96e70-5599-4071-a4a2-4e93baa6336e/": {
 "first_seen": "2026-10-27",
@@ -5370,7 +5476,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-11-03"
+"last_seen": "2026-11-06"
 },
 "https://www.jobs.ch/en/vacancies/detail/fc5cd0a7-0074-4907-b93e-38ef90b12d7d/": {
 "first_seen": "2026-10-29",
