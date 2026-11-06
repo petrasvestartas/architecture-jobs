@@ -283,6 +283,22 @@
 },
 "last_seen": "2026-10-27"
 },
+"https://apply.workable.com/destinusgroup/j/7762C37F05/": {
+"first_seen": "2026-11-06",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 8,
+"skills": [
+"digital fabrication",
+"CNC / CAM",
+"BIM / CAD",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-06"
+},
 "https://apply.workable.com/destinusgroup/j/7EF97F4025/": {
 "first_seen": "2026-10-27",
 "fit": {
@@ -333,6 +349,20 @@
 "fit": 1,
 "skills": [
 "open source / CI"
+],
+"tries": 1
+},
+"last_seen": "2026-11-06"
+},
+"https://apply.workable.com/destinusgroup/j/B86EBDDF1B/": {
+"first_seen": "2026-11-06",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 2,
+"skills": [
+"BIM / CAD",
+"research"
 ],
 "tries": 1
 },
@@ -683,6 +713,35 @@
 "skills": [
 "Python",
 "research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-06"
+},
+"https://bota-systems-ag.breezy.hr/p/569697ad01ed-design-for-manufacturing-engineer": {
+"first_seen": "2026-11-06",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"CNC / CAM",
+"BIM / CAD",
+"structural design"
+],
+"tries": 1
+},
+"last_seen": "2026-11-06"
+},
+"https://bota-systems-ag.breezy.hr/p/9c58c3317f2a-production-and-automation-lead": {
+"first_seen": "2026-11-06",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 4,
+"skills": [
+"CNC / CAM",
+"BIM / CAD"
 ],
 "tries": 1
 },
@@ -1425,6 +1484,20 @@
 "fit": 3,
 "skills": [
 "Python",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-06"
+},
+"https://flexion.ai/careers/5f6757": {
+"first_seen": "2026-11-06",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 2,
+"skills": [
+"simulation",
 "research"
 ],
 "tries": 1
@@ -3449,7 +3522,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-02"
+"last_seen": "2026-11-06"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/logistiker-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -3577,7 +3650,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-04"
+"last_seen": "2026-11-06"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertiger-hochbau---modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -3759,6 +3832,17 @@
 "BIM / CAD",
 "architecture / AEC"
 ],
+"tries": 1
+},
+"last_seen": "2026-11-06"
+},
+"https://www.holzbau-ruedi.ch/ueber-uns/offene-stellen/projektplanerin/ueber-uns/offene-stellen/projektplanerin/": {
+"first_seen": "2026-11-06",
+"fit": {
+"de": false,
+"desc": false,
+"fit": 0,
+"skills": [],
 "tries": 1
 },
 "last_seen": "2026-11-06"
