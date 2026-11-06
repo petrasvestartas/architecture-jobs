@@ -4193,21 +4193,6 @@
 "uid": "CHE106911544",
 "website": ""
 },
-"CHE106912348": {
-"canton": "GL",
-"careers": "https://www.casa-vita.ch/stellenangebote/",
-"cat": "timber",
-"check_purpose": false,
-"ehraid": 62434,
-"feed": null,
-"name": "CASA-VITA/Frefel Holzbau AG",
-"probed": "2026-10-27",
-"seat": "Glarus Nord",
-"source": "zefix",
-"status": "ok",
-"uid": "CHE106912348",
-"website": "https://www.casa-vita.ch/"
-},
 "CHE106919474": {
 "canton": "ZG",
 "cat": "timber",
@@ -7589,19 +7574,6 @@
 "source": "zefix",
 "status": "off-topic",
 "uid": "CHE108391199"
-},
-"CHE108393376": {
-"canton": "AG",
-"cat": "timber",
-"check_purpose": false,
-"ehraid": 578085,
-"name": "Josef Sidler Sägerei u. Zimmerei",
-"probed": "2026-10-27",
-"seat": "Sins",
-"source": "zefix",
-"status": "no website",
-"uid": "CHE108393376",
-"website": ""
 },
 "CHE108415345": {
 "canton": "SG",
