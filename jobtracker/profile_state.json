@@ -4698,6 +4698,21 @@
 },
 "last_seen": "2026-11-02"
 },
+"https://www.job-room.ch/job-search/d9cd23fa-1ba2-48c0-9c98-7490171035f6": {
+"first_seen": "2026-11-08",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 10,
+"skills": [
+"timber",
+"CNC / CAM",
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-11-08"
+},
 "https://www.job-room.ch/job-search/e69b9c6b-8b08-4ccc-8782-fe2f1f299774": {
 "first_seen": "2026-10-27",
 "fit": {
