@@ -1074,7 +1074,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-07"
+"last_seen": "2026-11-08"
 },
 "https://ch.linkedin.com/jobs/view/field-service-engineer-robotics-at-st%C3%A4ubli-4457912601": {
 "first_seen": "2026-10-29",
@@ -3669,7 +3669,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-07"
+"last_seen": "2026-11-08"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/leiter-montage-holz--und-modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -3745,7 +3745,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-07"
+"last_seen": "2026-11-08"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -3784,7 +3784,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-07"
+"last_seen": "2026-11-08"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertig--und-modulbau-%28m-w-d%29-.html": {
 "first_seen": "2026-10-23",
@@ -3823,7 +3823,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-06"
+"last_seen": "2026-11-08"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-holzbau---avor-%28m-w-d%29.html": {
 "first_seen": "2026-11-07",
@@ -5413,6 +5413,21 @@
 "fit": 4,
 "skills": [
 "Rust"
+],
+"tries": 1
+},
+"last_seen": "2026-11-08"
+},
+"https://www.jobs.ch/en/vacancies/detail/b2c21788-f67a-4021-ac3a-0965b6162e3e/": {
+"first_seen": "2026-11-08",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 10,
+"skills": [
+"timber",
+"CNC / CAM",
+"BIM / CAD"
 ],
 "tries": 1
 },
