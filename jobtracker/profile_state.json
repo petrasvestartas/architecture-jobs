@@ -205,6 +205,45 @@
 },
 "last_seen": "2026-11-03"
 },
+"https://apply.careers.microsoft.com/careers/job/1970393557048114": {
+"first_seen": "2026-11-09",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 2,
+"skills": [
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-09"
+},
+"https://apply.careers.microsoft.com/careers/job/1970393557048173": {
+"first_seen": "2026-11-09",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 2,
+"skills": [
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-09"
+},
+"https://apply.careers.microsoft.com/careers/job/1970393557048176": {
+"first_seen": "2026-11-09",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 2,
+"skills": [
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-09"
+},
 "https://apply.careers.microsoft.com/careers/job/1970393557048767": {
 "first_seen": "2026-10-30",
 "fit": {
@@ -5134,7 +5173,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-05"
+"last_seen": "2026-11-09"
 },
 "https://www.jobs.ch/en/vacancies/detail/5c3afffc-b869-4a0b-a628-2baa6914222b/": {
 "first_seen": "2026-10-23",
@@ -5729,7 +5768,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-05"
+"last_seen": "2026-11-09"
 },
 "https://www.jobs.ch/en/vacancies/detail/f06a3138-fcf2-4578-a9db-9df0e63e3cbe/": {
 "first_seen": "2026-10-23",
