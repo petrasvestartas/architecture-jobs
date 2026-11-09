@@ -1087,7 +1087,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-08"
+"last_seen": "2026-11-09"
 },
 "https://ch.linkedin.com/jobs/view/flight-guidance-motion-planning-engineer-at-harmattan-ai-4448318174": {
 "first_seen": "2026-10-23",
@@ -1139,6 +1139,19 @@
 "https://ch.linkedin.com/jobs/view/mechanical-engineer-robotics-at-cdds-4483354357": {
 "first_seen": "2026-10-25",
 "last_seen": "2026-10-26"
+},
+"https://ch.linkedin.com/jobs/view/produktionsleiter-in-holz-lehm-deckenelemente-at-rematter-4488870053": {
+"first_seen": "2026-11-09",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-11-09"
 },
 "https://ch.linkedin.com/jobs/view/projektleiter-avor-holzbau-at-krattiger-holzbau-ag-krattiger-konzept-ag-4488493995": {
 "first_seen": "2026-11-07",
@@ -3758,7 +3771,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-08"
+"last_seen": "2026-11-09"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---modulbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -3771,7 +3784,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-08"
+"last_seen": "2026-11-09"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
