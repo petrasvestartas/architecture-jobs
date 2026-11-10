@@ -12323,19 +12323,6 @@
 "uid": "CHE114585725",
 "website": "https://smue.ch/"
 },
-"CHE114601270": {
-"canton": "TG",
-"cat": "timber",
-"check_purpose": false,
-"ehraid": 927852,
-"name": "H. Rag. Tscharner Holzbau GmbH",
-"probed": "2026-10-27",
-"seat": "Hauptwil-Gottshaus",
-"source": "zefix",
-"status": "no website",
-"uid": "CHE114601270",
-"website": ""
-},
 "CHE114607485": {
 "canton": "VS",
 "cat": "robotics",
