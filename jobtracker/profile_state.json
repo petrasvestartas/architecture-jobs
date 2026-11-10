@@ -3776,7 +3776,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-09"
+"last_seen": "2026-11-10"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/leiter-montage-holz--und-modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -3878,7 +3878,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-09"
+"last_seen": "2026-11-10"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -3930,7 +3930,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-08"
+"last_seen": "2026-11-10"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-holzbau---avor-%28m-w-d%29.html": {
 "first_seen": "2026-11-07",
@@ -5275,6 +5275,24 @@
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-23"
 },
+"https://www.jobs.ch/en/vacancies/detail/68bb8c14-5967-4044-9c0b-2ee262fc0050/": {
+"first_seen": "2026-11-10",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 12,
+"skills": [
+"industrial robots",
+"C++",
+"Python",
+"ROS / kinematics",
+"research",
+"grants / funding"
+],
+"tries": 1
+},
+"last_seen": "2026-11-10"
+},
 "https://www.jobs.ch/en/vacancies/detail/73274c5e-f471-43ff-9669-63b771b1cd1c/": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-23"
@@ -5869,7 +5887,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-11-09"
+"last_seen": "2026-11-10"
 },
 "https://www.jobs.ch/en/vacancies/detail/fc5cd0a7-0074-4907-b93e-38ef90b12d7d/": {
 "first_seen": "2026-10-29",
@@ -6023,6 +6041,17 @@
 "https://www.naturhus.ch/naturhus-architektur/architektur/": {
 "first_seen": "2026-10-27",
 "last_seen": "2026-10-27"
+},
+"https://www.nussbaum.ch/de/offene-stellen/projektleiter-in-baumanagement-bauherrenvertretung-480.html": {
+"first_seen": "2026-11-10",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 0,
+"skills": [],
+"tries": 1
+},
+"last_seen": "2026-11-10"
 },
 "https://www.nussbaum.ch/de/offene-stellen/senior-software-engineer-web-and-cloud-80&ndash;100-441.html": {
 "first_seen": "2026-10-27",
