@@ -1273,6 +1273,21 @@
 },
 "last_seen": "2026-11-11"
 },
+"https://ch.linkedin.com/jobs/view/projektleiter-holzbau-m-w-d-at-rocken%C2%AE-4489020831": {
+"first_seen": "2026-11-11",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 8,
+"skills": [
+"timber",
+"BIM / CAD",
+"architecture / AEC"
+],
+"tries": 1
+},
+"last_seen": "2026-11-11"
+},
 "https://ch.linkedin.com/jobs/view/projektleiter-in-holzbau-mit-schwerpunkt-avor-60%E2%80%93100%25-m-w-d-at-mooser-partner-ag-4478098984": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-25"
@@ -1505,6 +1520,24 @@
 "C++",
 "Python",
 "ROS / kinematics",
+"computer vision",
+"open source / CI",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-11"
+},
+"https://ch.linkedin.com/jobs/view/senior-software-engineer-simulation-for-robot-learning-f-m-d-at-hexagon-robotics-4488227711": {
+"first_seen": "2026-11-11",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 10,
+"skills": [
+"C++",
+"Python",
+"simulation",
 "computer vision",
 "open source / CI",
 "research"
@@ -4135,6 +4168,19 @@
 },
 "last_seen": "2026-11-11"
 },
+"https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---avor-%28m-w-d%29.html": {
+"first_seen": "2026-11-11",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-11-11"
+},
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---modulbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
 "fit": {
@@ -4174,6 +4220,19 @@
 },
 "last_seen": "2026-11-11"
 },
+"https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertig--und-modulbau-%28m-w-d%29.html": {
+"first_seen": "2026-11-11",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-11-11"
+},
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertiger-hochbau---modulbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
 "fit": {
@@ -4202,6 +4261,19 @@
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-holzbau---avor-%28m-w-d%29.html": {
 "first_seen": "2026-11-07",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-11-11"
+},
+"https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-holzbau---avor-%28m-w-d%290.html": {
+"first_seen": "2026-11-11",
 "fit": {
 "de": false,
 "desc": true,
@@ -4864,6 +4936,21 @@
 "tries": 1
 },
 "last_seen": "2026-11-02"
+},
+"https://www.job-room.ch/job-search/8e9f0817-deac-4e50-83d3-be111302b739": {
+"first_seen": "2026-11-11",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 8,
+"skills": [
+"timber",
+"BIM / CAD",
+"architecture / AEC"
+],
+"tries": 1
+},
+"last_seen": "2026-11-11"
 },
 "https://www.job-room.ch/job-search/9ac248be-a51e-4313-acba-34e260ff4c39": {
 "first_seen": "2026-10-27",
@@ -5903,6 +5990,19 @@
 "timber",
 "Rhino / Grasshopper",
 "BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-11-11"
+},
+"https://www.jobs.ch/en/vacancies/detail/bb0c8fb1-b3ff-43dc-9f53-7553d429612a/": {
+"first_seen": "2026-11-11",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"point clouds / scanning"
 ],
 "tries": 1
 },
