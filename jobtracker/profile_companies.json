@@ -23813,6 +23813,19 @@
 "uid": "CHE354308133",
 "website": "https://www.dimy-automation.ch/"
 },
+"CHE354343129": {
+"canton": "BE",
+"cat": "timber",
+"check_purpose": false,
+"ehraid": 1776267,
+"name": "Holzbau Reber GmbH",
+"probed": "2026-11-12",
+"seat": "Kirchlindach",
+"source": "zefix",
+"status": "no website",
+"uid": "CHE354343129",
+"website": ""
+},
 "CHE354410820": {
 "canton": "LU",
 "careers": "https://www.1a-hunkeler.ch/menschen/offene-stellen",
