@@ -387,6 +387,23 @@
 },
 "last_seen": "2026-10-27"
 },
+"https://apply.workable.com/destinusgroup/j/4F1344A4A5/": {
+"first_seen": "2026-11-12",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 8,
+"skills": [
+"C++",
+"Rust",
+"simulation",
+"computer vision",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-12"
+},
 "https://apply.workable.com/destinusgroup/j/7762C37F05/": {
 "first_seen": "2026-11-06",
 "fit": {
@@ -453,6 +470,19 @@
 "fit": 1,
 "skills": [
 "open source / CI"
+],
+"tries": 1
+},
+"last_seen": "2026-11-12"
+},
+"https://apply.workable.com/destinusgroup/j/A6F9107EF0/": {
+"first_seen": "2026-11-12",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"digital fabrication"
 ],
 "tries": 1
 },
@@ -1165,7 +1195,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-11"
+"last_seen": "2026-11-12"
 },
 "https://ch.linkedin.com/jobs/view/field-service-engineer-robotics-at-st%C3%A4ubli-4457912601": {
 "first_seen": "2026-10-29",
@@ -4190,7 +4220,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-11"
+"last_seen": "2026-11-12"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -4320,7 +4350,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-11"
+"last_seen": "2026-11-12"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-projektleitung-holzbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -4621,6 +4651,21 @@
 "tries": 1
 },
 "last_seen": "2026-10-27"
+},
+"https://www.job-room.ch/job-search/03be8260-274a-42d9-b201-e0322d9b3d8e": {
+"first_seen": "2026-11-12",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 8,
+"skills": [
+"timber",
+"BIM / CAD",
+"architecture / AEC"
+],
+"tries": 1
+},
+"last_seen": "2026-11-12"
 },
 "https://www.job-room.ch/job-search/077c77d1-ca84-41d3-9f57-c9c744604262": {
 "first_seen": "2026-10-27",
