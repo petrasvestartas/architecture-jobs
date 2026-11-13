@@ -26373,19 +26373,6 @@
 "uid": "CHE413450366",
 "website": ""
 },
-"CHE413490934": {
-"canton": "ZH",
-"cat": "robotics",
-"check_purpose": false,
-"ehraid": 1739059,
-"name": "Eta Robotics AG",
-"probed": "2026-10-27",
-"seat": "Zürich",
-"source": "zefix",
-"status": "no website",
-"uid": "CHE413490934",
-"website": ""
-},
 "CHE413954081": {
 "canton": "SG",
 "cat": "timber",
