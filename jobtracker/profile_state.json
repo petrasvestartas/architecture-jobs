@@ -738,6 +738,17 @@
 },
 "last_seen": "2026-11-05"
 },
+"https://auterion.com/company/careers-open-position/8938952002?gh_jid=8938952002": {
+"first_seen": "2026-11-13",
+"fit": {
+"de": false,
+"desc": false,
+"fit": 0,
+"skills": [],
+"tries": 1
+},
+"last_seen": "2026-11-13"
+},
 "https://b-3.ch/menschen/karriere/menschen/karriere/bauleiterin-industrie-,-gewerbe-,-und-infrastrukturbau.html": {
 "first_seen": "2026-10-27",
 "fit": {
@@ -1416,6 +1427,21 @@
 "https://ch.linkedin.com/jobs/view/projektleiter-in-holzbau-mit-schwerpunkt-avor-60%E2%80%93100%25-m-w-d-at-mooser-partner-ag-4478098984": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-25"
+},
+"https://ch.linkedin.com/jobs/view/projektleiter-in-innenausbau-holz-in-technik-avor-at-glaus-personal-gmbh-4488935999": {
+"first_seen": "2026-11-13",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 8,
+"skills": [
+"timber",
+"BIM / CAD",
+"architecture / AEC"
+],
+"tries": 1
+},
+"last_seen": "2026-11-13"
 },
 "https://ch.linkedin.com/jobs/view/projektleiter-schreinerei-objektbau-holzbau-m-w-d-at-ruba-objektbau-ag-ein-unternehmen-der-n%C3%BCssli-gruppe-4479518640": {
 "first_seen": "2026-10-23",
@@ -3016,6 +3042,23 @@
 "fit": 1,
 "skills": [
 "simulation"
+],
+"tries": 1
+},
+"last_seen": "2026-11-13"
+},
+"https://jobs.lever.co/gravisrobotics/04131266-dc39-4898-9fa8-e4beb2c23c89": {
+"first_seen": "2026-11-13",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 8,
+"skills": [
+"point clouds / scanning",
+"Python",
+"BIM / CAD",
+"research",
+"architecture / AEC"
 ],
 "tries": 1
 },
@@ -5257,6 +5300,21 @@
 },
 "last_seen": "2026-11-13"
 },
+"https://www.job-room.ch/job-search/adcaf32d-2009-4a3f-b291-8eef54daa547": {
+"first_seen": "2026-11-13",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 8,
+"skills": [
+"C++",
+"open source / CI",
+"architecture / AEC"
+],
+"tries": 1
+},
+"last_seen": "2026-11-13"
+},
 "https://www.job-room.ch/job-search/b0185ec0-49bb-4df5-be9c-7fdbe36e8b43": {
 "first_seen": "2026-10-28",
 "fit": {
@@ -6139,6 +6197,20 @@
 },
 "last_seen": "2026-11-03"
 },
+"https://www.jobs.ch/en/vacancies/detail/a3014c36-b917-47a7-bcf8-5428ae89513b/": {
+"first_seen": "2026-11-13",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 7,
+"skills": [
+"C++",
+"open source / CI"
+],
+"tries": 1
+},
+"last_seen": "2026-11-13"
+},
 "https://www.jobs.ch/en/vacancies/detail/a4fa72ed-1419-4385-b100-ddb827c6f3ad/": {
 "first_seen": "2026-10-23",
 "fit": {
@@ -6355,6 +6427,21 @@
 "tries": 1
 },
 "last_seen": "2026-11-10"
+},
+"https://www.jobs.ch/en/vacancies/detail/cc1cbca6-3073-4364-b0a9-e39a0dc180a8/": {
+"first_seen": "2026-11-13",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 9,
+"skills": [
+"timber",
+"BIM / CAD",
+"structural design"
+],
+"tries": 1
+},
+"last_seen": "2026-11-13"
 },
 "https://www.jobs.ch/en/vacancies/detail/d9d94d53-8ded-4346-8325-f378c6c52659/": {
 "first_seen": "2026-11-01",
