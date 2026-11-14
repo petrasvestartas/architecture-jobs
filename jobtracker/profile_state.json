@@ -1424,6 +1424,22 @@
 },
 "last_seen": "2026-11-12"
 },
+"https://ch.linkedin.com/jobs/view/projektleiter-in-holzbau-m-w-d-at-rocken%C2%AE-4489886503": {
+"first_seen": "2026-11-14",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 10,
+"skills": [
+"timber",
+"BIM / CAD",
+"structural design",
+"architecture / AEC"
+],
+"tries": 1
+},
+"last_seen": "2026-11-14"
+},
 "https://ch.linkedin.com/jobs/view/projektleiter-in-holzbau-mit-schwerpunkt-avor-60%E2%80%93100%25-m-w-d-at-mooser-partner-ag-4478098984": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-25"
@@ -4302,7 +4318,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-13"
+"last_seen": "2026-11-14"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/leiter-montage-holz--und-modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -4378,7 +4394,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-13"
+"last_seen": "2026-11-14"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -4430,7 +4446,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-13"
+"last_seen": "2026-11-14"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertig--und-modulbau-%28m-w-d%29-.html": {
 "first_seen": "2026-10-23",
@@ -4482,7 +4498,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-13"
+"last_seen": "2026-11-14"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-holzbau---avor-%28m-w-d%29.html": {
 "first_seen": "2026-11-07",
@@ -5159,7 +5175,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-13"
+"last_seen": "2026-11-14"
 },
 "https://www.job-room.ch/job-search/7fefefaf-7448-44c4-be8d-f54310c095a2": {
 "first_seen": "2026-10-27",
