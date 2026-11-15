@@ -1424,6 +1424,20 @@
 },
 "last_seen": "2026-11-12"
 },
+"https://ch.linkedin.com/jobs/view/projektleiter-holzbau-m-w-d-at-rocken%C2%AE-4490224825": {
+"first_seen": "2026-11-15",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 7,
+"skills": [
+"timber",
+"architecture / AEC"
+],
+"tries": 1
+},
+"last_seen": "2026-11-15"
+},
 "https://ch.linkedin.com/jobs/view/projektleiter-in-holzbau-m-w-d-at-rocken%C2%AE-4489886503": {
 "first_seen": "2026-11-14",
 "fit": {
@@ -4420,7 +4434,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-14"
+"last_seen": "2026-11-15"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---modulbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -4524,7 +4538,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-14"
+"last_seen": "2026-11-15"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-projektleitung-holzbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -4695,7 +4709,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-14"
+"last_seen": "2026-11-15"
 },
 "https://www.holzbau-ruedi.ch/ueber-uns/offene-stellen/projektplanerin/ueber-uns/offene-stellen/projektplanerin/": {
 "first_seen": "2026-11-06",
@@ -4764,7 +4778,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-14"
+"last_seen": "2026-11-15"
 },
 "https://www.hunziker-holzbau.ch/jobs/offene-stellen/job-quiz-projektleiter-in-holzbau": {
 "first_seen": "2026-10-27",
@@ -6699,6 +6713,21 @@
 "tries": 1
 },
 "last_seen": "2026-11-10"
+},
+"https://www.jobs.ch/en/vacancies/detail/f331dc50-2205-4662-9fce-f8b1be405248/": {
+"first_seen": "2026-11-15",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 10,
+"skills": [
+"timber",
+"CNC / CAM",
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-11-15"
 },
 "https://www.jobs.ch/en/vacancies/detail/fc5cd0a7-0074-4907-b93e-38ef90b12d7d/": {
 "first_seen": "2026-10-29",
