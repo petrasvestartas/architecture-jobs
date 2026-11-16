@@ -10683,6 +10683,18 @@
 "uid": "CHE112673790",
 "website": ""
 },
+"CHE112678161": {
+"canton": "SG",
+"cat": "robotics",
+"check_purpose": false,
+"ehraid": 822518,
+"name": "AVM Automation AG",
+"probed": "2026-11-16",
+"seat": "Bütschwil-Ganterschwil",
+"source": "zefix",
+"status": "off-topic",
+"uid": "CHE112678161"
+},
 "CHE112681051": {
 "canton": "BL",
 "careers": "",
@@ -23666,6 +23678,19 @@
 "status": "no careers page",
 "uid": "CHE350942118",
 "website": "https://sachwalter-steiner.ch/"
+},
+"CHE351440227": {
+"canton": "ZH",
+"cat": "robotics",
+"check_purpose": false,
+"ehraid": 1776711,
+"name": "Robotaxi GmbH",
+"probed": "2026-11-16",
+"seat": "Oberrieden",
+"source": "zefix",
+"status": "no website",
+"uid": "CHE351440227",
+"website": ""
 },
 "CHE351774450": {
 "canton": "VS",
