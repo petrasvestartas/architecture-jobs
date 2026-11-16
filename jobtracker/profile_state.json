@@ -1595,22 +1595,32 @@
 "https://ch.linkedin.com/jobs/view/robotics-engineer-m-w-d-at-k%C3%B6rber-4490632499": {
 "first_seen": "2026-11-16",
 "fit": {
-"de": false,
-"desc": false,
-"fit": 0,
-"skills": [],
-"tries": 1
+"de": true,
+"desc": true,
+"fit": 7,
+"skills": [
+"industrial robots",
+"simulation",
+"ROS / kinematics",
+"computer vision"
+],
+"tries": 2
 },
 "last_seen": "2026-11-16"
 },
 "https://ch.linkedin.com/jobs/view/robotics-engineer-m-w-d-at-k%C3%B6rber-pharma-4490633517": {
 "first_seen": "2026-11-16",
 "fit": {
-"de": false,
-"desc": false,
-"fit": 0,
-"skills": [],
-"tries": 1
+"de": true,
+"desc": true,
+"fit": 7,
+"skills": [
+"industrial robots",
+"simulation",
+"ROS / kinematics",
+"computer vision"
+],
+"tries": 2
 },
 "last_seen": "2026-11-16"
 },
@@ -1860,6 +1870,22 @@
 "https://ch.linkedin.com/jobs/view/software-engineer-simulation-robotics-at-skydio-4420200794": {
 "first_seen": "2026-10-25",
 "last_seen": "2026-10-27"
+},
+"https://ch.linkedin.com/jobs/view/softwareentwickler-%E2%80%93-senior-c%2B%2B-qt-m-w-d-at-pfiffner-group-4490675004": {
+"first_seen": "2026-11-16",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 9,
+"skills": [
+"C++",
+"open source / CI",
+"research",
+"architecture / AEC"
+],
+"tries": 1
+},
+"last_seen": "2026-11-16"
 },
 "https://ch.linkedin.com/jobs/view/softwareentwickler-automation-robotik-m-w-d-at-rocken%C2%AE-4481682601": {
 "first_seen": "2026-10-23",
@@ -3003,6 +3029,21 @@
 "C++",
 "Python",
 "simulation",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-16"
+},
+"https://jobs.lever.co/anybotics/a9b799c5-61d9-41a2-a093-9529edcd9bd4": {
+"first_seen": "2026-11-16",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 10,
+"skills": [
+"industrial robots",
+"point clouds / scanning",
 "research"
 ],
 "tries": 1
@@ -5147,6 +5188,21 @@
 },
 "last_seen": "2026-11-16"
 },
+"https://www.job-room.ch/job-search/6059b997-45f5-40fa-86ea-e403a39a9681": {
+"first_seen": "2026-11-16",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 12,
+"skills": [
+"timber",
+"industrial robots",
+"CNC / CAM"
+],
+"tries": 1
+},
+"last_seen": "2026-11-16"
+},
 "https://www.job-room.ch/job-search/74edd24b-090a-4b61-9ec3-a69bcefc095d": {
 "first_seen": "2026-10-27",
 "fit": {
@@ -5935,6 +5991,19 @@
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-27"
 },
+"https://www.jobs.ch/en/vacancies/detail/3c0bfae5-298b-4fd7-8a85-2436df8fd46a/": {
+"first_seen": "2026-11-16",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-11-16"
+},
 "https://www.jobs.ch/en/vacancies/detail/40af8426-4f9b-42db-94c2-bdef9042c13e/": {
 "first_seen": "2026-10-25",
 "fit": {
@@ -6189,7 +6258,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-15"
+"last_seen": "2026-11-16"
 },
 "https://www.jobs.ch/en/vacancies/detail/8af56adf-92bd-44ca-8303-de85f2db4ae9/": {
 "first_seen": "2026-10-29",
@@ -6642,7 +6711,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-15"
+"last_seen": "2026-11-16"
 },
 "https://www.jobs.ch/en/vacancies/detail/e6030439-bbad-45d9-85f4-8b2ce4f97e53/": {
 "first_seen": "2026-10-23",
@@ -6787,7 +6856,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-11-10"
+"last_seen": "2026-11-16"
 },
 "https://www.jobs.ch/en/vacancies/detail/f331dc50-2205-4662-9fce-f8b1be405248/": {
 "first_seen": "2026-11-15",
@@ -6817,7 +6886,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-11"
+"last_seen": "2026-11-16"
 },
 "https://www.jobs.ch/en/vacancies/detail/fd8136a3-751d-41ba-8cac-9f482dbe7143/": {
 "first_seen": "2026-10-23",
