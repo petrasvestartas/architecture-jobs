@@ -1935,6 +1935,21 @@
 },
 "last_seen": "2026-11-03"
 },
+"https://ch.linkedin.com/jobs/view/software-engineer-for-3d-web-platform-net-webgpu-machine-learning-at-inspacion-4488203797": {
+"first_seen": "2026-11-18",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 8,
+"skills": [
+"Rust",
+"C#",
+"graphics / GPU"
+],
+"tries": 1
+},
+"last_seen": "2026-11-18"
+},
 "https://ch.linkedin.com/jobs/view/software-engineer-robotics-at-qsc-4490040693": {
 "first_seen": "2026-11-12",
 "fit": {
@@ -1989,7 +2004,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-15"
+"last_seen": "2026-11-18"
 },
 "https://ch.linkedin.com/jobs/view/teamleiter-holzbau-m-w-d-at-rocken%C2%AE-4490862139": {
 "first_seen": "2026-11-18",
@@ -4667,7 +4682,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-15"
+"last_seen": "2026-11-18"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -4719,7 +4734,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-17"
+"last_seen": "2026-11-18"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertiger-hochbau---modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -5300,6 +5315,19 @@
 "tries": 1
 },
 "last_seen": "2026-11-02"
+},
+"https://www.job-room.ch/job-search/4b5822f2-0651-4689-9574-d06a358ee9e6": {
+"first_seen": "2026-11-18",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"industrial robots"
+],
+"tries": 1
+},
+"last_seen": "2026-11-18"
 },
 "https://www.job-room.ch/job-search/51f1854e-5784-4b74-91b6-9e85591ee4a1": {
 "first_seen": "2026-11-04",
@@ -5988,6 +6016,19 @@
 },
 "last_seen": "2026-10-28"
 },
+"https://www.jobs.ch/en/vacancies/detail/0f980cb5-1a11-4ae5-b628-7977387f6188/": {
+"first_seen": "2026-11-18",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-11-18"
+},
 "https://www.jobs.ch/en/vacancies/detail/10589919-a19a-4ddb-8c78-8dab0cfd0e58/": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-27"
@@ -6213,7 +6254,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-17"
+"last_seen": "2026-11-18"
 },
 "https://www.jobs.ch/en/vacancies/detail/40af8426-4f9b-42db-94c2-bdef9042c13e/": {
 "first_seen": "2026-10-25",
@@ -6283,7 +6324,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-15"
+"last_seen": "2026-11-18"
 },
 "https://www.jobs.ch/en/vacancies/detail/5a352a41-eb02-44a5-9783-00d62b812097/": {
 "first_seen": "2026-11-16",
