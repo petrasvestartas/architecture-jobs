@@ -17825,21 +17825,6 @@
 "uid": "CHE223399607",
 "website": ""
 },
-"CHE223811772": {
-"canton": "LU",
-"careers": "https://www.stalder-holzbau.ch/Jobs.htm",
-"cat": "timber",
-"check_purpose": false,
-"ehraid": 1464852,
-"feed": null,
-"name": "Stalder Holzbau AG",
-"probed": "2026-10-27",
-"seat": "Malters",
-"source": "zefix",
-"status": "ok",
-"uid": "CHE223811772",
-"website": "https://www.stalder-holzbau.ch/"
-},
 "CHE223863237": {
 "canton": "AG",
 "careers": "https://www.holzbau-lehmann.ch/holzbau-lehmann/jobs",
