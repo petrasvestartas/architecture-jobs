@@ -15366,18 +15366,6 @@
 "uid": "CHE169618021",
 "website": "https://timberart.ch/"
 },
-"CHE169723675": {
-"canton": "LU",
-"cat": "robotics",
-"check_purpose": false,
-"ehraid": 1635654,
-"name": "Marcel Gurtner Automation",
-"probed": "2026-10-27",
-"seat": "Luzern",
-"source": "zefix",
-"status": "off-topic",
-"uid": "CHE169723675"
-},
 "CHE169732674": {
 "canton": "BE",
 "careers": "",
