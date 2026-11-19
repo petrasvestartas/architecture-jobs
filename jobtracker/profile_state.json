@@ -615,6 +615,17 @@
 },
 "last_seen": "2026-11-12"
 },
+"https://apply.workable.com/destinusgroup/j/C9F5FEB6C0/": {
+"first_seen": "2026-11-19",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 0,
+"skills": [],
+"tries": 1
+},
+"last_seen": "2026-11-19"
+},
 "https://apply.workable.com/destinusgroup/j/F1C5B24D74/": {
 "first_seen": "2026-11-04",
 "fit": {
@@ -971,6 +982,20 @@
 "skills": [
 "Python",
 "research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-19"
+},
+"https://besi.kandidatenportal.eu/job/272750?referrer=Homepage": {
+"first_seen": "2026-11-19",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 2,
+"skills": [
+"research",
+"teaching"
 ],
 "tries": 1
 },
@@ -1346,6 +1371,19 @@
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-27"
 },
+"https://ch.linkedin.com/jobs/view/c%2B%2B-software-engineer-backend-m-w-d-at-rocken%C2%AE-4492191752": {
+"first_seen": "2026-11-19",
+"fit": {
+"de": false,
+"desc": false,
+"fit": 6,
+"skills": [
+"C++"
+],
+"tries": 1
+},
+"last_seen": "2026-11-19"
+},
 "https://ch.linkedin.com/jobs/view/c%2B%2B-software-engineer-backend-systemintegration-m-w-d-at-rocken%C2%AE-4483240491": {
 "first_seen": "2026-10-27",
 "fit": {
@@ -1522,6 +1560,19 @@
 "tries": 1
 },
 "last_seen": "2026-11-16"
+},
+"https://ch.linkedin.com/jobs/view/projektleiter-holzbau-m-w-d-at-rocken%C2%AE-4492183958": {
+"first_seen": "2026-11-19",
+"fit": {
+"de": false,
+"desc": false,
+"fit": 6,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-11-19"
 },
 "https://ch.linkedin.com/jobs/view/projektleiter-in-holzbau-m-w-d-at-rocken%C2%AE-4489886503": {
 "first_seen": "2026-11-14",
@@ -4808,7 +4859,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-18"
+"last_seen": "2026-11-19"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertiger-hochbau---modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -5324,6 +5375,17 @@
 "BIM / CAD",
 "simulation"
 ],
+"tries": 1
+},
+"last_seen": "2026-11-19"
+},
+"https://www.job-room.ch/job-search/3244dde3-4d69-4ffd-9523-59c57e542ae7": {
+"first_seen": "2026-11-19",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 0,
+"skills": [],
 "tries": 1
 },
 "last_seen": "2026-11-19"
@@ -6399,7 +6461,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-18"
+"last_seen": "2026-11-19"
 },
 "https://www.jobs.ch/en/vacancies/detail/40af8426-4f9b-42db-94c2-bdef9042c13e/": {
 "first_seen": "2026-10-25",
@@ -6469,7 +6531,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-18"
+"last_seen": "2026-11-19"
 },
 "https://www.jobs.ch/en/vacancies/detail/5a352a41-eb02-44a5-9783-00d62b812097/": {
 "first_seen": "2026-11-16",
