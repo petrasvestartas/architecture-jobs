@@ -4641,7 +4641,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-18"
+"last_seen": "2026-11-19"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/leiter-montage-holz--und-modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -4717,7 +4717,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-18"
+"last_seen": "2026-11-19"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -4769,7 +4769,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-18"
+"last_seen": "2026-11-19"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertig--und-modulbau-%28m-w-d%29-.html": {
 "first_seen": "2026-10-23",
@@ -4821,7 +4821,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-18"
+"last_seen": "2026-11-19"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-holzbau---avor-%28m-w-d%29.html": {
 "first_seen": "2026-11-07",
@@ -5312,6 +5312,21 @@
 "tries": 1
 },
 "last_seen": "2026-11-11"
+},
+"https://www.job-room.ch/job-search/30e7b5cd-f5cd-4244-9e19-ffa807db64dd": {
+"first_seen": "2026-11-19",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 5,
+"skills": [
+"industrial robots",
+"BIM / CAD",
+"simulation"
+],
+"tries": 1
+},
+"last_seen": "2026-11-19"
 },
 "https://www.job-room.ch/job-search/35c7f6d7-04b6-4447-8a35-42d101e04c8c": {
 "first_seen": "2026-11-02",
