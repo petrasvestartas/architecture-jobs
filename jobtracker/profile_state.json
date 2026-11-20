@@ -1167,6 +1167,22 @@
 },
 "last_seen": "2026-11-09"
 },
+"https://careers.synopsys.com/job/nepean/principal-software-engineer-design-automation-18736/44408/102054577824": {
+"first_seen": "2026-11-20",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 10,
+"skills": [
+"computational design",
+"Python",
+"simulation",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-20"
+},
 "https://careers.synopsys.com/job/sunnyvale/digital-cad-dft-methodology-sr-architect-19503/44408/102923301552": {
 "first_seen": "2026-11-06",
 "fit": {
@@ -1234,8 +1250,34 @@
 },
 "last_seen": "2026-11-20"
 },
+"https://careers.tecan.com/job/M%C3%A4nnedorf-Production-Engineer-%2880-100%2C-Befristet-bis-Ende-Okt_-2028%29/1459353633/": {
+"first_seen": "2026-11-20",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 1,
+"skills": [
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-20"
+},
 "https://careers.tecan.com/job/M%C3%A4nnedorf-Production-Engineer/1393509133/": {
 "first_seen": "2026-11-13",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 1,
+"skills": [
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-20"
+},
+"https://careers.tecan.com/job/M%C3%A4nnedorf-Production-Engineer/1459360133/": {
+"first_seen": "2026-11-20",
 "fit": {
 "de": true,
 "desc": true,
@@ -4784,7 +4826,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-20"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -4810,7 +4852,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-20"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---modulbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -4889,6 +4931,19 @@
 "tries": 1
 },
 "last_seen": "2026-11-19"
+},
+"https://www.blumer-lehmann.com/en/careers/job-vacancies/system-engineer-%28m-w-d%29.html": {
+"first_seen": "2026-11-20",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-11-20"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-holzbau---avor-%28m-w-d%29.html": {
 "first_seen": "2026-11-07",
@@ -6075,6 +6130,17 @@
 },
 "last_seen": "2026-10-28"
 },
+"https://www.job-room.ch/job-search/ee9032fe-0f5d-4154-b4b8-c6c445c9a434": {
+"first_seen": "2026-11-20",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 0,
+"skills": [],
+"tries": 1
+},
+"last_seen": "2026-11-20"
+},
 "https://www.job-room.ch/job-search/efb11da3-b8b8-4776-acb3-b2415d82aa8d": {
 "first_seen": "2026-11-04",
 "fit": {
@@ -6954,7 +7020,7 @@
 "skills": [],
 "tries": 1
 },
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-20"
 },
 "https://www.jobs.ch/en/vacancies/detail/9f0f5f27-6a20-4cc1-83cb-6fa81e349d34/": {
 "first_seen": "2026-10-23",
