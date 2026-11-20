@@ -531,7 +531,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-12"
+"last_seen": "2026-11-20"
 },
 "https://apply.workable.com/destinusgroup/j/7EF97F4025/": {
 "first_seen": "2026-10-27",
@@ -4374,6 +4374,20 @@
 },
 "last_seen": "2026-11-20"
 },
+"https://www.besi.com/fileadmin/data/Jobs/Besi_Netherlands/Customer_Project_Manager_19-11-26.pdf": {
+"first_seen": "2026-11-20",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 4,
+"skills": [
+"CNC / CAM",
+"C#"
+],
+"tries": 1
+},
+"last_seen": "2026-11-20"
+},
 "https://www.besi.com/fileadmin/data/Jobs/Besi_Netherlands/Process_Developer_2026.pdf": {
 "first_seen": "2026-11-19",
 "fit": {
@@ -4694,7 +4708,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-20"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/leiter-montage-holz--und-modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -4809,7 +4823,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-18"
+"last_seen": "2026-11-20"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -4887,7 +4901,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-18"
+"last_seen": "2026-11-20"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-holzbau---avor-%28m-w-d%290.html": {
 "first_seen": "2026-11-11",
@@ -6476,7 +6490,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-20"
 },
 "https://www.jobs.ch/en/vacancies/detail/40af8426-4f9b-42db-94c2-bdef9042c13e/": {
 "first_seen": "2026-10-25",
@@ -6561,7 +6575,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-20"
 },
 "https://www.jobs.ch/en/vacancies/detail/5a352a41-eb02-44a5-9783-00d62b812097/": {
 "first_seen": "2026-11-16",
@@ -6792,7 +6806,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-18"
+"last_seen": "2026-11-20"
 },
 "https://www.jobs.ch/en/vacancies/detail/840478be-8977-4121-9787-483a05122238/": {
 "first_seen": "2026-10-23",
