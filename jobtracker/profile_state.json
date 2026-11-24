@@ -937,7 +937,7 @@
 ],
 "tries": 3
 },
-"last_seen": "2026-11-23"
+"last_seen": "2026-11-24"
 },
 "https://besi.kandidatenportal.eu/job/264184?referrer=Homepage": {
 "first_seen": "2026-10-27",
@@ -4077,7 +4077,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-19"
+"last_seen": "2026-11-24"
 },
 "https://opench.bamboohr.com/careers/832": {
 "first_seen": "2026-11-18",
@@ -4994,7 +4994,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-23"
+"last_seen": "2026-11-24"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---modulbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -5059,7 +5059,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-22"
+"last_seen": "2026-11-24"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/system-engineer-%28m-w-d%29.html": {
 "first_seen": "2026-11-20",
@@ -5236,6 +5236,20 @@
 "https://www.hoermann.ch/architekten/": {
 "first_seen": "2026-10-27",
 "last_seen": "2026-10-27"
+},
+"https://www.holzbau-meier.ch/firma/jobs/konstrukteur-cad-zeichner.html/462": {
+"first_seen": "2026-11-24",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 5,
+"skills": [
+"timber",
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-11-24"
 },
 "https://www.holzbau-meier.ch/firma/jobs/projektleiterin.html/530": {
 "first_seen": "2026-10-27",
@@ -5738,6 +5752,21 @@
 "tries": 1
 },
 "last_seen": "2026-11-04"
+},
+"https://www.job-room.ch/job-search/59925c98-f75b-414a-8c53-c4595ccba625": {
+"first_seen": "2026-11-24",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 10,
+"skills": [
+"timber",
+"CNC / CAM",
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-11-24"
 },
 "https://www.job-room.ch/job-search/5bbc4f1a-ec04-42d3-a91e-0f2a50347651": {
 "first_seen": "2026-11-06",
@@ -6528,6 +6557,20 @@
 },
 "last_seen": "2026-11-13"
 },
+"https://www.jobs.ch/en/vacancies/detail/13f0561f-2c41-424c-9573-f142b0510e10/": {
+"first_seen": "2026-11-24",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 4,
+"skills": [
+"industrial robots",
+"computer vision"
+],
+"tries": 1
+},
+"last_seen": "2026-11-24"
+},
 "https://www.jobs.ch/en/vacancies/detail/15c3adcf-e49c-476f-9f44-5df910656033/": {
 "first_seen": "2026-11-09",
 "fit": {
@@ -6793,6 +6836,21 @@
 "fit": 3,
 "skills": [
 "Python",
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-11-24"
+},
+"https://www.jobs.ch/en/vacancies/detail/526f3c0f-1de7-4a0a-8b91-df3a1e4ac11a/": {
+"first_seen": "2026-11-24",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 10,
+"skills": [
+"timber",
+"CNC / CAM",
 "BIM / CAD"
 ],
 "tries": 1
@@ -7216,7 +7274,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-23"
+"last_seen": "2026-11-24"
 },
 "https://www.jobs.ch/en/vacancies/detail/a4fa72ed-1419-4385-b100-ddb827c6f3ad/": {
 "first_seen": "2026-10-23",
@@ -7689,6 +7747,20 @@
 },
 "last_seen": "2026-11-07"
 },
+"https://www.jobs.ch/en/vacancies/detail/f1dda63d-dd9f-4845-923b-468d12a1162e/": {
+"first_seen": "2026-11-24",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 7,
+"skills": [
+"timber",
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-11-24"
+},
 "https://www.jobs.ch/en/vacancies/detail/f2792851-8bab-4b3e-9888-b37623a17254/": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-27"
@@ -7743,7 +7815,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-22"
+"last_seen": "2026-11-24"
 },
 "https://www.jobs.ch/en/vacancies/detail/fd8136a3-751d-41ba-8cac-9f482dbe7143/": {
 "first_seen": "2026-10-23",
@@ -8093,6 +8165,20 @@
 "https://www.strueby.ch/stellen/real-estate-development-manager-m-w-d/": {
 "first_seen": "2026-10-23",
 "last_seen": "2026-10-27"
+},
+"https://www.strueby.ch/stellen/teamleiter-hlks-m-w-d/": {
+"first_seen": "2026-11-24",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 4,
+"skills": [
+"timber",
+"architecture / AEC"
+],
+"tries": 1
+},
+"last_seen": "2026-11-24"
 },
 "https://www.strueby.ch/stellen/tu-kostenplaner-m-w-d/": {
 "first_seen": "2026-10-23",
