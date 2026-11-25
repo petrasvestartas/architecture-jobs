@@ -1212,6 +1212,26 @@
 },
 "last_seen": "2026-11-21"
 },
+"https://careers.synopsys.com/job/paris/staff-engineer-ai-geometry-and-meshing/44408/103769022688": {
+"first_seen": "2026-11-25",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 19,
+"skills": [
+"computational design",
+"geometry",
+"C++",
+"Python",
+"BIM / CAD",
+"graphics / GPU",
+"simulation",
+"research"
+],
+"tries": 1
+},
+"last_seen": "2026-11-25"
+},
 "https://careers.synopsys.com/job/sunnyvale/digital-cad-dft-methodology-sr-architect-19503/44408/102923301552": {
 "first_seen": "2026-11-06",
 "fit": {
@@ -1254,6 +1274,17 @@
 "tries": 1
 },
 "last_seen": "2026-11-12"
+},
+"https://careers.tecan.com/job/M%C3%A4nnedorf-Head-of-IT-Infrastructure-Services/1459660833/": {
+"first_seen": "2026-11-25",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 0,
+"skills": [],
+"tries": 1
+},
+"last_seen": "2026-11-25"
 },
 "https://careers.tecan.com/job/M%C3%A4nnedorf-Head-of-Investors-Relations/1453849833/": {
 "first_seen": "2026-11-13",
@@ -7876,7 +7907,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-24"
+"last_seen": "2026-11-25"
 },
 "https://www.jobs.ch/en/vacancies/detail/fd8136a3-751d-41ba-8cac-9f482dbe7143/": {
 "first_seen": "2026-10-23",
