@@ -2064,19 +2064,6 @@
 "status": "off-topic",
 "uid": "CHE104949866"
 },
-"CHE104967137": {
-"canton": "SG",
-"cat": "timber",
-"check_purpose": false,
-"ehraid": 445179,
-"name": "Stolz auf Holz Jakob Kuster Holzbau GmbH",
-"probed": "2026-10-27",
-"seat": "Diepoldsau",
-"source": "zefix",
-"status": "no website",
-"uid": "CHE104967137",
-"website": ""
-},
 "CHE104986382": {
 "canton": "SZ",
 "cat": "timber",
@@ -16967,6 +16954,21 @@
 "status": "no website",
 "uid": "CHE205612186",
 "website": ""
+},
+"CHE205644223": {
+"canton": "GL",
+"careers": "https://www.marti-holzbau.ch/jobs",
+"cat": "timber",
+"check_purpose": false,
+"ehraid": 1778160,
+"feed": null,
+"name": "Marti Holzbau Schwanden GmbH",
+"probed": "2026-11-25",
+"seat": "Glarus Süd",
+"source": "zefix",
+"status": "ok",
+"uid": "CHE205644223",
+"website": "https://www.marti-holzbau.ch/"
 },
 "CHE205719217": {
 "canton": "SZ",
