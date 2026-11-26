@@ -472,6 +472,17 @@
 },
 "last_seen": "2026-10-27"
 },
+"https://apply.workable.com/destinusgroup/j/02E2C55C24/": {
+"first_seen": "2026-11-26",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 0,
+"skills": [],
+"tries": 1
+},
+"last_seen": "2026-11-26"
+},
 "https://apply.workable.com/destinusgroup/j/2C366B7135/": {
 "first_seen": "2026-11-13",
 "fit": {
@@ -635,6 +646,17 @@
 "first_seen": "2026-11-19",
 "fit": {
 "de": false,
+"desc": true,
+"fit": 0,
+"skills": [],
+"tries": 1
+},
+"last_seen": "2026-11-26"
+},
+"https://apply.workable.com/destinusgroup/j/D7281CCFE0/": {
+"first_seen": "2026-11-26",
+"fit": {
+"de": true,
 "desc": true,
 "fit": 0,
 "skills": [],
