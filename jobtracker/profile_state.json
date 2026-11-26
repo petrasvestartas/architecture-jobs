@@ -3649,6 +3649,22 @@
 },
 "last_seen": "2026-11-22"
 },
+"https://jobs.lever.co/gravisrobotics/1acd3d25-14d8-4d1d-a0f0-2a8b7d4b9aaf": {
+"first_seen": "2026-11-26",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"point clouds / scanning",
+"BIM / CAD",
+"research",
+"architecture / AEC"
+],
+"tries": 1
+},
+"last_seen": "2026-11-26"
+},
 "https://jobs.lever.co/gravisrobotics/456b4769-96c9-419b-b5d3-71d9211c9e77": {
 "first_seen": "2026-11-12",
 "fit": {
@@ -4988,7 +5004,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-25"
+"last_seen": "2026-11-26"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau-%28m-w-d%290.html": {
 "first_seen": "2026-10-23",
@@ -5040,7 +5056,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-22"
+"last_seen": "2026-11-26"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertig--und-modulbau-%28m-w-d%29-.html": {
 "first_seen": "2026-10-23",
@@ -5092,7 +5108,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-24"
+"last_seen": "2026-11-26"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/system-engineer-%28m-w-d%29.html": {
 "first_seen": "2026-11-20",
@@ -5486,6 +5502,20 @@
 },
 "last_seen": "2026-11-26"
 },
+"https://www.job-room.ch/job-search/0829f738-1e52-4e5e-bb87-f2bd6c8ca3cc": {
+"first_seen": "2026-11-26",
+"fit": {
+"de": true,
+"desc": true,
+"fit": 4,
+"skills": [
+"industrial robots",
+"BIM / CAD"
+],
+"tries": 1
+},
+"last_seen": "2026-11-26"
+},
 "https://www.job-room.ch/job-search/0b06881b-7bc1-418f-b961-8e304af35ebe": {
 "first_seen": "2026-10-27",
 "fit": {
@@ -5637,7 +5667,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-21"
+"last_seen": "2026-11-26"
 },
 "https://www.job-room.ch/job-search/3244dde3-4d69-4ffd-9523-59c57e542ae7": {
 "first_seen": "2026-11-19",
@@ -7331,7 +7361,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-25"
+"last_seen": "2026-11-26"
 },
 "https://www.jobs.ch/en/vacancies/detail/a4fa72ed-1419-4385-b100-ddb827c6f3ad/": {
 "first_seen": "2026-10-23",

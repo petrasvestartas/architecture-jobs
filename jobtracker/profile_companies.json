@@ -28504,6 +28504,21 @@
 "uid": "CHE465624662",
 "website": "https://www.grischadroneflyer.ch/"
 },
+"CHE465821180": {
+"canton": "VS",
+"careers": "",
+"cat": "timber",
+"check_purpose": false,
+"ehraid": 1778584,
+"feed": null,
+"name": "Holzbau Holding Mörel AG",
+"probed": "2026-11-26",
+"seat": "Mörel-Filet",
+"source": "zefix",
+"status": "no careers page",
+"uid": "CHE465821180",
+"website": "https://www.moerel-filet.ch/"
+},
 "CHE468019523": {
 "canton": "BE",
 "cat": "robotics",
