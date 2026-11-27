@@ -6809,18 +6809,6 @@
 "uid": "CHE107901991",
 "website": ""
 },
-"CHE107902111": {
-"canton": "BE",
-"cat": "robotics",
-"check_purpose": false,
-"ehraid": 84957,
-"name": "Hybag Automationen AG",
-"probed": "2026-10-27",
-"seat": "Linden",
-"source": "zefix",
-"status": "off-topic",
-"uid": "CHE107902111"
-},
 "CHE107909509": {
 "canton": "SO",
 "careers": "",
@@ -26206,6 +26194,19 @@
 "status": "no careers page",
 "uid": "CHE408959612",
 "website": "https://www.holzbau-rahm.ch/"
+},
+"CHE409286193": {
+"canton": "GR",
+"cat": "timber",
+"check_purpose": false,
+"ehraid": 1778669,
+"name": "Kessler TimberX",
+"probed": "2026-11-27",
+"seat": "Schiers",
+"source": "zefix",
+"status": "no website",
+"uid": "CHE409286193",
+"website": ""
 },
 "CHE409383904": {
 "canton": "BL",
