@@ -4102,7 +4102,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-26"
+"last_seen": "2026-11-28"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/junior-projektleiter-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -4115,7 +4115,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-27"
+"last_seen": "2026-11-28"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/junior-projektleiter-%28m-w-d%291.html": {
 "first_seen": "2026-11-26",
@@ -4155,6 +4155,19 @@
 "tries": 1
 },
 "last_seen": "2026-11-26"
+},
+"https://www.blumer-lehmann.com/en/careers/job-vacancies/leiter-montage-holz--und-modulbau-%28m-w-d%292.html": {
+"first_seen": "2026-11-28",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-11-28"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/leiter-montage-holz--und-modulbau-%28m-w-d%293.html": {
 "first_seen": "2026-11-27",
@@ -4219,7 +4232,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-27"
+"last_seen": "2026-11-28"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-gu-%28m-w-d%291.html": {
 "first_seen": "2026-11-28",
@@ -4284,7 +4297,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-27"
+"last_seen": "2026-11-28"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---avor-%28m-w-d%29.html": {
 "first_seen": "2026-11-11",
@@ -4323,7 +4336,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-27"
+"last_seen": "2026-11-28"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-holzbau---avor-%28m-w-d%296.html": {
 "first_seen": "2026-11-28",
@@ -4427,7 +4440,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-26"
+"last_seen": "2026-11-28"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/projektleiter-schluesselfertiger-hochbau---modulbau-%28m-w-d%29.html": {
 "first_seen": "2026-10-23",
@@ -4467,6 +4480,19 @@
 "tries": 1
 },
 "last_seen": "2026-11-26"
+},
+"https://www.blumer-lehmann.com/en/careers/job-vacancies/system-engineer-%28m-w-d%290.html": {
+"first_seen": "2026-11-28",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 3,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-11-28"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/system-engineer-%28m-w-d%291.html": {
 "first_seen": "2026-11-26",
@@ -4521,6 +4547,19 @@
 "last_seen": "2026-11-26"
 },
 "https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-holzbau---avor-%28m-w-d%292.html": {
+"first_seen": "2026-11-28",
+"fit": {
+"de": false,
+"desc": true,
+"fit": 6,
+"skills": [
+"timber"
+],
+"tries": 1
+},
+"last_seen": "2026-11-28"
+},
+"https://www.blumer-lehmann.com/en/careers/job-vacancies/teamleiter-holzbau---avor-%28m-w-d%293.html": {
 "first_seen": "2026-11-28",
 "fit": {
 "de": false,
@@ -4713,7 +4752,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-27"
+"last_seen": "2026-11-28"
 },
 "https://www.holzbau-ruedi.ch/ueber-uns/offene-stellen/projektplanerin/ueber-uns/offene-stellen/projektplanerin/": {
 "first_seen": "2026-11-06",
@@ -4770,7 +4809,7 @@
 ],
 "tries": 1
 },
-"last_seen": "2026-11-27"
+"last_seen": "2026-11-28"
 },
 "https://www.jennyscience.com/de/ueber-uns/karriere/Online-Inserate/karriere_Embedded-Software-Engineer": {
 "first_seen": "2026-10-27",
